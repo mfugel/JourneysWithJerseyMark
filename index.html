@@ -256,7 +256,7 @@ body{background:#c8a96e;font-family:'Crimson Text',serif;color:#2c1a08;position:
         <p style="font-family:'IM Fell English',serif;font-style:italic;font-size:0.9rem;color:#5a3510;margin-bottom:0.9rem;text-align:center;">Select an album · photographs advance automatically</p>
         <div class="album-select-wrap">
           <span class="album-select-label">Select Album</span>
-          <select class="album-select" id="albumSelect" onchange="loadAlbum(this.selectedIndex - 1)">
+          <select class="album-select" id="albumSelect">
             <option value="" disabled selected>— Choose a journey —</option>
           </select>
         </div>
@@ -363,8 +363,13 @@ window.addEventListener('load',function(){
   var ALBUMS_URL='https://raw.githubusercontent.com/mfugel/JourneysWithJerseyMark/main/albums.json';
   var INTERVAL_MS=5000;
   var S={albums:[],albumIdx:-1,slide:0,photos:[],timer:null,paused:false,imgs:[]};
+  var selectEl=document.getElementById('albumSelect');
+  selectEl.addEventListener('change',function(){
+    var idx=parseInt(this.value,10);
+    if(!isNaN(idx))loadAlbum(idx);
+  });
   var E={
-    select:document.getElementById('albumSelect'),
+    select:selectEl,
     stage:document.getElementById('slideshowStage'),
     ph:document.getElementById('slidePlaceholder'),
     dots:document.getElementById('slideDots'),
@@ -402,7 +407,7 @@ window.addEventListener('load',function(){
     });
   }
   function loadAlbum(idx){
-    if(idx<0||idx===S.albumIdx)return;
+    if(isNaN(idx)||idx<0||idx>=S.albums.length)return;
     S.albumIdx=idx;var album=S.albums[idx];
     stopTimer();clearStage();S.photos=[];S.slide=0;S.paused=false;
     E.title.textContent='';E.counter.textContent='';E.dots.innerHTML='';E.controls.style.display='none';
