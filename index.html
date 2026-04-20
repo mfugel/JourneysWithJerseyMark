@@ -118,10 +118,11 @@ body{background:#c8a96e;font-family:'Crimson Text',serif;color:#2c1a08;position:
 @media(max-width:480px){.card-thumbs{grid-template-columns:1fr;}}
 
 /* ── Memories Slideshow ── */
-.album-tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1rem;}
-.album-tab{font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:#7a4e20;background:transparent;border:1px solid rgba(122,78,32,0.45);border-radius:3px;padding:0.28rem 0.7rem;cursor:pointer;transition:all 0.2s;}
-.album-tab:hover{background:rgba(122,78,32,0.1);border-color:#7a4e20;}
-.album-tab.active{background:#7a4e20;color:#f5ead0;border-color:#7a4e20;}
+.album-select-wrap{display:flex;align-items:center;gap:0.6rem;margin-bottom:1rem;flex-wrap:wrap;}
+.album-select-label{font-family:'Cinzel',serif;font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#5a3510;white-space:nowrap;}
+.album-select{font-family:'IM Fell English',serif;font-style:italic;font-size:0.92rem;color:#2c1a08;background:#f5ead0;border:1.5px solid #7a4e20;border-radius:3px;padding:0.38rem 2rem 0.38rem 0.7rem;cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237a4e20' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 0.6rem center;width:100%;max-width:400px;transition:border-color 0.2s,box-shadow 0.2s;}
+.album-select:focus{outline:none;border-color:#5a3510;box-shadow:0 0 0 2px rgba(90,53,16,0.15);}
+.album-select option{font-family:serif;font-style:normal;}
 .slideshow-stage{position:relative;width:100%;aspect-ratio:4/3;max-height:460px;background:rgba(44,26,8,0.08);border:1.5px solid #7a4e20;border-radius:3px;overflow:hidden;display:flex;align-items:center;justify-content:center;}
 .slide-img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity 0.85s ease;}
 .slide-img.visible{opacity:1;}
@@ -253,8 +254,11 @@ body{background:#c8a96e;font-family:'Crimson Text',serif;color:#2c1a08;position:
       <div class="legend-box">
         <div class="legend-box-title">Memories from the Road</div>
         <p style="font-family:'IM Fell English',serif;font-style:italic;font-size:0.9rem;color:#5a3510;margin-bottom:0.9rem;text-align:center;">Select an album · photographs advance automatically</p>
-        <div class="album-tabs" id="albumTabs">
-          <span style="font-family:'IM Fell English',serif;font-style:italic;color:rgba(90,53,16,0.5);font-size:0.85rem;">Loading albums…</span>
+        <div class="album-select-wrap">
+          <span class="album-select-label">Select Album</span>
+          <select class="album-select" id="albumSelect" onchange="loadAlbum(this.selectedIndex - 1)">
+            <option value="" disabled selected>— Choose a journey —</option>
+          </select>
         </div>
         <div class="slideshow-stage" id="slideshowStage">
           <div class="slide-placeholder" id="slidePlaceholder">
@@ -360,7 +364,7 @@ window.addEventListener('load',function(){
   var INTERVAL_MS=5000;
   var S={albums:[],albumIdx:-1,slide:0,photos:[],timer:null,paused:false,imgs:[]};
   var E={
-    tabs:document.getElementById('albumTabs'),
+    select:document.getElementById('albumSelect'),
     stage:document.getElementById('slideshowStage'),
     ph:document.getElementById('slidePlaceholder'),
     dots:document.getElementById('slideDots'),
@@ -382,23 +386,24 @@ window.addEventListener('load',function(){
     .then(function(r){return r.json();})
     .then(function(albums){
       S.albums=albums;
-      buildTabs(albums);
+      buildDropdown(albums);
       if(albums.length===1)loadAlbum(0);
     })
     .catch(function(){
-      E.tabs.innerHTML='<span style="font-family:\'IM Fell English\',serif;font-style:italic;color:rgba(90,53,16,0.5);font-size:0.85rem;">No albums configured yet.</span>';
+      E.select.innerHTML='<option>No albums configured yet</option>';
     });
-  function buildTabs(albums){
-    E.tabs.innerHTML='';
+  function buildDropdown(albums){
+    E.select.innerHTML='<option value="" disabled selected>\u2014 Choose a journey \u2014</option>';
     albums.forEach(function(album,i){
-      var b=document.createElement('button');b.className='album-tab';b.textContent=album.title;
-      b.onclick=function(){loadAlbum(i);};E.tabs.appendChild(b);
+      var o=document.createElement('option');
+      o.value=i;
+      o.textContent=album.title;
+      E.select.appendChild(o);
     });
   }
   function loadAlbum(idx){
-    if(idx===S.albumIdx)return;
+    if(idx<0||idx===S.albumIdx)return;
     S.albumIdx=idx;var album=S.albums[idx];
-    E.tabs.querySelectorAll('.album-tab').forEach(function(b,i){b.classList.toggle('active',i===idx);});
     stopTimer();clearStage();S.photos=[];S.slide=0;S.paused=false;
     E.title.textContent='';E.counter.textContent='';E.dots.innerHTML='';E.controls.style.display='none';
     showPH('<span class="compass-spin">&#10022;</span> Charting the course\u2026');
