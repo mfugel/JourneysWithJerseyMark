@@ -233,8 +233,8 @@ body{background:#c8a96e;font-family:'Crimson Text',serif;color:#2c1a08;position:
 
         <!-- Format toggle -->
         <div class="format-toggle">
-          <button class="fmt-btn active" id="fmtPhone" onclick="setFormat('phone',this)">📱 Phone</button>
-          <button class="fmt-btn" id="fmtDesktop" onclick="setFormat('desktop',this)">🖥 Desktop</button>
+          <button class="fmt-btn active" id="fmtPhone" onclick="setFormat('phone',this)">📱 Phone Wallpaper</button>
+          <button class="fmt-btn" id="fmtDesktop" onclick="setFormat('desktop',this)">🖥 Computer Wallpaper</button>
         </div>
         <p class="format-hint" id="formatHint">Portrait · optimised for iPhone &amp; Android</p>
 
@@ -271,16 +271,16 @@ body{background:#c8a96e;font-family:'Crimson Text',serif;color:#2c1a08;position:
     <p class="lb-location" id="lbLocation"></p>
     <!-- format selector inside lightbox -->
     <div class="lb-format-row">
-      <button class="lb-fmt-btn active" id="lbFmtPhone" onclick="lbSetFormat('phone',this)">📱 Phone</button>
-      <button class="lb-fmt-btn" id="lbFmtDesktop" onclick="lbSetFormat('desktop',this)">🖥 Desktop</button>
+      <button class="lb-fmt-btn active" id="lbFmtPhone" onclick="lbSetFormat('phone',this)">📱 Phone Wallpaper</button>
+      <button class="lb-fmt-btn" id="lbFmtDesktop" onclick="lbSetFormat('desktop',this)">🖥 Computer Wallpaper</button>
     </div>
     <a class="lb-download" id="lbDownload" href="" download>⬇ Download Wallpaper</a>
     <!-- How-to -->
     <div class="howto">
-      <button class="howto-toggle" id="howtoToggle" style="cursor:default;">
+      <div class="howto-toggle" style="cursor:default;">
         <span>📱 How to set as your wallpaper</span>
-      </button>
-      <div class="howto-body" id="howtoBody">
+      </div>
+      <div class="howto-body open" id="howtoBody">
         <div class="howto-tabs">
           <button class="howto-tab active" onclick="switchTab('iphone',this)">🍎 iPhone</button>
           <button class="howto-tab" onclick="switchTab('android',this)">🤖 Android</button>
