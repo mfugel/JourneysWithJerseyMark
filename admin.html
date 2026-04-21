@@ -13,7 +13,7 @@ body{background:#c8a96e;font-family:'Crimson Text',serif;color:#2c1a08;position:
 .parchment-bg{position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 28px,rgba(101,67,33,0.04) 29px),repeating-linear-gradient(90deg,transparent,transparent 28px,rgba(101,67,33,0.04) 29px);pointer-events:none;z-index:0;}
 .vignette{position:fixed;inset:0;background:radial-gradient(ellipse at center,transparent 40%,rgba(80,40,10,0.35) 100%);pointer-events:none;z-index:0;}
 .content{position:relative;z-index:1;width:100%;padding:2rem 3rem 3rem;}
-.outer-border{border:3px solid #5a3510;border-radius:4px;padding:4px;position:relative;max-width:780px;margin:0 auto;}
+.outer-border{border:3px solid #5a3510;border-radius:4px;padding:4px;position:relative;max-width:720px;margin:0 auto;}
 .inner-border{border:1.5px solid #7a4e20;border-radius:2px;padding:1.8rem 1.8rem 2.2rem;}
 .corner-ornament{position:absolute;font-size:20px;color:#5a3510;line-height:1;}
 .corner-tl{top:10px;left:10px;}.corner-tr{top:10px;right:10px;transform:scaleX(-1);}
@@ -27,7 +27,7 @@ body{background:#c8a96e;font-family:'Crimson Text',serif;color:#2c1a08;position:
 label{display:block;font-family:'Cinzel',serif;font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#5a3510;margin-bottom:0.35rem;}
 input[type="text"],input[type="password"],textarea{width:100%;font-family:'Crimson Text',serif;font-size:0.95rem;color:#2c1a08;background:rgba(245,234,210,0.7);border:1px solid rgba(90,53,16,0.4);border-radius:3px;padding:0.45rem 0.65rem;outline:none;transition:border-color 0.2s;}
 input:focus,textarea:focus{border-color:#7a4e20;background:rgba(245,234,210,0.95);}
-textarea{resize:vertical;min-height:90px;}
+textarea{resize:vertical;min-height:100px;}
 .field-row{margin-bottom:0.85rem;}
 .hint{font-family:'IM Fell English',serif;font-style:italic;font-size:0.78rem;color:rgba(90,53,16,0.65);margin-top:0.25rem;line-height:1.4;}
 .hint a{color:#7a4e20;}
@@ -38,46 +38,27 @@ textarea{resize:vertical;min-height:90px;}
 .btn-secondary:hover{background:rgba(122,78,32,0.1);border-color:#7a4e20;}
 .btn-danger{background:transparent;color:#8b2222;border:1px solid rgba(139,34,34,0.35);}
 .btn-danger:hover{background:rgba(139,34,34,0.08);border-color:#8b2222;}
-.btn-google{background:#fff;color:#333;border:1px solid rgba(90,53,16,0.3);display:inline-flex;align-items:center;gap:0.5rem;padding:0.5rem 1.1rem;font-family:'Cinzel',serif;font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;border-radius:3px;cursor:pointer;transition:all 0.2s;}
-.btn-google:hover{background:#f5ead0;border-color:#7a4e20;}
 .btn-sm{font-size:0.58rem;padding:0.28rem 0.65rem;}
 .status{font-family:'IM Fell English',serif;font-style:italic;font-size:0.9rem;padding:0.55rem 0.85rem;border-radius:3px;margin:0.7rem 0;display:none;}
 .status.show{display:block;}
 .status.success{background:rgba(58,107,53,0.12);color:#3a6b35;border:1px solid rgba(58,107,53,0.3);}
 .status.error{background:rgba(139,34,34,0.1);color:#8b2222;border:1px solid rgba(139,34,34,0.25);}
 .status.info{background:rgba(122,78,32,0.1);color:#7a4e20;border:1px solid rgba(90,53,16,0.3);}
-#githubScreen{display:block;}
+#loginScreen{display:block;}
 #mainScreen{display:none;}
-/* Current album cards */
 .album-card{border:1.5px solid #7a4e20;border-radius:3px;margin-bottom:0.9rem;overflow:hidden;background:rgba(160,110,50,0.1);}
 .album-card-header{display:flex;align-items:center;justify-content:space-between;padding:0.6rem 0.9rem;background:rgba(90,53,16,0.08);border-bottom:1px solid rgba(122,78,32,0.3);gap:0.7rem;flex-wrap:wrap;}
 .album-card-title{font-family:'Cinzel',serif;font-size:0.75rem;font-weight:700;letter-spacing:0.06em;color:#2c1a08;flex:1;min-width:140px;}
 .album-card-body{padding:0.75rem 0.9rem;}
 .photo-count{font-family:'IM Fell English',serif;font-style:italic;font-size:0.82rem;color:#7a4e20;margin-bottom:0.5rem;}
 .photo-url-list{font-family:'Crimson Text',serif;font-size:0.75rem;color:rgba(44,26,8,0.6);max-height:72px;overflow-y:auto;word-break:break-all;line-height:1.55;padding:0.35rem;background:rgba(245,234,210,0.5);border:1px solid rgba(122,78,32,0.2);border-radius:2px;margin-bottom:0.55rem;}
-/* Auth bar */
-.auth-bar{display:flex;align-items:center;gap:0.8rem;padding:0.6rem 0.9rem;background:rgba(58,107,53,0.1);border:1px solid rgba(58,107,53,0.25);border-radius:3px;margin-bottom:1rem;flex-wrap:wrap;}
-.auth-bar-name{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.1em;color:#3a6b35;flex:1;}
-.auth-bar-signout{font-family:'Cinzel',serif;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(90,53,16,0.55);background:transparent;border:1px solid rgba(90,53,16,0.25);border-radius:2px;padding:0.2rem 0.5rem;cursor:pointer;}
-/* Preview */
-.fetch-preview{border:1.5px solid #7a4e20;border-radius:3px;padding:0.9rem;background:rgba(245,234,210,0.5);margin-top:0.9rem;display:none;}
-.fetch-preview.show{display:block;}
-.preview-title{font-family:'Cinzel',serif;font-size:0.82rem;font-weight:700;color:#2c1a08;margin-bottom:0.25rem;}
-.preview-meta{font-family:'IM Fell English',serif;font-style:italic;font-size:0.85rem;color:#7a4e20;margin-bottom:0.6rem;}
-.preview-thumbs{display:flex;gap:0.4rem;flex-wrap:wrap;margin-bottom:0.8rem;}
-.preview-thumbs img{width:56px;height:56px;object-fit:cover;border-radius:2px;border:1px solid rgba(122,78,32,0.3);}
 .btn-row{display:flex;gap:0.5rem;flex-wrap:wrap;align-items:center;margin-top:1rem;}
 .spinner{display:inline-block;animation:spin 1s linear infinite;}
 @keyframes spin{to{transform:rotate(360deg);}}
-/* URL+button row */
-.input-btn-row{display:flex;gap:0.5rem;align-items:flex-start;}
-.input-btn-row input{flex:1;}
-.input-btn-row .btn{flex-shrink:0;white-space:nowrap;margin-top:0;}
 @media(max-width:600px){
   .content{padding:1rem 0.75rem 2rem;}
   .inner-border{padding:1.2rem 1rem 1.6rem;}
   .admin-title{font-size:1.3rem;}
-  .input-btn-row{flex-direction:column;}
 }
 </style>
 </head>
@@ -95,8 +76,8 @@ textarea{resize:vertical;min-height:90px;}
       <div class="admin-title">Album Manager</div>
       <div class="admin-sub">Memories from the Road · Jersey Mark Admin</div>
 
-      <!-- GITHUB LOGIN -->
-      <div id="githubScreen">
+      <!-- LOGIN -->
+      <div id="loginScreen">
         <div class="legend-box">
           <div class="legend-box-title">Chart Room Access</div>
           <div class="field-row">
@@ -108,75 +89,38 @@ textarea{resize:vertical;min-height:90px;}
             <input type="checkbox" id="rememberToken" style="width:auto;">
             <label for="rememberToken" style="margin:0;font-size:0.65rem;">Remember on this device</label>
           </div>
-          <button class="btn btn-primary" onclick="doGithubLogin()">✦ Enter the Chart Room</button>
-          <div class="status" id="githubStatus"></div>
+          <button class="btn btn-primary" onclick="doLogin()">✦ Enter the Chart Room</button>
+          <div class="status" id="loginStatus"></div>
         </div>
       </div>
 
-      <!-- MAIN SCREEN -->
+      <!-- MAIN -->
       <div id="mainScreen">
 
-        <!-- GP auth bar -->
-        <div id="gpAuthBar" style="display:none;" class="auth-bar">
-          <span class="auth-bar-name">✦ Google Photos connected — photos fetch automatically</span>
-          <button class="auth-bar-signout" onclick="gpSignOut()">Disconnect</button>
-        </div>
-
-        <!-- Current albums -->
         <div class="divider-rule">✦ Current Albums on Site ✦</div>
         <div id="albumList"></div>
         <div class="status" id="mainStatus"></div>
 
-        <!-- Add new album -->
         <div class="divider-rule">✦ Add a New Album ✦</div>
         <div class="legend-box">
           <div class="legend-box-title">New Album</div>
 
           <div class="field-row">
-            <label for="albumTitle">Album Title</label>
-            <input type="text" id="albumTitle" placeholder="e.g. Zion National Park · March 2024">
-            <p class="hint">This becomes the dropdown label on your site.</p>
+            <label for="newTitle">Album Title</label>
+            <input type="text" id="newTitle" placeholder="e.g. Zion National Park · March 2024">
+            <p class="hint">This becomes the dropdown label on your site. Use · (middle dot) to separate location and date.</p>
           </div>
 
           <div class="field-row">
-            <label for="shareUrl">Google Photos Share Link</label>
-            <div class="input-btn-row">
-              <input type="text" id="shareUrl" placeholder="https://photos.app.goo.gl/...">
-              <button class="btn btn-secondary" id="fetchBtn" onclick="fetchFromUrl()">
-                <span id="fetchBtnLabel">Fetch Photos</span>
-              </button>
-            </div>
-            <p class="hint" id="fetchHint">
-              <span id="gpFetchHint">Connected to Google Photos — paste a share link and click Fetch to load all photos automatically.</span>
-              <span id="manualFetchHint" style="display:none;">Connect Google Photos above to fetch automatically, or paste URLs manually below.</span>
-            </p>
+            <label for="newUrl">Google Photos Share Link (optional)</label>
+            <input type="text" id="newUrl" placeholder="https://photos.app.goo.gl/...">
+            <p class="hint">Used for the "Open Album ↗" button on your site.</p>
           </div>
 
-          <!-- Google Photos connect (shown when not connected) -->
-          <div id="gpConnectInline" style="margin-bottom:0.85rem;">
-            <button class="btn-google" onclick="gpSignIn()">
-              <svg width="16" height="16" viewBox="0 0 24 24" style="flex-shrink:0;">
-                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/>
-                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
-              </svg>
-              Connect Google Photos for Auto-Fetch
-            </button>
-            <p class="hint" style="margin-top:0.4rem;">One-time sign-in. After connecting, paste any shared album link and all photos load automatically — no URL copying needed.</p>
-          </div>
-
-          <!-- Fetch preview -->
-          <div class="fetch-preview" id="fetchPreview">
-            <div class="preview-title" id="previewTitle"></div>
-            <div class="preview-meta" id="previewMeta"></div>
-            <div class="preview-thumbs" id="previewThumbs"></div>
-          </div>
-
-          <!-- Manual URL fallback -->
-          <div class="field-row" id="manualUrlsRow">
-            <label for="manualPhotos">Photo URLs — one per line <span style="font-weight:400;text-transform:none;letter-spacing:0;font-family:'IM Fell English',serif;font-style:italic;">(only needed without Google Photos connection)</span></label>
-            <textarea id="manualPhotos" placeholder="https://lh3.googleusercontent.com/pw/...&#10;Paste the URL list from Claude here"></textarea>
+          <div class="field-row">
+            <label for="newPhotos">Photo URLs — one per line</label>
+            <textarea id="newPhotos" placeholder="Paste the URL list from Claude here — one URL per line&#10;&#10;https://lh3.googleusercontent.com/pw/...&#10;https://lh3.googleusercontent.com/pw/..."></textarea>
+            <p class="hint">Ask Claude to "add a new memory to my site" with your album link — Claude will fetch and provide this URL list for you.</p>
           </div>
 
           <button class="btn btn-primary" onclick="addAlbum()">+ Add Album</button>
@@ -193,73 +137,69 @@ textarea{resize:vertical;min-height:90px;}
   </div>
 </div>
 
-<script src="https://accounts.google.com/gsi/client" async></script>
 <script>
-var REPO_OWNER  = 'mfugel';
-var REPO_NAME   = 'JourneysWithJerseyMark';
-var FILE_PATH   = 'albums.json';
-var BRANCH      = 'main';
-var GP_CLIENT_ID= '1018395718603-15sitjs10dif8g06cp45hvghq962jb7m.apps.googleusercontent.com';
-var GP_SCOPE    = 'https://www.googleapis.com/auth/photoslibrary.readonly';
+var REPO_OWNER = 'mfugel';
+var REPO_NAME  = 'JourneysWithJerseyMark';
+var FILE_PATH  = 'albums.json';
+var BRANCH     = 'main';
 
-var ghToken = '', albums = [], fileSha = '', gpToken = '';
-var fetchedPhotos = []; // photos from the current fetch
+var token = '', albums = [], fileSha = '';
 
-// ── Auto-fill saved GitHub token ──
+// Auto-fill saved token
 (function(){
   try{var t=localStorage.getItem('jm_admin_token');if(t){document.getElementById('tokenInput').value=t;document.getElementById('rememberToken').checked=true;}}catch(e){}
 })();
 
-// ── GitHub Login ──
-function doGithubLogin(){
+function doLogin(){
   var t=document.getElementById('tokenInput').value.trim();
-  if(!t){showStatus('githubStatus','Please enter your GitHub token.','error');return;}
-  showStatus('githubStatus','<span class="spinner">✦</span> Verifying…','info');
-  ghToken=t;
+  if(!t){showStatus('loginStatus','Please enter your GitHub token.','error');return;}
+  showStatus('loginStatus','<span class="spinner">✦</span> Verifying…','info');
+  token=t;
   if(document.getElementById('rememberToken').checked){try{localStorage.setItem('jm_admin_token',t);}catch(e){}}
-  fetchAlbums();
+  loadAlbums();
 }
 
 function doLogout(){
-  ghToken='';
+  token='';
   try{localStorage.removeItem('jm_admin_token');}catch(e){}
   document.getElementById('tokenInput').value='';
-  document.getElementById('githubScreen').style.display='block';
+  document.getElementById('loginScreen').style.display='block';
   document.getElementById('mainScreen').style.display='none';
-  gpSignOut();
 }
 
-// ── Fetch albums.json from GitHub (UTF-8 fix applied) ──
-function fetchAlbums(){
+// ── Load albums.json from GitHub (UTF-8 fix) ──
+function loadAlbums(){
   fetch('https://api.github.com/repos/'+REPO_OWNER+'/'+REPO_NAME+'/contents/'+FILE_PATH+'?ref='+BRANCH,
-    {headers:{'Authorization':'Bearer '+ghToken,'Accept':'application/vnd.github+json'}})
+    {headers:{'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json'}})
   .then(function(r){
-    if(r.status===401){showStatus('githubStatus','Invalid token.','error');ghToken='';return null;}
-    if(!r.ok){showStatus('githubStatus','Could not load albums.json ('+r.status+').','error');return null;}
+    if(r.status===401){showStatus('loginStatus','Invalid token — check and try again.','error');token='';return null;}
+    if(!r.ok){showStatus('loginStatus','Could not load albums.json ('+r.status+').','error');return null;}
     return r.json();
   })
   .then(function(data){
     if(!data)return;
     fileSha=data.sha;
-    // UTF-8 fix: decodeURIComponent(escape(...)) correctly handles multi-byte characters
+    // UTF-8 fix: correctly handles · and other multi-byte characters
     var jsonStr=decodeURIComponent(escape(atob(data.content.replace(/\n/g,''))));
     albums=JSON.parse(jsonStr);
-    document.getElementById('githubScreen').style.display='none';
+    document.getElementById('loginScreen').style.display='none';
     document.getElementById('mainScreen').style.display='block';
     renderAlbums();
-    // Restore GP token if saved
-    try{var gt=localStorage.getItem('jm_gp_token');if(gt){gpToken=gt;showGpConnected();}}catch(e){}
   })
-  .catch(function(err){showStatus('githubStatus','Error: '+err.message,'error');});
+  .catch(function(err){showStatus('loginStatus','Connection error: '+err.message,'error');});
 }
 
 // ── Render current albums ──
 function renderAlbums(){
   var c=document.getElementById('albumList');
-  if(!albums.length){c.innerHTML='<p style="font-family:\'IM Fell English\',serif;font-style:italic;color:rgba(90,53,16,0.5);margin-bottom:1rem;">No albums yet — add one below.</p>';return;}
+  if(!albums.length){
+    c.innerHTML='<p style="font-family:\'IM Fell English\',serif;font-style:italic;color:rgba(90,53,16,0.5);margin-bottom:1rem;">No albums yet — add one below.</p>';
+    return;
+  }
   c.innerHTML='';
   albums.forEach(function(album,idx){
-    var card=document.createElement('div');card.className='album-card';
+    var card=document.createElement('div');
+    card.className='album-card';
     card.innerHTML=
       '<div class="album-card-header">'+
         '<span class="album-card-title">'+esc(album.title)+'</span>'+
@@ -271,239 +211,65 @@ function renderAlbums(){
       '</div>'+
       '<div class="album-card-body">'+
         '<div class="photo-count">'+album.photos.length+' photo'+(album.photos.length!==1?'s':'')+
-          (album.url?' · <a href="'+esc(album.url)+'" target="_blank" rel="noopener" style="color:#7a4e20;">Open ↗</a>':'')+
+          (album.url?' · <a href="'+esc(album.url)+'" target="_blank" rel="noopener" style="color:#7a4e20;">Open Album ↗</a>':'')+
         '</div>'+
-        '<div class="photo-url-list">'+(album.photos.length?album.photos.map(function(u){return esc(u);}).join('<br>'):'<em>No photos</em>')+'</div>'+
+        '<div class="photo-url-list">'+(album.photos.length?album.photos.map(function(u){return esc(u);}).join('<br>'):'<em>No photos yet</em>')+'</div>'+
         '<button class="btn btn-secondary btn-sm" onclick="editAlbum('+idx+')">✎ Edit Photos</button>'+
       '</div>';
     c.appendChild(card);
   });
 }
 
-function removeAlbum(idx){if(!confirm('Remove "'+albums[idx].title+'"?'))return;albums.splice(idx,1);renderAlbums();showStatus('mainStatus','Removed — hit Save & Publish when ready.','info');}
-function moveAlbum(idx,dir){var to=idx+dir;if(to<0||to>=albums.length)return;var tmp=albums[idx];albums[idx]=albums[to];albums[to]=tmp;renderAlbums();showStatus('mainStatus','Reordered — hit Save & Publish when ready.','info');}
-function editAlbum(idx){var urls=prompt('Photo URLs for "'+albums[idx].title+'" (one per line):',albums[idx].photos.join('\n'));if(urls===null)return;albums[idx].photos=urls.split('\n').map(function(l){return l.trim();}).filter(Boolean);renderAlbums();showStatus('mainStatus','Updated — hit Save & Publish when ready.','info');}
-
-// ── Google Photos ──
-function gpSignIn(){
-  var client=google.accounts.oauth2.initTokenClient({
-    client_id:GP_CLIENT_ID,
-    scope:GP_SCOPE,
-    callback:function(resp){
-      if(resp.error){showStatus('mainStatus','Google sign-in failed: '+resp.error,'error');return;}
-      gpToken=resp.access_token;
-      try{localStorage.setItem('jm_gp_token',gpToken);}catch(e){}
-      showGpConnected();
-    }
-  });
-  client.requestAccessToken();
+function removeAlbum(idx){
+  if(!confirm('Remove "'+albums[idx].title+'"?'))return;
+  albums.splice(idx,1);renderAlbums();
+  showStatus('mainStatus','Removed — hit Save & Publish when ready.','info');
 }
 
-function gpSignOut(){
-  gpToken='';
-  try{localStorage.removeItem('jm_gp_token');}catch(e){}
-  document.getElementById('gpAuthBar').style.display='none';
-  document.getElementById('gpConnectInline').style.display='block';
-  document.getElementById('gpFetchHint').style.display='none';
-  document.getElementById('manualFetchHint').style.display='inline';
-  fetchedPhotos=[];
-  document.getElementById('fetchPreview').classList.remove('show');
+function moveAlbum(idx,dir){
+  var to=idx+dir;if(to<0||to>=albums.length)return;
+  var tmp=albums[idx];albums[idx]=albums[to];albums[to]=tmp;
+  renderAlbums();showStatus('mainStatus','Reordered — hit Save & Publish when ready.','info');
 }
 
-function showGpConnected(){
-  document.getElementById('gpConnectInline').style.display='none';
-  document.getElementById('gpAuthBar').style.display='flex';
-  document.getElementById('gpFetchHint').style.display='inline';
-  document.getElementById('manualFetchHint').style.display='none';
-}
-
-// ── Extract album ID from Google Photos share URL ──
-// Share URLs look like: https://photos.app.goo.gl/XXXXX
-// After redirect they expand to: https://photos.google.com/share/AF1Qip.../
-// We need to resolve the short URL to get the album token, then use the API
-function fetchFromUrl(){
-  if(!gpToken){showStatus('addStatus','Please connect Google Photos first.','error');return;}
-  var url=document.getElementById('shareUrl').value.trim();
-  if(!url){showStatus('addStatus','Please paste a Google Photos share link.','error');return;}
-
-  document.getElementById('fetchBtnLabel').innerHTML='<span class="spinner">✦</span>';
-  document.getElementById('fetchPreview').classList.remove('show');
-  fetchedPhotos=[];
-  showStatus('addStatus','<span class="spinner">✦</span> Fetching photos…','info');
-
-  // The Google Photos API mediaItems:search requires an albumId.
-  // Shared album links use a shareToken, not an albumId.
-  // We use sharedAlbums:join (or get by shareToken) to get the albumId.
-  // Extract the shareToken from the expanded URL or use the path.
-  // Strategy: fetch the short URL via a no-cors proxy to get the final URL,
-  // then extract the AF1Qip... token and call sharedAlbums to find the album.
-
-  // First, try to get all shared albums and match by share URL
-  // Since we can't resolve the short URL (CORS), we ask user to also paste
-  // the share token directly OR we list shared albums and let them pick.
-  // Better approach: use the shareToken embedded in the URL after redirect.
-
-  // Use allorigins to resolve the short URL
-  var proxyUrl='https://api.allorigins.win/get?url='+encodeURIComponent(url);
-  fetch(proxyUrl)
-    .then(function(r){return r.json();})
-    .then(function(data){
-      // Extract the final URL from the redirect chain
-      var html=data.contents||'';
-      // Look for the album share token (AF1Qip...) in the page
-      var tokenMatch=html.match(/AF1Qip[A-Za-z0-9_\-]+/);
-      if(!tokenMatch){
-        // Fall back to listing shared albums
-        return fetchSharedAlbums(url);
-      }
-      var shareToken=tokenMatch[0];
-      return joinAndFetchSharedAlbum(shareToken, url);
-    })
-    .catch(function(){
-      // Fall back to listing shared albums
-      fetchSharedAlbums(url);
-    });
-}
-
-function joinAndFetchSharedAlbum(shareToken, originalUrl){
-  // Try to join the shared album using the token to get albumId
-  fetch('https://photoslibrary.googleapis.com/v1/sharedAlbums:join',{
-    method:'POST',
-    headers:{'Authorization':'Bearer '+gpToken,'Content-Type':'application/json'},
-    body:JSON.stringify({shareToken:shareToken})
-  })
-  .then(function(r){return r.json();})
-  .then(function(data){
-    if(data.error||!data.album){
-      return fetchSharedAlbums(originalUrl);
-    }
-    var album=data.album;
-    // Auto-fill title if empty
-    if(!document.getElementById('albumTitle').value && album.title){
-      document.getElementById('albumTitle').value=album.title;
-    }
-    loadPhotosForAlbum(album.id, album.title||'', originalUrl);
-  })
-  .catch(function(){fetchSharedAlbums(originalUrl);});
-}
-
-function fetchSharedAlbums(originalUrl){
-  // List all shared albums and find the matching one
-  fetch('https://photoslibrary.googleapis.com/v1/sharedAlbums?pageSize=50',{
-    headers:{'Authorization':'Bearer '+gpToken}
-  })
-  .then(function(r){return r.json();})
-  .then(function(data){
-    var shared=data.sharedAlbums||[];
-    // Try to match by shareableUrl
-    var match=shared.find(function(a){
-      return a.shareInfo&&a.shareInfo.shareableUrl&&
-        (a.shareInfo.shareableUrl===originalUrl||originalUrl.indexOf(a.id)>-1);
-    });
-    if(match){
-      if(!document.getElementById('albumTitle').value&&match.title){
-        document.getElementById('albumTitle').value=match.title;
-      }
-      loadPhotosForAlbum(match.id,match.title||'',originalUrl);
-    } else {
-      // Can't find album — fall back to manual
-      document.getElementById('fetchBtnLabel').textContent='Fetch Photos';
-      showStatus('addStatus','Could not auto-fetch this album. Paste photo URLs manually below.','error');
-    }
-  })
-  .catch(function(err){
-    document.getElementById('fetchBtnLabel').textContent='Fetch Photos';
-    showStatus('addStatus','Error: '+err.message+'. Paste photo URLs manually below.','error');
-  });
-}
-
-function loadPhotosForAlbum(albumId, albumTitle, shareUrl, pageToken, acc){
-  acc=acc||[];
-  var body={albumId:albumId,pageSize:100};
-  if(pageToken)body.pageToken=pageToken;
-  fetch('https://photoslibrary.googleapis.com/v1/mediaItems:search',{
-    method:'POST',
-    headers:{'Authorization':'Bearer '+gpToken,'Content-Type':'application/json'},
-    body:JSON.stringify(body)
-  })
-  .then(function(r){return r.json();})
-  .then(function(data){
-    var photos=(data.mediaItems||[])
-      .filter(function(item){return item.mediaMetadata&&item.mediaMetadata.photo;})
-      .map(function(item){return item.baseUrl+'=w1200-h900-no';});
-    acc=acc.concat(photos);
-    if(data.nextPageToken&&acc.length<500){
-      loadPhotosForAlbum(albumId,albumTitle,shareUrl,data.nextPageToken,acc);
-    } else {
-      fetchedPhotos=acc;
-      document.getElementById('fetchBtnLabel').textContent='Fetch Photos';
-      // Show preview
-      var preview=document.getElementById('fetchPreview');
-      preview.classList.add('show');
-      document.getElementById('previewTitle').textContent=albumTitle||'Album';
-      document.getElementById('previewMeta').textContent=acc.length+' photos loaded · videos excluded automatically';
-      var thumbRow=document.getElementById('previewThumbs');
-      thumbRow.innerHTML='';
-      acc.slice(0,10).forEach(function(url){
-        var img=document.createElement('img');
-        img.src=url.replace('=w1200-h900-no','=w100-h100-c');
-        img.loading='lazy';
-        thumbRow.appendChild(img);
-      });
-      if(acc.length>10){
-        var more=document.createElement('span');
-        more.style.cssText='display:flex;align-items:center;font-family:\'IM Fell English\',serif;font-style:italic;font-size:0.78rem;color:rgba(90,53,16,0.6);';
-        more.textContent='+' +(acc.length-10)+' more';
-        thumbRow.appendChild(more);
-      }
-      showStatus('addStatus','✦ '+acc.length+' photos ready. Fill in a title and click Add Album.','success');
-    }
-  })
-  .catch(function(err){
-    document.getElementById('fetchBtnLabel').textContent='Fetch Photos';
-    showStatus('addStatus','Error loading photos: '+err.message,'error');
-  });
+function editAlbum(idx){
+  var urls=prompt('Photo URLs for "'+albums[idx].title+'" (one per line):',albums[idx].photos.join('\n'));
+  if(urls===null)return;
+  albums[idx].photos=urls.split('\n').map(function(l){return l.trim();}).filter(Boolean);
+  renderAlbums();showStatus('mainStatus','Updated — hit Save & Publish when ready.','info');
 }
 
 // ── Add album ──
 function addAlbum(){
-  var title=document.getElementById('albumTitle').value.trim();
-  var url=document.getElementById('shareUrl').value.trim();
+  var title  = document.getElementById('newTitle').value.trim();
+  var url    = document.getElementById('newUrl').value.trim();
+  var photos = document.getElementById('newPhotos').value.trim().split('\n').map(function(l){return l.trim();}).filter(Boolean);
   if(!title){showStatus('addStatus','Please enter an album title.','error');return;}
-
-  var photos=fetchedPhotos;
-  // If no GP fetch, use manual URLs
-  if(!photos.length){
-    photos=document.getElementById('manualPhotos').value.trim().split('\n').map(function(l){return l.trim();}).filter(Boolean);
-  }
-  if(!photos.length){showStatus('addStatus','No photos found. Fetch from Google Photos or paste URLs manually.','error');return;}
-
+  if(!photos.length){showStatus('addStatus','Please paste at least one photo URL.','error');return;}
   albums.push({title:title,url:url,photos:photos});
+  document.getElementById('newTitle').value='';
+  document.getElementById('newUrl').value='';
+  document.getElementById('newPhotos').value='';
   renderAlbums();
-
-  // Reset form
-  document.getElementById('albumTitle').value='';
-  document.getElementById('shareUrl').value='';
-  document.getElementById('manualPhotos').value='';
-  fetchedPhotos=[];
-  document.getElementById('fetchPreview').classList.remove('show');
-
   showStatus('addStatus','✦ Album added!','success');
   showStatus('mainStatus','Album added — hit Save & Publish to make it live.','info');
 }
 
 // ── Save to GitHub ──
 function saveAlbums(){
-  if(!ghToken){showStatus('mainStatus','Not logged in.','error');return;}
+  if(!token){showStatus('mainStatus','Not logged in.','error');return;}
   showStatus('mainStatus','<span class="spinner">✦</span> Publishing to GitHub…','info');
   var content=btoa(unescape(encodeURIComponent(JSON.stringify(albums,null,2))));
   fetch('https://api.github.com/repos/'+REPO_OWNER+'/'+REPO_NAME+'/contents/'+FILE_PATH,{
     method:'PUT',
-    headers:{'Authorization':'Bearer '+ghToken,'Accept':'application/vnd.github+json','Content-Type':'application/json'},
+    headers:{'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json','Content-Type':'application/json'},
     body:JSON.stringify({message:'Update albums.json via admin page',content:content,sha:fileSha,branch:BRANCH})
   })
   .then(function(r){if(!r.ok)return r.json().then(function(e){throw new Error(e.message||r.status);});return r.json();})
-  .then(function(data){fileSha=data.content.sha;showStatus('mainStatus','✦ Published! Your site will update in about 30 seconds.','success');})
+  .then(function(data){
+    fileSha=data.content.sha;
+    showStatus('mainStatus','✦ Published! Your site will update in about 30 seconds.','success');
+  })
   .catch(function(err){showStatus('mainStatus','Save failed: '+err.message,'error');});
 }
 
