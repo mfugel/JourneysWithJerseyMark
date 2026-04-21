@@ -38,11 +38,32 @@ body{background:#c8a96e;font-family:'Crimson Text',serif;color:#2c1a08;position:
 .compass-rose{font-size:52px;color:#5a3510;line-height:1;margin-bottom:0.3rem;}
 
 /* ── Nav ── */
-.site-nav{position:sticky;top:0;z-index:500;background:rgba(90,53,16,0.96);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);border-bottom:1px solid rgba(220,192,137,0.25);padding:0 1rem;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:0;min-height:2.6rem;}
+.site-nav{position:sticky;top:0;z-index:500;background:rgba(90,53,16,0.96);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);border-bottom:1px solid rgba(220,192,137,0.25);}
+.nav-inner{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:0;min-height:2.6rem;padding:0 1rem;}
 .site-nav a{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.13em;text-transform:uppercase;color:rgba(245,234,208,0.82);text-decoration:none;padding:0.6rem 0.65rem;transition:color 0.2s;white-space:nowrap;}
-.site-nav a:hover{color:#f5ead0;}
+.site-nav a:hover,.site-nav a.nav-active{color:#f5ead0;}
+.site-nav a.nav-active{border-bottom:1px solid rgba(220,192,137,0.5);}
 .nav-dot{color:rgba(220,192,137,0.35);font-size:0.5rem;line-height:1;align-self:center;}
-@media(max-width:480px){.site-nav a{font-size:0.55rem;padding:0.5rem 0.45rem;letter-spacing:0.08em;}.nav-dot{display:none;}}
+.nav-hamburger{display:none;background:none;border:1px solid rgba(220,192,137,0.35);border-radius:3px;color:#f5ead0;cursor:pointer;padding:0.3rem 0.55rem;font-size:1rem;line-height:1;margin-left:auto;}
+.nav-hamburger:hover{border-color:rgba(220,192,137,0.7);}
+.nav-brand{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.13em;text-transform:uppercase;color:rgba(245,234,208,0.82);text-decoration:none;padding:0.6rem 0.65rem;white-space:nowrap;}
+.nav-brand:hover{color:#f5ead0;}
+.nav-links{display:flex;align-items:center;flex-wrap:wrap;justify-content:center;}
+.nav-drawer{display:none;}
+@media(max-width:860px){
+  .site-nav a{font-size:0.55rem;padding:0.5rem 0.45rem;letter-spacing:0.08em;}
+  .nav-dot{display:none;}
+}
+@media(max-width:600px){
+  .nav-inner{justify-content:space-between;flex-wrap:nowrap;}
+  .nav-links{display:none;}
+  .nav-hamburger{display:block;}
+  .nav-drawer{display:block;max-height:0;overflow:hidden;transition:max-height 0.3s ease;}
+  .nav-drawer.open{max-height:30rem;}
+  .nav-drawer a{display:block;font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(245,234,208,0.82);text-decoration:none;padding:0.7rem 1.2rem;border-top:1px solid rgba(220,192,137,0.12);transition:background 0.2s,color 0.2s;}
+  .nav-drawer a:hover,.nav-drawer a.nav-active{background:rgba(220,192,137,0.08);color:#f5ead0;}
+  .nav-drawer a.nav-active{border-left:2px solid rgba(220,192,137,0.6);}
+}
 
 /* ── Filter tabs ── */
 .filter-bar{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.1rem;}
@@ -137,15 +158,38 @@ body{background:#c8a96e;font-family:'Crimson Text',serif;color:#2c1a08;position:
 <div class="parchment-bg"></div>
 <div class="vignette"></div>
 
-<!-- ── Nav ── -->
-<nav class="site-nav">
-  <a href="https://journeyswithjerseymark.com">✦ Home</a>
-  <span class="nav-dot">✦</span>
-  <a href="https://journeyswithjerseymark.com/#waypoints">Ports of Call</a>
-  <span class="nav-dot">✦</span>
-  <a href="https://journeyswithjerseymark.com/#memories">Memories</a>
-  <span class="nav-dot">✦</span>
-  <a href="https://journeyswithjerseymark.com/#contact">Contact</a>
+<nav class="site-nav" id="siteNav">
+  <div class="nav-inner">
+    <div class="nav-links">
+      <a href="https://journeyswithjerseymark.com">✦ Home</a>
+      <span class="nav-dot">✦</span>
+      <a href="https://journeyswithjerseymark.com/#waypoints">Ports of Call</a>
+      <span class="nav-dot">✦</span>
+      <a href="https://journeyswithjerseymark.com/#contact">Contact</a>
+      <span class="nav-dot">✦</span>
+      <a href="https://journeyswithjerseymark.com/#track">Track Me</a>
+      <span class="nav-dot">✦</span>
+      <a href="https://journeyswithjerseymark.com/#gallery">Codiwomple</a>
+      <span class="nav-dot">✦</span>
+      <a href="https://journeyswithjerseymark.com/#memories">Memories</a>
+      <span class="nav-dot">✦</span>
+      <a href="https://journeyswithjerseymark.com/#bizcard">Business Card</a>
+      <span class="nav-dot">✦</span>
+      <a href="wallpapers.html" class="nav-active">🎁 Gift from the Road</a>
+    </div>
+    <a href="https://journeyswithjerseymark.com" class="nav-brand">✦ Jersey Mark</a>
+    <button class="nav-hamburger" onclick="toggleNav()" aria-label="Menu">☰</button>
+  </div>
+  <div class="nav-drawer" id="navDrawer">
+    <a href="https://journeyswithjerseymark.com">✦ Home</a>
+    <a href="https://journeyswithjerseymark.com/#waypoints">Ports of Call</a>
+    <a href="https://journeyswithjerseymark.com/#contact">Contact</a>
+    <a href="https://journeyswithjerseymark.com/#track">Track Me</a>
+    <a href="https://journeyswithjerseymark.com/#gallery">Codiwomple</a>
+    <a href="https://journeyswithjerseymark.com/#memories">Memories</a>
+    <a href="https://journeyswithjerseymark.com/#bizcard">Business Card</a>
+    <a href="wallpapers.html" class="nav-active">🎁 Gift from the Road</a>
+  </div>
 </nav>
 
 <div class="content">
@@ -403,5 +447,14 @@ buildFilterBar();
 buildGallery();
 </script>
 
+<script>
+function toggleNav(){
+  var d=document.getElementById('navDrawer');
+  d.classList.toggle('open');
+}
+document.querySelectorAll('#navDrawer a').forEach(function(a){
+  a.addEventListener('click',function(){ document.getElementById('navDrawer').classList.remove('open'); });
+});
+</script>
 </body>
 </html>
