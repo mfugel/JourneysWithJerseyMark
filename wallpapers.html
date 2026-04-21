@@ -10,32 +10,32 @@
 *{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-padding-top:3rem;}
 html,body{width:100%;min-height:100vh;}
-body{background:#c8a96e;font-family:'Crimson Text',serif;color:#2c1a08;position:relative;overflow-x:hidden;}
+body{background:#c8a96e;font-family:'Crimson Text',serif;color:#0f0800;position:relative;overflow-x:hidden;}
 .parchment-bg{position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 28px,rgba(101,67,33,0.04) 29px),repeating-linear-gradient(90deg,transparent,transparent 28px,rgba(101,67,33,0.04) 29px);pointer-events:none;z-index:0;}
 .vignette{position:fixed;inset:0;background:radial-gradient(ellipse at center,transparent 40%,rgba(80,40,10,0.35) 100%);pointer-events:none;z-index:0;}
 .content{position:relative;z-index:1;width:100%;padding:2rem 3rem 3rem;}
 .outer-border{border:3px solid #5a3510;border-radius:4px;padding:4px;position:relative;max-width:860px;margin:0 auto;}
 .inner-border{border:1.5px solid #7a4e20;border-radius:2px;padding:1.8rem 1.8rem 2.2rem;}
-.corner-ornament{position:absolute;font-size:20px;color:#5a3510;line-height:1;}
+.corner-ornament{position:absolute;font-size:20px;color:#1a0f00;line-height:1;}
 .corner-tl{top:10px;left:10px;}
 .corner-tr{top:10px;right:10px;transform:scaleX(-1);}
 .corner-bl{bottom:10px;left:10px;transform:scaleY(-1);}
 .corner-br{bottom:10px;right:10px;transform:scale(-1);}
 .cartouche{text-align:center;margin-bottom:1.5rem;}
 .cartouche-border{border:2px solid #5a3510;border-radius:50% / 30%;padding:1.2rem 2.5rem 1.4rem;display:inline-block;min-width:80%;background:rgba(180,130,70,0.3);position:relative;}
-.cartouche-border::before,.cartouche-border::after{content:'— ✦ —';display:block;font-size:13px;color:#7a4e20;letter-spacing:0.2em;}
+.cartouche-border::before,.cartouche-border::after{content:'— ✦ —';display:block;font-size:13px;color:#1a0f00;letter-spacing:0.2em;}
 .cartouche-border::before{margin-bottom:0.4rem;}
 .cartouche-border::after{margin-top:0.4rem;}
 .logo-seal{width:140px;height:140px;object-fit:contain;margin:0 auto 0.8rem;display:block;filter:sepia(0.55) saturate(0.85) contrast(1.05) brightness(0.97) hue-rotate(-5deg);mix-blend-mode:multiply;}
-.map-title{font-family:'Cinzel',serif;font-size:1.9rem;font-weight:700;color:#2c1a08;line-height:1.15;text-align:center;letter-spacing:0.04em;}
-.map-subtitle{font-family:'IM Fell English',serif;font-style:italic;font-size:1.15rem;color:#5a3510;text-align:center;margin-top:0.4rem;}
-.map-motto{font-family:'IM Fell English',serif;font-style:italic;font-size:1rem;color:#7a4e20;text-align:center;margin-top:0.6rem;letter-spacing:0.03em;}
-.divider-rule{display:flex;align-items:center;gap:8px;margin:1.3rem 0;color:#7a4e20;font-size:14px;letter-spacing:0.15em;}
+.map-title{font-family:'Cinzel',serif;font-size:1.9rem;font-weight:700;color:#0f0800;line-height:1.15;text-align:center;letter-spacing:0.04em;}
+.map-subtitle{font-family:'IM Fell English',serif;font-style:italic;font-size:1.15rem;color:#1a0f00;text-align:center;margin-top:0.4rem;}
+.map-motto{font-family:'IM Fell English',serif;font-style:italic;font-size:1rem;color:#1a0f00;text-align:center;margin-top:0.6rem;letter-spacing:0.03em;}
+.divider-rule{display:flex;align-items:center;gap:8px;margin:1.3rem 0;color:#1a0f00;font-size:14px;letter-spacing:0.15em;}
 .divider-rule::before,.divider-rule::after{content:'';flex:1;height:1px;background:#7a4e20;}
 .legend-box{border:1.5px solid #7a4e20;border-radius:3px;padding:1.1rem;background:rgba(160,110,50,0.15);margin-bottom:1.2rem;position:relative;}
-.legend-box-title{font-family:'Cinzel',serif;font-size:0.7rem;font-weight:700;letter-spacing:0.15em;color:#5a3510;background:#c8a96e;padding:0 6px;position:absolute;top:-9px;left:16px;text-transform:uppercase;}
-.footer-seal{text-align:center;margin-top:1.5rem;font-family:'IM Fell English',serif;font-style:italic;font-size:0.9rem;color:#7a4e20;letter-spacing:0.05em;}
-.compass-rose{font-size:52px;color:#5a3510;line-height:1;margin-bottom:0.3rem;}
+.legend-box-title{font-family:'Cinzel',serif;font-size:0.7rem;font-weight:700;letter-spacing:0.15em;color:#1a0f00;background:#c8a96e;padding:0 6px;position:absolute;top:-9px;left:16px;text-transform:uppercase;}
+.footer-seal{text-align:center;margin-top:1.5rem;font-family:'IM Fell English',serif;font-style:italic;font-size:0.9rem;color:#1a0f00;letter-spacing:0.05em;}
+.compass-rose{font-size:52px;color:#1a0f00;line-height:1;margin-bottom:0.3rem;}
 
 /* ── Nav ── */
 .site-nav{position:sticky;top:0;z-index:500;background:rgba(90,53,16,0.96);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);border-bottom:1px solid rgba(220,192,137,0.25);}
@@ -64,33 +64,33 @@ body{background:#c8a96e;font-family:'Crimson Text',serif;color:#2c1a08;position:
 
 /* ── Format Toggle ── */
 .format-toggle{display:flex;align-items:center;justify-content:center;gap:0;margin-bottom:1.2rem;border:1.5px solid #7a4e20;border-radius:3px;overflow:hidden;width:fit-content;margin-left:auto;margin-right:auto;}
-.fmt-btn{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.45rem 1.2rem;border:none;background:transparent;color:#7a4e20;cursor:pointer;transition:all 0.2s;white-space:nowrap;}
+.fmt-btn{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.45rem 1.2rem;border:none;background:transparent;color:#1a0f00;cursor:pointer;transition:all 0.2s;white-space:nowrap;}
 .fmt-btn:first-child{border-right:1px solid #7a4e20;}
 .fmt-btn.active{background:#5a3510;color:#f5ead0;}
 .fmt-btn:not(.active):hover{background:rgba(90,53,16,0.1);}
-.format-hint{font-family:'IM Fell English',serif;font-style:italic;font-size:0.82rem;color:#7a4e20;text-align:center;margin-bottom:1rem;}
+.format-hint{font-family:'IM Fell English',serif;font-style:italic;font-size:0.82rem;color:#1a0f00;text-align:center;margin-bottom:1rem;}
 
 /* ── Location Tabs ── */
 .loc-tabs{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1.1rem;}
-.loc-tab{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.09em;text-transform:uppercase;padding:0.28rem 0.75rem;border:1px solid #7a4e20;border-radius:3px;background:transparent;color:#7a4e20;cursor:pointer;transition:all 0.2s;}
+.loc-tab{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.09em;text-transform:uppercase;padding:0.28rem 0.75rem;border:1px solid #7a4e20;border-radius:3px;background:transparent;color:#1a0f00;cursor:pointer;transition:all 0.2s;}
 .loc-tab:hover{background:rgba(90,53,16,0.1);}
-.loc-tab.active{background:#5a3510;color:#f5ead0;border-color:#5a3510;}
+.loc-tab.active{background:#5a3510;color:#f5ead0;border-color:#1a0f00;}
 
 /* ── Location heading ── */
 .loc-heading{display:flex;align-items:center;gap:8px;margin-bottom:0.8rem;}
-.loc-title{font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:#5a3510;}
+.loc-title{font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:#1a0f00;}
 .loc-rule{flex:1;height:1px;background:rgba(90,53,16,0.3);}
-.loc-count{font-family:'IM Fell English',serif;font-style:italic;font-size:0.78rem;color:#7a4e20;white-space:nowrap;}
+.loc-count{font-family:'IM Fell English',serif;font-style:italic;font-size:0.78rem;color:#1a0f00;white-space:nowrap;}
 
 /* ── Wallpaper Grid ── */
 .wallpaper-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;}
 .wp-card{border:1.5px solid #7a4e20;border-radius:3px;background:rgba(160,110,50,0.1);overflow:hidden;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s,border-color 0.2s;}
-.wp-card:hover{transform:translateY(-2px);box-shadow:0 5px 16px rgba(44,26,8,0.25);border-color:#5a3510;}
+.wp-card:hover{transform:translateY(-2px);box-shadow:0 5px 16px rgba(44,26,8,0.25);border-color:#1a0f00;}
 .wp-thumb{display:block;width:100%;aspect-ratio:9/16;object-fit:cover;filter:sepia(0.1) contrast(1.03);transition:filter 0.25s;background:#b89050;}
 .wp-card:hover .wp-thumb{filter:sepia(0) contrast(1.08);}
 .wp-info{padding:0.4rem 0.5rem 0.5rem;}
-.wp-name{font-family:'Cinzel',serif;font-size:0.56rem;letter-spacing:0.07em;text-transform:uppercase;color:#5a3510;margin-bottom:0.35rem;line-height:1.3;}
-.wp-btn{display:block;width:100%;padding:0.28rem 0;font-family:'Cinzel',serif;font-size:0.54rem;letter-spacing:0.09em;text-transform:uppercase;text-align:center;background:transparent;border:1px solid #7a4e20;border-radius:2px;color:#5a3510;cursor:pointer;transition:all 0.2s;}
+.wp-name{font-family:'Cinzel',serif;font-size:0.56rem;letter-spacing:0.07em;text-transform:uppercase;color:#1a0f00;margin-bottom:0.35rem;line-height:1.3;}
+.wp-btn{display:block;width:100%;padding:0.28rem 0;font-family:'Cinzel',serif;font-size:0.54rem;letter-spacing:0.09em;text-transform:uppercase;text-align:center;background:transparent;border:1px solid #7a4e20;border-radius:2px;color:#1a0f00;cursor:pointer;transition:all 0.2s;}
 .wp-btn:hover{background:#5a3510;color:#f5ead0;}
 
 /* ── Lightbox ── */
@@ -112,20 +112,20 @@ body{background:#c8a96e;font-family:'Crimson Text',serif;color:#2c1a08;position:
 
 /* ── How-to accordion ── */
 .howto{border:1px dashed rgba(90,53,16,0.4);border-radius:3px;overflow:hidden;width:100%;}
-.howto-toggle{width:100%;background:rgba(160,110,50,0.15);border:none;cursor:pointer;padding:0.5rem 0.75rem;display:flex;align-items:center;justify-content:space-between;font-family:'Cinzel',serif;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:#5a3510;transition:background 0.2s;}
+.howto-toggle{width:100%;background:rgba(160,110,50,0.15);border:none;cursor:pointer;padding:0.5rem 0.75rem;display:flex;align-items:center;justify-content:space-between;font-family:'Cinzel',serif;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:#1a0f00;transition:background 0.2s;}
 .howto-toggle:hover{background:rgba(160,110,50,0.28);}
 .howto-arrow{transition:transform 0.25s;display:inline-block;}
 .howto-toggle.open .howto-arrow{transform:rotate(180deg);}
 .howto-body{display:none;padding:0.7rem 0.8rem 0.8rem;background:rgba(245,234,208,0.05);}
 .howto-body.open{display:block;}
 .howto-tabs{display:flex;border-bottom:1px solid rgba(90,53,16,0.25);margin-bottom:0.7rem;}
-.howto-tab{flex:1;font-family:'Cinzel',serif;font-size:0.56rem;letter-spacing:0.08em;text-transform:uppercase;padding:0.35rem 0;background:transparent;border:none;cursor:pointer;color:rgba(90,53,16,0.5);border-bottom:2px solid transparent;margin-bottom:-1px;transition:all 0.2s;}
-.howto-tab.active{color:#5a3510;border-bottom-color:#5a3510;}
+.howto-tab{flex:1;font-family:'Cinzel',serif;font-size:0.56rem;letter-spacing:0.08em;text-transform:uppercase;padding:0.35rem 0;background:transparent;border:none;cursor:pointer;color:rgba(15,8,0,0.65);border-bottom:2px solid transparent;margin-bottom:-1px;transition:all 0.2s;}
+.howto-tab.active{color:#1a0f00;border-bottom-color:#1a0f00;}
 .howto-panel{display:none;}
 .howto-panel.active{display:block;}
 .howto-step{display:flex;gap:0.5rem;align-items:flex-start;margin-bottom:0.48rem;}
 .howto-step:last-child{margin-bottom:0;}
-.step-num{font-family:'Cinzel',serif;font-size:0.58rem;font-weight:700;color:#5a3510;background:rgba(90,53,16,0.12);border:1px solid rgba(90,53,16,0.25);border-radius:50%;width:1.35rem;height:1.35rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:0.08rem;}
+.step-num{font-family:'Cinzel',serif;font-size:0.58rem;font-weight:700;color:#1a0f00;background:rgba(90,53,16,0.12);border:1px solid rgba(90,53,16,0.25);border-radius:50%;width:1.35rem;height:1.35rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:0.08rem;}
 .step-text{font-family:'Crimson Text',serif;font-size:0.86rem;color:#f5ead0;line-height:1.45;}
 .step-text em{font-style:italic;color:#c8a96e;}
 
@@ -220,7 +220,7 @@ body{background:#c8a96e;font-family:'Crimson Text',serif;color:#2c1a08;position:
       <div class="divider-rule">✦ A Traveller's Token ✦</div>
       <div class="legend-box">
         <div class="legend-box-title">About These Wallpapers</div>
-        <p style="font-family:'IM Fell English',serif;font-style:italic;font-size:0.95rem;color:#5a3510;text-align:center;line-height:1.7;">
+        <p style="font-family:'IM Fell English',serif;font-style:italic;font-size:0.95rem;color:#1a0f00;text-align:center;line-height:1.7;">
           These photographs were captured somewhere between here and the horizon —
           from the cab of Codiwomple, at a trailhead, or at the edge of something vast.<br><br>
           They are yours, free of charge, with my compliments from the road.
@@ -249,11 +249,11 @@ body{background:#c8a96e;font-family:'Crimson Text',serif;color:#2c1a08;position:
         <div class="compass-rose">✤</div>
         <p>Enjoying the wallpapers? Follow the journey.</p>
         <p style="margin-top:0.4rem;">
-          <a href="https://www.youtube.com/@journeyswithjerseymark" target="_blank" style="color:#5a3510;text-decoration:none;">YouTube</a>
+          <a href="https://www.youtube.com/@journeyswithjerseymark" target="_blank" style="color:#1a0f00;text-decoration:none;">YouTube</a>
           &nbsp;·&nbsp;
-          <a href="https://findpenguins.com/jerseymark" target="_blank" style="color:#5a3510;text-decoration:none;">FindPenguins</a>
+          <a href="https://findpenguins.com/jerseymark" target="_blank" style="color:#1a0f00;text-decoration:none;">FindPenguins</a>
           &nbsp;·&nbsp;
-          <a href="https://www.facebook.com/journeyswithjerseymark" target="_blank" style="color:#5a3510;text-decoration:none;">Facebook</a>
+          <a href="https://www.facebook.com/journeyswithjerseymark" target="_blank" style="color:#1a0f00;text-decoration:none;">Facebook</a>
         </p>
         <p style="margin-top:0.6rem;">Anno Domini MMXXVI · Home is wherever the road leads</p>
       </div>
