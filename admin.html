@@ -13,7 +13,7 @@ body{background:#c8a96e;font-family:'Crimson Text',serif;color:#2c1a08;position:
 .parchment-bg{position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 28px,rgba(101,67,33,0.04) 29px),repeating-linear-gradient(90deg,transparent,transparent 28px,rgba(101,67,33,0.04) 29px);pointer-events:none;z-index:0;}
 .vignette{position:fixed;inset:0;background:radial-gradient(ellipse at center,transparent 40%,rgba(80,40,10,0.35) 100%);pointer-events:none;z-index:0;}
 .content{position:relative;z-index:1;width:100%;padding:2rem 3rem 3rem;}
-.outer-border{border:3px solid #5a3510;border-radius:4px;padding:4px;position:relative;max-width:720px;margin:0 auto;}
+.outer-border{border:3px solid #5a3510;border-radius:4px;padding:4px;position:relative;max-width:780px;margin:0 auto;}
 .inner-border{border:1.5px solid #7a4e20;border-radius:2px;padding:1.8rem 1.8rem 2.2rem;}
 .corner-ornament{position:absolute;font-size:20px;color:#5a3510;line-height:1;}
 .corner-tl{top:10px;left:10px;}.corner-tr{top:10px;right:10px;transform:scaleX(-1);}
@@ -23,8 +23,7 @@ body{background:#c8a96e;font-family:'Crimson Text',serif;color:#2c1a08;position:
 .legend-box{border:1.5px solid #7a4e20;border-radius:3px;padding:1.1rem;background:rgba(160,110,50,0.15);margin-bottom:1.2rem;position:relative;}
 .legend-box-title{font-family:'Cinzel',serif;font-size:0.7rem;font-weight:700;letter-spacing:0.15em;color:#5a3510;background:#c8a96e;padding:0 6px;position:absolute;top:-9px;left:16px;text-transform:uppercase;}
 .admin-title{font-family:'Cinzel',serif;font-size:1.6rem;font-weight:700;color:#2c1a08;text-align:center;letter-spacing:0.04em;margin-bottom:0.3rem;}
-.admin-sub{font-family:'IM Fell English',serif;font-style:italic;font-size:1rem;color:#5a3510;text-align:center;}
-
+.admin-sub{font-family:'IM Fell English',serif;font-style:italic;font-size:1rem;color:#5a3510;text-align:center;margin-bottom:1.5rem;}
 label{display:block;font-family:'Cinzel',serif;font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#5a3510;margin-bottom:0.35rem;}
 input[type="text"],input[type="password"],textarea{width:100%;font-family:'Crimson Text',serif;font-size:0.95rem;color:#2c1a08;background:rgba(245,234,210,0.7);border:1px solid rgba(90,53,16,0.4);border-radius:3px;padding:0.45rem 0.65rem;outline:none;transition:border-color 0.2s;}
 input:focus,textarea:focus{border-color:#7a4e20;background:rgba(245,234,210,0.95);}
@@ -32,7 +31,6 @@ textarea{resize:vertical;min-height:90px;}
 .field-row{margin-bottom:0.85rem;}
 .hint{font-family:'IM Fell English',serif;font-style:italic;font-size:0.78rem;color:rgba(90,53,16,0.65);margin-top:0.25rem;line-height:1.4;}
 .hint a{color:#7a4e20;}
-
 .btn{font-family:'Cinzel',serif;font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:0.45rem 1.1rem;border-radius:3px;border:none;cursor:pointer;transition:all 0.2s;display:inline-block;}
 .btn-primary{background:#5a3510;color:#f5ead0;border:1px solid #5a3510;}
 .btn-primary:hover{background:#3a1f08;}
@@ -40,33 +38,48 @@ textarea{resize:vertical;min-height:90px;}
 .btn-secondary:hover{background:rgba(122,78,32,0.1);border-color:#7a4e20;}
 .btn-danger{background:transparent;color:#8b2222;border:1px solid rgba(139,34,34,0.35);}
 .btn-danger:hover{background:rgba(139,34,34,0.08);border-color:#8b2222;}
+.btn-google{background:#fff;color:#333;border:1px solid rgba(90,53,16,0.3);display:inline-flex;align-items:center;gap:0.5rem;padding:0.5rem 1.1rem;font-family:'Cinzel',serif;font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;border-radius:3px;cursor:pointer;transition:all 0.2s;}
+.btn-google:hover{background:#f5ead0;border-color:#7a4e20;}
 .btn-sm{font-size:0.58rem;padding:0.28rem 0.65rem;}
-
 .status{font-family:'IM Fell English',serif;font-style:italic;font-size:0.9rem;padding:0.55rem 0.85rem;border-radius:3px;margin:0.7rem 0;display:none;}
 .status.show{display:block;}
 .status.success{background:rgba(58,107,53,0.12);color:#3a6b35;border:1px solid rgba(58,107,53,0.3);}
 .status.error{background:rgba(139,34,34,0.1);color:#8b2222;border:1px solid rgba(139,34,34,0.25);}
 .status.info{background:rgba(122,78,32,0.1);color:#7a4e20;border:1px solid rgba(90,53,16,0.3);}
-
-#loginScreen{display:block;}
+#githubScreen{display:block;}
 #mainScreen{display:none;}
-
 .album-card{border:1.5px solid #7a4e20;border-radius:3px;margin-bottom:0.9rem;overflow:hidden;background:rgba(160,110,50,0.1);}
 .album-card-header{display:flex;align-items:center;justify-content:space-between;padding:0.6rem 0.9rem;background:rgba(90,53,16,0.08);border-bottom:1px solid rgba(122,78,32,0.3);gap:0.7rem;flex-wrap:wrap;}
 .album-card-title{font-family:'Cinzel',serif;font-size:0.75rem;font-weight:700;letter-spacing:0.06em;color:#2c1a08;flex:1;min-width:140px;}
 .album-card-body{padding:0.75rem 0.9rem;}
 .photo-count{font-family:'IM Fell English',serif;font-style:italic;font-size:0.82rem;color:#7a4e20;margin-bottom:0.5rem;}
 .photo-url-list{font-family:'Crimson Text',serif;font-size:0.75rem;color:rgba(44,26,8,0.6);max-height:72px;overflow-y:auto;word-break:break-all;line-height:1.55;padding:0.35rem;background:rgba(245,234,210,0.5);border:1px solid rgba(122,78,32,0.2);border-radius:2px;margin-bottom:0.55rem;}
-
-.btn-row{display:flex;gap:0.4rem;flex-wrap:wrap;align-items:center;margin-top:0.9rem;}
-
+.auth-bar{display:flex;align-items:center;gap:0.8rem;padding:0.6rem 0.9rem;background:rgba(58,107,53,0.1);border:1px solid rgba(58,107,53,0.25);border-radius:3px;margin-bottom:1rem;flex-wrap:wrap;}
+.auth-bar-name{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.1em;color:#3a6b35;flex:1;}
+.auth-bar-signout{font-family:'Cinzel',serif;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(90,53,16,0.55);background:transparent;border:1px solid rgba(90,53,16,0.25);border-radius:2px;padding:0.2rem 0.5rem;cursor:pointer;}
+.gp-album-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:0.7rem;margin-top:0.8rem;max-height:440px;overflow-y:auto;padding:0.2rem;}
+.gp-album-card{border:1.5px solid rgba(122,78,32,0.35);border-radius:3px;overflow:hidden;cursor:pointer;transition:all 0.2s;background:rgba(245,234,210,0.4);}
+.gp-album-card:hover{border-color:#7a4e20;background:rgba(245,234,210,0.8);transform:translateY(-1px);box-shadow:0 3px 8px rgba(90,53,16,0.2);}
+.gp-album-card.selected{border-color:#5a3510;border-width:2px;background:rgba(245,234,210,0.95);box-shadow:0 0 0 2px rgba(90,53,16,0.25);}
+.gp-album-thumb{width:100%;aspect-ratio:1;object-fit:cover;display:block;background:#dcc089;}
+.gp-album-thumb-placeholder{width:100%;aspect-ratio:1;display:flex;align-items:center;justify-content:center;background:rgba(160,110,50,0.2);font-size:2rem;color:rgba(90,53,16,0.3);}
+.gp-album-info{padding:0.4rem 0.5rem 0.5rem;}
+.gp-album-name{font-family:'Cinzel',serif;font-size:0.6rem;font-weight:700;letter-spacing:0.05em;color:#2c1a08;line-height:1.3;margin-bottom:0.15rem;}
+.gp-album-count{font-family:'IM Fell English',serif;font-style:italic;font-size:0.72rem;color:#7a4e20;}
+.selected-preview{border:1.5px solid #7a4e20;border-radius:3px;padding:0.9rem;background:rgba(245,234,210,0.5);margin-top:0.9rem;display:none;}
+.selected-preview.show{display:block;}
+.preview-title{font-family:'Cinzel',serif;font-size:0.82rem;font-weight:700;color:#2c1a08;margin-bottom:0.25rem;}
+.preview-meta{font-family:'IM Fell English',serif;font-style:italic;font-size:0.85rem;color:#7a4e20;margin-bottom:0.6rem;}
+.preview-thumbs{display:flex;gap:0.4rem;flex-wrap:wrap;margin-bottom:0.8rem;}
+.preview-thumbs img{width:52px;height:52px;object-fit:cover;border-radius:2px;border:1px solid rgba(122,78,32,0.3);}
+.btn-row{display:flex;gap:0.5rem;flex-wrap:wrap;align-items:center;margin-top:1rem;}
 .spinner{display:inline-block;animation:spin 1s linear infinite;}
 @keyframes spin{to{transform:rotate(360deg);}}
-
 @media(max-width:600px){
   .content{padding:1rem 0.75rem 2rem;}
   .inner-border{padding:1.2rem 1rem 1.6rem;}
   .admin-title{font-size:1.3rem;}
+  .gp-album-grid{grid-template-columns:repeat(auto-fill,minmax(110px,1fr));}
 }
 </style>
 </head>
@@ -81,116 +94,166 @@ textarea{resize:vertical;min-height:90px;}
     <div class="corner-ornament corner-br">✦</div>
     <div class="inner-border">
 
-      <div style="text-align:center;margin-bottom:1.5rem;">
-        <div class="admin-title">Album Manager</div>
-        <div class="admin-sub">Memories from the Road · Jersey Mark Admin</div>
-      </div>
+      <div class="admin-title">Album Manager</div>
+      <div class="admin-sub">Memories from the Road · Jersey Mark Admin</div>
 
-      <!-- LOGIN -->
-      <div id="loginScreen">
+      <!-- GITHUB LOGIN -->
+      <div id="githubScreen">
         <div class="legend-box">
           <div class="legend-box-title">Chart Room Access</div>
           <div class="field-row">
             <label for="tokenInput">GitHub Personal Access Token</label>
             <input type="password" id="tokenInput" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" autocomplete="current-password">
-            <p class="hint">Need a token? <a href="https://github.com/settings/tokens/new?scopes=repo&description=JerseyMarkAdmin" target="_blank" rel="noopener">Create one here</a> — select only the <strong>repo</strong> scope. It only touches your repositories. Revoke any time from GitHub settings.</p>
+            <p class="hint">Need a token? <a href="https://github.com/settings/tokens/new?scopes=repo&description=JerseyMarkAdmin" target="_blank" rel="noopener">Create one here</a> — select only the <strong>repo</strong> scope.</p>
           </div>
           <div class="field-row" style="display:flex;align-items:center;gap:0.5rem;">
             <input type="checkbox" id="rememberToken" style="width:auto;">
             <label for="rememberToken" style="margin:0;font-size:0.65rem;">Remember on this device</label>
           </div>
-          <button class="btn btn-primary" onclick="doLogin()">✦ Enter the Chart Room</button>
-          <div class="status" id="loginStatus"></div>
+          <button class="btn btn-primary" onclick="doGithubLogin()">✦ Enter the Chart Room</button>
+          <div class="status" id="githubStatus"></div>
         </div>
       </div>
 
-      <!-- MAIN -->
+      <!-- MAIN SCREEN -->
       <div id="mainScreen">
-        <div class="divider-rule">✦ Current Albums ✦</div>
-        <div id="albumList">
-          <div style="font-family:'IM Fell English',serif;font-style:italic;color:rgba(90,53,16,0.5);">Loading…</div>
+
+        <!-- GP auth bar (shown when connected) -->
+        <div id="gpAuthBar" style="display:none;" class="auth-bar">
+          <span class="auth-bar-name">✦ Google Photos connected</span>
+          <button class="auth-bar-signout" onclick="gpSignOut()">Disconnect</button>
         </div>
+
+        <!-- Current albums -->
+        <div class="divider-rule">✦ Current Albums on Site ✦</div>
+        <div id="albumList"></div>
         <div class="status" id="mainStatus"></div>
 
-        <div class="divider-rule">✦ Add a New Album ✦</div>
+        <!-- Add from Google Photos -->
+        <div class="divider-rule">✦ Add from Google Photos ✦</div>
         <div class="legend-box">
-          <div class="legend-box-title">New Album</div>
+          <div class="legend-box-title">Google Photos Browser</div>
+
+          <div id="gpConnectSection">
+            <p style="font-family:'IM Fell English',serif;font-style:italic;font-size:0.9rem;color:#5a3510;margin-bottom:0.9rem;">
+              Connect your Google account to browse your albums directly — no URL copying needed.
+            </p>
+            <button class="btn-google" onclick="gpSignIn()">
+              <svg width="16" height="16" viewBox="0 0 24 24" style="flex-shrink:0;">
+                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/>
+                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+              </svg>
+              Connect Google Photos
+            </button>
+          </div>
+
+          <div id="gpAlbumSection" style="display:none;">
+            <p style="font-family:'IM Fell English',serif;font-style:italic;font-size:0.85rem;color:#5a3510;margin-bottom:0.4rem;">
+              Click an album to select it, then add it to your site.
+            </p>
+            <div class="gp-album-grid" id="gpAlbumGrid"></div>
+
+            <div class="selected-preview" id="selectedPreview">
+              <div class="preview-title" id="previewTitle"></div>
+              <div class="preview-meta" id="previewMeta"></div>
+              <div class="preview-thumbs" id="previewThumbs"></div>
+              <div class="field-row">
+                <label for="customTitle">Title for Site</label>
+                <input type="text" id="customTitle" placeholder="e.g. Zion National Park · March 2024">
+                <p class="hint">Edit to shorten or reformat the album name.</p>
+              </div>
+              <button class="btn btn-primary" onclick="addSelectedAlbum()">+ Add This Album to Site</button>
+              <div class="status" id="addStatus"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Manual fallback -->
+        <div class="divider-rule">✦ Or Add Manually ✦</div>
+        <div class="legend-box">
+          <div class="legend-box-title">Manual Entry</div>
           <div class="field-row">
-            <label for="newTitle">Album Title</label>
-            <input type="text" id="newTitle" placeholder="e.g. Zion National Park · April 2025">
-            <p class="hint">Becomes the tab label and caption on your site.</p>
+            <label for="manualTitle">Album Title</label>
+            <input type="text" id="manualTitle" placeholder="e.g. Painted Rocks · Michigan 2023">
           </div>
           <div class="field-row">
-            <label for="newUrl">Google Photos Album Link (optional)</label>
-            <input type="text" id="newUrl" placeholder="https://photos.app.goo.gl/...">
-            <p class="hint">Used for the "Open Album ↗" button. Not required.</p>
+            <label for="manualUrl">Google Photos Share Link (optional)</label>
+            <input type="text" id="manualUrl" placeholder="https://photos.app.goo.gl/...">
           </div>
           <div class="field-row">
-            <label for="newPhotos">Photo URLs — one per line</label>
-            <textarea id="newPhotos" placeholder="https://lh3.googleusercontent.com/pw/...&#10;https://lh3.googleusercontent.com/pw/..."></textarea>
-            <p class="hint">To get a URL: open the photo in Google Photos → right-click the image → Copy image address. The URL starts with lh3.googleusercontent.com.</p>
+            <label for="manualPhotos">Photo URLs — one per line</label>
+            <textarea id="manualPhotos" placeholder="https://lh3.googleusercontent.com/pw/..."></textarea>
+            <p class="hint">Paste the URL list provided by Claude here.</p>
           </div>
-          <button class="btn btn-primary" onclick="addAlbum()">+ Add Album</button>
+          <button class="btn btn-primary" onclick="addManualAlbum()">+ Add Album</button>
         </div>
 
         <div class="btn-row">
           <button class="btn btn-primary" onclick="saveAlbums()">💾 Save &amp; Publish to Site</button>
           <button class="btn btn-danger btn-sm" onclick="doLogout()">Sign Out</button>
         </div>
-      </div>
 
+      </div>
     </div>
   </div>
 </div>
 
+<script src="https://accounts.google.com/gsi/client" async></script>
 <script>
-var REPO_OWNER='mfugel';
-var REPO_NAME='JourneysWithJerseyMark';
-var FILE_PATH='albums.json';
-var BRANCH='main';
-var token='';
-var albums=[];
-var fileSha='';
+var REPO_OWNER  = 'mfugel';
+var REPO_NAME   = 'JourneysWithJerseyMark';
+var FILE_PATH   = 'albums.json';
+var BRANCH      = 'main';
+var GP_CLIENT_ID= '1018395718603-15sitjs10dif8g06cp45hvghq962jb7m.apps.googleusercontent.com';
+var GP_SCOPE    = 'https://www.googleapis.com/auth/photoslibrary.readonly';
+
+var ghToken = '', albums = [], fileSha = '', gpToken = '', selectedAlbum = null;
 
 // Auto-fill saved token
 (function(){
-  try{var t=localStorage.getItem('jm_admin_token');if(t){document.getElementById('tokenInput').value=t;document.getElementById('rememberToken').checked=true;}}catch(e){}
+  try{ var t=localStorage.getItem('jm_admin_token'); if(t){document.getElementById('tokenInput').value=t;document.getElementById('rememberToken').checked=true;} }catch(e){}
 })();
 
-function doLogin(){
+// ── GitHub ──
+function doGithubLogin(){
   var t=document.getElementById('tokenInput').value.trim();
-  if(!t){showStatus('loginStatus','Please enter your GitHub token.','error');return;}
-  showStatus('loginStatus','<span class="spinner">✦</span> Verifying…','info');
-  token=t;
+  if(!t){showStatus('githubStatus','Please enter your GitHub token.','error');return;}
+  showStatus('githubStatus','<span class="spinner">✦</span> Verifying…','info');
+  ghToken=t;
   if(document.getElementById('rememberToken').checked){try{localStorage.setItem('jm_admin_token',t);}catch(e){}}
   fetchAlbums();
 }
 
 function doLogout(){
-  token='';
+  ghToken='';
   try{localStorage.removeItem('jm_admin_token');}catch(e){}
   document.getElementById('tokenInput').value='';
-  document.getElementById('loginScreen').style.display='block';
+  document.getElementById('githubScreen').style.display='block';
   document.getElementById('mainScreen').style.display='none';
+  gpSignOut();
 }
 
 function fetchAlbums(){
-  var url='https://api.github.com/repos/'+REPO_OWNER+'/'+REPO_NAME+'/contents/'+FILE_PATH+'?ref='+BRANCH;
-  fetch(url,{headers:{'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json'}})
-    .then(function(r){
-      if(r.status===401){showStatus('loginStatus','Invalid token — check and try again.','error');token='';return null;}
-      if(!r.ok){showStatus('loginStatus','Could not load albums.json (status '+r.status+').','error');return null;}
-      return r.json();
-    })
-    .then(function(data){
-      if(!data)return;
-      fileSha=data.sha;
-      albums=JSON.parse(atob(data.content.replace(/\n/g,'')));
-      document.getElementById('loginScreen').style.display='none';
-      document.getElementById('mainScreen').style.display='block';
-      renderAlbums();
-    })
-    .catch(function(err){showStatus('loginStatus','Connection error: '+err.message,'error');});
+  fetch('https://api.github.com/repos/'+REPO_OWNER+'/'+REPO_NAME+'/contents/'+FILE_PATH+'?ref='+BRANCH,
+    {headers:{'Authorization':'Bearer '+ghToken,'Accept':'application/vnd.github+json'}})
+  .then(function(r){
+    if(r.status===401){showStatus('githubStatus','Invalid token.','error');ghToken='';return null;}
+    if(!r.ok){showStatus('githubStatus','Could not load albums.json ('+r.status+').','error');return null;}
+    return r.json();
+  })
+  .then(function(data){
+    if(!data)return;
+    fileSha=data.sha;
+    albums=JSON.parse(atob(data.content.replace(/\n/g,'')));
+    document.getElementById('githubScreen').style.display='none';
+    document.getElementById('mainScreen').style.display='block';
+    renderAlbums();
+    // Restore GP token if saved
+    try{var gt=localStorage.getItem('jm_gp_token');if(gt){gpToken=gt;showGpSection();loadGpAlbums();}}catch(e){}
+  })
+  .catch(function(err){showStatus('githubStatus','Error: '+err.message,'error');});
 }
 
 function renderAlbums(){
@@ -198,8 +261,7 @@ function renderAlbums(){
   if(!albums.length){c.innerHTML='<p style="font-family:\'IM Fell English\',serif;font-style:italic;color:rgba(90,53,16,0.5);margin-bottom:1rem;">No albums yet — add one below.</p>';return;}
   c.innerHTML='';
   albums.forEach(function(album,idx){
-    var card=document.createElement('div');
-    card.className='album-card';
+    var card=document.createElement('div');card.className='album-card';
     card.innerHTML=
       '<div class="album-card-header">'+
         '<span class="album-card-title">'+esc(album.title)+'</span>'+
@@ -211,54 +273,177 @@ function renderAlbums(){
       '</div>'+
       '<div class="album-card-body">'+
         '<div class="photo-count">'+album.photos.length+' photo'+(album.photos.length!==1?'s':'')+
-          (album.url?' · <a href="'+esc(album.url)+'" target="_blank" rel="noopener" style="color:#7a4e20;">Open Album ↗</a>':'')+
+          (album.url?' · <a href="'+esc(album.url)+'" target="_blank" rel="noopener" style="color:#7a4e20;">Open ↗</a>':'')+
         '</div>'+
-        '<div class="photo-url-list">'+(album.photos.length?album.photos.map(function(u){return esc(u);}).join('<br>'):'<em>No photos yet</em>')+'</div>'+
+        '<div class="photo-url-list">'+(album.photos.length?album.photos.map(function(u){return esc(u);}).join('<br>'):'<em>No photos</em>')+'</div>'+
         '<button class="btn btn-secondary btn-sm" onclick="editAlbum('+idx+')">✎ Edit Photos</button>'+
       '</div>';
     c.appendChild(card);
   });
 }
 
-function addAlbum(){
-  var title=document.getElementById('newTitle').value.trim();
-  var url=document.getElementById('newUrl').value.trim();
-  var photos=document.getElementById('newPhotos').value.trim().split('\n').map(function(l){return l.trim();}).filter(Boolean);
+function removeAlbum(idx){if(!confirm('Remove "'+albums[idx].title+'"?'))return;albums.splice(idx,1);renderAlbums();showStatus('mainStatus','Removed — hit Save & Publish when ready.','info');}
+function moveAlbum(idx,dir){var to=idx+dir;if(to<0||to>=albums.length)return;var tmp=albums[idx];albums[idx]=albums[to];albums[to]=tmp;renderAlbums();showStatus('mainStatus','Reordered — hit Save & Publish when ready.','info');}
+function editAlbum(idx){var urls=prompt('Photo URLs for "'+albums[idx].title+'" (one per line):',albums[idx].photos.join('\n'));if(urls===null)return;albums[idx].photos=urls.split('\n').map(function(l){return l.trim();}).filter(Boolean);renderAlbums();showStatus('mainStatus','Updated — hit Save & Publish when ready.','info');}
+
+// ── Google Photos ──
+function gpSignIn(){
+  var client=google.accounts.oauth2.initTokenClient({
+    client_id:GP_CLIENT_ID,
+    scope:GP_SCOPE,
+    callback:function(resp){
+      if(resp.error){showStatus('mainStatus','Google sign-in failed: '+resp.error,'error');return;}
+      gpToken=resp.access_token;
+      try{localStorage.setItem('jm_gp_token',gpToken);}catch(e){}
+      showGpSection();
+      loadGpAlbums();
+    }
+  });
+  client.requestAccessToken();
+}
+
+function gpSignOut(){
+  gpToken='';
+  try{localStorage.removeItem('jm_gp_token');}catch(e){}
+  document.getElementById('gpAuthBar').style.display='none';
+  document.getElementById('gpConnectSection').style.display='block';
+  document.getElementById('gpAlbumSection').style.display='none';
+  document.getElementById('selectedPreview').classList.remove('show');
+  selectedAlbum=null;
+}
+
+function showGpSection(){
+  document.getElementById('gpConnectSection').style.display='none';
+  document.getElementById('gpAlbumSection').style.display='block';
+  document.getElementById('gpAuthBar').style.display='flex';
+}
+
+function loadGpAlbums(){
+  var grid=document.getElementById('gpAlbumGrid');
+  grid.innerHTML='<div style="grid-column:1/-1;font-family:\'IM Fell English\',serif;font-style:italic;color:rgba(90,53,16,0.5);font-size:0.85rem;"><span class="spinner">✦</span> Loading your albums…</div>';
+
+  // Fetch both shared and owned albums, merge
+  Promise.all([
+    fetch('https://photoslibrary.googleapis.com/v1/sharedAlbums?pageSize=50',{headers:{'Authorization':'Bearer '+gpToken}}).then(function(r){return r.json();}),
+    fetch('https://photoslibrary.googleapis.com/v1/albums?pageSize=50',{headers:{'Authorization':'Bearer '+gpToken}}).then(function(r){return r.json();})
+  ])
+  .then(function(results){
+    if(results[0].error && results[0].error.code===401){gpSignOut();showStatus('mainStatus','Google session expired — please reconnect.','error');return;}
+    var shared=(results[0].sharedAlbums||[]);
+    var owned=(results[1].albums||[]);
+    var seen={};var all=[];
+    shared.concat(owned).forEach(function(a){if(!seen[a.id]){seen[a.id]=true;all.push(a);}});
+    // Sort by title
+    all.sort(function(a,b){return (a.title||'').localeCompare(b.title||'');});
+    renderGpAlbums(all);
+  })
+  .catch(function(err){
+    grid.innerHTML='<div style="grid-column:1/-1;font-family:\'IM Fell English\',serif;font-style:italic;color:#8b2222;font-size:0.85rem;">Could not load albums. Try reconnecting Google Photos.</div>';
+  });
+}
+
+function renderGpAlbums(list){
+  var grid=document.getElementById('gpAlbumGrid');
+  if(!list.length){grid.innerHTML='<div style="grid-column:1/-1;font-family:\'IM Fell English\',serif;font-style:italic;color:rgba(90,53,16,0.5);">No albums found.</div>';return;}
+  grid.innerHTML='';
+  list.forEach(function(album){
+    var card=document.createElement('div');card.className='gp-album-card';
+    card.onclick=function(){selectAlbum(album,card);};
+    var thumb=album.coverPhotoBaseUrl
+      ?'<img class="gp-album-thumb" src="'+esc(album.coverPhotoBaseUrl)+'=w160-h160-c" alt="" loading="lazy">'
+      :'<div class="gp-album-thumb-placeholder">📷</div>';
+    var cnt=album.mediaItemsCount?album.mediaItemsCount+' item'+(album.mediaItemsCount!=='1'?'s':''):'';
+    card.innerHTML=thumb+'<div class="gp-album-info"><div class="gp-album-name">'+esc(album.title||'Untitled')+'</div>'+(cnt?'<div class="gp-album-count">'+esc(cnt)+'</div>':'')+'</div>';
+    grid.appendChild(card);
+  });
+}
+
+function selectAlbum(album,cardEl){
+  document.querySelectorAll('.gp-album-card').forEach(function(c){c.classList.remove('selected');});
+  cardEl.classList.add('selected');
+  selectedAlbum={id:album.id,title:album.title||'Untitled',shareUrl:'',photos:[]};
+  document.getElementById('customTitle').value=album.title||'';
+  var preview=document.getElementById('selectedPreview');
+  preview.classList.add('show');
+  document.getElementById('previewTitle').textContent=album.title||'Untitled';
+  document.getElementById('previewMeta').textContent='Loading photos…';
+  document.getElementById('previewThumbs').innerHTML='';
+  document.getElementById('addStatus').className='status';
+  fetchPhotos(album.id,null,[]);
+}
+
+function fetchPhotos(albumId,pageToken,acc){
+  var body={albumId:albumId,pageSize:100};
+  if(pageToken)body.pageToken=pageToken;
+  fetch('https://photoslibrary.googleapis.com/v1/mediaItems:search',{
+    method:'POST',
+    headers:{'Authorization':'Bearer '+gpToken,'Content-Type':'application/json'},
+    body:JSON.stringify(body)
+  })
+  .then(function(r){return r.json();})
+  .then(function(data){
+    var photos=(data.mediaItems||[]).filter(function(item){
+      return item.mediaMetadata&&item.mediaMetadata.photo;
+    }).map(function(item){return item.baseUrl+'=w1200-h900-no';});
+    acc=acc.concat(photos);
+    if(data.nextPageToken&&acc.length<500){
+      fetchPhotos(albumId,data.nextPageToken,acc);
+    } else {
+      selectedAlbum.photos=acc;
+      document.getElementById('previewMeta').textContent=acc.length+' photos ready to add';
+      var thumbRow=document.getElementById('previewThumbs');
+      thumbRow.innerHTML='';
+      acc.slice(0,8).forEach(function(url){
+        var img=document.createElement('img');
+        img.src=url.replace('=w1200-h900-no','=w100-h100-c');
+        img.loading='lazy';
+        thumbRow.appendChild(img);
+      });
+      if(acc.length>8){
+        var more=document.createElement('span');
+        more.style.cssText='display:flex;align-items:center;font-family:\'IM Fell English\',serif;font-style:italic;font-size:0.78rem;color:rgba(90,53,16,0.6);';
+        more.textContent='+' +(acc.length-8)+' more';
+        thumbRow.appendChild(more);
+      }
+    }
+  })
+  .catch(function(){document.getElementById('previewMeta').textContent='Error loading photos.';});
+}
+
+function addSelectedAlbum(){
+  if(!selectedAlbum||!selectedAlbum.photos.length){showStatus('addStatus','No photos loaded yet — wait a moment and try again.','error');return;}
+  var title=document.getElementById('customTitle').value.trim()||selectedAlbum.title;
+  albums.push({title:title,url:selectedAlbum.shareUrl||'',photos:selectedAlbum.photos});
+  renderAlbums();
+  showStatus('addStatus','✦ Album added!','success');
+  showStatus('mainStatus','Album added — hit Save & Publish to make it live.','info');
+  document.querySelectorAll('.gp-album-card').forEach(function(c){c.classList.remove('selected');});
+  document.getElementById('selectedPreview').classList.remove('show');
+  selectedAlbum=null;
+}
+
+// ── Manual ──
+function addManualAlbum(){
+  var title=document.getElementById('manualTitle').value.trim();
+  var url=document.getElementById('manualUrl').value.trim();
+  var photos=document.getElementById('manualPhotos').value.trim().split('\n').map(function(l){return l.trim();}).filter(Boolean);
   if(!title){showStatus('mainStatus','Please enter an album title.','error');return;}
   albums.push({title:title,url:url,photos:photos});
-  document.getElementById('newTitle').value='';
-  document.getElementById('newUrl').value='';
-  document.getElementById('newPhotos').value='';
+  document.getElementById('manualTitle').value='';
+  document.getElementById('manualUrl').value='';
+  document.getElementById('manualPhotos').value='';
   renderAlbums();
-  showStatus('mainStatus','Album added — hit "Save & Publish" to make it live.','info');
+  showStatus('mainStatus','Album added — hit Save & Publish when ready.','info');
 }
 
-function removeAlbum(idx){
-  if(!confirm('Remove "'+albums[idx].title+'"?'))return;
-  albums.splice(idx,1);renderAlbums();
-  showStatus('mainStatus','Removed — hit "Save & Publish" when ready.','info');
-}
-
-function moveAlbum(idx,dir){
-  var to=idx+dir;if(to<0||to>=albums.length)return;
-  var tmp=albums[idx];albums[idx]=albums[to];albums[to]=tmp;
-  renderAlbums();showStatus('mainStatus','Order updated — hit "Save & Publish" when ready.','info');
-}
-
-function editAlbum(idx){
-  var urls=prompt('Photo URLs for "'+albums[idx].title+'" (one per line):',albums[idx].photos.join('\n'));
-  if(urls===null)return;
-  albums[idx].photos=urls.split('\n').map(function(l){return l.trim();}).filter(Boolean);
-  renderAlbums();showStatus('mainStatus','Photos updated — hit "Save & Publish" when ready.','info');
-}
-
+// ── Save to GitHub ──
 function saveAlbums(){
-  if(!token){showStatus('mainStatus','Not logged in.','error');return;}
+  if(!ghToken){showStatus('mainStatus','Not logged in.','error');return;}
   showStatus('mainStatus','<span class="spinner">✦</span> Publishing to GitHub…','info');
   var content=btoa(unescape(encodeURIComponent(JSON.stringify(albums,null,2))));
   fetch('https://api.github.com/repos/'+REPO_OWNER+'/'+REPO_NAME+'/contents/'+FILE_PATH,{
     method:'PUT',
-    headers:{'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json','Content-Type':'application/json'},
+    headers:{'Authorization':'Bearer '+ghToken,'Accept':'application/vnd.github+json','Content-Type':'application/json'},
     body:JSON.stringify({message:'Update albums.json via admin page',content:content,sha:fileSha,branch:BRANCH})
   })
   .then(function(r){if(!r.ok)return r.json().then(function(e){throw new Error(e.message||r.status);});return r.json();})
