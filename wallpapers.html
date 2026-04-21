@@ -50,10 +50,7 @@ body{background:#c8a96e;font-family:'Crimson Text',serif;color:#2c1a08;position:
 .nav-brand:hover{color:#f5ead0;}
 .nav-links{display:flex;align-items:center;flex-wrap:wrap;justify-content:center;}
 .nav-drawer{display:none;}
-@media(max-width:860px){
-  .site-nav a{font-size:0.55rem;padding:0.5rem 0.45rem;letter-spacing:0.08em;}
-  .nav-dot{display:none;}
-}
+@media(max-width:860px){.site-nav a{font-size:0.55rem;padding:0.5rem 0.45rem;letter-spacing:0.08em;}.nav-dot{display:none;}}
 @media(max-width:600px){
   .nav-inner{justify-content:space-between;flex-wrap:nowrap;}
   .nav-links{display:none;}
@@ -65,62 +62,72 @@ body{background:#c8a96e;font-family:'Crimson Text',serif;color:#2c1a08;position:
   .nav-drawer a.nav-active{border-left:2px solid rgba(220,192,137,0.6);}
 }
 
-/* ── Filter tabs ── */
-.filter-bar{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.1rem;}
-.filter-btn{font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.3rem 0.85rem;border:1px solid #7a4e20;border-radius:3px;background:transparent;color:#7a4e20;cursor:pointer;transition:all 0.2s;}
-.filter-btn:hover{background:rgba(90,53,16,0.12);}
-.filter-btn.active{background:#5a3510;color:#f5ead0;border-color:#5a3510;}
+/* ── Format Toggle ── */
+.format-toggle{display:flex;align-items:center;justify-content:center;gap:0;margin-bottom:1.2rem;border:1.5px solid #7a4e20;border-radius:3px;overflow:hidden;width:fit-content;margin-left:auto;margin-right:auto;}
+.fmt-btn{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.45rem 1.2rem;border:none;background:transparent;color:#7a4e20;cursor:pointer;transition:all 0.2s;white-space:nowrap;}
+.fmt-btn:first-child{border-right:1px solid #7a4e20;}
+.fmt-btn.active{background:#5a3510;color:#f5ead0;}
+.fmt-btn:not(.active):hover{background:rgba(90,53,16,0.1);}
+.format-hint{font-family:'IM Fell English',serif;font-style:italic;font-size:0.82rem;color:#7a4e20;text-align:center;margin-bottom:1rem;}
+
+/* ── Location Tabs ── */
+.loc-tabs{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1.1rem;}
+.loc-tab{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.09em;text-transform:uppercase;padding:0.28rem 0.75rem;border:1px solid #7a4e20;border-radius:3px;background:transparent;color:#7a4e20;cursor:pointer;transition:all 0.2s;}
+.loc-tab:hover{background:rgba(90,53,16,0.1);}
+.loc-tab.active{background:#5a3510;color:#f5ead0;border-color:#5a3510;}
 
 /* ── Location heading ── */
-.loc-heading{display:flex;align-items:center;gap:8px;margin:1.2rem 0 0.7rem;}
-.loc-title{font-family:'Cinzel',serif;font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:#5a3510;white-space:nowrap;}
+.loc-heading{display:flex;align-items:center;gap:8px;margin-bottom:0.8rem;}
+.loc-title{font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:#5a3510;}
 .loc-rule{flex:1;height:1px;background:rgba(90,53,16,0.3);}
 .loc-count{font-family:'IM Fell English',serif;font-style:italic;font-size:0.78rem;color:#7a4e20;white-space:nowrap;}
 
-/* ── Wallpaper grid ── */
-.wallpaper-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:10px;margin-bottom:0.5rem;}
+/* ── Wallpaper Grid ── */
+.wallpaper-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;}
 .wp-card{border:1.5px solid #7a4e20;border-radius:3px;background:rgba(160,110,50,0.1);overflow:hidden;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s,border-color 0.2s;}
 .wp-card:hover{transform:translateY(-2px);box-shadow:0 5px 16px rgba(44,26,8,0.25);border-color:#5a3510;}
 .wp-thumb{display:block;width:100%;aspect-ratio:9/16;object-fit:cover;filter:sepia(0.1) contrast(1.03);transition:filter 0.25s;background:#b89050;}
 .wp-card:hover .wp-thumb{filter:sepia(0) contrast(1.08);}
-.wp-info{padding:0.45rem 0.55rem 0.55rem;}
-.wp-name{font-family:'Cinzel',serif;font-size:0.58rem;letter-spacing:0.08em;text-transform:uppercase;color:#5a3510;margin-bottom:0.38rem;line-height:1.3;}
-.wp-btn{display:block;width:100%;padding:0.3rem 0;font-family:'Cinzel',serif;font-size:0.56rem;letter-spacing:0.1em;text-transform:uppercase;text-align:center;background:transparent;border:1px solid #7a4e20;border-radius:2px;color:#5a3510;cursor:pointer;transition:all 0.2s;}
+.wp-info{padding:0.4rem 0.5rem 0.5rem;}
+.wp-name{font-family:'Cinzel',serif;font-size:0.56rem;letter-spacing:0.07em;text-transform:uppercase;color:#5a3510;margin-bottom:0.35rem;line-height:1.3;}
+.wp-btn{display:block;width:100%;padding:0.28rem 0;font-family:'Cinzel',serif;font-size:0.54rem;letter-spacing:0.09em;text-transform:uppercase;text-align:center;background:transparent;border:1px solid #7a4e20;border-radius:2px;color:#5a3510;cursor:pointer;transition:all 0.2s;}
 .wp-btn:hover{background:#5a3510;color:#f5ead0;}
 
 /* ── Lightbox ── */
 .lightbox{display:none;position:fixed;inset:0;background:rgba(20,10,2,0.94);z-index:1000;align-items:center;justify-content:center;padding:1rem;flex-direction:column;}
 .lightbox.open{display:flex;}
-.lb-inner{position:relative;display:flex;flex-direction:column;align-items:center;max-width:min(360px,92vw);width:100%;}
+.lb-inner{position:relative;display:flex;flex-direction:column;align-items:center;max-width:min(380px,94vw);width:100%;}
 .lb-close{position:absolute;top:-2.2rem;right:0;font-family:'Cinzel',serif;font-size:0.85rem;color:rgba(245,234,208,0.7);cursor:pointer;background:rgba(20,10,2,0.6);border:1px solid rgba(122,78,32,0.5);border-radius:2px;padding:2px 10px;line-height:1.6;transition:color 0.2s;}
 .lb-close:hover{color:#f5ead0;}
-.lb-img{display:block;width:100%;max-height:55vh;object-fit:contain;border:2px solid #7a4e20;border-radius:3px;}
+.lb-img{display:block;width:100%;max-height:58vh;object-fit:contain;border:2px solid #7a4e20;border-radius:3px;}
 .lb-title{font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:#c8a96e;margin-top:0.65rem;text-align:center;}
-.lb-location{font-family:'IM Fell English',serif;font-style:italic;font-size:0.82rem;color:rgba(200,169,110,0.7);text-align:center;margin-bottom:0.65rem;}
-.lb-download{display:block;width:100%;padding:0.55rem 0;font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;text-align:center;text-decoration:none;background:#5a3510;color:#f5ead0;border:1px solid #7a4e20;border-radius:3px;cursor:pointer;transition:background 0.2s;margin-bottom:0.55rem;}
+.lb-location{font-family:'IM Fell English',serif;font-style:italic;font-size:0.82rem;color:rgba(200,169,110,0.7);text-align:center;margin-bottom:0.5rem;}
+.lb-format-row{display:flex;gap:0;border:1px solid #7a4e20;border-radius:3px;overflow:hidden;width:100%;margin-bottom:0.5rem;}
+.lb-fmt-btn{flex:1;font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.4rem 0;background:transparent;border:none;color:#c8a96e;cursor:pointer;transition:all 0.2s;text-align:center;}
+.lb-fmt-btn:first-child{border-right:1px solid #7a4e20;}
+.lb-fmt-btn.active{background:rgba(201,168,76,0.15);color:#f5ead0;}
+.lb-fmt-btn:not(.active):hover{background:rgba(201,168,76,0.08);}
+.lb-download{display:block;width:100%;padding:0.52rem 0;font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;text-align:center;text-decoration:none;background:#5a3510;color:#f5ead0;border:1px solid #7a4e20;border-radius:3px;cursor:pointer;transition:background 0.2s;margin-bottom:0.55rem;}
 .lb-download:hover{background:#7a4e20;}
 
 /* ── How-to accordion ── */
 .howto{border:1px dashed rgba(90,53,16,0.4);border-radius:3px;overflow:hidden;width:100%;}
-.howto-toggle{width:100%;background:rgba(160,110,50,0.15);border:none;cursor:pointer;padding:0.5rem 0.75rem;display:flex;align-items:center;justify-content:space-between;font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:#5a3510;transition:background 0.2s;}
+.howto-toggle{width:100%;background:rgba(160,110,50,0.15);border:none;cursor:pointer;padding:0.5rem 0.75rem;display:flex;align-items:center;justify-content:space-between;font-family:'Cinzel',serif;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:#5a3510;transition:background 0.2s;}
 .howto-toggle:hover{background:rgba(160,110,50,0.28);}
-.howto-arrow{font-size:0.65rem;transition:transform 0.25s;display:inline-block;}
+.howto-arrow{transition:transform 0.25s;display:inline-block;}
 .howto-toggle.open .howto-arrow{transform:rotate(180deg);}
-.howto-body{display:none;padding:0.7rem 0.8rem 0.8rem;background:rgba(245,234,208,0.06);}
+.howto-body{display:none;padding:0.7rem 0.8rem 0.8rem;background:rgba(245,234,208,0.05);}
 .howto-body.open{display:block;}
-.howto-tabs{display:flex;gap:0;border-bottom:1px solid rgba(90,53,16,0.25);margin-bottom:0.7rem;}
-.howto-tab{flex:1;font-family:'Cinzel',serif;font-size:0.58rem;letter-spacing:0.08em;text-transform:uppercase;padding:0.38rem 0;background:transparent;border:none;cursor:pointer;color:rgba(90,53,16,0.5);border-bottom:2px solid transparent;margin-bottom:-1px;transition:all 0.2s;}
+.howto-tabs{display:flex;border-bottom:1px solid rgba(90,53,16,0.25);margin-bottom:0.7rem;}
+.howto-tab{flex:1;font-family:'Cinzel',serif;font-size:0.56rem;letter-spacing:0.08em;text-transform:uppercase;padding:0.35rem 0;background:transparent;border:none;cursor:pointer;color:rgba(90,53,16,0.5);border-bottom:2px solid transparent;margin-bottom:-1px;transition:all 0.2s;}
 .howto-tab.active{color:#5a3510;border-bottom-color:#5a3510;}
 .howto-panel{display:none;}
 .howto-panel.active{display:block;}
-.howto-step{display:flex;gap:0.5rem;align-items:flex-start;margin-bottom:0.5rem;}
+.howto-step{display:flex;gap:0.5rem;align-items:flex-start;margin-bottom:0.48rem;}
 .howto-step:last-child{margin-bottom:0;}
-.step-num{font-family:'Cinzel',serif;font-size:0.6rem;font-weight:700;color:#5a3510;background:rgba(90,53,16,0.12);border:1px solid rgba(90,53,16,0.25);border-radius:50%;width:1.4rem;height:1.4rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:0.05rem;}
-.step-text{font-family:'Crimson Text',serif;font-size:0.88rem;color:#f5ead0;line-height:1.45;}
+.step-num{font-family:'Cinzel',serif;font-size:0.58rem;font-weight:700;color:#5a3510;background:rgba(90,53,16,0.12);border:1px solid rgba(90,53,16,0.25);border-radius:50%;width:1.35rem;height:1.35rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:0.08rem;}
+.step-text{font-family:'Crimson Text',serif;font-size:0.86rem;color:#f5ead0;line-height:1.45;}
 .step-text em{font-style:italic;color:#c8a96e;}
-
-/* ── Empty state ── */
-.empty-state{font-family:'IM Fell English',serif;font-style:italic;font-size:0.9rem;color:rgba(90,53,16,0.5);text-align:center;padding:1.5rem 0;}
 
 /* ── Responsive ── */
 @media(max-width:600px){
@@ -129,7 +136,7 @@ body{background:#c8a96e;font-family:'Crimson Text',serif;color:#2c1a08;position:
   .cartouche-border{padding:1rem 0.8rem 1.2rem;min-width:98%;border-radius:40% / 20%;}
   .logo-seal{width:110px;height:110px;}
   .map-title{font-size:1.45rem;}
-  .wallpaper-grid{grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px;}
+  .wallpaper-grid{grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px;}
 }
 @media(max-width:380px){
   .content{padding:0.75rem 0.5rem 1.5rem;}
@@ -137,7 +144,7 @@ body{background:#c8a96e;font-family:'Crimson Text',serif;color:#2c1a08;position:
   .map-title{font-size:1.2rem;}
   .logo-seal{width:90px;height:90px;}
   .cartouche-border{padding:0.8rem 0.5rem 1rem;}
-  .wallpaper-grid{grid-template-columns:repeat(auto-fill,minmax(100px,1fr));}
+  .wallpaper-grid{grid-template-columns:repeat(auto-fill,minmax(95px,1fr));}
 }
 @media(min-width:601px) and (max-width:900px){
   .content{padding:1.5rem 1.5rem 2.5rem;}
@@ -149,7 +156,7 @@ body{background:#c8a96e;font-family:'Crimson Text',serif;color:#2c1a08;position:
   .inner-border{padding:2rem 2.5rem 2.5rem;}
   .map-title{font-size:2.1rem;}
   .logo-seal{width:155px;height:155px;}
-  .wallpaper-grid{grid-template-columns:repeat(auto-fill,minmax(155px,1fr));}
+  .wallpaper-grid{grid-template-columns:repeat(auto-fill,minmax(145px,1fr));}
 }
 </style>
 </head>
@@ -158,6 +165,7 @@ body{background:#c8a96e;font-family:'Crimson Text',serif;color:#2c1a08;position:
 <div class="parchment-bg"></div>
 <div class="vignette"></div>
 
+<!-- ── Nav ── -->
 <nav class="site-nav" id="siteNav">
   <div class="nav-inner">
     <div class="nav-links">
@@ -193,24 +201,22 @@ body{background:#c8a96e;font-family:'Crimson Text',serif;color:#2c1a08;position:
 </nav>
 
 <div class="content">
-  <div class="outer-border" id="top">
+  <div class="outer-border">
     <div class="corner-ornament corner-tl">✦</div>
     <div class="corner-ornament corner-tr">✦</div>
     <div class="corner-ornament corner-bl">✦</div>
     <div class="corner-ornament corner-br">✦</div>
     <div class="inner-border">
 
-      <!-- ── Cartouche / Header ── -->
       <div class="cartouche">
         <div class="cartouche-border">
           <img src="images/seal.jpg" alt="Journeys with Jersey Mark" class="logo-seal" />
           <div class="map-title">Gift from the Road</div>
-          <div class="map-subtitle">Free Phone Wallpapers · Journeys with Jersey Mark</div>
+          <div class="map-subtitle">Free Wallpapers · Journeys with Jersey Mark</div>
           <div class="map-motto">One man's journey · captured through the windshield</div>
         </div>
       </div>
 
-      <!-- ── Intro ── -->
       <div class="divider-rule">✦ A Traveller's Token ✦</div>
       <div class="legend-box">
         <div class="legend-box-title">About These Wallpapers</div>
@@ -221,17 +227,24 @@ body{background:#c8a96e;font-family:'Crimson Text',serif;color:#2c1a08;position:
         </p>
       </div>
 
-      <!-- ── Gallery ── -->
-      <div class="divider-rule" id="gallery">✦ Choose Your Wallpaper ✦</div>
+      <div class="divider-rule">✦ Choose Your Wallpaper ✦</div>
       <div class="legend-box">
         <div class="legend-box-title">Wallpapers by Location</div>
-        <div class="filter-bar" id="filterBar">
-          <button class="filter-btn active" onclick="filterBy('all',this)">All Locations</button>
+
+        <!-- Format toggle -->
+        <div class="format-toggle">
+          <button class="fmt-btn active" id="fmtPhone" onclick="setFormat('phone',this)">📱 Phone</button>
+          <button class="fmt-btn" id="fmtDesktop" onclick="setFormat('desktop',this)">🖥 Desktop</button>
         </div>
+        <p class="format-hint" id="formatHint">Portrait · optimised for iPhone &amp; Android</p>
+
+        <!-- Location tabs -->
+        <div class="loc-tabs" id="locTabs"></div>
+
+        <!-- Gallery output -->
         <div id="galleryOutput"></div>
       </div>
 
-      <!-- ── Footer ── -->
       <div class="footer-seal">
         <div class="compass-rose">✤</div>
         <p>Enjoying the wallpapers? Follow the journey.</p>
@@ -256,9 +269,13 @@ body{background:#c8a96e;font-family:'Crimson Text',serif;color:#2c1a08;position:
     <img class="lb-img" id="lbImg" src="" alt="" />
     <p class="lb-title" id="lbTitle"></p>
     <p class="lb-location" id="lbLocation"></p>
-    <a class="lb-download" id="lbDownload" href="" download>⬇ Download This Wallpaper</a>
-
-    <!-- How-to accordion -->
+    <!-- format selector inside lightbox -->
+    <div class="lb-format-row">
+      <button class="lb-fmt-btn active" id="lbFmtPhone" onclick="lbSetFormat('phone',this)">📱 Phone</button>
+      <button class="lb-fmt-btn" id="lbFmtDesktop" onclick="lbSetFormat('desktop',this)">🖥 Desktop</button>
+    </div>
+    <a class="lb-download" id="lbDownload" href="" download>⬇ Download Wallpaper</a>
+    <!-- How-to -->
     <div class="howto">
       <button class="howto-toggle" id="howtoToggle" onclick="toggleHowto()">
         <span>📱 How to set as your wallpaper</span>
@@ -269,192 +286,218 @@ body{background:#c8a96e;font-family:'Crimson Text',serif;color:#2c1a08;position:
           <button class="howto-tab active" onclick="switchTab('iphone',this)">🍎 iPhone</button>
           <button class="howto-tab" onclick="switchTab('android',this)">🤖 Android</button>
         </div>
-
         <div class="howto-panel active" id="panel-iphone">
-          <div class="howto-step">
-            <div class="step-num">1</div>
-            <div class="step-text">Tap <em>Download This Wallpaper</em> above — the image saves to your Photos app.</div>
-          </div>
-          <div class="howto-step">
-            <div class="step-num">2</div>
-            <div class="step-text">Open the <em>Photos</em> app and find the downloaded image.</div>
-          </div>
-          <div class="howto-step">
-            <div class="step-num">3</div>
-            <div class="step-text">Tap the <em>Share</em> button — the box with an arrow pointing up.</div>
-          </div>
-          <div class="howto-step">
-            <div class="step-num">4</div>
-            <div class="step-text">Scroll down and tap <em>Use as Wallpaper</em>.</div>
-          </div>
-          <div class="howto-step">
-            <div class="step-num">5</div>
-            <div class="step-text">Pinch and drag to position, then choose <em>Lock Screen</em>, <em>Home Screen</em>, or <em>Both</em>. Tap Set.</div>
-          </div>
+          <div class="howto-step"><div class="step-num">1</div><div class="step-text">Tap <em>Download Wallpaper</em> above — the image saves to your Photos app.</div></div>
+          <div class="howto-step"><div class="step-num">2</div><div class="step-text">Open the <em>Photos</em> app and find the downloaded image.</div></div>
+          <div class="howto-step"><div class="step-num">3</div><div class="step-text">Tap the <em>Share</em> button — the box with an arrow pointing up.</div></div>
+          <div class="howto-step"><div class="step-num">4</div><div class="step-text">Scroll down and tap <em>Use as Wallpaper</em>.</div></div>
+          <div class="howto-step"><div class="step-num">5</div><div class="step-text">Pinch and drag to position, then choose <em>Lock Screen</em>, <em>Home Screen</em>, or <em>Both</em>. Tap Set.</div></div>
         </div>
-
         <div class="howto-panel" id="panel-android">
-          <div class="howto-step">
-            <div class="step-num">1</div>
-            <div class="step-text">Tap <em>Download This Wallpaper</em> above — it saves to your Gallery or Downloads folder.</div>
-          </div>
-          <div class="howto-step">
-            <div class="step-num">2</div>
-            <div class="step-text">Open your <em>Gallery</em> or <em>Photos</em> app and find the image.</div>
-          </div>
-          <div class="howto-step">
-            <div class="step-num">3</div>
-            <div class="step-text">Tap the <em>three-dot menu (⋮)</em> and choose <em>Set as Wallpaper</em>. On some phones, tap Share → Set as Wallpaper instead.</div>
-          </div>
-          <div class="howto-step">
-            <div class="step-num">4</div>
-            <div class="step-text">Choose <em>Home Screen</em>, <em>Lock Screen</em>, or <em>Both</em>, adjust the crop, and tap <em>Set</em>.</div>
-          </div>
-          <div class="howto-step">
-            <div class="step-num">5</div>
-            <div class="step-text"><em>Samsung tip:</em> Long-press your home screen → tap <em>Wallpapers</em> → select the image from your Gallery.</div>
-          </div>
+          <div class="howto-step"><div class="step-num">1</div><div class="step-text">Tap <em>Download Wallpaper</em> above — saves to your Gallery or Downloads.</div></div>
+          <div class="howto-step"><div class="step-num">2</div><div class="step-text">Open your <em>Gallery</em> or <em>Photos</em> app and find the image.</div></div>
+          <div class="howto-step"><div class="step-num">3</div><div class="step-text">Tap the <em>three-dot menu (⋮)</em> and choose <em>Set as Wallpaper</em>.</div></div>
+          <div class="howto-step"><div class="step-num">4</div><div class="step-text">Choose <em>Home Screen</em>, <em>Lock Screen</em>, or <em>Both</em>, adjust crop, tap <em>Set</em>.</div></div>
+          <div class="howto-step"><div class="step-num">5</div><div class="step-text"><em>Samsung tip:</em> Long-press home screen → tap <em>Wallpapers</em> → select from Gallery.</div></div>
         </div>
-
       </div>
     </div>
-    <!-- end howto -->
-
   </div>
 </div>
 
 <script>
-// ============================================================
-//  WALLPAPERS DATA
-//
-//  To add a new wallpaper:
-//  1. Upload the image to /wallpapers/ in your GitHub repo
-//  2. Add an entry here: { file, title, location }
-//
-//  "location" controls the filter tab and section heading.
-//  Use consistent location names — spelling must match exactly.
-// ============================================================
+// ── Wallpaper data ──
 var wallpapers = [
-  { file:"canadian-rockies-waterfowl.jpg",  title:"Waterfowl Lake",       location:"Canadian Rockies" },
-  { file:"canadian-rockies-morning.jpg",    title:"Morning Peaks",         location:"Canadian Rockies" },
-  { file:"canadian-rockies-icefields.jpg",  title:"Icefields Parkway",     location:"Canadian Rockies" },
-  { file:"desert-southwest-arch.jpg",       title:"Red Rock Arch",         location:"Desert Southwest" },
-  { file:"desert-southwest-sunset.jpg",     title:"Canyon Sunset",         location:"Desert Southwest" },
-  { file:"pacific-coast-cliffs.jpg",        title:"Coastal Cliffs",        location:"Pacific Coast"    },
-  { file:"pacific-coast-lighthouse.jpg",    title:"Pacific Lighthouse",    location:"Pacific Coast"    },
+  {slug:'along-road-01',    title:'Morning Light',         location:'Along the Road'},
+  {slug:'along-road-02',    title:'Desert Twilight',       location:'Along the Road'},
+  {slug:'along-road-03',    title:'Open Road',             location:'Along the Road'},
+  {slug:'grand-canyon-01',  title:'Grand Canyon Rim',      location:'Grand Canyon, AZ'},
+  {slug:'page-az-01',       title:'Lake Powell Vista',     location:'Page & Lake Powell, AZ'},
+  {slug:'navajo-01',        title:'Navajo Country',        location:'Navajo Nation, AZ'},
+  {slug:'bryce-canyon-01',  title:'Bryce Hoodoos',         location:'Bryce Canyon, UT'},
+  {slug:'bryce-canyon-02',  title:'Crimson Spires',        location:'Bryce Canyon, UT'},
+  {slug:'bryce-canyon-03',  title:'Canyon Overlook',       location:'Bryce Canyon, UT'},
+  {slug:'bryce-canyon-04',  title:'Red Rock Ridgeline',    location:'Bryce Canyon, UT'},
+  {slug:'bryce-canyon-05',  title:'Southern Plateau',      location:'Bryce Canyon, UT'},
+  {slug:'bryce-canyon-06',  title:'Painted Cliffs',        location:'Bryce Canyon, UT'},
+  {slug:'bryce-canyon-07',  title:'Into the Canyon',       location:'Bryce Canyon, UT'},
+  {slug:'zion-01',          title:'Zion Valley',           location:'Zion National Park, UT'},
+  {slug:'zion-02',          title:'Canyon Walls',          location:'Zion National Park, UT'},
+  {slug:'zion-03',          title:'Golden Hour Zion',      location:'Zion National Park, UT'},
+  {slug:'snow-canyon-01',   title:'Snow Canyon Shadows',   location:'Snow Canyon, UT'},
+  {slug:'utah-valley-01',   title:'Mountain Valley',       location:'Utah Valley, UT'},
+  {slug:'flaming-gorge-01', title:'Flaming Gorge',         location:'Flaming Gorge, UT/WY'},
+  {slug:'flaming-gorge-02', title:'Morning on the Gorge',  location:'Flaming Gorge, UT/WY'},
+  {slug:'flaming-gorge-03', title:'Red Canyon Dawn',       location:'Flaming Gorge, UT/WY'},
+  {slug:'sawtooth-01',      title:'Sawtooth Peaks',        location:'Sawtooth Mountains, ID'},
+  {slug:'sawtooth-02',      title:'Idaho Alpine Glow',     location:'Sawtooth Mountains, ID'},
+  {slug:'sawtooth-03',      title:'Stanley Basin Morning', location:'Sawtooth Mountains, ID'},
+  {slug:'mt-rainier-01',    title:'Rainier Reflection',    location:'Mt. Rainier, WA'},
+  {slug:'mt-rainier-02',    title:'Wildflower Meadow',     location:'Mt. Rainier, WA'},
+  {slug:'mt-rainier-03',    title:'Cascade Vista',         location:'Mt. Rainier, WA'},
+  {slug:'mt-rainier-04',    title:'Paradise Meadows',      location:'Mt. Rainier, WA'},
+  {slug:'vancouver-island-01',title:'Island Passage',      location:'Vancouver Island, BC'},
+  {slug:'prince-rupert-01', title:'Pacific Dusk',          location:'Prince Rupert, BC'},
+  {slug:'prince-rupert-02', title:'Coastal Mountains',     location:'Prince Rupert, BC'},
+  {slug:'prince-rupert-03', title:'Northern Shores',       location:'Prince Rupert, BC'},
+  {slug:'prince-rupert-04', title:'Inside Passage Sunset', location:'Prince Rupert, BC'},
+  {slug:'stewart-hyder-01', title:'Bear Glacier Valley',   location:'Stewart & Hyder, BC/AK'},
+  {slug:'stewart-hyder-02', title:'Glacier Terminus',      location:'Stewart & Hyder, BC/AK'},
+  {slug:'stewart-hyder-03', title:'Coast Mountain Peaks',  location:'Stewart & Hyder, BC/AK'},
+  {slug:'watson-lake-01',   title:'Yukon Wilderness',      location:'Watson Lake, Yukon'},
+  {slug:'watson-lake-02',   title:'Sign Post Forest',      location:'Watson Lake, Yukon'},
+  {slug:'alaska-01',        title:'Wrangell Peaks',        location:'Wrangell-St. Elias, AK'},
+  {slug:'alaska-02',        title:'Alaska Range at Dusk',  location:'Wrangell-St. Elias, AK'},
+  {slug:'alaska-03',        title:'Alaska Highway',        location:'Alaska Highway, AK'},
+  {slug:'alaska-04',        title:'Interior Alaska',       location:'Alaska Highway, AK'},
+  {slug:'bc-interior-01',   title:'Peace River Country',   location:'BC Interior'},
+  {slug:'jasper-01',        title:'Jasper Wilderness',     location:'Jasper, AB'},
+  {slug:'jasper-02',        title:'Athabasca Falls',       location:'Jasper, AB'},
+  {slug:'jasper-03',        title:'Falls Gorge',           location:'Jasper, AB'},
+  {slug:'jasper-04',        title:'Turquoise Rush',        location:'Jasper, AB'},
+  {slug:'jasper-05',        title:'Athabasca River',       location:'Jasper, AB'},
+  {slug:'jasper-06',        title:'Valley of Waterfalls',  location:'Jasper, AB'},
+  {slug:'icefields-01',     title:'Icefields Parkway',     location:'Icefields Parkway, AB'},
+  {slug:'icefields-02',     title:'Columbia Icefield',     location:'Icefields Parkway, AB'},
+  {slug:'icefields-03',     title:'Glacier Vista',         location:'Icefields Parkway, AB'},
+  {slug:'icefields-04',     title:'Bow Lake',              location:'Icefields Parkway, AB'},
+  {slug:'icefields-05',     title:'Crowfoot Glacier',      location:'Icefields Parkway, AB'},
+  {slug:'icefields-06',     title:'Turquoise Shoreline',   location:'Icefields Parkway, AB'},
+  {slug:'icefields-07',     title:'Peyto Lake Overlook',   location:'Icefields Parkway, AB'},
+  {slug:'banff-01',         title:'Lake Louise Valley',    location:'Banff National Park, AB'},
+  {slug:'banff-02',         title:'Bow Valley Peaks',      location:'Banff National Park, AB'},
+  {slug:'banff-03',         title:'Banff Rockies',         location:'Banff National Park, AB'},
 ];
 
-var BASE = "wallpapers/";
-var activeFilter = "all";
+var BASE = 'wallpapers/';
+var activeFormat = 'phone';
+var activeLocation = null;
+var lbSlug = null;
+var lbFormat = 'phone';
 
+// ── Unique ordered locations ──
 function getLocations() {
   var seen = {}, locs = [];
   wallpapers.forEach(function(w){ if(!seen[w.location]){ seen[w.location]=true; locs.push(w.location); } });
   return locs;
 }
 
-function buildFilterBar() {
-  var bar = document.getElementById("filterBar");
-  getLocations().forEach(function(loc){
-    var btn = document.createElement("button");
-    btn.className = "filter-btn";
+// ── Format toggle (grid) ──
+function setFormat(fmt, btn) {
+  activeFormat = fmt;
+  document.querySelectorAll('.fmt-btn').forEach(function(b){ b.classList.remove('active'); });
+  btn.classList.add('active');
+  document.getElementById('formatHint').innerHTML = fmt === 'phone'
+    ? 'Portrait &middot; optimised for iPhone &amp; Android'
+    : 'Landscape &middot; optimised for computer &amp; tablet';
+  buildGallery();
+}
+
+// ── Build location tabs ──
+function buildLocTabs() {
+  var bar = document.getElementById('locTabs');
+  var locs = getLocations();
+  activeLocation = locs[0];
+  locs.forEach(function(loc, i) {
+    var btn = document.createElement('button');
+    btn.className = 'loc-tab' + (i === 0 ? ' active' : '');
     btn.textContent = loc;
-    btn.onclick = function(){ filterBy(loc, btn); };
+    btn.onclick = function() {
+      document.querySelectorAll('.loc-tab').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      activeLocation = loc;
+      buildGallery();
+    };
     bar.appendChild(btn);
   });
 }
 
-function filterBy(loc, btn) {
-  activeFilter = loc;
-  document.querySelectorAll(".filter-btn").forEach(function(b){ b.classList.remove("active"); });
-  btn.classList.add("active");
-  buildGallery();
-}
-
+// ── Build gallery for active location + format ──
 function buildGallery() {
-  var out = document.getElementById("galleryOutput");
-  out.innerHTML = "";
-  var locs = activeFilter === "all" ? getLocations() : [activeFilter];
-  locs.forEach(function(loc){
-    var items = wallpapers.filter(function(w){ return w.location === loc; });
-    if(!items.length) return;
-    var safeId = loc.replace(/\s+/g,"_");
-    var sec = document.createElement("div");
-    sec.innerHTML =
-      '<div class="loc-heading">' +
-        '<span class="loc-title">✦ ' + loc + '</span>' +
-        '<span class="loc-rule"></span>' +
-        '<span class="loc-count">' + items.length + ' wallpaper' + (items.length!==1?'s':'') + '</span>' +
-      '</div>' +
-      '<div class="wallpaper-grid" id="grid-' + safeId + '"></div>';
-    out.appendChild(sec);
-    var grid = document.getElementById("grid-" + safeId);
-    items.forEach(function(w){
-      var src = BASE + w.file;
-      var card = document.createElement("div");
-      card.className = "wp-card";
-      card.innerHTML =
-        '<img class="wp-thumb" src="' + src + '" alt="' + w.title + '" loading="lazy" />' +
-        '<div class="wp-info">' +
-          '<p class="wp-name">' + w.title + '</p>' +
-          '<button class="wp-btn" onclick="openLb(\'' + src + '\',\'' + w.title.replace(/'/g,"\\'") + '\',\'' + w.location.replace(/'/g,"\\'") + '\')">Preview &amp; Download</button>' +
-        '</div>';
-      grid.appendChild(card);
-    });
+  var out = document.getElementById('galleryOutput');
+  out.innerHTML = '';
+  var items = wallpapers.filter(function(w){ return w.location === activeLocation; });
+  if (!items.length) { out.innerHTML = '<p style="font-family:\'IM Fell English\',serif;font-style:italic;font-size:0.9rem;color:rgba(90,53,16,0.5);text-align:center;padding:1.5rem 0;">No wallpapers here yet.</p>'; return; }
+
+  var heading = document.createElement('div');
+  heading.className = 'loc-heading';
+  heading.innerHTML = '<span class="loc-title">✦ ' + activeLocation + '</span><span class="loc-rule"></span><span class="loc-count">' + items.length + ' wallpaper' + (items.length !== 1 ? 's' : '') + '</span>';
+  out.appendChild(heading);
+
+  var grid = document.createElement('div');
+  grid.className = 'wallpaper-grid';
+  items.forEach(function(w) {
+    var thumbSrc = BASE + w.slug + '-thumb.jpg';
+    var card = document.createElement('div');
+    card.className = 'wp-card';
+    card.innerHTML =
+      '<img class="wp-thumb" src="' + thumbSrc + '" alt="' + w.title + '" loading="lazy" />' +
+      '<div class="wp-info">' +
+        '<p class="wp-name">' + w.title + '</p>' +
+        '<button class="wp-btn" onclick="openLb(\'' + w.slug + '\',\'' + w.title.replace(/'/g,"\\'") + '\',\'' + w.location.replace(/'/g,"\\'") + '\')">Preview &amp; Download</button>' +
+      '</div>';
+    grid.appendChild(card);
   });
-  if(!out.children.length) out.innerHTML = '<p class="empty-state">No wallpapers in this location yet — check back soon.</p>';
+  out.appendChild(grid);
 }
 
 // ── Lightbox ──
-function openLb(src, title, location) {
-  document.getElementById("lbImg").src = src;
-  document.getElementById("lbTitle").textContent = title;
-  document.getElementById("lbLocation").textContent = "✦ " + location;
-  var dl = document.getElementById("lbDownload");
-  dl.href = src; dl.download = src.split("/").pop();
-  document.getElementById("lightbox").classList.add("open");
-  document.body.style.overflow = "hidden";
+function openLb(slug, title, location) {
+  lbSlug = slug;
+  lbFormat = activeFormat;
+  document.getElementById('lbTitle').textContent = title;
+  document.getElementById('lbLocation').textContent = '✦ ' + location;
+  updateLbImage();
+  // sync lightbox format buttons to grid format
+  document.querySelectorAll('.lb-fmt-btn').forEach(function(b){ b.classList.remove('active'); });
+  document.getElementById(lbFormat === 'phone' ? 'lbFmtPhone' : 'lbFmtDesktop').classList.add('active');
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
   closeHowto();
 }
-function closeLb() {
-  document.getElementById("lightbox").classList.remove("open");
-  document.body.style.overflow = "";
-}
-document.getElementById("lightbox").addEventListener("click", function(e){ if(e.target===this) closeLb(); });
-document.addEventListener("keydown", function(e){ if(e.key==="Escape") closeLb(); });
 
-// ── How-to accordion ──
-function toggleHowto() {
-  document.getElementById("howtoBody").classList.contains("open") ? closeHowto() : openHowto();
+function updateLbImage() {
+  var src = BASE + lbSlug + '-' + lbFormat + '.jpg';
+  document.getElementById('lbImg').src = src;
+  var dl = document.getElementById('lbDownload');
+  dl.href = src;
+  dl.download = lbSlug + '-' + lbFormat + '.jpg';
 }
-function openHowto(){
-  document.getElementById("howtoBody").classList.add("open");
-  document.getElementById("howtoToggle").classList.add("open");
+
+function lbSetFormat(fmt, btn) {
+  lbFormat = fmt;
+  document.querySelectorAll('.lb-fmt-btn').forEach(function(b){ b.classList.remove('active'); });
+  btn.classList.add('active');
+  updateLbImage();
 }
-function closeHowto(){
-  document.getElementById("howtoBody").classList.remove("open");
-  document.getElementById("howtoToggle").classList.remove("open");
+
+function closeLb() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
 }
+document.getElementById('lightbox').addEventListener('click', function(e){ if(e.target===this) closeLb(); });
+document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeLb(); });
+
+// ── How-to ──
+function toggleHowto(){ document.getElementById('howtoBody').classList.contains('open') ? closeHowto() : openHowto(); }
+function openHowto(){ document.getElementById('howtoBody').classList.add('open'); document.getElementById('howtoToggle').classList.add('open'); }
+function closeHowto(){ document.getElementById('howtoBody').classList.remove('open'); document.getElementById('howtoToggle').classList.remove('open'); }
 function switchTab(which, btn) {
-  document.querySelectorAll(".howto-tab").forEach(function(t){ t.classList.remove("active"); });
-  document.querySelectorAll(".howto-panel").forEach(function(p){ p.classList.remove("active"); });
-  btn.classList.add("active");
-  document.getElementById("panel-" + which).classList.add("active");
+  document.querySelectorAll('.howto-tab').forEach(function(t){ t.classList.remove('active'); });
+  document.querySelectorAll('.howto-panel').forEach(function(p){ p.classList.remove('active'); });
+  btn.classList.add('active');
+  document.getElementById('panel-' + which).classList.add('active');
 }
+
+// ── Nav hamburger ──
+function toggleNav(){ document.getElementById('navDrawer').classList.toggle('open'); }
+document.querySelectorAll('#navDrawer a').forEach(function(a){
+  a.addEventListener('click', function(){ document.getElementById('navDrawer').classList.remove('open'); });
+});
 
 // ── Init ──
-buildFilterBar();
+buildLocTabs();
 buildGallery();
-</script>
-
-<script>
-function toggleNav(){
-  var d=document.getElementById('navDrawer');
-  d.classList.toggle('open');
-}
-document.querySelectorAll('#navDrawer a').forEach(function(a){
-  a.addEventListener('click',function(){ document.getElementById('navDrawer').classList.remove('open'); });
-});
 </script>
 </body>
 </html>
