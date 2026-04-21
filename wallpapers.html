@@ -277,9 +277,8 @@ body{background:#c8a96e;font-family:'Crimson Text',serif;color:#2c1a08;position:
     <a class="lb-download" id="lbDownload" href="" download>⬇ Download Wallpaper</a>
     <!-- How-to -->
     <div class="howto">
-      <button class="howto-toggle" id="howtoToggle" onclick="toggleHowto()">
+      <button class="howto-toggle" id="howtoToggle" style="cursor:default;">
         <span>📱 How to set as your wallpaper</span>
-        <span class="howto-arrow">▾</span>
       </button>
       <div class="howto-body" id="howtoBody">
         <div class="howto-tabs">
@@ -477,7 +476,7 @@ function openLb(slug, title, location) {
   document.getElementById(lbFormat === 'phone' ? 'lbFmtPhone' : 'lbFmtDesktop').classList.add('active');
   document.getElementById('lightbox').classList.add('open');
   document.body.style.overflow = 'hidden';
-  closeHowto();
+  openHowto();
 }
 
 function updateLbImage() {
