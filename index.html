@@ -10,6 +10,7 @@
 <meta name="keywords" content="RV travel blog, full-time nomad, Winnebago ERA, Sprinter van life, North America road trip, van life, RV life, travel photography, Jersey Mark">
 <meta name="author" content="Mark Fugel">
 <link rel="canonical" href="https://www.journeyswithjerseymark.com/">
+<link rel="icon" href="/images/seal.jpg" type="image/jpeg">
 
 <!-- ── Open Graph (Facebook, social sharing) ── -->
 <meta property="og:type" content="website">
@@ -31,19 +32,31 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Blog",
-  "name": "Journeys with Jersey Mark",
-  "url": "https://www.journeyswithjerseymark.com",
-  "description": "Full-time RV nomad Mark Fugel documents his travels across North America in Codiwomple, a Winnebago ERA Sprinter van.",
-  "author": {
-    "@type": "Person",
-    "name": "Mark Fugel",
-    "sameAs": [
-      "https://www.youtube.com/@journeyswithjerseymark",
-      "https://findpenguins.com/jerseymark",
-      "https://www.facebook.com/journeyswithjerseymark"
-    ]
-  }
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://www.journeyswithjerseymark.com/#website",
+      "url": "https://www.journeyswithjerseymark.com/",
+      "name": "Journeys with Jersey Mark",
+      "description": "One Man's Quest for Health & Happiness — full-time RV nomad documenting North America.",
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.journeyswithjerseymark.com/#person",
+      "name": "Mark Fugel",
+      "alternateName": "Jersey Mark",
+      "description": "Full-time RV nomad traveling North America in a 2017 Winnebago ERA Sprinter van named Codiwomple.",
+      "url": "https://www.journeyswithjerseymark.com/",
+      "image": "https://www.journeyswithjerseymark.com/images/seal.jpg",
+      "sameAs": [
+        "https://www.youtube.com/@journeyswithjerseymark",
+        "https://www.facebook.com/journeyswithjerseymark",
+        "https://findpenguins.com/jerseymark",
+        "https://wa.me/16788604294"
+      ]
+    }
+  ]
 }
 </script>
 
@@ -276,7 +289,7 @@ body{background:#c8a96e;font-family:'Crimson Text',serif;color:#0f0800;position:
       <div class="cartouche">
         <div class="cartouche-border">
           <img src="images/seal.jpg" alt="Journeys with Jersey Mark" class="logo-seal" />
-          <div class="map-title">Journeys with<br>Jersey Mark</div>
+          <h1 class="map-title">Journeys with<br>Jersey Mark</h1>
           <div class="map-subtitle">One Man's Quest for Health &amp; Happiness</div>
           <div class="map-motto">Nomad · Adventurer · Chronicler of Roads</div>
         </div>
