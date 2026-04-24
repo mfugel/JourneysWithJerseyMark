@@ -55,6 +55,22 @@ textarea{resize:vertical;min-height:100px;}
 .btn-row{display:flex;gap:0.5rem;flex-wrap:wrap;align-items:center;margin-top:1rem;}
 .spinner{display:inline-block;animation:spin 1s linear infinite;}
 @keyframes spin{to{transform:rotate(360deg);}}
+
+/* ── Share panel ── */
+.share-panel{display:none;border:1.5px solid #7a4e20;border-radius:3px;padding:1.1rem;background:rgba(58,107,53,0.08);margin-top:1rem;position:relative;}
+.share-panel.visible{display:block;}
+.share-panel-title{font-family:'Cinzel',serif;font-size:0.7rem;font-weight:700;letter-spacing:0.15em;color:#3a6b35;background:#c8a96e;padding:0 6px;position:absolute;top:-9px;left:16px;text-transform:uppercase;}
+.share-intro{font-family:'IM Fell English',serif;font-style:italic;font-size:0.85rem;color:#3a6b35;margin-bottom:0.85rem;}
+.share-platform{margin-bottom:0.9rem;}
+.share-platform-label{font-family:'Cinzel',serif;font-size:0.6rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#5a3510;margin-bottom:0.3rem;}
+.share-text{width:100%;font-family:'Crimson Text',serif;font-size:0.88rem;color:#2c1a08;background:rgba(245,234,210,0.8);border:1px solid rgba(90,53,16,0.3);border-radius:3px;padding:0.45rem 0.65rem;resize:vertical;min-height:72px;}
+.share-row{display:flex;gap:0.5rem;align-items:center;margin-top:0.4rem;flex-wrap:wrap;}
+.share-copied{font-family:'IM Fell English',serif;font-style:italic;font-size:0.78rem;color:#3a6b35;display:none;}
+.share-copied.show{display:inline;}
+
+/* ── New badge ── */
+.new-badge{display:inline-block;font-family:'Cinzel',serif;font-size:0.52rem;font-weight:700;letter-spacing:0.08em;color:#f5ead0;background:#3a6b35;border-radius:2px;padding:1px 5px;margin-left:6px;vertical-align:middle;text-transform:uppercase;}
+
 @media(max-width:600px){
   .content{padding:1rem 0.75rem 2rem;}
   .inner-border{padding:1.2rem 1rem 1.6rem;}
@@ -132,6 +148,32 @@ textarea{resize:vertical;min-height:100px;}
           <button class="btn btn-danger btn-sm" onclick="doLogout()">Sign Out</button>
         </div>
 
+        <!-- SHARE PANEL — appears after a successful publish -->
+        <div class="share-panel" id="sharePanel">
+          <div class="share-panel-title">✦ Share the News ✦</div>
+          <p class="share-intro">Your album is live! Copy a post below and share it with your followers.</p>
+
+          <div class="share-platform">
+            <div class="share-platform-label">📜 Facebook</div>
+            <textarea class="share-text" id="fbText" readonly></textarea>
+            <div class="share-row">
+              <button class="btn btn-secondary btn-sm" onclick="copyShare('fbText','fbCopied')">Copy Post</button>
+              <a class="btn btn-secondary btn-sm" href="https://www.facebook.com/journeyswithjerseymark" target="_blank" rel="noopener">Open Facebook ↗</a>
+              <span class="share-copied" id="fbCopied">✦ Copied!</span>
+            </div>
+          </div>
+
+          <div class="share-platform">
+            <div class="share-platform-label">▶ YouTube Community</div>
+            <textarea class="share-text" id="ytText" readonly></textarea>
+            <div class="share-row">
+              <button class="btn btn-secondary btn-sm" onclick="copyShare('ytText','ytCopied')">Copy Post</button>
+              <a class="btn btn-secondary btn-sm" href="https://www.youtube.com/@journeyswithjerseymark/community" target="_blank" rel="noopener">Open YouTube ↗</a>
+              <span class="share-copied" id="ytCopied">✦ Copied!</span>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -142,10 +184,11 @@ var REPO_OWNER = 'mfugel';
 var REPO_NAME  = 'JourneysWithJerseyMark';
 var FILE_PATH  = 'albums.json';
 var BRANCH     = 'main';
+var SITE_URL   = 'https://journeyswithjerseymark.com';
 
 var token = '', albums = [], fileSha = '';
+var lastPublishedAlbum = null;
 
-// Auto-fill saved token
 (function(){
   try{var t=localStorage.getItem('jm_admin_token');if(t){document.getElementById('tokenInput').value=t;document.getElementById('rememberToken').checked=true;}}catch(e){}
 })();
@@ -167,7 +210,6 @@ function doLogout(){
   document.getElementById('mainScreen').style.display='none';
 }
 
-// ── Load albums.json from GitHub (UTF-8 fix) ──
 function loadAlbums(){
   fetch('https://api.github.com/repos/'+REPO_OWNER+'/'+REPO_NAME+'/contents/'+FILE_PATH+'?ref='+BRANCH,
     {headers:{'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json'}})
@@ -179,7 +221,6 @@ function loadAlbums(){
   .then(function(data){
     if(!data)return;
     fileSha=data.sha;
-    // UTF-8 fix: correctly handles · and other multi-byte characters
     var jsonStr=decodeURIComponent(escape(atob(data.content.replace(/\n/g,''))));
     albums=JSON.parse(jsonStr);
     document.getElementById('loginScreen').style.display='none';
@@ -189,7 +230,16 @@ function loadAlbums(){
   .catch(function(err){showStatus('loginStatus','Connection error: '+err.message,'error');});
 }
 
-// ── Render current albums ──
+function isNew(album){
+  if(!album.dateAdded)return false;
+  return (new Date()-new Date(album.dateAdded))<(30*24*60*60*1000);
+}
+
+function formatDate(iso){
+  try{return new Date(iso).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});}
+  catch(e){return iso;}
+}
+
 function renderAlbums(){
   var c=document.getElementById('albumList');
   if(!albums.length){
@@ -198,11 +248,12 @@ function renderAlbums(){
   }
   c.innerHTML='';
   albums.forEach(function(album,idx){
+    var newBadge=isNew(album)?'<span class="new-badge">New!</span>':'';
     var card=document.createElement('div');
     card.className='album-card';
     card.innerHTML=
       '<div class="album-card-header">'+
-        '<span class="album-card-title">'+esc(album.title)+'</span>'+
+        '<span class="album-card-title">'+esc(album.title)+newBadge+'</span>'+
         '<div style="display:flex;gap:0.35rem;flex-shrink:0;">'+
           (idx>0?'<button class="btn btn-secondary btn-sm" onclick="moveAlbum('+idx+',-1)">▲</button>':'')+
           (idx<albums.length-1?'<button class="btn btn-secondary btn-sm" onclick="moveAlbum('+idx+',1)">▼</button>':'')+
@@ -212,6 +263,7 @@ function renderAlbums(){
       '<div class="album-card-body">'+
         '<div class="photo-count">'+album.photos.length+' photo'+(album.photos.length!==1?'s':'')+
           (album.url?' · <a href="'+esc(album.url)+'" target="_blank" rel="noopener" style="color:#7a4e20;">Open Album ↗</a>':'')+
+          (album.dateAdded?' · <span style="font-size:0.75rem;color:rgba(90,53,16,0.5);">Added '+formatDate(album.dateAdded)+'</span>':'')+
         '</div>'+
         '<div class="photo-url-list">'+(album.photos.length?album.photos.map(function(u){return esc(u);}).join('<br>'):'<em>No photos yet</em>')+'</div>'+
         '<button class="btn btn-secondary btn-sm" onclick="editAlbum('+idx+')">✎ Edit Photos</button>'+
@@ -239,38 +291,73 @@ function editAlbum(idx){
   renderAlbums();showStatus('mainStatus','Updated — hit Save & Publish when ready.','info');
 }
 
-// ── Add album ──
 function addAlbum(){
   var title  = document.getElementById('newTitle').value.trim();
   var url    = document.getElementById('newUrl').value.trim();
   var photos = document.getElementById('newPhotos').value.trim().split('\n').map(function(l){return l.trim();}).filter(Boolean);
   if(!title){showStatus('addStatus','Please enter an album title.','error');return;}
   if(!photos.length){showStatus('addStatus','Please paste at least one photo URL.','error');return;}
-  albums.push({title:title,url:url,photos:photos});
+  var dupe=albums.some(function(a){return a.title.toLowerCase()===title.toLowerCase();});
+  if(dupe){showStatus('addStatus','An album with that title already exists.','error');return;}
+  var newAlbum={title:title,url:url,photos:photos,dateAdded:new Date().toISOString()};
+  albums.push(newAlbum);
+  lastPublishedAlbum=newAlbum;
   document.getElementById('newTitle').value='';
   document.getElementById('newUrl').value='';
   document.getElementById('newPhotos').value='';
   renderAlbums();
-  showStatus('addStatus','✦ Album added!','success');
+  showStatus('addStatus','✦ Album added! Hit Save & Publish to make it live.','success');
   showStatus('mainStatus','Album added — hit Save & Publish to make it live.','info');
 }
 
-// ── Save to GitHub ──
 function saveAlbums(){
   if(!token){showStatus('mainStatus','Not logged in.','error');return;}
   showStatus('mainStatus','<span class="spinner">✦</span> Publishing to GitHub…','info');
-  var content=btoa(unescape(encodeURIComponent(JSON.stringify(albums,null,2))));
-  fetch('https://api.github.com/repos/'+REPO_OWNER+'/'+REPO_NAME+'/contents/'+FILE_PATH,{
-    method:'PUT',
-    headers:{'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json','Content-Type':'application/json'},
-    body:JSON.stringify({message:'Update albums.json via admin page',content:content,sha:fileSha,branch:BRANCH})
+  fetch('https://api.github.com/repos/'+REPO_OWNER+'/'+REPO_NAME+'/contents/'+FILE_PATH+'?ref='+BRANCH,
+    {headers:{'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json'}})
+  .then(function(r){return r.json();})
+  .then(function(data){
+    fileSha=data.sha;
+    var content=btoa(unescape(encodeURIComponent(JSON.stringify(albums,null,2))));
+    return fetch('https://api.github.com/repos/'+REPO_OWNER+'/'+REPO_NAME+'/contents/'+FILE_PATH,{
+      method:'PUT',
+      headers:{'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json','Content-Type':'application/json'},
+      body:JSON.stringify({message:'Update albums.json via admin page',content:content,sha:fileSha,branch:BRANCH})
+    });
   })
   .then(function(r){if(!r.ok)return r.json().then(function(e){throw new Error(e.message||r.status);});return r.json();})
   .then(function(data){
     fileSha=data.content.sha;
     showStatus('mainStatus','✦ Published! Your site will update in about 30 seconds.','success');
+    if(lastPublishedAlbum){showSharePanel(lastPublishedAlbum);lastPublishedAlbum=null;}
   })
   .catch(function(err){showStatus('mainStatus','Save failed: '+err.message,'error');});
+}
+
+function showSharePanel(album){
+  var title=album.title;
+  var siteLink=SITE_URL+'/#memories';
+  document.getElementById('fbText').value=
+    '🗺 New album on Journeys with Jersey Mark!\n\n'+
+    '"'+title+'" is now live in the Memories from the Road section.\n\n'+
+    '📸 See all the photos at:\n'+siteLink+'\n\n'+
+    '#JerseysMarkJourneys #NomadLife #VanLife #RVLife #Codiwomple';
+  document.getElementById('ytText').value=
+    '📸 New photo album just dropped!\n\n'+
+    '"'+title+'" is now live in the Memories from the Road section on my site.\n\n'+
+    'Head over to '+siteLink+' and check it out — drop me a comment if you\'ve been to this spot! 🗺\n\n'+
+    '#NomadLife #VanLife #RVLife #Codiwomple';
+  document.getElementById('sharePanel').classList.add('visible');
+  document.getElementById('sharePanel').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+function copyShare(textareaId,copiedId){
+  var el=document.getElementById(textareaId);
+  el.select();
+  try{document.execCommand('copy');}catch(e){try{navigator.clipboard.writeText(el.value);}catch(e2){}}
+  var badge=document.getElementById(copiedId);
+  badge.classList.add('show');
+  setTimeout(function(){badge.classList.remove('show');},2500);
 }
 
 function showStatus(id,msg,type){var el=document.getElementById(id);el.innerHTML=msg;el.className='status show '+type;}

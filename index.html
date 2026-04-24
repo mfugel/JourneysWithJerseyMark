@@ -542,10 +542,12 @@ window.addEventListener('load',function(){
     });
   function buildDropdown(albums){
     E.select.innerHTML='<option value="" disabled selected>\u2014 Choose a journey \u2014</option>';
+    var now=new Date();
     albums.forEach(function(album,i){
       var o=document.createElement('option');
       o.value=i;
-      o.textContent=album.title;
+      var isNew=album.dateAdded&&((now-new Date(album.dateAdded))<(30*24*60*60*1000));
+      o.textContent=album.title+(isNew?' \u2756 New!':'');
       E.select.appendChild(o);
     });
   }
@@ -575,7 +577,6 @@ window.addEventListener('load',function(){
     S.photos.forEach(function(p,i){
       var img=document.createElement('img');img.className='slide-img';img.alt='Memory photo '+(i+1);
       img.onerror=function(){
-        // Image failed to load — skip to next after a short delay
         this.classList.remove('visible');
         if(S.slide===i) setTimeout(function(){showSlide(i+1);},800);
       };
@@ -614,7 +615,6 @@ function toggleNav(){
   var d=document.getElementById('navDrawer');
   d.classList.toggle('open');
 }
-// Close drawer when any drawer link is tapped
 document.querySelectorAll('#navDrawer a').forEach(function(a){
   a.addEventListener('click',function(){ document.getElementById('navDrawer').classList.remove('open'); });
 });
