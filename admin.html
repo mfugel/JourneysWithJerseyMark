@@ -9,7 +9,7 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 html,body{width:100%;min-height:100vh;}
-body{background:#c8a96e;font-family:'Crimson Text',serif;color:#2c1a08;position:relative;overflow-x:hidden;}
+body{background:#dfc99a;font-family:'Crimson Text',serif;color:#2c1a08;position:relative;overflow-x:hidden;}
 .parchment-bg{position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 28px,rgba(101,67,33,0.04) 29px),repeating-linear-gradient(90deg,transparent,transparent 28px,rgba(101,67,33,0.04) 29px);pointer-events:none;z-index:0;}
 .vignette{position:fixed;inset:0;background:radial-gradient(ellipse at center,transparent 40%,rgba(80,40,10,0.35) 100%);pointer-events:none;z-index:0;}
 .content{position:relative;z-index:1;width:100%;padding:2rem 3rem 3rem;}
@@ -21,25 +21,25 @@ body{background:#c8a96e;font-family:'Crimson Text',serif;color:#2c1a08;position:
 .divider-rule{display:flex;align-items:center;gap:8px;margin:1.3rem 0;color:#7a4e20;font-size:14px;letter-spacing:0.15em;}
 .divider-rule::before,.divider-rule::after{content:'';flex:1;height:1px;background:#7a4e20;}
 .legend-box{border:1.5px solid #7a4e20;border-radius:3px;padding:1.1rem;background:rgba(160,110,50,0.15);margin-bottom:1.2rem;position:relative;}
-.legend-box-title{font-family:'Cinzel',serif;font-size:0.7rem;font-weight:700;letter-spacing:0.15em;color:#5a3510;background:#c8a96e;padding:0 6px;position:absolute;top:-9px;left:16px;text-transform:uppercase;}
+.legend-box-title{font-family:'Cinzel',serif;font-size:0.84rem;font-weight:700;letter-spacing:0.15em;color:#5a3510;background:#dfc99a;padding:0 6px;position:absolute;top:-9px;left:16px;text-transform:uppercase;}
 .admin-title{font-family:'Cinzel',serif;font-size:1.6rem;font-weight:700;color:#2c1a08;text-align:center;letter-spacing:0.04em;margin-bottom:0.3rem;}
 .admin-sub{font-family:'IM Fell English',serif;font-style:italic;font-size:1rem;color:#5a3510;text-align:center;margin-bottom:1.5rem;}
-label{display:block;font-family:'Cinzel',serif;font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#5a3510;margin-bottom:0.35rem;}
-input[type="text"],input[type="password"],textarea{width:100%;font-family:'Crimson Text',serif;font-size:0.95rem;color:#2c1a08;background:rgba(245,234,210,0.7);border:1px solid rgba(90,53,16,0.4);border-radius:3px;padding:0.45rem 0.65rem;outline:none;transition:border-color 0.2s;}
+label{display:block;font-family:'Cinzel',serif;font-size:0.78rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#5a3510;margin-bottom:0.35rem;}
+input[type="text"],input[type="password"],textarea{width:100%;font-family:'Crimson Text',serif;font-size:1.12rem;color:#2c1a08;background:rgba(245,234,210,0.7);border:1px solid rgba(90,53,16,0.4);border-radius:3px;padding:0.45rem 0.65rem;outline:none;transition:border-color 0.2s;}
 input:focus,textarea:focus{border-color:#7a4e20;background:rgba(245,234,210,0.95);}
 textarea{resize:vertical;min-height:100px;}
 .field-row{margin-bottom:0.85rem;}
-.hint{font-family:'IM Fell English',serif;font-style:italic;font-size:0.78rem;color:rgba(90,53,16,0.65);margin-top:0.25rem;line-height:1.4;}
+.hint{font-family:'IM Fell English',serif;font-style:italic;font-size:0.93rem;color:rgba(90,53,16,0.65);margin-top:0.25rem;line-height:1.4;}
 .hint a{color:#7a4e20;}
-.btn{font-family:'Cinzel',serif;font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:0.45rem 1.1rem;border-radius:3px;border:none;cursor:pointer;transition:all 0.2s;display:inline-block;}
+.btn{font-family:'Cinzel',serif;font-size:0.78rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:0.45rem 1.1rem;border-radius:3px;border:none;cursor:pointer;transition:all 0.2s;display:inline-block;}
 .btn-primary{background:#5a3510;color:#f5ead0;border:1px solid #5a3510;}
 .btn-primary:hover{background:#3a1f08;}
 .btn-secondary{background:transparent;color:#7a4e20;border:1px solid rgba(122,78,32,0.5);}
 .btn-secondary:hover{background:rgba(122,78,32,0.1);border-color:#7a4e20;}
 .btn-danger{background:transparent;color:#8b2222;border:1px solid rgba(139,34,34,0.35);}
 .btn-danger:hover{background:rgba(139,34,34,0.08);border-color:#8b2222;}
-.btn-sm{font-size:0.58rem;padding:0.28rem 0.65rem;}
-.status{font-family:'IM Fell English',serif;font-style:italic;font-size:0.9rem;padding:0.55rem 0.85rem;border-radius:3px;margin:0.7rem 0;display:none;}
+.btn-sm{font-size:0.70rem;padding:0.28rem 0.65rem;}
+.status{font-family:'IM Fell English',serif;font-style:italic;font-size:1.07rem;padding:0.55rem 0.85rem;border-radius:3px;margin:0.7rem 0;display:none;}
 .status.show{display:block;}
 .status.success{background:rgba(58,107,53,0.12);color:#3a6b35;border:1px solid rgba(58,107,53,0.3);}
 .status.error{background:rgba(139,34,34,0.1);color:#8b2222;border:1px solid rgba(139,34,34,0.25);}
@@ -48,10 +48,10 @@ textarea{resize:vertical;min-height:100px;}
 #mainScreen{display:none;}
 .album-card{border:1.5px solid #7a4e20;border-radius:3px;margin-bottom:0.9rem;overflow:hidden;background:rgba(160,110,50,0.1);}
 .album-card-header{display:flex;align-items:center;justify-content:space-between;padding:0.6rem 0.9rem;background:rgba(90,53,16,0.08);border-bottom:1px solid rgba(122,78,32,0.3);gap:0.7rem;flex-wrap:wrap;}
-.album-card-title{font-family:'Cinzel',serif;font-size:0.75rem;font-weight:700;letter-spacing:0.06em;color:#2c1a08;flex:1;min-width:140px;}
+.album-card-title{font-family:'Cinzel',serif;font-size:0.90rem;font-weight:700;letter-spacing:0.06em;color:#2c1a08;flex:1;min-width:140px;}
 .album-card-body{padding:0.75rem 0.9rem;}
-.photo-count{font-family:'IM Fell English',serif;font-style:italic;font-size:0.82rem;color:#7a4e20;margin-bottom:0.5rem;}
-.photo-url-list{font-family:'Crimson Text',serif;font-size:0.75rem;color:rgba(44,26,8,0.6);max-height:72px;overflow-y:auto;word-break:break-all;line-height:1.55;padding:0.35rem;background:rgba(245,234,210,0.5);border:1px solid rgba(122,78,32,0.2);border-radius:2px;margin-bottom:0.55rem;}
+.photo-count{font-family:'IM Fell English',serif;font-style:italic;font-size:0.97rem;color:#7a4e20;margin-bottom:0.5rem;}
+.photo-url-list{font-family:'Crimson Text',serif;font-size:0.90rem;color:rgba(44,26,8,0.6);max-height:72px;overflow-y:auto;word-break:break-all;line-height:1.55;padding:0.35rem;background:rgba(245,234,210,0.5);border:1px solid rgba(122,78,32,0.2);border-radius:2px;margin-bottom:0.55rem;}
 .btn-row{display:flex;gap:0.5rem;flex-wrap:wrap;align-items:center;margin-top:1rem;}
 .spinner{display:inline-block;animation:spin 1s linear infinite;}
 @keyframes spin{to{transform:rotate(360deg);}}
@@ -59,13 +59,13 @@ textarea{resize:vertical;min-height:100px;}
 /* ── Share panel ── */
 .share-panel{display:none;border:1.5px solid #7a4e20;border-radius:3px;padding:1.1rem;background:rgba(58,107,53,0.08);margin-top:1rem;position:relative;}
 .share-panel.visible{display:block;}
-.share-panel-title{font-family:'Cinzel',serif;font-size:0.7rem;font-weight:700;letter-spacing:0.15em;color:#3a6b35;background:#c8a96e;padding:0 6px;position:absolute;top:-9px;left:16px;text-transform:uppercase;}
+.share-panel-title{font-family:'Cinzel',serif;font-size:0.84rem;font-weight:700;letter-spacing:0.15em;color:#3a6b35;background:#dfc99a;padding:0 6px;position:absolute;top:-9px;left:16px;text-transform:uppercase;}
 .share-intro{font-family:'IM Fell English',serif;font-style:italic;font-size:0.85rem;color:#3a6b35;margin-bottom:0.85rem;}
 .share-platform{margin-bottom:0.9rem;}
-.share-platform-label{font-family:'Cinzel',serif;font-size:0.6rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#5a3510;margin-bottom:0.3rem;}
-.share-text{width:100%;font-family:'Crimson Text',serif;font-size:0.88rem;color:#2c1a08;background:rgba(245,234,210,0.8);border:1px solid rgba(90,53,16,0.3);border-radius:3px;padding:0.45rem 0.65rem;resize:vertical;min-height:72px;}
+.share-platform-label{font-family:'Cinzel',serif;font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#5a3510;margin-bottom:0.3rem;}
+.share-text{width:100%;font-family:'Crimson Text',serif;font-size:1.04rem;color:#2c1a08;background:rgba(245,234,210,0.8);border:1px solid rgba(90,53,16,0.3);border-radius:3px;padding:0.45rem 0.65rem;resize:vertical;min-height:72px;}
 .share-row{display:flex;gap:0.5rem;align-items:center;margin-top:0.4rem;flex-wrap:wrap;}
-.share-copied{font-family:'IM Fell English',serif;font-style:italic;font-size:0.78rem;color:#3a6b35;display:none;}
+.share-copied{font-family:'IM Fell English',serif;font-style:italic;font-size:0.93rem;color:#3a6b35;display:none;}
 .share-copied.show{display:inline;}
 
 /* ── New badge ── */
@@ -103,7 +103,7 @@ textarea{resize:vertical;min-height:100px;}
           </div>
           <div class="field-row" style="display:flex;align-items:center;gap:0.5rem;">
             <input type="checkbox" id="rememberToken" style="width:auto;">
-            <label for="rememberToken" style="margin:0;font-size:0.65rem;">Remember on this device</label>
+            <label for="rememberToken" style="margin:0;font-size:0.78rem;">Remember on this device</label>
           </div>
           <button class="btn btn-primary" onclick="doLogin()">✦ Enter the Chart Room</button>
           <div class="status" id="loginStatus"></div>
@@ -263,7 +263,7 @@ function renderAlbums(){
       '<div class="album-card-body">'+
         '<div class="photo-count">'+album.photos.length+' photo'+(album.photos.length!==1?'s':'')+
           (album.url?' · <a href="'+esc(album.url)+'" target="_blank" rel="noopener" style="color:#7a4e20;">Open Album ↗</a>':'')+
-          (album.dateAdded?' · <span style="font-size:0.75rem;color:rgba(90,53,16,0.5);">Added '+formatDate(album.dateAdded)+'</span>':'')+
+          (album.dateAdded?' · <span style="font-size:0.90rem;color:rgba(90,53,16,0.5);">Added '+formatDate(album.dateAdded)+'</span>':'')+
         '</div>'+
         '<div class="photo-url-list">'+(album.photos.length?album.photos.map(function(u){return esc(u);}).join('<br>'):'<em>No photos yet</em>')+'</div>'+
         '<button class="btn btn-secondary btn-sm" onclick="editAlbum('+idx+')">✎ Edit Photos</button>'+
