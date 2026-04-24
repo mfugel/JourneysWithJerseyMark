@@ -93,11 +93,11 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
 .fmt-btn:not(.active):hover{background:rgba(90,53,16,0.1);}
 .format-hint{font-family:'IM Fell English',serif;font-style:italic;font-size:0.97rem;color:#1a0f00;text-align:center;margin-bottom:1rem;}
 
-/* ── Location Tabs ── */
-.loc-tabs{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1.1rem;}
-.loc-tab{font-family:'Cinzel',serif;font-size:0.72rem;letter-spacing:0.09em;text-transform:uppercase;padding:0.28rem 0.75rem;border:1px solid #7a4e20;border-radius:3px;background:transparent;color:#1a0f00;cursor:pointer;transition:all 0.2s;}
-.loc-tab:hover{background:rgba(90,53,16,0.1);}
-.loc-tab.active{background:#5a3510;color:#f5ead0;border-color:#1a0f00;}
+/* ── Location Dropdown ── */
+.loc-select-wrap{display:flex;align-items:center;gap:0.6rem;margin-bottom:1.1rem;flex-wrap:wrap;}
+.loc-select-label{font-family:'Cinzel',serif;font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#1a0f00;white-space:nowrap;}
+.loc-select{font-family:'IM Fell English',serif;font-style:italic;font-size:1rem;color:#0f0800;background:#f5ead0;border:1.5px solid #7a4e20;border-radius:3px;padding:0.38rem 2rem 0.38rem 0.7rem;cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237a4e20' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 0.6rem center;min-width:200px;flex:1;max-width:400px;transition:border-color 0.2s,box-shadow 0.2s;}
+.loc-select:focus{outline:none;border-color:#1a0f00;box-shadow:0 0 0 2px rgba(90,53,16,0.15);}
 
 /* ── Location heading ── */
 .loc-heading{display:flex;align-items:center;gap:8px;margin-bottom:0.8rem;}
@@ -113,7 +113,7 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
 .wp-card:hover .wp-thumb{filter:sepia(0) contrast(1.08);}
 .wp-info{padding:0.4rem 0.5rem 0.5rem;}
 .wp-name{font-family:'Cinzel',serif;font-size:0.67rem;letter-spacing:0.07em;text-transform:uppercase;color:#1a0f00;margin-bottom:0.35rem;line-height:1.3;}
-.wp-btn{display:block;width:100%;padding:0.28rem 0;font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.09em;text-transform:uppercase;text-align:center;background:transparent;border:1px solid #7a4e20;border-radius:2px;color:#1a0f00;cursor:pointer;transition:all 0.2s;}
+.wp-btn{display:block;width:100%;padding:0.28rem 0;font-family:'Cinzel',serif;font-size:0.78rem;letter-spacing:0.09em;text-transform:uppercase;text-align:center;background:transparent;border:1px solid #7a4e20;border-radius:2px;color:#1a0f00;cursor:pointer;transition:all 0.2s;}
 .wp-btn:hover{background:#5a3510;color:#f5ead0;}
 
 /* ── Lightbox ── */
@@ -261,8 +261,11 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
         </div>
         <p class="format-hint" id="formatHint">Portrait · optimised for iPhone &amp; Android</p>
 
-        <!-- Location tabs -->
-        <div class="loc-tabs" id="locTabs"></div>
+        <!-- Location dropdown -->
+        <div class="loc-select-wrap">
+          <span class="loc-select-label">✦ Location</span>
+          <select class="loc-select" id="locSelect"></select>
+        </div>
 
         <!-- Gallery output -->
         <div id="galleryOutput"></div>
@@ -413,33 +416,27 @@ function setFormat(fmt, btn) {
   buildGallery();
 }
 
-function buildLocTabs() {
-  var bar = document.getElementById('locTabs');
+function buildLocSelect() {
+  var sel = document.getElementById('locSelect');
   var locs = getLocations();
   activeLocation = 'all';
 
-  var allBtn = document.createElement('button');
-  allBtn.className = 'loc-tab active';
-  allBtn.textContent = 'All Locations';
-  allBtn.onclick = function() {
-    document.querySelectorAll('.loc-tab').forEach(function(b){ b.classList.remove('active'); });
-    allBtn.classList.add('active');
-    activeLocation = 'all';
-    buildGallery();
-  };
-  bar.appendChild(allBtn);
+  var allOpt = document.createElement('option');
+  allOpt.value = 'all';
+  allOpt.textContent = '— All Locations —';
+  sel.appendChild(allOpt);
 
   locs.forEach(function(loc) {
-    var btn = document.createElement('button');
-    btn.className = 'loc-tab';
-    btn.textContent = loc;
-    btn.onclick = function() {
-      document.querySelectorAll('.loc-tab').forEach(function(b){ b.classList.remove('active'); });
-      btn.classList.add('active');
-      activeLocation = loc;
-      buildGallery();
-    };
-    bar.appendChild(btn);
+    var opt = document.createElement('option');
+    opt.value = loc;
+    opt.textContent = loc;
+    sel.appendChild(opt);
+  });
+
+  sel.value = 'all';
+  sel.addEventListener('change', function() {
+    activeLocation = this.value;
+    buildGallery();
   });
 }
 
@@ -532,7 +529,7 @@ document.querySelectorAll('#navDrawer a').forEach(function(a){
   a.addEventListener('click', function(){ document.getElementById('navDrawer').classList.remove('open'); });
 });
 
-buildLocTabs();
+buildLocSelect();
 buildGallery();
 </script>
 
