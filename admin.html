@@ -310,19 +310,26 @@ function addAlbum(){
   showStatus('mainStatus','Album added — hit Save & Publish to make it live.','info');
 }
 
+// Always fetch a fresh SHA immediately before writing — never trust the cached value.
+// This prevents the "does not match" conflict error when GitHub's file has changed
+// since the page was loaded (e.g. after a previous save in the same session).
 function saveAlbums(){
   if(!token){showStatus('mainStatus','Not logged in.','error');return;}
   showStatus('mainStatus','<span class="spinner">✦</span> Publishing to GitHub…','info');
-  fetch('https://api.github.com/repos/'+REPO_OWNER+'/'+REPO_NAME+'/contents/'+FILE_PATH+'?ref='+BRANCH,
-    {headers:{'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json'}})
-  .then(function(r){return r.json();})
+  fetch('https://api.github.com/repos/'+REPO_OWNER+'/'+REPO_NAME+'/contents/'+FILE_PATH+'?ref='+BRANCH+'&_='+Date.now(),
+    {headers:{'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json','Cache-Control':'no-cache'}})
+  .then(function(r){
+    if(!r.ok) throw new Error('Could not fetch current file SHA ('+r.status+') — try again');
+    return r.json();
+  })
   .then(function(data){
-    fileSha=data.sha;
+    if(!data||!data.sha) throw new Error('GitHub did not return a SHA — please refresh and try again');
+    var freshSha=data.sha;
     var content=btoa(unescape(encodeURIComponent(JSON.stringify(albums,null,2))));
     return fetch('https://api.github.com/repos/'+REPO_OWNER+'/'+REPO_NAME+'/contents/'+FILE_PATH,{
       method:'PUT',
       headers:{'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json','Content-Type':'application/json'},
-      body:JSON.stringify({message:'Update albums.json via admin page',content:content,sha:fileSha,branch:BRANCH})
+      body:JSON.stringify({message:'Update albums.json via admin page',content:content,sha:freshSha,branch:BRANCH})
     });
   })
   .then(function(r){if(!r.ok)return r.json().then(function(e){throw new Error(e.message||r.status);});return r.json();})
