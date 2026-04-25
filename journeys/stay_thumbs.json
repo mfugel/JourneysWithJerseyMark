@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-25T21:55:24.751603+00:00",
+  "generated_at": "2026-04-25T23:07:24.111601+00:00",
   "thumb_long_edge": 200,
   "stays": {
     "1": [
@@ -176,16 +176,6 @@
     ],
     "12": [
       {
-        "thumb": "journeys/thumbs/stay-0012-a.jpg",
-        "date": "2014-10-23",
-        "title": "IMG_0916.JPG"
-      },
-      {
-        "thumb": "journeys/thumbs/stay-0012-b.jpg",
-        "date": "2014-11-08",
-        "title": "IMG_20141108_160420.jpg"
-      },
-      {
         "thumb": "journeys/thumbs/stay-0012-c.jpg",
         "date": "2014-11-26",
         "title": "2014-11-26 15.03.04.jpg"
@@ -196,16 +186,6 @@
         "thumb": "journeys/thumbs/stay-0013-a.jpg",
         "date": "2014-11-28",
         "title": "IMG_20141127_200031.jpg"
-      },
-      {
-        "thumb": "journeys/thumbs/stay-0013-b.jpg",
-        "date": "2014-12-11",
-        "title": "2014-12-11 13.08.50.jpg"
-      },
-      {
-        "thumb": "journeys/thumbs/stay-0013-c.jpg",
-        "date": "2014-12-19",
-        "title": "IMG_20141219_075157.jpg"
       }
     ],
     "14": [
@@ -218,11 +198,6 @@
         "thumb": "journeys/thumbs/stay-0014-b.jpg",
         "date": "2014-12-23",
         "title": "IMG_20141222_205206.jpg"
-      },
-      {
-        "thumb": "journeys/thumbs/stay-0014-c.jpg",
-        "date": "2014-12-23",
-        "title": "IMG_20141223_080426.jpg"
       }
     ],
     "15": [
@@ -244,19 +219,9 @@
     ],
     "16": [
       {
-        "thumb": "journeys/thumbs/stay-0016-a.jpg",
-        "date": "2014-12-25",
-        "title": "IMG_20141225_090640.jpg"
-      },
-      {
         "thumb": "journeys/thumbs/stay-0016-b.jpg",
         "date": "2014-12-25",
         "title": "IMG_20141225_123942-EFFECTS.jpg"
-      },
-      {
-        "thumb": "journeys/thumbs/stay-0016-c.jpg",
-        "date": "2014-12-26",
-        "title": "IMG_1056.JPG"
       }
     ],
     "17": [
@@ -286,11 +251,6 @@
         "thumb": "journeys/thumbs/stay-0018-b.jpg",
         "date": "2015-04-05",
         "title": "IMG_1209.JPG"
-      },
-      {
-        "thumb": "journeys/thumbs/stay-0018-c.jpg",
-        "date": "2015-07-11",
-        "title": "IMG_20150711_153304.jpg"
       }
     ],
     "19": [
@@ -303,11 +263,6 @@
         "thumb": "journeys/thumbs/stay-0019-b.jpg",
         "date": "2015-09-09",
         "title": "IMG_20150909_192444.jpg"
-      },
-      {
-        "thumb": "journeys/thumbs/stay-0019-c.jpg",
-        "date": "2015-09-10",
-        "title": "IMG_20150910_002705.jpg"
       }
     ],
     "20": [
@@ -329,11 +284,6 @@
     ],
     "21": [
       {
-        "thumb": "journeys/thumbs/stay-0021-a.jpg",
-        "date": "2015-12-18",
-        "title": "IMG_20151218_125452.jpg"
-      },
-      {
         "thumb": "journeys/thumbs/stay-0021-b.jpg",
         "date": "2016-01-21",
         "title": "IMG_20160120_190610.jpg"
@@ -345,11 +295,6 @@
       }
     ],
     "22": [
-      {
-        "thumb": "journeys/thumbs/stay-0022-a.jpg",
-        "date": "2016-05-01",
-        "title": "IMG_20160501_160510.jpg"
-      },
       {
         "thumb": "journeys/thumbs/stay-0022-b.jpg",
         "date": "2016-05-10",
@@ -489,22 +434,12 @@
         "title": "20171118_141010.jpg"
       },
       {
-        "thumb": "journeys/thumbs/stay-0031-b.jpg",
-        "date": "2017-11-18",
-        "title": "20171118_153053.jpg"
-      },
-      {
         "thumb": "journeys/thumbs/stay-0031-c.jpg",
         "date": "2017-11-22",
         "title": "20171122_113102.jpg"
       }
     ],
     "32": [
-      {
-        "thumb": "journeys/thumbs/stay-0032-a.jpg",
-        "date": "2017-12-03",
-        "title": "20171203_183159.jpg"
-      },
       {
         "thumb": "journeys/thumbs/stay-0032-b.jpg",
         "date": "2017-12-09",
@@ -530,11 +465,6 @@
     ],
     "34": [
       {
-        "thumb": "journeys/thumbs/stay-0034-a.jpg",
-        "date": "2018-01-27",
-        "title": "20180127_123922.jpg"
-      },
-      {
         "thumb": "journeys/thumbs/stay-0034-b.jpg",
         "date": "2018-02-17",
         "title": "20180217_161935.jpg"
@@ -555,11 +485,6 @@
         "thumb": "journeys/thumbs/stay-0035-b.jpg",
         "date": "2018-02-19",
         "title": "20180219_161557.jpg"
-      },
-      {
-        "thumb": "journeys/thumbs/stay-0035-c.jpg",
-        "date": "2018-02-20",
-        "title": "20180220_093202.jpg"
       }
     ],
     "36": [
@@ -629,11 +554,6 @@
     ],
     "41": [
       {
-        "thumb": "journeys/thumbs/stay-0041-a.jpg",
-        "date": "2018-07-14",
-        "title": "20180714_171030.jpg"
-      },
-      {
         "thumb": "journeys/thumbs/stay-0041-c.jpg",
         "date": "2018-08-08",
         "title": "20180808_130948.jpg"
@@ -683,11 +603,6 @@
         "thumb": "journeys/thumbs/stay-0044-b.jpg",
         "date": "2018-10-16",
         "title": "20181016_133635.jpg"
-      },
-      {
-        "thumb": "journeys/thumbs/stay-0044-c.jpg",
-        "date": "2018-10-18",
-        "title": "20181018_143459.jpg"
       }
     ],
     "45": [
@@ -708,11 +623,6 @@
       }
     ],
     "46": [
-      {
-        "thumb": "journeys/thumbs/stay-0046-a.jpg",
-        "date": "2018-11-11",
-        "title": "20181111_152602.jpg"
-      },
       {
         "thumb": "journeys/thumbs/stay-0046-b.jpg",
         "date": "2018-11-20",
@@ -838,19 +748,9 @@
         "thumb": "journeys/thumbs/stay-0054-a.jpg",
         "date": "2019-03-11",
         "title": "20190311_070052.jpg"
-      },
-      {
-        "thumb": "journeys/thumbs/stay-0054-b.jpg",
-        "date": "2019-03-13",
-        "title": "20190313_113227.jpg"
       }
     ],
     "55": [
-      {
-        "thumb": "journeys/thumbs/stay-0055-a.jpg",
-        "date": "2019-03-16",
-        "title": "20190316_152449.jpg"
-      },
       {
         "thumb": "journeys/thumbs/stay-0055-b.jpg",
         "date": "2019-03-18",
@@ -884,11 +784,6 @@
         "thumb": "journeys/thumbs/stay-0057-a.jpg",
         "date": "2019-04-22",
         "title": "20190422_153952.jpg"
-      },
-      {
-        "thumb": "journeys/thumbs/stay-0057-b.jpg",
-        "date": "2019-06-17",
-        "title": "20190617_095403.jpg"
       },
       {
         "thumb": "journeys/thumbs/stay-0057-c.jpg",
@@ -966,11 +861,6 @@
     ],
     "62": [
       {
-        "thumb": "journeys/thumbs/stay-0062-a.jpg",
-        "date": "2019-08-18",
-        "title": "20190818_183803.jpg"
-      },
-      {
         "thumb": "journeys/thumbs/stay-0062-b.jpg",
         "date": "2019-08-25",
         "title": "20190825_123023.jpg"
@@ -1042,11 +932,6 @@
         "thumb": "journeys/thumbs/stay-0066-b.jpg",
         "date": "2019-10-15",
         "title": "20191015_082227.jpg"
-      },
-      {
-        "thumb": "journeys/thumbs/stay-0066-c.jpg",
-        "date": "2019-10-15",
-        "title": "20191015_172437.jpg"
       }
     ],
     "67": [
@@ -1076,11 +961,6 @@
         "thumb": "journeys/thumbs/stay-0068-b.jpg",
         "date": "2019-11-10",
         "title": "20191110_135609.jpg"
-      },
-      {
-        "thumb": "journeys/thumbs/stay-0068-c.jpg",
-        "date": "2019-11-26",
-        "title": "20191126_153300.jpg"
       }
     ],
     "69": [
@@ -1088,11 +968,6 @@
         "thumb": "journeys/thumbs/stay-0069-a.jpg",
         "date": "2019-11-28",
         "title": "20191128_153404.jpg"
-      },
-      {
-        "thumb": "journeys/thumbs/stay-0069-b.jpg",
-        "date": "2019-11-29",
-        "title": "20191129_100350.jpg"
       }
     ],
     "70": [
@@ -1105,19 +980,9 @@
         "thumb": "journeys/thumbs/stay-0070-b.jpg",
         "date": "2019-12-07",
         "title": "20191207_143521.jpg"
-      },
-      {
-        "thumb": "journeys/thumbs/stay-0070-c.jpg",
-        "date": "2019-12-11",
-        "title": "20191211_055233.jpg"
       }
     ],
     "71": [
-      {
-        "thumb": "journeys/thumbs/stay-0071-a.jpg",
-        "date": "2019-12-12",
-        "title": "20191212_080321.jpg"
-      },
       {
         "thumb": "journeys/thumbs/stay-0071-b.jpg",
         "date": "2019-12-12",
@@ -1178,23 +1043,6 @@
         "thumb": "journeys/thumbs/stay-0074-c.jpg",
         "date": "2020-03-01",
         "title": "20200301_115624.jpg"
-      }
-    ],
-    "75": [
-      {
-        "thumb": "journeys/thumbs/stay-0075-a.jpg",
-        "date": "2020-03-09",
-        "title": "20200309_173825.jpg"
-      },
-      {
-        "thumb": "journeys/thumbs/stay-0075-b.jpg",
-        "date": "2020-03-15",
-        "title": "20200315_091827.jpg"
-      },
-      {
-        "thumb": "journeys/thumbs/stay-0075-c.jpg",
-        "date": "2020-03-22",
-        "title": "20200322_153518.jpg"
       }
     ],
     "76": [
@@ -1296,11 +1144,6 @@
         "title": "20210123_164212.jpg"
       },
       {
-        "thumb": "journeys/thumbs/stay-0082-b.jpg",
-        "date": "2021-01-29",
-        "title": "20210129_140506.jpg"
-      },
-      {
         "thumb": "journeys/thumbs/stay-0082-c.jpg",
         "date": "2021-02-11",
         "title": "20210211_184809.jpg"
@@ -1359,11 +1202,6 @@
         "title": "20210420_205436.jpg"
       },
       {
-        "thumb": "journeys/thumbs/stay-0086-b.jpg",
-        "date": "2021-05-09",
-        "title": "20210509_090630.jpg"
-      },
-      {
         "thumb": "journeys/thumbs/stay-0086-c.jpg",
         "date": "2021-05-15",
         "title": "20210515_161827.jpg"
@@ -1371,27 +1209,12 @@
     ],
     "87": [
       {
-        "thumb": "journeys/thumbs/stay-0087-a.jpg",
-        "date": "2021-05-20",
-        "title": "20210520_134424.jpg"
-      },
-      {
-        "thumb": "journeys/thumbs/stay-0087-b.jpg",
-        "date": "2021-06-05",
-        "title": "20210605_121235.jpg"
-      },
-      {
         "thumb": "journeys/thumbs/stay-0087-c.jpg",
         "date": "2021-06-15",
         "title": "20210615_161539.jpg"
       }
     ],
     "88": [
-      {
-        "thumb": "journeys/thumbs/stay-0088-a.jpg",
-        "date": "2021-06-18",
-        "title": "20210617_200630.jpg"
-      },
       {
         "thumb": "journeys/thumbs/stay-0088-b.jpg",
         "date": "2021-06-18",
@@ -1413,28 +1236,6 @@
         "thumb": "journeys/thumbs/stay-0089-b.jpg",
         "date": "2021-07-13",
         "title": "20210713_100616_01.jpg"
-      },
-      {
-        "thumb": "journeys/thumbs/stay-0089-c.jpg",
-        "date": "2021-07-19",
-        "title": "20210719_172854.jpg"
-      }
-    ],
-    "90": [
-      {
-        "thumb": "journeys/thumbs/stay-0090-a.jpg",
-        "date": "2021-07-22",
-        "title": "20210722_171513.jpg"
-      },
-      {
-        "thumb": "journeys/thumbs/stay-0090-b.jpg",
-        "date": "2021-07-26",
-        "title": "20210726_105147.jpg"
-      },
-      {
-        "thumb": "journeys/thumbs/stay-0090-c.jpg",
-        "date": "2021-07-30",
-        "title": "20210730_170757.jpg"
       }
     ],
     "91": [
@@ -1483,16 +1284,6 @@
         "thumb": "journeys/thumbs/stay-0094-a.jpg",
         "date": "2021-08-09",
         "title": "20210809_181031.jpg"
-      },
-      {
-        "thumb": "journeys/thumbs/stay-0094-b.jpg",
-        "date": "2021-08-11",
-        "title": "20210811_114132.jpg"
-      },
-      {
-        "thumb": "journeys/thumbs/stay-0094-c.jpg",
-        "date": "2021-08-11",
-        "title": "20210811_115448.jpg"
       }
     ],
     "95": [
@@ -1621,11 +1412,6 @@
         "thumb": "journeys/thumbs/stay-0103-b.jpg",
         "date": "2021-08-30",
         "title": "20210829_181527.jpg"
-      },
-      {
-        "thumb": "journeys/thumbs/stay-0103-c.jpg",
-        "date": "2021-08-30",
-        "title": "20210830_103052.jpg"
       }
     ],
     "104": [
@@ -1771,11 +1557,6 @@
         "thumb": "journeys/thumbs/stay-0113-b.jpg",
         "date": "2021-09-18",
         "title": "20210918_074819.jpg"
-      },
-      {
-        "thumb": "journeys/thumbs/stay-0113-c.jpg",
-        "date": "2021-09-18",
-        "title": "20210918_093749_001.jpg"
       }
     ],
     "114": [
@@ -1788,23 +1569,6 @@
         "thumb": "journeys/thumbs/stay-0114-b.jpg",
         "date": "2021-10-31",
         "title": "20211031_131525.jpg"
-      },
-      {
-        "thumb": "journeys/thumbs/stay-0114-c.jpg",
-        "date": "2021-11-18",
-        "title": "20211118_104655.jpg"
-      }
-    ],
-    "115": [
-      {
-        "thumb": "journeys/thumbs/stay-0115-a.jpg",
-        "date": "2021-11-24",
-        "title": "20211124_141604.jpg"
-      },
-      {
-        "thumb": "journeys/thumbs/stay-0115-b.jpg",
-        "date": "2021-12-03",
-        "title": "20211203_150005.jpg"
       }
     ],
     "116": [
@@ -2067,11 +1831,6 @@
     ],
     "136": [
       {
-        "thumb": "journeys/thumbs/stay-0136-a.jpg",
-        "date": "2022-02-13",
-        "title": "20220213_143816.jpg"
-      },
-      {
         "thumb": "journeys/thumbs/stay-0136-b.jpg",
         "date": "2022-02-13",
         "title": "20220213_164815.jpg"
@@ -2119,11 +1878,6 @@
       }
     ],
     "141": [
-      {
-        "thumb": "journeys/thumbs/stay-0141-a.jpg",
-        "date": "2022-02-25",
-        "title": "20220225_143919.jpg"
-      },
       {
         "thumb": "journeys/thumbs/stay-0141-b.jpg",
         "date": "2022-02-25",
@@ -2889,38 +2643,11 @@
         "title": "20220730_173351.jpg"
       }
     ],
-    "194": [
-      {
-        "thumb": "journeys/thumbs/stay-0194-a.jpg",
-        "date": "2022-08-03",
-        "title": "20220803_172829.jpg"
-      },
-      {
-        "thumb": "journeys/thumbs/stay-0194-b.jpg",
-        "date": "2022-08-29",
-        "title": "20220829_121924.jpg"
-      },
-      {
-        "thumb": "journeys/thumbs/stay-0194-c.jpg",
-        "date": "2022-09-15",
-        "title": "20220915_112434.jpg"
-      }
-    ],
     "195": [
       {
         "thumb": "journeys/thumbs/stay-0195-a.jpg",
         "date": "2022-09-18",
         "title": "20220918_141411.jpg"
-      },
-      {
-        "thumb": "journeys/thumbs/stay-0195-b.jpg",
-        "date": "2022-09-21",
-        "title": "20220921_123151.jpg"
-      },
-      {
-        "thumb": "journeys/thumbs/stay-0195-c.jpg",
-        "date": "2022-09-26",
-        "title": "20220926_171255.jpg"
       }
     ],
     "196": [
@@ -2979,33 +2706,6 @@
         "thumb": "journeys/thumbs/stay-0199-a.jpg",
         "date": "2022-11-16",
         "title": "20221116_170041.jpg"
-      },
-      {
-        "thumb": "journeys/thumbs/stay-0199-b.jpg",
-        "date": "2022-11-18",
-        "title": "20221118_132457.jpg"
-      },
-      {
-        "thumb": "journeys/thumbs/stay-0199-c.jpg",
-        "date": "2022-11-19",
-        "title": "20221119_173410.jpg"
-      }
-    ],
-    "200": [
-      {
-        "thumb": "journeys/thumbs/stay-0200-a.jpg",
-        "date": "2022-11-24",
-        "title": "20221124_152822.jpg"
-      },
-      {
-        "thumb": "journeys/thumbs/stay-0200-b.jpg",
-        "date": "2022-11-26",
-        "title": "20221125_190659.jpg"
-      },
-      {
-        "thumb": "journeys/thumbs/stay-0200-c.jpg",
-        "date": "2022-11-30",
-        "title": "20221130_123301.jpg"
       }
     ],
     "201": [
@@ -3020,11 +2720,6 @@
         "thumb": "journeys/thumbs/stay-0202-a.jpg",
         "date": "2022-12-10",
         "title": "20221210_161148.jpg"
-      },
-      {
-        "thumb": "journeys/thumbs/stay-0202-b.jpg",
-        "date": "2022-12-11",
-        "title": "20221211_124506.jpg"
       }
     ],
     "203": [
@@ -3145,11 +2840,6 @@
         "title": "20230212_113047.jpg"
       },
       {
-        "thumb": "journeys/thumbs/stay-0211-b.jpg",
-        "date": "2023-02-13",
-        "title": "20230213_071317.jpg"
-      },
-      {
         "thumb": "journeys/thumbs/stay-0211-c.jpg",
         "date": "2023-02-14",
         "title": "20230214_093605.jpg"
@@ -3242,11 +2932,6 @@
         "thumb": "journeys/thumbs/stay-0218-a.jpg",
         "date": "2023-03-08",
         "title": "20230308_150537.jpg"
-      },
-      {
-        "thumb": "journeys/thumbs/stay-0218-b.jpg",
-        "date": "2023-03-16",
-        "title": "20230316_145445.jpg"
       },
       {
         "thumb": "journeys/thumbs/stay-0218-c.jpg",
@@ -3353,11 +3038,6 @@
         "title": "20230418_154704.jpg"
       },
       {
-        "thumb": "journeys/thumbs/stay-0225-b.jpg",
-        "date": "2023-04-21",
-        "title": "20230421_113454.jpg"
-      },
-      {
         "thumb": "journeys/thumbs/stay-0225-c.jpg",
         "date": "2023-04-21",
         "title": "20230421_124621.jpg"
@@ -3455,11 +3135,6 @@
         "title": "20230618_121114.jpg"
       },
       {
-        "thumb": "journeys/thumbs/stay-0231-b.jpg",
-        "date": "2023-06-18",
-        "title": "20230618_160837.jpg"
-      },
-      {
         "thumb": "journeys/thumbs/stay-0231-c.jpg",
         "date": "2023-06-19",
         "title": "20230618_192100.jpg"
@@ -3540,18 +3215,6 @@
         "title": "20230920_195104.jpg"
       }
     ],
-    "237": [
-      {
-        "thumb": "journeys/thumbs/stay-0237-a.jpg",
-        "date": "2023-10-01",
-        "title": "20231001_092007.jpg"
-      },
-      {
-        "thumb": "journeys/thumbs/stay-0237-b.jpg",
-        "date": "2023-10-04",
-        "title": "20231004_095755.jpg"
-      }
-    ],
     "238": [
       {
         "thumb": "journeys/thumbs/stay-0238-a.jpg",
@@ -3562,11 +3225,6 @@
         "thumb": "journeys/thumbs/stay-0238-b.jpg",
         "date": "2023-11-02",
         "title": "20231102_163354.jpg"
-      },
-      {
-        "thumb": "journeys/thumbs/stay-0238-c.jpg",
-        "date": "2023-11-27",
-        "title": "20231127_114056.jpg"
       }
     ],
     "239": [
@@ -3574,16 +3232,6 @@
         "thumb": "journeys/thumbs/stay-0239-a.jpg",
         "date": "2023-12-10",
         "title": "20231210_160526.jpg"
-      },
-      {
-        "thumb": "journeys/thumbs/stay-0239-b.jpg",
-        "date": "2023-12-11",
-        "title": "20231210_205832.jpg"
-      },
-      {
-        "thumb": "journeys/thumbs/stay-0239-c.jpg",
-        "date": "2023-12-12",
-        "title": "20231212_125251.jpg"
       }
     ],
     "240": [
@@ -3766,11 +3414,6 @@
         "title": "20240523_141012.jpg"
       },
       {
-        "thumb": "journeys/thumbs/stay-0267-b.jpg",
-        "date": "2024-05-24",
-        "title": "20240524_131309.jpg"
-      },
-      {
         "thumb": "journeys/thumbs/stay-0267-c.jpg",
         "date": "2024-05-27",
         "title": "20240527_151936.jpg"
@@ -3891,11 +3534,6 @@
     ],
     "288": [
       {
-        "thumb": "journeys/thumbs/stay-0288-a.jpg",
-        "date": "2024-08-12",
-        "title": "20240812_120226.jpg"
-      },
-      {
         "thumb": "journeys/thumbs/stay-0288-b.jpg",
         "date": "2024-08-12",
         "title": "20240812_183252.jpg"
@@ -3940,16 +3578,6 @@
         "thumb": "journeys/thumbs/stay-0291-a.jpg",
         "date": "2024-08-21",
         "title": "20240821_170023.jpg"
-      },
-      {
-        "thumb": "journeys/thumbs/stay-0291-b.jpg",
-        "date": "2024-08-29",
-        "title": "20240829_160556.jpg"
-      },
-      {
-        "thumb": "journeys/thumbs/stay-0291-c.jpg",
-        "date": "2024-09-04",
-        "title": "20240904_104509.jpg"
       }
     ]
   },
@@ -4245,6 +3873,5 @@
     "289": "Burt Township, MI",
     "290": "MI",
     "291": "Manchester Township, NJ"
-  },
-  "places_updated_at": "2026-04-25T22:36:38.052111+00:00"
+  }
 }
