@@ -1,0 +1,4 @@
+# --- Takeout ingest workflow ---
+_takeout_inbox/
+*.zip
+journeys/place_cache.json
