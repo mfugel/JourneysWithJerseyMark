@@ -1,0 +1,3956 @@
+{
+  "generated_at": "2026-04-25T21:55:24.751603+00:00",
+  "thumb_long_edge": 200,
+  "stays": {
+    "1": [
+      {
+        "thumb": "journeys/thumbs/stay-0001-a.jpg",
+        "date": "2004-07-16",
+        "title": "DCP_0941.JPG"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0001-b.jpg",
+        "date": "2005-07-11",
+        "title": "PICT0996.JPG"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0001-c.jpg",
+        "date": "2006-08-06",
+        "title": "PIC_2832.JPG"
+      }
+    ],
+    "2": [
+      {
+        "thumb": "journeys/thumbs/stay-0002-a.jpg",
+        "date": "2010-12-24",
+        "title": "DSC_0082.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0002-b.jpg",
+        "date": "2010-12-25",
+        "title": "DSCN3255.JPG"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0002-c.jpg",
+        "date": "2010-12-26",
+        "title": "DSCN3333.JPG"
+      }
+    ],
+    "3": [
+      {
+        "thumb": "journeys/thumbs/stay-0003-a.jpg",
+        "date": "2010-12-26",
+        "title": "IMAG0002.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0003-b.jpg",
+        "date": "2010-12-27",
+        "title": "DSCN3371.JPG"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0003-c.jpg",
+        "date": "2010-12-27",
+        "title": "DSC_0091.jpg"
+      }
+    ],
+    "4": [
+      {
+        "thumb": "journeys/thumbs/stay-0004-a.jpg",
+        "date": "2010-12-30",
+        "title": "IMAG0052.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0004-b.jpg",
+        "date": "2010-12-31",
+        "title": "DSC_0131.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0004-c.jpg",
+        "date": "2011-01-02",
+        "title": "IMAG0058.jpg"
+      }
+    ],
+    "5": [
+      {
+        "thumb": "journeys/thumbs/stay-0005-a.jpg",
+        "date": "2011-02-23",
+        "title": "2011-02-22 19.40.32.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0005-b.jpg",
+        "date": "2013-06-16",
+        "title": "2013-06-16 16.14.12.jpg"
+      }
+    ],
+    "6": [
+      {
+        "thumb": "journeys/thumbs/stay-0006-a.jpg",
+        "date": "2013-07-13",
+        "title": "IMG_0026.JPG"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0006-b.jpg",
+        "date": "2013-07-14",
+        "title": "IMG_0029.JPG"
+      }
+    ],
+    "7": [
+      {
+        "thumb": "journeys/thumbs/stay-0007-a.jpg",
+        "date": "2013-07-19",
+        "title": "IMG_0030.JPG"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0007-b.jpg",
+        "date": "2013-07-20",
+        "title": "IMG_0048.JPG"
+      }
+    ],
+    "8": [
+      {
+        "thumb": "journeys/thumbs/stay-0008-a.jpg",
+        "date": "2013-07-22",
+        "title": "IMG_0056.JPG"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0008-b.jpg",
+        "date": "2013-08-08",
+        "title": "IMG_0114.JPG"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0008-c.jpg",
+        "date": "2013-11-08",
+        "title": "IMG_0225.JPG"
+      }
+    ],
+    "9": [
+      {
+        "thumb": "journeys/thumbs/stay-0009-a.jpg",
+        "date": "2014-01-05",
+        "title": "IMG_0398.JPG"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0009-b.jpg",
+        "date": "2014-01-28",
+        "title": "C360_2014-01-28-15-27-04-629.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0009-c.jpg",
+        "date": "2014-04-13",
+        "title": "IMG_0481.JPG"
+      }
+    ],
+    "10": [
+      {
+        "thumb": "journeys/thumbs/stay-0010-a.jpg",
+        "date": "2014-04-20",
+        "title": "IMG_0483.JPG"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0010-b.jpg",
+        "date": "2014-04-28",
+        "title": "IMG_0547.JPG"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0010-c.jpg",
+        "date": "2014-05-30",
+        "title": "IMG_0606.JPG"
+      }
+    ],
+    "11": [
+      {
+        "thumb": "journeys/thumbs/stay-0011-a.jpg",
+        "date": "2014-08-19",
+        "title": "2014-08-19 15.21.49.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0011-b.jpg",
+        "date": "2014-09-12",
+        "title": "2014-09-12 08.48.51.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0011-c.jpg",
+        "date": "2014-10-09",
+        "title": "2014-10-09 13.09.01.jpg"
+      }
+    ],
+    "12": [
+      {
+        "thumb": "journeys/thumbs/stay-0012-a.jpg",
+        "date": "2014-10-23",
+        "title": "IMG_0916.JPG"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0012-b.jpg",
+        "date": "2014-11-08",
+        "title": "IMG_20141108_160420.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0012-c.jpg",
+        "date": "2014-11-26",
+        "title": "2014-11-26 15.03.04.jpg"
+      }
+    ],
+    "13": [
+      {
+        "thumb": "journeys/thumbs/stay-0013-a.jpg",
+        "date": "2014-11-28",
+        "title": "IMG_20141127_200031.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0013-b.jpg",
+        "date": "2014-12-11",
+        "title": "2014-12-11 13.08.50.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0013-c.jpg",
+        "date": "2014-12-19",
+        "title": "IMG_20141219_075157.jpg"
+      }
+    ],
+    "14": [
+      {
+        "thumb": "journeys/thumbs/stay-0014-a.jpg",
+        "date": "2014-12-22",
+        "title": "IMG_20141223_080220-COLLAGE.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0014-b.jpg",
+        "date": "2014-12-23",
+        "title": "IMG_20141222_205206.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0014-c.jpg",
+        "date": "2014-12-23",
+        "title": "IMG_20141223_080426.jpg"
+      }
+    ],
+    "15": [
+      {
+        "thumb": "journeys/thumbs/stay-0015-a.jpg",
+        "date": "2014-12-24",
+        "title": "IMG_20141224_115721.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0015-b.jpg",
+        "date": "2014-12-24",
+        "title": "IMG_20141224_181449.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0015-c.jpg",
+        "date": "2014-12-25",
+        "title": "IMG_20141225_075236.jpg"
+      }
+    ],
+    "16": [
+      {
+        "thumb": "journeys/thumbs/stay-0016-a.jpg",
+        "date": "2014-12-25",
+        "title": "IMG_20141225_090640.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0016-b.jpg",
+        "date": "2014-12-25",
+        "title": "IMG_20141225_123942-EFFECTS.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0016-c.jpg",
+        "date": "2014-12-26",
+        "title": "IMG_1056.JPG"
+      }
+    ],
+    "17": [
+      {
+        "thumb": "journeys/thumbs/stay-0017-a.jpg",
+        "date": "2014-12-29",
+        "title": "IMG_1073.JPG"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0017-b.jpg",
+        "date": "2014-12-29",
+        "title": "IMG_1074.JPG"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0017-c.jpg",
+        "date": "2014-12-30",
+        "title": "IMG_20141230_100216.jpg"
+      }
+    ],
+    "18": [
+      {
+        "thumb": "journeys/thumbs/stay-0018-a.jpg",
+        "date": "2014-12-31",
+        "title": "IMG_1079.JPG"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0018-b.jpg",
+        "date": "2015-04-05",
+        "title": "IMG_1209.JPG"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0018-c.jpg",
+        "date": "2015-07-11",
+        "title": "IMG_20150711_153304.jpg"
+      }
+    ],
+    "19": [
+      {
+        "thumb": "journeys/thumbs/stay-0019-a.jpg",
+        "date": "2015-09-04",
+        "title": "IMG_20150903_211410.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0019-b.jpg",
+        "date": "2015-09-09",
+        "title": "IMG_20150909_192444.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0019-c.jpg",
+        "date": "2015-09-10",
+        "title": "IMG_20150910_002705.jpg"
+      }
+    ],
+    "20": [
+      {
+        "thumb": "journeys/thumbs/stay-0020-a.jpg",
+        "date": "2015-10-10",
+        "title": "IMG_20151010_191432.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0020-b.jpg",
+        "date": "2015-10-25",
+        "title": "IMG_20151025_181529.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0020-c.jpg",
+        "date": "2015-10-25",
+        "title": "IMG_20151025_181605.jpg"
+      }
+    ],
+    "21": [
+      {
+        "thumb": "journeys/thumbs/stay-0021-a.jpg",
+        "date": "2015-12-18",
+        "title": "IMG_20151218_125452.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0021-b.jpg",
+        "date": "2016-01-21",
+        "title": "IMG_20160120_190610.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0021-c.jpg",
+        "date": "2016-02-07",
+        "title": "IMG_20160207_145722.jpg"
+      }
+    ],
+    "22": [
+      {
+        "thumb": "journeys/thumbs/stay-0022-a.jpg",
+        "date": "2016-05-01",
+        "title": "IMG_20160501_160510.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0022-b.jpg",
+        "date": "2016-05-10",
+        "title": "IMG_20160509_211521.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0022-c.jpg",
+        "date": "2016-06-20",
+        "title": "IMG_20160620_170209.jpg"
+      }
+    ],
+    "23": [
+      {
+        "thumb": "journeys/thumbs/stay-0023-b.jpg",
+        "date": "2016-07-03",
+        "title": "316__DSC8260-ni.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0023-c.jpg",
+        "date": "2016-07-04",
+        "title": "423_IMG_4185-ip.JPG"
+      }
+    ],
+    "24": [
+      {
+        "thumb": "journeys/thumbs/stay-0024-a.jpg",
+        "date": "2016-11-10",
+        "title": "IMG_20161110_163443478_HDR.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0024-b.jpg",
+        "date": "2016-11-12",
+        "title": "IMG_20161112_133152210.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0024-c.jpg",
+        "date": "2016-11-14",
+        "title": "IMG_20161114_184911241.jpg"
+      }
+    ],
+    "25": [
+      {
+        "thumb": "journeys/thumbs/stay-0025-a.jpg",
+        "date": "2016-11-19",
+        "title": "IMG_20161119_112417333.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0025-b.jpg",
+        "date": "2016-11-19",
+        "title": "IMG_20161119_154550543.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0025-c.jpg",
+        "date": "2016-11-23",
+        "title": "IMG_20161123_125712020.jpg"
+      }
+    ],
+    "26": [
+      {
+        "thumb": "journeys/thumbs/stay-0026-a.jpg",
+        "date": "2016-12-23",
+        "title": "IMG_20161223_113846513.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0026-b.jpg",
+        "date": "2016-12-24",
+        "title": "IMG_20161224_145732655_HDR.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0026-c.jpg",
+        "date": "2016-12-24",
+        "title": "IMG_20161224_150613552.jpg"
+      }
+    ],
+    "27": [
+      {
+        "thumb": "journeys/thumbs/stay-0027-a.jpg",
+        "date": "2016-12-28",
+        "title": "IMG_20161227_200522561.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0027-b.jpg",
+        "date": "2016-12-29",
+        "title": "IMG_20161229_160414230_HDR.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0027-c.jpg",
+        "date": "2017-01-03",
+        "title": "IMG_20170102_190059061.jpg"
+      }
+    ],
+    "28": [
+      {
+        "thumb": "journeys/thumbs/stay-0028-a.jpg",
+        "date": "2017-07-30",
+        "title": "20170730_124201.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0028-c.jpg",
+        "date": "2017-09-02",
+        "title": "20170902_163901-PANO.jpg"
+      }
+    ],
+    "29": [
+      {
+        "thumb": "journeys/thumbs/stay-0029-a.jpg",
+        "date": "2017-09-07",
+        "title": "20170907_081834.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0029-c.jpg",
+        "date": "2017-09-17",
+        "title": "20170917_095256.jpg"
+      }
+    ],
+    "30": [
+      {
+        "thumb": "journeys/thumbs/stay-0030-a.jpg",
+        "date": "2017-10-04",
+        "title": "20171004_154640.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0030-b.jpg",
+        "date": "2017-10-15",
+        "title": "image4.jpeg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0030-c.jpg",
+        "date": "2017-10-19",
+        "title": "20171019_191245.jpg"
+      }
+    ],
+    "31": [
+      {
+        "thumb": "journeys/thumbs/stay-0031-a.jpg",
+        "date": "2017-11-18",
+        "title": "20171118_141010.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0031-b.jpg",
+        "date": "2017-11-18",
+        "title": "20171118_153053.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0031-c.jpg",
+        "date": "2017-11-22",
+        "title": "20171122_113102.jpg"
+      }
+    ],
+    "32": [
+      {
+        "thumb": "journeys/thumbs/stay-0032-a.jpg",
+        "date": "2017-12-03",
+        "title": "20171203_183159.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0032-b.jpg",
+        "date": "2017-12-09",
+        "title": "20171209_163704.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0032-c.jpg",
+        "date": "2017-12-15",
+        "title": "20171215_135704.jpg"
+      }
+    ],
+    "33": [
+      {
+        "thumb": "journeys/thumbs/stay-0033-a.jpg",
+        "date": "2017-12-18",
+        "title": "20171218_171101_001.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0033-c.jpg",
+        "date": "2018-01-19",
+        "title": "20180119_093558.jpg"
+      }
+    ],
+    "34": [
+      {
+        "thumb": "journeys/thumbs/stay-0034-a.jpg",
+        "date": "2018-01-27",
+        "title": "20180127_123922.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0034-b.jpg",
+        "date": "2018-02-17",
+        "title": "20180217_161935.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0034-c.jpg",
+        "date": "2018-02-18",
+        "title": "20180218_083830.jpg"
+      }
+    ],
+    "35": [
+      {
+        "thumb": "journeys/thumbs/stay-0035-a.jpg",
+        "date": "2018-02-18",
+        "title": "20180218_140240.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0035-b.jpg",
+        "date": "2018-02-19",
+        "title": "20180219_161557.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0035-c.jpg",
+        "date": "2018-02-20",
+        "title": "20180220_093202.jpg"
+      }
+    ],
+    "36": [
+      {
+        "thumb": "journeys/thumbs/stay-0036-a.jpg",
+        "date": "2018-02-27",
+        "title": "20180227_171841.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0036-b.jpg",
+        "date": "2018-04-15",
+        "title": "20180415_115424.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0036-c.jpg",
+        "date": "2018-04-21",
+        "title": "20180421_151839.jpg"
+      }
+    ],
+    "37": [
+      {
+        "thumb": "journeys/thumbs/stay-0037-a.jpg",
+        "date": "2018-04-23",
+        "title": "20180423_130944.jpg"
+      }
+    ],
+    "38": [
+      {
+        "thumb": "journeys/thumbs/stay-0038-a.jpg",
+        "date": "2018-05-06",
+        "title": "20180506_155901.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0038-b.jpg",
+        "date": "2018-05-06",
+        "title": "20180506_183349.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0038-c.jpg",
+        "date": "2018-05-07",
+        "title": "20180507_173403.jpg"
+      }
+    ],
+    "39": [
+      {
+        "thumb": "journeys/thumbs/stay-0039-a.jpg",
+        "date": "2018-05-13",
+        "title": "20180513_133349.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0039-c.jpg",
+        "date": "2018-05-26",
+        "title": "20180526_101001.jpg"
+      }
+    ],
+    "40": [
+      {
+        "thumb": "journeys/thumbs/stay-0040-a.jpg",
+        "date": "2018-05-30",
+        "title": "20180530_072910.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0040-b.jpg",
+        "date": "2018-06-03",
+        "title": "20180603_131311.jpg"
+      }
+    ],
+    "41": [
+      {
+        "thumb": "journeys/thumbs/stay-0041-a.jpg",
+        "date": "2018-07-14",
+        "title": "20180714_171030.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0041-c.jpg",
+        "date": "2018-08-08",
+        "title": "20180808_130948.jpg"
+      }
+    ],
+    "42": [
+      {
+        "thumb": "journeys/thumbs/stay-0042-a.jpg",
+        "date": "2018-08-18",
+        "title": "20180818_141110.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0042-b.jpg",
+        "date": "2018-08-21",
+        "title": "IMG_0520.JPG"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0042-c.jpg",
+        "date": "2018-08-21",
+        "title": "IMG_0521.JPG"
+      }
+    ],
+    "43": [
+      {
+        "thumb": "journeys/thumbs/stay-0043-a.jpg",
+        "date": "2018-09-17",
+        "title": "20180917_092252.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0043-b.jpg",
+        "date": "2018-09-22",
+        "title": "20180922_081542.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0043-c.jpg",
+        "date": "2018-09-30",
+        "title": "20180930_090756.jpg"
+      }
+    ],
+    "44": [
+      {
+        "thumb": "journeys/thumbs/stay-0044-a.jpg",
+        "date": "2018-10-13",
+        "title": "20181013_152757.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0044-b.jpg",
+        "date": "2018-10-16",
+        "title": "20181016_133635.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0044-c.jpg",
+        "date": "2018-10-18",
+        "title": "20181018_143459.jpg"
+      }
+    ],
+    "45": [
+      {
+        "thumb": "journeys/thumbs/stay-0045-a.jpg",
+        "date": "2018-10-28",
+        "title": "20181028_124154.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0045-b.jpg",
+        "date": "2018-11-03",
+        "title": "20181103_152436.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0045-c.jpg",
+        "date": "2018-11-03",
+        "title": "20181103_181858.jpg"
+      }
+    ],
+    "46": [
+      {
+        "thumb": "journeys/thumbs/stay-0046-a.jpg",
+        "date": "2018-11-11",
+        "title": "20181111_152602.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0046-b.jpg",
+        "date": "2018-11-20",
+        "title": "20181119_210445.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0046-c.jpg",
+        "date": "2018-11-23",
+        "title": "20181123_111109.jpg"
+      }
+    ],
+    "47": [
+      {
+        "thumb": "journeys/thumbs/stay-0047-a.jpg",
+        "date": "2018-11-23",
+        "title": "20181123_142146.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0047-b.jpg",
+        "date": "2018-11-25",
+        "title": "20181125_112623.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0047-c.jpg",
+        "date": "2018-11-25",
+        "title": "20181125_112643.jpg"
+      }
+    ],
+    "48": [
+      {
+        "thumb": "journeys/thumbs/stay-0048-a.jpg",
+        "date": "2018-11-25",
+        "title": "20181125_144558.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0048-b.jpg",
+        "date": "2018-11-29",
+        "title": "20181129_181250.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0048-c.jpg",
+        "date": "2018-12-02",
+        "title": "20181201_191509.jpg"
+      }
+    ],
+    "49": [
+      {
+        "thumb": "journeys/thumbs/stay-0049-a.jpg",
+        "date": "2018-12-04",
+        "title": "20181204_174534.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0049-b.jpg",
+        "date": "2018-12-12",
+        "title": "20181211_193620.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0049-c.jpg",
+        "date": "2018-12-22",
+        "title": "20181222_144254.jpg"
+      }
+    ],
+    "50": [
+      {
+        "thumb": "journeys/thumbs/stay-0050-b.jpg",
+        "date": "2018-12-24",
+        "title": "20181223_192718.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0050-c.jpg",
+        "date": "2018-12-25",
+        "title": "20181225_142736.jpg"
+      }
+    ],
+    "51": [
+      {
+        "thumb": "journeys/thumbs/stay-0051-a.jpg",
+        "date": "2018-12-27",
+        "title": "20181227_133504.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0051-b.jpg",
+        "date": "2019-01-08",
+        "title": "20190108_175320.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0051-c.jpg",
+        "date": "2019-01-20",
+        "title": "20190120_140956.jpg"
+      }
+    ],
+    "52": [
+      {
+        "thumb": "journeys/thumbs/stay-0052-a.jpg",
+        "date": "2019-01-21",
+        "title": "20190120_220825.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0052-b.jpg",
+        "date": "2019-02-02",
+        "title": "20190202_123749.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0052-c.jpg",
+        "date": "2019-02-07",
+        "title": "20190206_192921.jpg"
+      }
+    ],
+    "53": [
+      {
+        "thumb": "journeys/thumbs/stay-0053-a.jpg",
+        "date": "2019-02-18",
+        "title": "20190218_122943.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0053-c.jpg",
+        "date": "2019-03-05",
+        "title": "20190304_205345.jpg"
+      }
+    ],
+    "54": [
+      {
+        "thumb": "journeys/thumbs/stay-0054-a.jpg",
+        "date": "2019-03-11",
+        "title": "20190311_070052.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0054-b.jpg",
+        "date": "2019-03-13",
+        "title": "20190313_113227.jpg"
+      }
+    ],
+    "55": [
+      {
+        "thumb": "journeys/thumbs/stay-0055-a.jpg",
+        "date": "2019-03-16",
+        "title": "20190316_152449.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0055-b.jpg",
+        "date": "2019-03-18",
+        "title": "20190318_143813.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0055-c.jpg",
+        "date": "2019-03-23",
+        "title": "20190323_091928.jpg"
+      }
+    ],
+    "56": [
+      {
+        "thumb": "journeys/thumbs/stay-0056-a.jpg",
+        "date": "2019-04-06",
+        "title": "20190406_125654.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0056-b.jpg",
+        "date": "2019-04-14",
+        "title": "20190414_073912.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0056-c.jpg",
+        "date": "2019-04-17",
+        "title": "IMG_4191.JPG"
+      }
+    ],
+    "57": [
+      {
+        "thumb": "journeys/thumbs/stay-0057-a.jpg",
+        "date": "2019-04-22",
+        "title": "20190422_153952.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0057-b.jpg",
+        "date": "2019-06-17",
+        "title": "20190617_095403.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0057-c.jpg",
+        "date": "2019-07-04",
+        "title": "20190704_175629.jpg"
+      }
+    ],
+    "58": [
+      {
+        "thumb": "journeys/thumbs/stay-0058-a.jpg",
+        "date": "2019-07-05",
+        "title": "20190705_145639.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0058-b.jpg",
+        "date": "2019-07-05",
+        "title": "20190705_194317.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0058-c.jpg",
+        "date": "2019-07-06",
+        "title": "20190705_200503.jpg"
+      }
+    ],
+    "59": [
+      {
+        "thumb": "journeys/thumbs/stay-0059-a.jpg",
+        "date": "2019-07-09",
+        "title": "20190709_173542.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0059-b.jpg",
+        "date": "2019-07-09",
+        "title": "20190709_180013.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0059-c.jpg",
+        "date": "2019-07-13",
+        "title": "20190713_132001.jpg"
+      }
+    ],
+    "60": [
+      {
+        "thumb": "journeys/thumbs/stay-0060-a.jpg",
+        "date": "2019-07-17",
+        "title": "20190717_092107.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0060-b.jpg",
+        "date": "2019-07-30",
+        "title": "20190730_170231.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0060-c.jpg",
+        "date": "2019-08-14",
+        "title": "20190814_111013.jpg"
+      }
+    ],
+    "61": [
+      {
+        "thumb": "journeys/thumbs/stay-0061-a.jpg",
+        "date": "2019-08-17",
+        "title": "20190816_204615.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0061-b.jpg",
+        "date": "2019-08-18",
+        "title": "20190818_103607.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0061-c.jpg",
+        "date": "2019-08-18",
+        "title": "20190818_121405.jpg"
+      }
+    ],
+    "62": [
+      {
+        "thumb": "journeys/thumbs/stay-0062-a.jpg",
+        "date": "2019-08-18",
+        "title": "20190818_183803.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0062-b.jpg",
+        "date": "2019-08-25",
+        "title": "20190825_123023.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0062-c.jpg",
+        "date": "2019-09-01",
+        "title": "20190901_111050.jpg"
+      }
+    ],
+    "63": [
+      {
+        "thumb": "journeys/thumbs/stay-0063-a.jpg",
+        "date": "2019-09-01",
+        "title": "20190901_154245.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0063-b.jpg",
+        "date": "2019-09-05",
+        "title": "20190905_090516.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0063-c.jpg",
+        "date": "2019-09-07",
+        "title": "20190906_205325.jpg"
+      }
+    ],
+    "64": [
+      {
+        "thumb": "journeys/thumbs/stay-0064-a.jpg",
+        "date": "2019-09-07",
+        "title": "20190907_085536.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0064-b.jpg",
+        "date": "2019-09-07",
+        "title": "20190907_131503.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0064-c.jpg",
+        "date": "2019-09-08",
+        "title": "20190908_104036.jpg"
+      }
+    ],
+    "65": [
+      {
+        "thumb": "journeys/thumbs/stay-0065-a.jpg",
+        "date": "2019-09-17",
+        "title": "20190917_183619.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0065-b.jpg",
+        "date": "2019-09-26",
+        "title": "20190926_193217.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0065-c.jpg",
+        "date": "2019-10-10",
+        "title": "20191010_110131.jpg"
+      }
+    ],
+    "66": [
+      {
+        "thumb": "journeys/thumbs/stay-0066-a.jpg",
+        "date": "2019-10-14",
+        "title": "20191014_115723.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0066-b.jpg",
+        "date": "2019-10-15",
+        "title": "20191015_082227.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0066-c.jpg",
+        "date": "2019-10-15",
+        "title": "20191015_172437.jpg"
+      }
+    ],
+    "67": [
+      {
+        "thumb": "journeys/thumbs/stay-0067-a.jpg",
+        "date": "2019-10-20",
+        "title": "20191020_112133.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0067-b.jpg",
+        "date": "2019-10-23",
+        "title": "20191023_123005.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0067-c.jpg",
+        "date": "2019-10-23",
+        "title": "20191023_125017.jpg"
+      }
+    ],
+    "68": [
+      {
+        "thumb": "journeys/thumbs/stay-0068-a.jpg",
+        "date": "2019-10-27",
+        "title": "20191027_102442.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0068-b.jpg",
+        "date": "2019-11-10",
+        "title": "20191110_135609.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0068-c.jpg",
+        "date": "2019-11-26",
+        "title": "20191126_153300.jpg"
+      }
+    ],
+    "69": [
+      {
+        "thumb": "journeys/thumbs/stay-0069-a.jpg",
+        "date": "2019-11-28",
+        "title": "20191128_153404.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0069-b.jpg",
+        "date": "2019-11-29",
+        "title": "20191129_100350.jpg"
+      }
+    ],
+    "70": [
+      {
+        "thumb": "journeys/thumbs/stay-0070-a.jpg",
+        "date": "2019-12-03",
+        "title": "20191203_085901.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0070-b.jpg",
+        "date": "2019-12-07",
+        "title": "20191207_143521.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0070-c.jpg",
+        "date": "2019-12-11",
+        "title": "20191211_055233.jpg"
+      }
+    ],
+    "71": [
+      {
+        "thumb": "journeys/thumbs/stay-0071-a.jpg",
+        "date": "2019-12-12",
+        "title": "20191212_080321.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0071-b.jpg",
+        "date": "2019-12-12",
+        "title": "20191212_184246.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0071-c.jpg",
+        "date": "2019-12-14",
+        "title": "20191214_095215.jpg"
+      }
+    ],
+    "72": [
+      {
+        "thumb": "journeys/thumbs/stay-0072-a.jpg",
+        "date": "2019-12-15",
+        "title": "20191215_132019.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0072-b.jpg",
+        "date": "2019-12-17",
+        "title": "20191217_094343.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0072-c.jpg",
+        "date": "2019-12-23",
+        "title": "20191223_124420.jpg"
+      }
+    ],
+    "73": [
+      {
+        "thumb": "journeys/thumbs/stay-0073-a.jpg",
+        "date": "2019-12-28",
+        "title": "20191228_135014.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0073-b.jpg",
+        "date": "2019-12-29",
+        "title": "20191229_122412.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0073-c.jpg",
+        "date": "2019-12-29",
+        "title": "20191229_132449.jpg"
+      }
+    ],
+    "74": [
+      {
+        "thumb": "journeys/thumbs/stay-0074-a.jpg",
+        "date": "2020-01-29",
+        "title": "20200129_085057.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0074-b.jpg",
+        "date": "2020-02-29",
+        "title": "20200229_094701.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0074-c.jpg",
+        "date": "2020-03-01",
+        "title": "20200301_115624.jpg"
+      }
+    ],
+    "75": [
+      {
+        "thumb": "journeys/thumbs/stay-0075-a.jpg",
+        "date": "2020-03-09",
+        "title": "20200309_173825.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0075-b.jpg",
+        "date": "2020-03-15",
+        "title": "20200315_091827.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0075-c.jpg",
+        "date": "2020-03-22",
+        "title": "20200322_153518.jpg"
+      }
+    ],
+    "76": [
+      {
+        "thumb": "journeys/thumbs/stay-0076-a.jpg",
+        "date": "2020-03-29",
+        "title": "20200329_112237.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0076-b.jpg",
+        "date": "2020-04-06",
+        "title": "20200406_073138.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0076-c.jpg",
+        "date": "2020-04-06",
+        "title": "20200406_073325.jpg"
+      }
+    ],
+    "77": [
+      {
+        "thumb": "journeys/thumbs/stay-0077-a.jpg",
+        "date": "2020-04-10",
+        "title": "20200410_105754.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0077-c.jpg",
+        "date": "2020-04-19",
+        "title": "20200419_145209.jpg"
+      }
+    ],
+    "78": [
+      {
+        "thumb": "journeys/thumbs/stay-0078-a.jpg",
+        "date": "2020-04-19",
+        "title": "20200419_183913.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0078-b.jpg",
+        "date": "2020-04-19",
+        "title": "20200419_184110.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0078-c.jpg",
+        "date": "2020-04-20",
+        "title": "20200419_205500.jpg"
+      }
+    ],
+    "79": [
+      {
+        "thumb": "journeys/thumbs/stay-0079-a.jpg",
+        "date": "2020-05-18",
+        "title": "20200518_082425.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0079-b.jpg",
+        "date": "2020-06-12",
+        "title": "20200612_160417.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0079-c.jpg",
+        "date": "2020-06-23",
+        "title": "20200623_173337.jpg"
+      }
+    ],
+    "80": [
+      {
+        "thumb": "journeys/thumbs/stay-0080-a.jpg",
+        "date": "2020-07-02",
+        "title": "20200702_180300.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0080-c.jpg",
+        "date": "2020-08-23",
+        "title": "20200823_163314.jpg"
+      }
+    ],
+    "81": [
+      {
+        "thumb": "journeys/thumbs/stay-0081-a.jpg",
+        "date": "2020-09-05",
+        "title": "20200905_131755.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0081-b.jpg",
+        "date": "2020-10-05",
+        "title": "20201005_075121.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0081-c.jpg",
+        "date": "2021-01-01",
+        "title": "20210101_151644.jpg"
+      }
+    ],
+    "82": [
+      {
+        "thumb": "journeys/thumbs/stay-0082-a.jpg",
+        "date": "2021-01-23",
+        "title": "20210123_164212.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0082-b.jpg",
+        "date": "2021-01-29",
+        "title": "20210129_140506.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0082-c.jpg",
+        "date": "2021-02-11",
+        "title": "20210211_184809.jpg"
+      }
+    ],
+    "83": [
+      {
+        "thumb": "journeys/thumbs/stay-0083-a.jpg",
+        "date": "2021-02-13",
+        "title": "20210212_192443.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0083-b.jpg",
+        "date": "2021-02-15",
+        "title": "20210215_125127.jpg"
+      }
+    ],
+    "84": [
+      {
+        "thumb": "journeys/thumbs/stay-0084-a.jpg",
+        "date": "2021-02-21",
+        "title": "20210221_084945.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0084-b.jpg",
+        "date": "2021-02-21",
+        "title": "20210221_155659.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0084-c.jpg",
+        "date": "2021-02-22",
+        "title": "20210222_080806.jpg"
+      }
+    ],
+    "85": [
+      {
+        "thumb": "journeys/thumbs/stay-0085-a.jpg",
+        "date": "2021-02-24",
+        "title": "20210224_112102.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0085-b.jpg",
+        "date": "2021-03-23",
+        "title": "20210323_162737.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0085-c.jpg",
+        "date": "2021-04-04",
+        "title": "20210404_133524.jpg"
+      }
+    ],
+    "86": [
+      {
+        "thumb": "journeys/thumbs/stay-0086-a.jpg",
+        "date": "2021-04-21",
+        "title": "20210420_205436.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0086-b.jpg",
+        "date": "2021-05-09",
+        "title": "20210509_090630.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0086-c.jpg",
+        "date": "2021-05-15",
+        "title": "20210515_161827.jpg"
+      }
+    ],
+    "87": [
+      {
+        "thumb": "journeys/thumbs/stay-0087-a.jpg",
+        "date": "2021-05-20",
+        "title": "20210520_134424.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0087-b.jpg",
+        "date": "2021-06-05",
+        "title": "20210605_121235.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0087-c.jpg",
+        "date": "2021-06-15",
+        "title": "20210615_161539.jpg"
+      }
+    ],
+    "88": [
+      {
+        "thumb": "journeys/thumbs/stay-0088-a.jpg",
+        "date": "2021-06-18",
+        "title": "20210617_200630.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0088-b.jpg",
+        "date": "2021-06-18",
+        "title": "20210618_120908.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0088-c.jpg",
+        "date": "2021-06-20",
+        "title": "20210620_131209.jpg"
+      }
+    ],
+    "89": [
+      {
+        "thumb": "journeys/thumbs/stay-0089-a.jpg",
+        "date": "2021-07-01",
+        "title": "20210630_212444.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0089-b.jpg",
+        "date": "2021-07-13",
+        "title": "20210713_100616_01.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0089-c.jpg",
+        "date": "2021-07-19",
+        "title": "20210719_172854.jpg"
+      }
+    ],
+    "90": [
+      {
+        "thumb": "journeys/thumbs/stay-0090-a.jpg",
+        "date": "2021-07-22",
+        "title": "20210722_171513.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0090-b.jpg",
+        "date": "2021-07-26",
+        "title": "20210726_105147.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0090-c.jpg",
+        "date": "2021-07-30",
+        "title": "20210730_170757.jpg"
+      }
+    ],
+    "91": [
+      {
+        "thumb": "journeys/thumbs/stay-0091-b.jpg",
+        "date": "2021-08-03",
+        "title": "20210802_200957.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0091-c.jpg",
+        "date": "2021-08-03",
+        "title": "20210802_201518.jpg"
+      }
+    ],
+    "92": [
+      {
+        "thumb": "journeys/thumbs/stay-0092-a.jpg",
+        "date": "2021-08-03",
+        "title": "20210803_190219.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0092-b.jpg",
+        "date": "2021-08-04",
+        "title": "20210803_201136.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0092-c.jpg",
+        "date": "2021-08-04",
+        "title": "20210804_103101.jpg"
+      }
+    ],
+    "93": [
+      {
+        "thumb": "journeys/thumbs/stay-0093-b.jpg",
+        "date": "2021-08-07",
+        "title": "20210807_181330.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0093-c.jpg",
+        "date": "2021-08-08",
+        "title": "IMG_7150.JPG"
+      }
+    ],
+    "94": [
+      {
+        "thumb": "journeys/thumbs/stay-0094-a.jpg",
+        "date": "2021-08-09",
+        "title": "20210809_181031.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0094-b.jpg",
+        "date": "2021-08-11",
+        "title": "20210811_114132.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0094-c.jpg",
+        "date": "2021-08-11",
+        "title": "20210811_115448.jpg"
+      }
+    ],
+    "95": [
+      {
+        "thumb": "journeys/thumbs/stay-0095-a.jpg",
+        "date": "2021-08-13",
+        "title": "20210813_161413.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0095-c.jpg",
+        "date": "2021-08-14",
+        "title": "20210814_121244.jpg"
+      }
+    ],
+    "96": [
+      {
+        "thumb": "journeys/thumbs/stay-0096-a.jpg",
+        "date": "2021-08-14",
+        "title": "20210814_191546.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0096-b.jpg",
+        "date": "2021-08-18",
+        "title": "20210818_074411.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0096-c.jpg",
+        "date": "2021-08-18",
+        "title": "20210818_075438.jpg"
+      }
+    ],
+    "97": [
+      {
+        "thumb": "journeys/thumbs/stay-0097-a.jpg",
+        "date": "2021-08-20",
+        "title": "20210820_171950.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0097-b.jpg",
+        "date": "2021-08-20",
+        "title": "20210820_172145.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0097-c.jpg",
+        "date": "2021-08-21",
+        "title": "20210820_180231.jpg"
+      }
+    ],
+    "98": [
+      {
+        "thumb": "journeys/thumbs/stay-0098-a.jpg",
+        "date": "2021-08-21",
+        "title": "20210821_170842.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0098-b.jpg",
+        "date": "2021-08-22",
+        "title": "20210821_194556.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0098-c.jpg",
+        "date": "2021-08-22",
+        "title": "20210822_063513.jpg"
+      }
+    ],
+    "99": [
+      {
+        "thumb": "journeys/thumbs/stay-0099-b.jpg",
+        "date": "2021-08-22",
+        "title": "20210822_101406.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0099-c.jpg",
+        "date": "2021-08-23",
+        "title": "20210822_190659.jpg"
+      }
+    ],
+    "100": [
+      {
+        "thumb": "journeys/thumbs/stay-0100-a.jpg",
+        "date": "2021-08-23",
+        "title": "20210822_194632.jpg"
+      }
+    ],
+    "101": [
+      {
+        "thumb": "journeys/thumbs/stay-0101-a.jpg",
+        "date": "2021-08-24",
+        "title": "20210824_165738.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0101-b.jpg",
+        "date": "2021-08-25",
+        "title": "20210825_112303.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0101-c.jpg",
+        "date": "2021-08-26",
+        "title": "20210826_081950.jpg"
+      }
+    ],
+    "102": [
+      {
+        "thumb": "journeys/thumbs/stay-0102-a.jpg",
+        "date": "2021-08-26",
+        "title": "20210826_130908.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0102-b.jpg",
+        "date": "2021-08-27",
+        "title": "20210826_203023.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0102-c.jpg",
+        "date": "2021-08-27",
+        "title": "20210827_125109.jpg"
+      }
+    ],
+    "103": [
+      {
+        "thumb": "journeys/thumbs/stay-0103-a.jpg",
+        "date": "2021-08-28",
+        "title": "20210828_162715.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0103-b.jpg",
+        "date": "2021-08-30",
+        "title": "20210829_181527.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0103-c.jpg",
+        "date": "2021-08-30",
+        "title": "20210830_103052.jpg"
+      }
+    ],
+    "104": [
+      {
+        "thumb": "journeys/thumbs/stay-0104-a.jpg",
+        "date": "2021-08-30",
+        "title": "20210830_103838.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0104-b.jpg",
+        "date": "2021-09-01",
+        "title": "20210901_132604.jpg"
+      }
+    ],
+    "105": [
+      {
+        "thumb": "journeys/thumbs/stay-0105-a.jpg",
+        "date": "2021-09-04",
+        "title": "20210904_165541.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0105-b.jpg",
+        "date": "2021-09-04",
+        "title": "20210904_174316.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0105-c.jpg",
+        "date": "2021-09-05",
+        "title": "20210905_111657.jpg"
+      }
+    ],
+    "106": [
+      {
+        "thumb": "journeys/thumbs/stay-0106-a.jpg",
+        "date": "2021-09-06",
+        "title": "20210906_130240.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0106-b.jpg",
+        "date": "2021-09-07",
+        "title": "20210907_100501.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0106-c.jpg",
+        "date": "2021-09-07",
+        "title": "20210907_124549.jpg"
+      }
+    ],
+    "107": [
+      {
+        "thumb": "journeys/thumbs/stay-0107-a.jpg",
+        "date": "2021-09-07",
+        "title": "20210907_171632.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0107-b.jpg",
+        "date": "2021-09-08",
+        "title": "20210908_142940.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0107-c.jpg",
+        "date": "2021-09-09",
+        "title": "20210909_113613.jpg"
+      }
+    ],
+    "108": [
+      {
+        "thumb": "journeys/thumbs/stay-0108-a.jpg",
+        "date": "2021-09-09",
+        "title": "20210909_121719.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0108-c.jpg",
+        "date": "2021-09-10",
+        "title": "20210909_192158.jpg"
+      }
+    ],
+    "109": [
+      {
+        "thumb": "journeys/thumbs/stay-0109-b.jpg",
+        "date": "2021-09-11",
+        "title": "20210910_200233.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0109-c.jpg",
+        "date": "2021-09-12",
+        "title": "20210912_115540.jpg"
+      }
+    ],
+    "110": [
+      {
+        "thumb": "journeys/thumbs/stay-0110-a.jpg",
+        "date": "2021-09-12",
+        "title": "20210912_171509.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0110-b.jpg",
+        "date": "2021-09-13",
+        "title": "20210912_184732.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0110-c.jpg",
+        "date": "2021-09-13",
+        "title": "20210912_190850.jpg"
+      }
+    ],
+    "111": [
+      {
+        "thumb": "journeys/thumbs/stay-0111-a.jpg",
+        "date": "2021-09-13",
+        "title": "20210913_150929.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0111-b.jpg",
+        "date": "2021-09-13",
+        "title": "20210913_173927.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0111-c.jpg",
+        "date": "2021-09-14",
+        "title": "20210914_084503.jpg"
+      }
+    ],
+    "112": [
+      {
+        "thumb": "journeys/thumbs/stay-0112-a.jpg",
+        "date": "2021-09-14",
+        "title": "20210914_104723.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0112-c.jpg",
+        "date": "2021-09-15",
+        "title": "20210914_180510.jpg"
+      }
+    ],
+    "113": [
+      {
+        "thumb": "journeys/thumbs/stay-0113-a.jpg",
+        "date": "2021-09-17",
+        "title": "20210917_141401.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0113-b.jpg",
+        "date": "2021-09-18",
+        "title": "20210918_074819.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0113-c.jpg",
+        "date": "2021-09-18",
+        "title": "20210918_093749_001.jpg"
+      }
+    ],
+    "114": [
+      {
+        "thumb": "journeys/thumbs/stay-0114-a.jpg",
+        "date": "2021-09-22",
+        "title": "20210922_104310.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0114-b.jpg",
+        "date": "2021-10-31",
+        "title": "20211031_131525.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0114-c.jpg",
+        "date": "2021-11-18",
+        "title": "20211118_104655.jpg"
+      }
+    ],
+    "115": [
+      {
+        "thumb": "journeys/thumbs/stay-0115-a.jpg",
+        "date": "2021-11-24",
+        "title": "20211124_141604.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0115-b.jpg",
+        "date": "2021-12-03",
+        "title": "20211203_150005.jpg"
+      }
+    ],
+    "116": [
+      {
+        "thumb": "journeys/thumbs/stay-0116-a.jpg",
+        "date": "2021-12-11",
+        "title": "20211211_094652.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0116-b.jpg",
+        "date": "2021-12-11",
+        "title": "20211211_102051.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0116-c.jpg",
+        "date": "2021-12-11",
+        "title": "20211211_131936.jpg"
+      }
+    ],
+    "117": [
+      {
+        "thumb": "journeys/thumbs/stay-0117-a.jpg",
+        "date": "2021-12-13",
+        "title": "20211213_134938.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0117-c.jpg",
+        "date": "2021-12-14",
+        "title": "20211214_122421.jpg"
+      }
+    ],
+    "118": [
+      {
+        "thumb": "journeys/thumbs/stay-0118-a.jpg",
+        "date": "2021-12-16",
+        "title": "20211216_110225.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0118-b.jpg",
+        "date": "2021-12-17",
+        "title": "20211217_171152.jpg"
+      }
+    ],
+    "119": [
+      {
+        "thumb": "journeys/thumbs/stay-0119-a.jpg",
+        "date": "2021-12-19",
+        "title": "20211219_172705.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0119-b.jpg",
+        "date": "2021-12-20",
+        "title": "20211219_195126.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0119-c.jpg",
+        "date": "2021-12-20",
+        "title": "20211220_175303.jpg"
+      }
+    ],
+    "120": [
+      {
+        "thumb": "journeys/thumbs/stay-0120-a.jpg",
+        "date": "2021-12-21",
+        "title": "20211221_165011.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0120-b.jpg",
+        "date": "2021-12-22",
+        "title": "20211222_132522.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0120-c.jpg",
+        "date": "2021-12-22",
+        "title": "20211222_164006.jpg"
+      }
+    ],
+    "121": [
+      {
+        "thumb": "journeys/thumbs/stay-0121-a.jpg",
+        "date": "2021-12-23",
+        "title": "20211223_160223.jpg"
+      }
+    ],
+    "122": [
+      {
+        "thumb": "journeys/thumbs/stay-0122-b.jpg",
+        "date": "2022-01-09",
+        "title": "20220109_123350.jpg"
+      }
+    ],
+    "123": [
+      {
+        "thumb": "journeys/thumbs/stay-0123-a.jpg",
+        "date": "2022-01-12",
+        "title": "20220112_121746.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0123-b.jpg",
+        "date": "2022-01-13",
+        "title": "20220113_154406.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0123-c.jpg",
+        "date": "2022-01-14",
+        "title": "20220114_103006.jpg"
+      }
+    ],
+    "124": [
+      {
+        "thumb": "journeys/thumbs/stay-0124-a.jpg",
+        "date": "2022-01-14",
+        "title": "20220114_172849.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0124-b.jpg",
+        "date": "2022-01-15",
+        "title": "20220115_130849.jpg"
+      }
+    ],
+    "125": [
+      {
+        "thumb": "journeys/thumbs/stay-0125-a.jpg",
+        "date": "2022-01-17",
+        "title": "20220116_195004.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0125-b.jpg",
+        "date": "2022-01-18",
+        "title": "20220118_123001.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0125-c.jpg",
+        "date": "2022-01-19",
+        "title": "20220119_085123.jpg"
+      }
+    ],
+    "126": [
+      {
+        "thumb": "journeys/thumbs/stay-0126-a.jpg",
+        "date": "2022-01-19",
+        "title": "20220119_141250.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0126-b.jpg",
+        "date": "2022-01-19",
+        "title": "20220119_174429.jpg"
+      }
+    ],
+    "127": [
+      {
+        "thumb": "journeys/thumbs/stay-0127-a.jpg",
+        "date": "2022-01-22",
+        "title": "20220122_121315.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0127-c.jpg",
+        "date": "2022-01-23",
+        "title": "20220123_154613.jpg"
+      }
+    ],
+    "128": [
+      {
+        "thumb": "journeys/thumbs/stay-0128-a.jpg",
+        "date": "2022-01-24",
+        "title": "20220124_112424.jpg"
+      }
+    ],
+    "129": [
+      {
+        "thumb": "journeys/thumbs/stay-0129-a.jpg",
+        "date": "2022-01-30",
+        "title": "20220130_153808.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0129-b.jpg",
+        "date": "2022-01-30",
+        "title": "20220130_173018.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0129-c.jpg",
+        "date": "2022-01-31",
+        "title": "20220131_145717.jpg"
+      }
+    ],
+    "130": [
+      {
+        "thumb": "journeys/thumbs/stay-0130-a.jpg",
+        "date": "2022-02-01",
+        "title": "20220131_180039.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0130-b.jpg",
+        "date": "2022-02-01",
+        "title": "20220131_210500.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0130-c.jpg",
+        "date": "2022-02-03",
+        "title": "20220202_205533.jpg"
+      }
+    ],
+    "131": [
+      {
+        "thumb": "journeys/thumbs/stay-0131-a.jpg",
+        "date": "2022-02-04",
+        "title": "20220204_173944.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0131-c.jpg",
+        "date": "2022-02-06",
+        "title": "20220206_122438.jpg"
+      }
+    ],
+    "133": [
+      {
+        "thumb": "journeys/thumbs/stay-0133-a.jpg",
+        "date": "2022-02-07",
+        "title": "20220207_143132.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0133-b.jpg",
+        "date": "2022-02-07",
+        "title": "20220207_150048.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0133-c.jpg",
+        "date": "2022-02-08",
+        "title": "20220208_115932.jpg"
+      }
+    ],
+    "134": [
+      {
+        "thumb": "journeys/thumbs/stay-0134-a.jpg",
+        "date": "2022-02-09",
+        "title": "20220209_165640.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0134-c.jpg",
+        "date": "2022-02-10",
+        "title": "20220210_110417.jpg"
+      }
+    ],
+    "135": [
+      {
+        "thumb": "journeys/thumbs/stay-0135-a.jpg",
+        "date": "2022-02-11",
+        "title": "20220211_122336.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0135-b.jpg",
+        "date": "2022-02-11",
+        "title": "20220211_142138.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0135-c.jpg",
+        "date": "2022-02-12",
+        "title": "20220212_093603.jpg"
+      }
+    ],
+    "136": [
+      {
+        "thumb": "journeys/thumbs/stay-0136-a.jpg",
+        "date": "2022-02-13",
+        "title": "20220213_143816.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0136-b.jpg",
+        "date": "2022-02-13",
+        "title": "20220213_164815.jpg"
+      }
+    ],
+    "137": [
+      {
+        "thumb": "journeys/thumbs/stay-0137-b.jpg",
+        "date": "2022-02-14",
+        "title": "20220214_160552.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0137-c.jpg",
+        "date": "2022-02-16",
+        "title": "20220216_083421.jpg"
+      }
+    ],
+    "138": [
+      {
+        "thumb": "journeys/thumbs/stay-0138-a.jpg",
+        "date": "2022-02-16",
+        "title": "20220216_131655.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0138-c.jpg",
+        "date": "2022-02-18",
+        "title": "20220218_122936.jpg"
+      }
+    ],
+    "139": [
+      {
+        "thumb": "journeys/thumbs/stay-0139-a.jpg",
+        "date": "2022-02-20",
+        "title": "20220219_172302.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0139-b.jpg",
+        "date": "2022-02-20",
+        "title": "20220220_155830.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0139-c.jpg",
+        "date": "2022-02-22",
+        "title": "20220222_140756.jpg"
+      }
+    ],
+    "141": [
+      {
+        "thumb": "journeys/thumbs/stay-0141-a.jpg",
+        "date": "2022-02-25",
+        "title": "20220225_143919.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0141-b.jpg",
+        "date": "2022-02-25",
+        "title": "20220225_155741.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0141-c.jpg",
+        "date": "2022-02-26",
+        "title": "20220226_095435.jpg"
+      }
+    ],
+    "142": [
+      {
+        "thumb": "journeys/thumbs/stay-0142-b.jpg",
+        "date": "2022-02-26",
+        "title": "20220226_165324.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0142-c.jpg",
+        "date": "2022-02-27",
+        "title": "20220226_170910.jpg"
+      }
+    ],
+    "143": [
+      {
+        "thumb": "journeys/thumbs/stay-0143-b.jpg",
+        "date": "2022-02-27",
+        "title": "20220227_162428.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0143-c.jpg",
+        "date": "2022-02-28",
+        "title": "20220227_172606.jpg"
+      }
+    ],
+    "144": [
+      {
+        "thumb": "journeys/thumbs/stay-0144-a.jpg",
+        "date": "2022-02-28",
+        "title": "20220228_154627.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0144-b.jpg",
+        "date": "2022-03-01",
+        "title": "20220228_174521.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0144-c.jpg",
+        "date": "2022-03-01",
+        "title": "20220228_190041.jpg"
+      }
+    ],
+    "145": [
+      {
+        "thumb": "journeys/thumbs/stay-0145-b.jpg",
+        "date": "2022-03-11",
+        "title": "20220311_125225.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0145-c.jpg",
+        "date": "2022-03-13",
+        "title": "20220313_102211.jpg"
+      }
+    ],
+    "146": [
+      {
+        "thumb": "journeys/thumbs/stay-0146-a.jpg",
+        "date": "2022-03-13",
+        "title": "20220313_150000.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0146-b.jpg",
+        "date": "2022-03-14",
+        "title": "20220314_104440.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0146-c.jpg",
+        "date": "2022-03-14",
+        "title": "20220314_120022.jpg"
+      }
+    ],
+    "147": [
+      {
+        "thumb": "journeys/thumbs/stay-0147-a.jpg",
+        "date": "2022-03-16",
+        "title": "20220315_170406.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0147-b.jpg",
+        "date": "2022-03-16",
+        "title": "20220316_151610.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0147-c.jpg",
+        "date": "2022-03-18",
+        "title": "20220318_080521.jpg"
+      }
+    ],
+    "148": [
+      {
+        "thumb": "journeys/thumbs/stay-0148-a.jpg",
+        "date": "2022-03-18",
+        "title": "20220318_152617.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0148-b.jpg",
+        "date": "2022-03-19",
+        "title": "20220319_130214.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0148-c.jpg",
+        "date": "2022-03-20",
+        "title": "20220319_185756.jpg"
+      }
+    ],
+    "149": [
+      {
+        "thumb": "journeys/thumbs/stay-0149-a.jpg",
+        "date": "2022-03-20",
+        "title": "20220320_133129.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0149-b.jpg",
+        "date": "2022-03-20",
+        "title": "20220320_143553.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0149-c.jpg",
+        "date": "2022-03-21",
+        "title": "20220320_184503.jpg"
+      }
+    ],
+    "150": [
+      {
+        "thumb": "journeys/thumbs/stay-0150-a.jpg",
+        "date": "2022-03-24",
+        "title": "20220324_143153.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0150-b.jpg",
+        "date": "2022-03-25",
+        "title": "20220325_125852.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0150-c.jpg",
+        "date": "2022-03-29",
+        "title": "20220329_102817.jpg"
+      }
+    ],
+    "151": [
+      {
+        "thumb": "journeys/thumbs/stay-0151-b.jpg",
+        "date": "2022-03-29",
+        "title": "20220329_153645.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0151-c.jpg",
+        "date": "2022-03-31",
+        "title": "20220331_111822.jpg"
+      }
+    ],
+    "152": [
+      {
+        "thumb": "journeys/thumbs/stay-0152-a.jpg",
+        "date": "2022-04-01",
+        "title": "20220401_134600.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0152-c.jpg",
+        "date": "2022-04-02",
+        "title": "20220402_122406.jpg"
+      }
+    ],
+    "153": [
+      {
+        "thumb": "journeys/thumbs/stay-0153-a.jpg",
+        "date": "2022-04-02",
+        "title": "20220402_125957.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0153-b.jpg",
+        "date": "2022-04-02",
+        "title": "20220402_144105.jpg"
+      }
+    ],
+    "154": [
+      {
+        "thumb": "journeys/thumbs/stay-0154-b.jpg",
+        "date": "2022-04-05",
+        "title": "20220405_161714.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0154-c.jpg",
+        "date": "2022-04-07",
+        "title": "20220406_172946.jpg"
+      }
+    ],
+    "155": [
+      {
+        "thumb": "journeys/thumbs/stay-0155-a.jpg",
+        "date": "2022-04-07",
+        "title": "20220407_151823.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0155-b.jpg",
+        "date": "2022-04-08",
+        "title": "20220407_173034.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0155-c.jpg",
+        "date": "2022-04-09",
+        "title": "20220409_111021.jpg"
+      }
+    ],
+    "156": [
+      {
+        "thumb": "journeys/thumbs/stay-0156-b.jpg",
+        "date": "2022-04-09",
+        "title": "20220409_171416.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0156-c.jpg",
+        "date": "2022-04-10",
+        "title": "20220409_191221.jpg"
+      }
+    ],
+    "157": [
+      {
+        "thumb": "journeys/thumbs/stay-0157-a.jpg",
+        "date": "2022-04-10",
+        "title": "20220410_160312.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0157-b.jpg",
+        "date": "2022-04-10",
+        "title": "20220410_174245.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0157-c.jpg",
+        "date": "2022-04-11",
+        "title": "20220411_101105.jpg"
+      }
+    ],
+    "158": [
+      {
+        "thumb": "journeys/thumbs/stay-0158-a.jpg",
+        "date": "2022-04-11",
+        "title": "20220411_123815.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0158-b.jpg",
+        "date": "2022-04-11",
+        "title": "20220411_171655.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0158-c.jpg",
+        "date": "2022-04-12",
+        "title": "20220412_103517.jpg"
+      }
+    ],
+    "159": [
+      {
+        "thumb": "journeys/thumbs/stay-0159-a.jpg",
+        "date": "2022-04-12",
+        "title": "20220412_124345.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0159-b.jpg",
+        "date": "2022-04-12",
+        "title": "20220412_155220.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0159-c.jpg",
+        "date": "2022-04-13",
+        "title": "20220412_185637.jpg"
+      }
+    ],
+    "160": [
+      {
+        "thumb": "journeys/thumbs/stay-0160-a.jpg",
+        "date": "2022-04-13",
+        "title": "20220413_140506.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0160-b.jpg",
+        "date": "2022-04-13",
+        "title": "20220413_161807.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0160-c.jpg",
+        "date": "2022-04-14",
+        "title": "20220414_100907.jpg"
+      }
+    ],
+    "161": [
+      {
+        "thumb": "journeys/thumbs/stay-0161-a.jpg",
+        "date": "2022-04-14",
+        "title": "20220414_140024.jpg"
+      }
+    ],
+    "162": [
+      {
+        "thumb": "journeys/thumbs/stay-0162-a.jpg",
+        "date": "2022-04-17",
+        "title": "20220417_145201.jpg"
+      }
+    ],
+    "163": [
+      {
+        "thumb": "journeys/thumbs/stay-0163-a.jpg",
+        "date": "2022-04-19",
+        "title": "20220419_141251.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0163-b.jpg",
+        "date": "2022-04-20",
+        "title": "20220420_162015.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0163-c.jpg",
+        "date": "2022-04-21",
+        "title": "20220421_112134.jpg"
+      }
+    ],
+    "164": [
+      {
+        "thumb": "journeys/thumbs/stay-0164-a.jpg",
+        "date": "2022-04-21",
+        "title": "20220421_114953.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0164-b.jpg",
+        "date": "2022-04-21",
+        "title": "20220421_154404.jpg"
+      }
+    ],
+    "165": [
+      {
+        "thumb": "journeys/thumbs/stay-0165-a.jpg",
+        "date": "2022-04-24",
+        "title": "IMG_2577.JPEG"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0165-b.jpg",
+        "date": "2022-04-24",
+        "title": "20220424_171333.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0165-c.jpg",
+        "date": "2022-04-25",
+        "title": "20220425_122355.jpg"
+      }
+    ],
+    "166": [
+      {
+        "thumb": "journeys/thumbs/stay-0166-a.jpg",
+        "date": "2022-04-25",
+        "title": "20220425_133653.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0166-c.jpg",
+        "date": "2022-04-26",
+        "title": "20220426_094615.jpg"
+      }
+    ],
+    "167": [
+      {
+        "thumb": "journeys/thumbs/stay-0167-a.jpg",
+        "date": "2022-04-27",
+        "title": "20220426_170837.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0167-b.jpg",
+        "date": "2022-04-27",
+        "title": "20220426_183133.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0167-c.jpg",
+        "date": "2022-04-28",
+        "title": "20220428_145435.jpg"
+      }
+    ],
+    "168": [
+      {
+        "thumb": "journeys/thumbs/stay-0168-a.jpg",
+        "date": "2022-04-30",
+        "title": "20220430_134734.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0168-b.jpg",
+        "date": "2022-04-30",
+        "title": "20220430_150226.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0168-c.jpg",
+        "date": "2022-05-01",
+        "title": "20220430_185940.jpg"
+      }
+    ],
+    "169": [
+      {
+        "thumb": "journeys/thumbs/stay-0169-a.jpg",
+        "date": "2022-05-01",
+        "title": "20220501_105806.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0169-c.jpg",
+        "date": "2022-05-03",
+        "title": "20220503_113809.jpg"
+      }
+    ],
+    "170": [
+      {
+        "thumb": "journeys/thumbs/stay-0170-a.jpg",
+        "date": "2022-05-07",
+        "title": "20220507_155916.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0170-c.jpg",
+        "date": "2022-05-10",
+        "title": "20220510_102645.jpg"
+      }
+    ],
+    "171": [
+      {
+        "thumb": "journeys/thumbs/stay-0171-a.jpg",
+        "date": "2022-05-11",
+        "title": "20220510_201740.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0171-b.jpg",
+        "date": "2022-05-11",
+        "title": "20220510_203531.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0171-c.jpg",
+        "date": "2022-05-12",
+        "title": "20220512_165147.jpg"
+      }
+    ],
+    "172": [
+      {
+        "thumb": "journeys/thumbs/stay-0172-a.jpg",
+        "date": "2022-05-13",
+        "title": "20220513_164901.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0172-b.jpg",
+        "date": "2022-05-15",
+        "title": "20220515_114008.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0172-c.jpg",
+        "date": "2022-05-15",
+        "title": "20220515_124034.jpg"
+      }
+    ],
+    "173": [
+      {
+        "thumb": "journeys/thumbs/stay-0173-a.jpg",
+        "date": "2022-05-15",
+        "title": "20220515_141847.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0173-b.jpg",
+        "date": "2022-05-16",
+        "title": "20220516_121544.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0173-c.jpg",
+        "date": "2022-05-17",
+        "title": "20220517_110505.jpg"
+      }
+    ],
+    "174": [
+      {
+        "thumb": "journeys/thumbs/stay-0174-a.jpg",
+        "date": "2022-05-17",
+        "title": "20220517_160909.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0174-b.jpg",
+        "date": "2022-05-19",
+        "title": "20220519_115152.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0174-c.jpg",
+        "date": "2022-05-21",
+        "title": "20220521_105203.jpg"
+      }
+    ],
+    "175": [
+      {
+        "thumb": "journeys/thumbs/stay-0175-a.jpg",
+        "date": "2022-05-21",
+        "title": "20220521_111911.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0175-c.jpg",
+        "date": "2022-05-22",
+        "title": "20220522_082344.jpg"
+      }
+    ],
+    "176": [
+      {
+        "thumb": "journeys/thumbs/stay-0176-a.jpg",
+        "date": "2022-05-22",
+        "title": "20220522_150914.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0176-b.jpg",
+        "date": "2022-05-22",
+        "title": "20220522_172043.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0176-c.jpg",
+        "date": "2022-05-23",
+        "title": "20220523_072029.jpg"
+      }
+    ],
+    "177": [
+      {
+        "thumb": "journeys/thumbs/stay-0177-a.jpg",
+        "date": "2022-05-23",
+        "title": "20220523_120636.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0177-c.jpg",
+        "date": "2022-05-24",
+        "title": "20220524_103044.jpg"
+      }
+    ],
+    "178": [
+      {
+        "thumb": "journeys/thumbs/stay-0178-a.jpg",
+        "date": "2022-05-24",
+        "title": "20220524_134312.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0178-b.jpg",
+        "date": "2022-05-25",
+        "title": "20220525_110502.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0178-c.jpg",
+        "date": "2022-05-26",
+        "title": "20220526_124909.jpg"
+      }
+    ],
+    "179": [
+      {
+        "thumb": "journeys/thumbs/stay-0179-a.jpg",
+        "date": "2022-05-26",
+        "title": "20220526_142313.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0179-b.jpg",
+        "date": "2022-05-31",
+        "title": "20220530_180855.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0179-c.jpg",
+        "date": "2022-06-06",
+        "title": "20220606_134320.jpg"
+      }
+    ],
+    "180": [
+      {
+        "thumb": "journeys/thumbs/stay-0180-a.jpg",
+        "date": "2022-06-06",
+        "title": "20220606_163245.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0180-b.jpg",
+        "date": "2022-06-07",
+        "title": "20220607_141050.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0180-c.jpg",
+        "date": "2022-06-08",
+        "title": "20220607_205502.jpg"
+      }
+    ],
+    "181": [
+      {
+        "thumb": "journeys/thumbs/stay-0181-b.jpg",
+        "date": "2022-06-11",
+        "title": "20220611_111814.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0181-c.jpg",
+        "date": "2022-06-11",
+        "title": "20220611_125459.jpg"
+      }
+    ],
+    "182": [
+      {
+        "thumb": "journeys/thumbs/stay-0182-a.jpg",
+        "date": "2022-06-12",
+        "title": "20220612_141511.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0182-b.jpg",
+        "date": "2022-06-13",
+        "title": "20220613_154130.jpg"
+      }
+    ],
+    "183": [
+      {
+        "thumb": "journeys/thumbs/stay-0183-a.jpg",
+        "date": "2022-06-14",
+        "title": "20220614_141619.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0183-b.jpg",
+        "date": "2022-06-15",
+        "title": "20220615_151133.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0183-c.jpg",
+        "date": "2022-06-16",
+        "title": "20220616_110726.jpg"
+      }
+    ],
+    "184": [
+      {
+        "thumb": "journeys/thumbs/stay-0184-a.jpg",
+        "date": "2022-06-17",
+        "title": "20220617_122009.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0184-b.jpg",
+        "date": "2022-06-17",
+        "title": "20220617_160308.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0184-c.jpg",
+        "date": "2022-06-18",
+        "title": "20220618_104652.jpg"
+      }
+    ],
+    "185": [
+      {
+        "thumb": "journeys/thumbs/stay-0185-a.jpg",
+        "date": "2022-06-18",
+        "title": "20220618_160054.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0185-c.jpg",
+        "date": "2022-06-19",
+        "title": "20220618_201003.jpg"
+      }
+    ],
+    "186": [
+      {
+        "thumb": "journeys/thumbs/stay-0186-a.jpg",
+        "date": "2022-06-19",
+        "title": "20220619_094542.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0186-c.jpg",
+        "date": "2022-06-20",
+        "title": "20220619_203218.jpg"
+      }
+    ],
+    "187": [
+      {
+        "thumb": "journeys/thumbs/stay-0187-a.jpg",
+        "date": "2022-06-20",
+        "title": "20220620_164304.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0187-b.jpg",
+        "date": "2022-06-21",
+        "title": "20220620_180754.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0187-c.jpg",
+        "date": "2022-06-21",
+        "title": "20220621_131945.jpg"
+      }
+    ],
+    "188": [
+      {
+        "thumb": "journeys/thumbs/stay-0188-a.jpg",
+        "date": "2022-06-23",
+        "title": "20220622_180231.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0188-b.jpg",
+        "date": "2022-06-23",
+        "title": "20220623_130139.jpg"
+      }
+    ],
+    "189": [
+      {
+        "thumb": "journeys/thumbs/stay-0189-a.jpg",
+        "date": "2022-06-29",
+        "title": "20220629_095457.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0189-b.jpg",
+        "date": "2022-07-04",
+        "title": "20220704_144354.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0189-c.jpg",
+        "date": "2022-07-05",
+        "title": "20220705_120035.jpg"
+      }
+    ],
+    "190": [
+      {
+        "thumb": "journeys/thumbs/stay-0190-a.jpg",
+        "date": "2022-07-05",
+        "title": "20220705_163120.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0190-b.jpg",
+        "date": "2022-07-06",
+        "title": "20220705_172245.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0190-c.jpg",
+        "date": "2022-07-06",
+        "title": "20220705_181154.jpg"
+      }
+    ],
+    "191": [
+      {
+        "thumb": "journeys/thumbs/stay-0191-a.jpg",
+        "date": "2022-07-06",
+        "title": "20220706_165723.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0191-c.jpg",
+        "date": "2022-07-07",
+        "title": "20220706_171934.jpg"
+      }
+    ],
+    "192": [
+      {
+        "thumb": "journeys/thumbs/stay-0192-a.jpg",
+        "date": "2022-07-09",
+        "title": "20220709_132454.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0192-b.jpg",
+        "date": "2022-07-09",
+        "title": "20220709_155925.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0192-c.jpg",
+        "date": "2022-07-10",
+        "title": "20220710_101805.jpg"
+      }
+    ],
+    "193": [
+      {
+        "thumb": "journeys/thumbs/stay-0193-a.jpg",
+        "date": "2022-07-30",
+        "title": "20220730_173351.jpg"
+      }
+    ],
+    "194": [
+      {
+        "thumb": "journeys/thumbs/stay-0194-a.jpg",
+        "date": "2022-08-03",
+        "title": "20220803_172829.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0194-b.jpg",
+        "date": "2022-08-29",
+        "title": "20220829_121924.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0194-c.jpg",
+        "date": "2022-09-15",
+        "title": "20220915_112434.jpg"
+      }
+    ],
+    "195": [
+      {
+        "thumb": "journeys/thumbs/stay-0195-a.jpg",
+        "date": "2022-09-18",
+        "title": "20220918_141411.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0195-b.jpg",
+        "date": "2022-09-21",
+        "title": "20220921_123151.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0195-c.jpg",
+        "date": "2022-09-26",
+        "title": "20220926_171255.jpg"
+      }
+    ],
+    "196": [
+      {
+        "thumb": "journeys/thumbs/stay-0196-a.jpg",
+        "date": "2022-09-28",
+        "title": "20220928_104711.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0196-b.jpg",
+        "date": "2022-09-29",
+        "title": "20220929_123321.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0196-c.jpg",
+        "date": "2022-10-06",
+        "title": "20221006_135856.jpg"
+      }
+    ],
+    "197": [
+      {
+        "thumb": "journeys/thumbs/stay-0197-a.jpg",
+        "date": "2022-10-09",
+        "title": "20221009_105324.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0197-b.jpg",
+        "date": "2022-10-16",
+        "title": "20221016_115359.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0197-c.jpg",
+        "date": "2022-10-18",
+        "title": "20221018_105625.jpg"
+      }
+    ],
+    "198": [
+      {
+        "thumb": "journeys/thumbs/stay-0198-a.jpg",
+        "date": "2022-10-29",
+        "title": "20221029_114957.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0198-b.jpg",
+        "date": "2022-11-09",
+        "title": "20221109_073412.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0198-c.jpg",
+        "date": "2022-11-09",
+        "title": "20221109_075406.jpg"
+      }
+    ],
+    "199": [
+      {
+        "thumb": "journeys/thumbs/stay-0199-a.jpg",
+        "date": "2022-11-16",
+        "title": "20221116_170041.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0199-b.jpg",
+        "date": "2022-11-18",
+        "title": "20221118_132457.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0199-c.jpg",
+        "date": "2022-11-19",
+        "title": "20221119_173410.jpg"
+      }
+    ],
+    "200": [
+      {
+        "thumb": "journeys/thumbs/stay-0200-a.jpg",
+        "date": "2022-11-24",
+        "title": "20221124_152822.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0200-b.jpg",
+        "date": "2022-11-26",
+        "title": "20221125_190659.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0200-c.jpg",
+        "date": "2022-11-30",
+        "title": "20221130_123301.jpg"
+      }
+    ],
+    "201": [
+      {
+        "thumb": "journeys/thumbs/stay-0201-a.jpg",
+        "date": "2022-12-07",
+        "title": "20221207_111403.jpg"
+      }
+    ],
+    "202": [
+      {
+        "thumb": "journeys/thumbs/stay-0202-a.jpg",
+        "date": "2022-12-10",
+        "title": "20221210_161148.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0202-b.jpg",
+        "date": "2022-12-11",
+        "title": "20221211_124506.jpg"
+      }
+    ],
+    "203": [
+      {
+        "thumb": "journeys/thumbs/stay-0203-a.jpg",
+        "date": "2022-12-24",
+        "title": "20221224_161919.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0203-b.jpg",
+        "date": "2023-01-02",
+        "title": "20230101_193754.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0203-c.jpg",
+        "date": "2023-01-02",
+        "title": "20230101_202708.jpg"
+      }
+    ],
+    "204": [
+      {
+        "thumb": "journeys/thumbs/stay-0204-a.jpg",
+        "date": "2023-01-04",
+        "title": "20230103_193031.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0204-b.jpg",
+        "date": "2023-01-07",
+        "title": "20230107_120330.jpg"
+      }
+    ],
+    "205": [
+      {
+        "thumb": "journeys/thumbs/stay-0205-a.jpg",
+        "date": "2023-01-12",
+        "title": "20230112_170220.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0205-b.jpg",
+        "date": "2023-01-18",
+        "title": "20230118_065059.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0205-c.jpg",
+        "date": "2023-01-18",
+        "title": "20230118_145829.jpg"
+      }
+    ],
+    "206": [
+      {
+        "thumb": "journeys/thumbs/stay-0206-a.jpg",
+        "date": "2023-01-20",
+        "title": "20230120_081842.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0206-b.jpg",
+        "date": "2023-01-24",
+        "title": "20230124_125858.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0206-c.jpg",
+        "date": "2023-01-26",
+        "title": "20230126_105653.jpg"
+      }
+    ],
+    "207": [
+      {
+        "thumb": "journeys/thumbs/stay-0207-a.jpg",
+        "date": "2023-01-26",
+        "title": "20230126_133152.jpg"
+      }
+    ],
+    "208": [
+      {
+        "thumb": "journeys/thumbs/stay-0208-a.jpg",
+        "date": "2023-02-06",
+        "title": "20230206_110601.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0208-b.jpg",
+        "date": "2023-02-08",
+        "title": "20230208_075133.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0208-c.jpg",
+        "date": "2023-02-09",
+        "title": "20230209_084147.jpg"
+      }
+    ],
+    "209": [
+      {
+        "thumb": "journeys/thumbs/stay-0209-a.jpg",
+        "date": "2023-02-09",
+        "title": "20230209_132059.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0209-b.jpg",
+        "date": "2023-02-09",
+        "title": "20230209_153348.jpg"
+      }
+    ],
+    "210": [
+      {
+        "thumb": "journeys/thumbs/stay-0210-a.jpg",
+        "date": "2023-02-10",
+        "title": "20230210_122407.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0210-c.jpg",
+        "date": "2023-02-12",
+        "title": "20230212_093245.jpg"
+      }
+    ],
+    "211": [
+      {
+        "thumb": "journeys/thumbs/stay-0211-a.jpg",
+        "date": "2023-02-12",
+        "title": "20230212_113047.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0211-b.jpg",
+        "date": "2023-02-13",
+        "title": "20230213_071317.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0211-c.jpg",
+        "date": "2023-02-14",
+        "title": "20230214_093605.jpg"
+      }
+    ],
+    "212": [
+      {
+        "thumb": "journeys/thumbs/stay-0212-a.jpg",
+        "date": "2023-02-15",
+        "title": "20230214_171014.jpg"
+      }
+    ],
+    "213": [
+      {
+        "thumb": "journeys/thumbs/stay-0213-a.jpg",
+        "date": "2023-02-16",
+        "title": "20230216_132744.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0213-b.jpg",
+        "date": "2023-02-17",
+        "title": "20230217_083800.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0213-c.jpg",
+        "date": "2023-02-17",
+        "title": "20230217_090336.jpg"
+      }
+    ],
+    "214": [
+      {
+        "thumb": "journeys/thumbs/stay-0214-a.jpg",
+        "date": "2023-02-17",
+        "title": "20230217_104927.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0214-b.jpg",
+        "date": "2023-02-17",
+        "title": "20230217_122744.jpg"
+      }
+    ],
+    "215": [
+      {
+        "thumb": "journeys/thumbs/stay-0215-a.jpg",
+        "date": "2023-02-19",
+        "title": "20230219_140820.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0215-b.jpg",
+        "date": "2023-02-22",
+        "title": "20230222_120924.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0215-c.jpg",
+        "date": "2023-02-27",
+        "title": "20230227_111522.jpg"
+      }
+    ],
+    "216": [
+      {
+        "thumb": "journeys/thumbs/stay-0216-a.jpg",
+        "date": "2023-02-28",
+        "title": "20230227_172848.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0216-b.jpg",
+        "date": "2023-02-28",
+        "title": "20230228_162347.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0216-c.jpg",
+        "date": "2023-03-01",
+        "title": "20230301_091130.jpg"
+      }
+    ],
+    "217": [
+      {
+        "thumb": "journeys/thumbs/stay-0217-b.jpg",
+        "date": "2023-03-04",
+        "title": "20230304_131039.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0217-c.jpg",
+        "date": "2023-03-05",
+        "title": "20230304_184714.jpg"
+      }
+    ],
+    "218": [
+      {
+        "thumb": "journeys/thumbs/stay-0218-a.jpg",
+        "date": "2023-03-08",
+        "title": "20230308_150537.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0218-b.jpg",
+        "date": "2023-03-16",
+        "title": "20230316_145445.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0218-c.jpg",
+        "date": "2023-03-20",
+        "title": "20230320_133830.jpg"
+      }
+    ],
+    "219": [
+      {
+        "thumb": "journeys/thumbs/stay-0219-a.jpg",
+        "date": "2023-03-22",
+        "title": "20230322_162643.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0219-b.jpg",
+        "date": "2023-03-23",
+        "title": "20230322_183532.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0219-c.jpg",
+        "date": "2023-03-23",
+        "title": "20230323_110837.jpg"
+      }
+    ],
+    "220": [
+      {
+        "thumb": "journeys/thumbs/stay-0220-a.jpg",
+        "date": "2023-03-25",
+        "title": "20230324_184055.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0220-b.jpg",
+        "date": "2023-03-26",
+        "title": "20230326_154141.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0220-c.jpg",
+        "date": "2023-03-29",
+        "title": "20230329_095232.jpg"
+      }
+    ],
+    "221": [
+      {
+        "thumb": "journeys/thumbs/stay-0221-a.jpg",
+        "date": "2023-03-30",
+        "title": "20230329_184119.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0221-b.jpg",
+        "date": "2023-03-31",
+        "title": "20230331_120009.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0221-c.jpg",
+        "date": "2023-03-31",
+        "title": "20230331_123937.jpg"
+      }
+    ],
+    "222": [
+      {
+        "thumb": "journeys/thumbs/stay-0222-a.jpg",
+        "date": "2023-04-05",
+        "title": "20230405_141451.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0222-c.jpg",
+        "date": "2023-04-07",
+        "title": "20230406_200428.jpg"
+      }
+    ],
+    "223": [
+      {
+        "thumb": "journeys/thumbs/stay-0223-a.jpg",
+        "date": "2023-04-08",
+        "title": "20230408_145240.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0223-b.jpg",
+        "date": "2023-04-09",
+        "title": "20230408_170841.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0223-c.jpg",
+        "date": "2023-04-09",
+        "title": "20230408_175122.jpg"
+      }
+    ],
+    "224": [
+      {
+        "thumb": "journeys/thumbs/stay-0224-a.jpg",
+        "date": "2023-04-09",
+        "title": "20230408_203643.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0224-c.jpg",
+        "date": "2023-04-16",
+        "title": "20230416_150717.jpg"
+      }
+    ],
+    "225": [
+      {
+        "thumb": "journeys/thumbs/stay-0225-a.jpg",
+        "date": "2023-04-18",
+        "title": "20230418_154704.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0225-b.jpg",
+        "date": "2023-04-21",
+        "title": "20230421_113454.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0225-c.jpg",
+        "date": "2023-04-21",
+        "title": "20230421_124621.jpg"
+      }
+    ],
+    "226": [
+      {
+        "thumb": "journeys/thumbs/stay-0226-a.jpg",
+        "date": "2023-04-21",
+        "title": "20230421_161954.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0226-b.jpg",
+        "date": "2023-04-24",
+        "title": "20230424_113548.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0226-c.jpg",
+        "date": "2023-04-24",
+        "title": "20230424_134700.jpg"
+      }
+    ],
+    "227": [
+      {
+        "thumb": "journeys/thumbs/stay-0227-a.jpg",
+        "date": "2023-04-25",
+        "title": "20230425_145900.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0227-b.jpg",
+        "date": "2023-04-26",
+        "title": "20230425_185833.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0227-c.jpg",
+        "date": "2023-04-26",
+        "title": "20230425_192433.jpg"
+      }
+    ],
+    "228": [
+      {
+        "thumb": "journeys/thumbs/stay-0228-a.jpg",
+        "date": "2023-06-01",
+        "title": "20230601_110531.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0228-b.jpg",
+        "date": "2023-06-02",
+        "title": "20230602_125149.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0228-c.jpg",
+        "date": "2023-06-02",
+        "title": "20230602_170802.jpg"
+      }
+    ],
+    "229": [
+      {
+        "thumb": "journeys/thumbs/stay-0229-a.jpg",
+        "date": "2023-06-05",
+        "title": "20230605_163631.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0229-b.jpg",
+        "date": "2023-06-06",
+        "title": "20230606_120648.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0229-c.jpg",
+        "date": "2023-06-07",
+        "title": "20230607_083806.jpg"
+      }
+    ],
+    "230": [
+      {
+        "thumb": "journeys/thumbs/stay-0230-a.jpg",
+        "date": "2023-06-08",
+        "title": "20230608_143543.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0230-b.jpg",
+        "date": "2023-06-09",
+        "title": "20230609_130605.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0230-c.jpg",
+        "date": "2023-06-13",
+        "title": "20230613_083411.jpg"
+      }
+    ],
+    "231": [
+      {
+        "thumb": "journeys/thumbs/stay-0231-a.jpg",
+        "date": "2023-06-18",
+        "title": "20230618_121114.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0231-b.jpg",
+        "date": "2023-06-18",
+        "title": "20230618_160837.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0231-c.jpg",
+        "date": "2023-06-19",
+        "title": "20230618_192100.jpg"
+      }
+    ],
+    "232": [
+      {
+        "thumb": "journeys/thumbs/stay-0232-a.jpg",
+        "date": "2023-06-27",
+        "title": "20230627_170636.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0232-b.jpg",
+        "date": "2023-06-28",
+        "title": "20230627_184021.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0232-c.jpg",
+        "date": "2023-06-28",
+        "title": "20230628_100138.jpg"
+      }
+    ],
+    "233": [
+      {
+        "thumb": "journeys/thumbs/stay-0233-a.jpg",
+        "date": "2023-08-07",
+        "title": "20230807_101051.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0233-b.jpg",
+        "date": "2023-08-07",
+        "title": "20230807_133319.jpg"
+      }
+    ],
+    "234": [
+      {
+        "thumb": "journeys/thumbs/stay-0234-a.jpg",
+        "date": "2023-09-04",
+        "title": "20230904_164114.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0234-b.jpg",
+        "date": "2023-09-04",
+        "title": "20230904_170747.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0234-c.jpg",
+        "date": "2023-09-05",
+        "title": "20230904_190355.jpg"
+      }
+    ],
+    "235": [
+      {
+        "thumb": "journeys/thumbs/stay-0235-a.jpg",
+        "date": "2023-09-17",
+        "title": "20230917_180554.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0235-b.jpg",
+        "date": "2023-09-18",
+        "title": "20230918_082707.jpg"
+      }
+    ],
+    "236": [
+      {
+        "thumb": "journeys/thumbs/stay-0236-a.jpg",
+        "date": "2023-09-19",
+        "title": "20230919_165637.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0236-b.jpg",
+        "date": "2023-09-19",
+        "title": "20230919_185209.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0236-c.jpg",
+        "date": "2023-09-20",
+        "title": "20230920_195104.jpg"
+      }
+    ],
+    "237": [
+      {
+        "thumb": "journeys/thumbs/stay-0237-a.jpg",
+        "date": "2023-10-01",
+        "title": "20231001_092007.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0237-b.jpg",
+        "date": "2023-10-04",
+        "title": "20231004_095755.jpg"
+      }
+    ],
+    "238": [
+      {
+        "thumb": "journeys/thumbs/stay-0238-a.jpg",
+        "date": "2023-10-15",
+        "title": "20231015_180026.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0238-b.jpg",
+        "date": "2023-11-02",
+        "title": "20231102_163354.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0238-c.jpg",
+        "date": "2023-11-27",
+        "title": "20231127_114056.jpg"
+      }
+    ],
+    "239": [
+      {
+        "thumb": "journeys/thumbs/stay-0239-a.jpg",
+        "date": "2023-12-10",
+        "title": "20231210_160526.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0239-b.jpg",
+        "date": "2023-12-11",
+        "title": "20231210_205832.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0239-c.jpg",
+        "date": "2023-12-12",
+        "title": "20231212_125251.jpg"
+      }
+    ],
+    "240": [
+      {
+        "thumb": "journeys/thumbs/stay-0240-a.jpg",
+        "date": "2023-12-13",
+        "title": "20231213_141644.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0240-b.jpg",
+        "date": "2023-12-14",
+        "title": "20231214_154200.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0240-c.jpg",
+        "date": "2023-12-16",
+        "title": "20231216_122305.jpg"
+      }
+    ],
+    "241": [
+      {
+        "thumb": "journeys/thumbs/stay-0241-a.jpg",
+        "date": "2023-12-16",
+        "title": "20231216_131111.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0241-b.jpg",
+        "date": "2023-12-20",
+        "title": "20231220_181752.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0241-c.jpg",
+        "date": "2023-12-25",
+        "title": "20231225_114928.jpg"
+      }
+    ],
+    "242": [
+      {
+        "thumb": "journeys/thumbs/stay-0242-a.jpg",
+        "date": "2023-12-28",
+        "title": "20231228_080252.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0242-b.jpg",
+        "date": "2023-12-28",
+        "title": "20231228_141750.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0242-c.jpg",
+        "date": "2023-12-29",
+        "title": "20231229_122311.jpg"
+      }
+    ],
+    "243": [
+      {
+        "thumb": "journeys/thumbs/stay-0243-a.jpg",
+        "date": "2023-12-30",
+        "title": "20231230_151310.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0243-b.jpg",
+        "date": "2024-01-01",
+        "title": "20231231_230009.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0243-c.jpg",
+        "date": "2024-01-06",
+        "title": "20240106_161248.jpg"
+      }
+    ],
+    "246": [
+      {
+        "thumb": "journeys/thumbs/stay-0246-b.jpg",
+        "date": "2024-01-22",
+        "title": "20240121_190937.jpg"
+      }
+    ],
+    "247": [
+      {
+        "thumb": "journeys/thumbs/stay-0247-a.jpg",
+        "date": "2024-02-02",
+        "title": "20240202_150312.jpg"
+      }
+    ],
+    "251": [
+      {
+        "thumb": "journeys/thumbs/stay-0251-b.jpg",
+        "date": "2024-02-27",
+        "title": "20240227_064037.jpg"
+      }
+    ],
+    "253": [
+      {
+        "thumb": "journeys/thumbs/stay-0253-b.jpg",
+        "date": "2024-03-11",
+        "title": "20240311_062128.jpg"
+      }
+    ],
+    "256": [
+      {
+        "thumb": "journeys/thumbs/stay-0256-b.jpg",
+        "date": "2024-03-29",
+        "title": "20240329_103524.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0256-c.jpg",
+        "date": "2024-04-01",
+        "title": "20240401_145426.jpg"
+      }
+    ],
+    "257": [
+      {
+        "thumb": "journeys/thumbs/stay-0257-a.jpg",
+        "date": "2024-04-01",
+        "title": "20240401_150044.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0257-b.jpg",
+        "date": "2024-04-05",
+        "title": "20240405_073943.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0257-c.jpg",
+        "date": "2024-04-07",
+        "title": "20240407_103347.jpg"
+      }
+    ],
+    "259": [
+      {
+        "thumb": "journeys/thumbs/stay-0259-a.jpg",
+        "date": "2024-04-12",
+        "title": "20240412_141156.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0259-b.jpg",
+        "date": "2024-04-14",
+        "title": "20240413_183938.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0259-c.jpg",
+        "date": "2024-04-16",
+        "title": "20240416_083048.jpg"
+      }
+    ],
+    "260": [
+      {
+        "thumb": "journeys/thumbs/stay-0260-a.jpg",
+        "date": "2024-04-16",
+        "title": "20240416_163859.jpg"
+      }
+    ],
+    "265": [
+      {
+        "thumb": "journeys/thumbs/stay-0265-a.jpg",
+        "date": "2024-05-20",
+        "title": "20240520_140947.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0265-b.jpg",
+        "date": "2024-05-20",
+        "title": "20240520_165612.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0265-c.jpg",
+        "date": "2024-05-21",
+        "title": "20240521_100014.jpg"
+      }
+    ],
+    "266": [
+      {
+        "thumb": "journeys/thumbs/stay-0266-c.jpg",
+        "date": "2024-05-23",
+        "title": "20240523_085407.jpg"
+      }
+    ],
+    "267": [
+      {
+        "thumb": "journeys/thumbs/stay-0267-a.jpg",
+        "date": "2024-05-23",
+        "title": "20240523_141012.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0267-b.jpg",
+        "date": "2024-05-24",
+        "title": "20240524_131309.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0267-c.jpg",
+        "date": "2024-05-27",
+        "title": "20240527_151936.jpg"
+      }
+    ],
+    "279": [
+      {
+        "thumb": "journeys/thumbs/stay-0279-c.jpg",
+        "date": "2024-07-11",
+        "title": "20240711_060037.jpg"
+      }
+    ],
+    "280": [
+      {
+        "thumb": "journeys/thumbs/stay-0280-a.jpg",
+        "date": "2024-07-12",
+        "title": "20240712_145513.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0280-b.jpg",
+        "date": "2024-07-13",
+        "title": "20240712_192813.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0280-c.jpg",
+        "date": "2024-07-13",
+        "title": "20240713_094917.jpg"
+      }
+    ],
+    "281": [
+      {
+        "thumb": "journeys/thumbs/stay-0281-b.jpg",
+        "date": "2024-07-13",
+        "title": "20240713_124429.jpg"
+      }
+    ],
+    "282": [
+      {
+        "thumb": "journeys/thumbs/stay-0282-a.jpg",
+        "date": "2024-07-20",
+        "title": "20240720_150553.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0282-b.jpg",
+        "date": "2024-07-22",
+        "title": "20240722_104206.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0282-c.jpg",
+        "date": "2024-07-22",
+        "title": "original_de848862-f59a-4294-8f4f-da2bddf0c99e_2(1).jpg"
+      }
+    ],
+    "283": [
+      {
+        "thumb": "journeys/thumbs/stay-0283-a.jpg",
+        "date": "2024-07-22",
+        "title": "20240722_151004.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0283-b.jpg",
+        "date": "2024-07-24",
+        "title": "20240724_101306.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0283-c.jpg",
+        "date": "2024-07-24",
+        "title": "20240724_111702.jpg"
+      }
+    ],
+    "284": [
+      {
+        "thumb": "journeys/thumbs/stay-0284-b.jpg",
+        "date": "2024-07-28",
+        "title": "20240728_133551.jpg"
+      }
+    ],
+    "285": [
+      {
+        "thumb": "journeys/thumbs/stay-0285-b.jpg",
+        "date": "2024-08-02",
+        "title": "20240802_081357.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0285-c.jpg",
+        "date": "2024-08-02",
+        "title": "20240802_102648.jpg"
+      }
+    ],
+    "286": [
+      {
+        "thumb": "journeys/thumbs/stay-0286-a.jpg",
+        "date": "2024-08-07",
+        "title": "20240807_100508.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0286-b.jpg",
+        "date": "2024-08-07",
+        "title": "20240807_114258.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0286-c.jpg",
+        "date": "2024-08-08",
+        "title": "20240807_204840.jpg"
+      }
+    ],
+    "287": [
+      {
+        "thumb": "journeys/thumbs/stay-0287-a.jpg",
+        "date": "2024-08-08",
+        "title": "20240808_133806.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0287-c.jpg",
+        "date": "2024-08-10",
+        "title": "20240810_172606.jpg"
+      }
+    ],
+    "288": [
+      {
+        "thumb": "journeys/thumbs/stay-0288-a.jpg",
+        "date": "2024-08-12",
+        "title": "20240812_120226.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0288-b.jpg",
+        "date": "2024-08-12",
+        "title": "20240812_183252.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0288-c.jpg",
+        "date": "2024-08-13",
+        "title": "20240813_103042.jpg"
+      }
+    ],
+    "289": [
+      {
+        "thumb": "journeys/thumbs/stay-0289-a.jpg",
+        "date": "2024-08-13",
+        "title": "20240813_150731.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0289-b.jpg",
+        "date": "2024-08-13",
+        "title": "20240813_184522.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0289-c.jpg",
+        "date": "2024-08-14",
+        "title": "20240813_210918.jpg"
+      }
+    ],
+    "290": [
+      {
+        "thumb": "journeys/thumbs/stay-0290-a.jpg",
+        "date": "2024-08-14",
+        "title": "20240814_123832.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0290-b.jpg",
+        "date": "2024-08-14",
+        "title": "20240814_131729.jpg"
+      }
+    ],
+    "291": [
+      {
+        "thumb": "journeys/thumbs/stay-0291-a.jpg",
+        "date": "2024-08-21",
+        "title": "20240821_170023.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0291-b.jpg",
+        "date": "2024-08-29",
+        "title": "20240829_160556.jpg"
+      },
+      {
+        "thumb": "journeys/thumbs/stay-0291-c.jpg",
+        "date": "2024-09-04",
+        "title": "20240904_104509.jpg"
+      }
+    ]
+  }
+}
