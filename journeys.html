@@ -342,22 +342,23 @@ const DATA = {"points": [{"lat": 40.6354027, "lon": -74.0357437, "ts": 141936616
 
 // Stay-thumbnail manifest (populated asynchronously). Map of stay-id -> [{thumb,date,title}, ...]
 let THUMBS_BY_STAY = {};
+// Reverse-geocoded place names (populated asynchronously). Map of stay-id -> "City, State"
+let PLACES_BY_STAY = {};
 
-// Try to load the thumbnails manifest. If it doesn't exist (fresh page,
+// Try to load the thumbnails+places manifest. If it doesn't exist (fresh page,
 // thumbs not generated yet), we silently fall back to no-thumbnail popups.
 fetch('journeys/stay_thumbs.json?_=' + Date.now())
   .then(r => r.ok ? r.json() : null)
   .then(j => {
-    if (j && j.stays) {
-      THUMBS_BY_STAY = j.stays;
-      // If the Stays layer is currently visible, rebuild it so popups pick up thumbs.
-      if (visibility && visibility.has('Stays')) {
-        const e = LAYERS['Stays'];
-        if (e) {
-          map.removeLayer(e.layer);
-          e.layer = e.builder();
-          e.layer.addTo(map);
-        }
+    if (j && j.stays) THUMBS_BY_STAY = j.stays;
+    if (j && j.places) PLACES_BY_STAY = j.places;
+    // If the Stays layer is currently visible, rebuild it so popups pick up data.
+    if (visibility && visibility.has('Stays')) {
+      const e = LAYERS['Stays'];
+      if (e) {
+        map.removeLayer(e.layer);
+        e.layer = e.builder();
+        e.layer.addTo(map);
       }
     }
   })
@@ -448,9 +449,13 @@ function buildStays(stays){
   for(const s of stays){
     const r=Math.max(5,Math.min(28,Math.sqrt(s.nights)*3));
     const c=colorForYear(s.year);
+    const place = PLACES_BY_STAY[String(s.id)];
+    const tooltipText = place
+      ? `${place} \u00B7 ${s.start} (${s.nights}n)`
+      : `#${s.id} ${s.start} (${s.nights}n)`;
     const marker = L.circleMarker([s.lat,s.lon],
       {radius:r,color:c,weight:2,fillColor:c,fillOpacity:0.45})
-      .bindTooltip(`#${s.id} ${s.start} (${s.nights}n)`);
+      .bindTooltip(tooltipText);
 
     // Use a function-popup so we can lazy-build the HTML once thumbs arrive.
     marker.bindPopup(() => stayPopupHTML(s), {maxWidth: 320, minWidth: 220});
@@ -461,10 +466,15 @@ function buildStays(stays){
 
 // Returns the HTML for a stay popup, including any thumbnails we have for it.
 function stayPopupHTML(s){
+  const place = PLACES_BY_STAY[String(s.id)];
+  const placeLine = place
+    ? `<div style="font-family:'Cinzel',serif;letter-spacing:0.05em;color:#1a0f00;margin-top:0.2rem;">${place}</div>`
+    : '';
   const head =
-    `<b>Stay #${s.id}</b><br>${s.start} &rarr; ${s.end}<br>` +
-    `${s.nights} night${s.nights===1?'':'s'} &middot; ${s.photos.toLocaleString()} photo${s.photos===1?'':'s'}<br>`+
-    `<span style="color:#5a3510;">(${s.lat.toFixed(3)}, ${s.lon.toFixed(3)})</span>`;
+    `<b>Stay #${s.id}</b>` + placeLine +
+    `<div style="margin-top:0.2rem;">${s.start} &rarr; ${s.end}</div>` +
+    `<div>${s.nights} night${s.nights===1?'':'s'} &middot; ${s.photos.toLocaleString()} photo${s.photos===1?'':'s'}</div>` +
+    `<div style="font-family:'IM Fell English',serif;font-style:italic;color:#5a3510;font-size:0.82rem;margin-top:0.15rem;">(${s.lat.toFixed(3)}, ${s.lon.toFixed(3)})</div>`;
   const thumbs = THUMBS_BY_STAY[String(s.id)];
   if(!thumbs || !thumbs.length){
     return head;
