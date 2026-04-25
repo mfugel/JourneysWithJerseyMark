@@ -181,6 +181,15 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
 .card-thumb img{display:block;width:100%;height:auto;border-radius:2px;}
 .card-thumb-label{font-family:'Cinzel',serif;font-size:0.74rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#1a0f00;text-align:center;margin-top:0.4rem;}
 @media(max-width:480px){.card-thumbs{grid-template-columns:1fr;}}
+.coffee-section{text-align:center;}
+.coffee-blurb{font-family:'IM Fell English',serif;font-style:italic;font-size:1.05rem;color:#1a0f00;margin:0.4rem auto 1.1rem;max-width:34rem;line-height:1.5;}
+.coffee-btn{display:inline-flex;align-items:center;gap:0.55rem;font-family:'Cinzel',serif;font-size:0.95rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#f5ead0;background:#5a3510;border:2px solid #3a1f08;border-radius:4px;padding:0.75rem 1.4rem;text-decoration:none;box-shadow:0 2px 6px rgba(58,31,8,0.35),inset 0 1px 0 rgba(245,234,208,0.18);transition:transform 0.15s ease,box-shadow 0.15s ease,background 0.15s ease;}
+.coffee-btn:hover,.coffee-btn:focus{background:#6e431a;transform:translateY(-2px);box-shadow:0 5px 12px rgba(58,31,8,0.45),inset 0 1px 0 rgba(245,234,208,0.22);}
+.coffee-btn-icon{font-size:1.15rem;line-height:1;}
+.coffee-tip{font-family:'IM Fell English',serif;font-style:italic;font-size:0.92rem;color:#5a3510;margin-top:0.7rem;}
+.site-nav a.nav-coffee{color:#f8d568;}
+.site-nav a.nav-coffee:hover{color:#ffe89a;}
+.nav-drawer a.nav-coffee{color:#f8d568;}
 
 /* ── Navigation Bar ── */
 .site-nav{position:sticky;top:0;z-index:500;background:rgba(90,53,16,0.96);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);border-bottom:1px solid rgba(220,192,137,0.25);}
@@ -260,6 +269,8 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
       <a href="#bizcard">Business Card</a>
       <span class="nav-dot">✦</span>
       <a href="wallpapers.html">🎁 Gift from the Road</a>
+      <span class="nav-dot">✦</span>
+      <a href="https://buymeacoffee.com/fphnvcduo" target="_blank" rel="noopener" class="nav-coffee">☕ Buy Me a Coffee</a>
     </div>
     <a href="#top" class="nav-brand">✦ Jersey Mark</a>
     <button class="nav-hamburger" onclick="toggleNav()" aria-label="Menu">☰</button>
@@ -273,6 +284,7 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
     <a href="#memories">Memories</a>
     <a href="#bizcard">Business Card</a>
     <a href="wallpapers.html">🎁 Gift from the Road</a>
+    <a href="https://buymeacoffee.com/fphnvcduo" target="_blank" rel="noopener" class="nav-coffee">☕ Buy Me a Coffee</a>
   </div>
 </nav>
 
@@ -434,6 +446,17 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
             <div class="card-thumb-label">Back</div>
           </a>
         </div>
+      </div>
+
+      <div class="divider-rule" id="coffee">✦ Fuel the Journey ✦</div>
+      <div class="legend-box coffee-section">
+        <div class="legend-box-title">Buy Me a Coffee</div>
+        <p class="coffee-blurb">If something here made you smile, sparked an idea for your own travels, or just brightened a long afternoon — a coffee keeps Codiwomple rolling and the dispatches coming.</p>
+        <a class="coffee-btn" href="https://buymeacoffee.com/fphnvcduo" target="_blank" rel="noopener" aria-label="Buy Me a Coffee — opens in a new tab">
+          <span class="coffee-btn-icon">☕</span>
+          <span>Buy Me a Coffee</span>
+        </a>
+        <div class="coffee-tip">A small thanks goes a long way · buymeacoffee.com/fphnvcduo</div>
       </div>
 
       <div class="footer-seal">
