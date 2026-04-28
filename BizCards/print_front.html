@@ -99,10 +99,13 @@ html, body {
 .seal-logo {
   width: 0.55in;
   height: 0.55in;
-  object-fit: contain;
   display: block;
-  filter: sepia(0.3) contrast(1.1);
   margin-bottom: 0.05in;
+}
+.seal-logo svg {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 .card-name {
@@ -118,21 +121,21 @@ html, body {
 .card-aka {
   font-family: 'IM Fell English', 'DejaVu Serif', serif;
   font-style: italic;
-  font-size: 0.095in;
+  font-size: 0.110in;
   color: #5a3510;
   line-height: 1.1;
-  margin-bottom: 0.055in;
+  margin-bottom: 0.060in;
 }
 
 .card-role {
   font-family: 'Cinzel', 'DejaVu Serif', serif;
-  font-size: 0.065in;
+  font-size: 0.078in;
   letter-spacing: 0.14em;
   color: #7a4e20;
   text-transform: uppercase;
   border-top: 0.007in solid rgba(90, 53, 16, 0.5);
   border-bottom: 0.007in solid rgba(90, 53, 16, 0.5);
-  padding: 0.022in 0.05in;
+  padding: 0.025in 0.05in;
   text-align: center;
 }
 
@@ -164,7 +167,7 @@ html, body {
 .qr-caption {
   font-family: 'IM Fell English', 'DejaVu Serif', serif;
   font-style: italic;
-  font-size: 0.080in;
+  font-size: 0.095in;
   color: #7a4e20;
   text-align: center;
   line-height: 1.2;
@@ -280,7 +283,7 @@ html, body {
 
   <div class="content">
     <div class="left-col">
-      <img src="__LOGO_DATA_URI__" alt="Jersey Mark Seal" class="seal-logo" />
+      <div class="seal-logo">__LOGO_SVG__</div>
       <div class="card-name">Mark Fugel</div>
       <div class="card-aka">— known as Jersey Mark —</div>
       <div class="card-role">Nomad · Chronicler · Adventurer</div>

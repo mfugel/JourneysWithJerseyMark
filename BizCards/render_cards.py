@@ -51,24 +51,25 @@ HERE = Path(__file__).resolve().parent
 
 FRONT_TEMPLATE = HERE / "print_front.html"
 BACK_TEMPLATE  = HERE / "print_back.html"
-ORIGINAL_FRONT = HERE / "capture_front.html"  # used to extract the embedded logo
+LOGO_SVG       = HERE.parent / "images" / "jersey-mark-seal.svg"  # clean vector seal
 
-FRONT_PDF = HERE / "jersey-mark-card-front.pdf"
-BACK_PDF  = HERE / "jersey-mark-card-back.pdf"
+FRONT_PDF = HERE / "jerseymarkcardfront.pdf"
+BACK_PDF  = HERE / "jerseymarkcardback.pdf"
 
 QR_URL = "https://JourneysWithJerseyMark.com"
 
 # ---- Helpers ---------------------------------------------------------------
 
-def extract_logo_data_uri(html_path: Path) -> str:
-    """Pull the base64 logo out of the original front HTML so we reuse the exact image."""
-    if not html_path.exists():
-        sys.exit(f"ERROR: expected original front HTML at {html_path} (to extract the logo).")
-    content = html_path.read_text(encoding="utf-8")
-    m = re.search(r'src="(data:image/[^"]+)"', content)
-    if not m:
-        sys.exit("ERROR: could not find embedded logo data URI in the original front HTML.")
-    return m.group(1)
+def load_logo_svg(svg_path: Path) -> str:
+    """Read the SVG file and return it as inline markup for crisp vector rendering at any size."""
+    if not svg_path.exists():
+        sys.exit(f"ERROR: expected SVG logo at {svg_path}.")
+    svg = svg_path.read_text(encoding="utf-8")
+    # Strip any XML declaration so it embeds cleanly inside an HTML document.
+    svg = re.sub(r'<\?xml[^?]*\?>\s*', '', svg)
+    # Strip any DOCTYPE if present.
+    svg = re.sub(r'<!DOCTYPE[^>]*>\s*', '', svg)
+    return svg.strip()
 
 def generate_qr_data_uri(url: str) -> str:
     """Generate a high-resolution QR code as a base64 PNG data URI."""
@@ -125,17 +126,17 @@ def main() -> None:
             f"  Expected: {FRONT_TEMPLATE.name} and {BACK_TEMPLATE.name} next to this script."
         )
 
-    print("Extracting logo from original HTML...")
-    logo_uri = extract_logo_data_uri(ORIGINAL_FRONT)
-    print(f"  ok ({len(logo_uri):,} chars)")
+    print("Loading SVG logo...")
+    logo_svg = load_logo_svg(LOGO_SVG)
+    print(f"  ok ({len(logo_svg):,} chars)")
 
     print(f"Generating QR code for: {QR_URL}")
     qr_uri = generate_qr_data_uri(QR_URL)
     print(f"  ok ({len(qr_uri):,} chars)")
 
     front_html = FRONT_TEMPLATE.read_text(encoding="utf-8")
-    front_html = front_html.replace("__LOGO_DATA_URI__", logo_uri)
-    front_html = front_html.replace("__QR_DATA_URI__",   qr_uri)
+    front_html = front_html.replace("__LOGO_SVG__",    logo_svg)
+    front_html = front_html.replace("__QR_DATA_URI__", qr_uri)
 
     back_html = BACK_TEMPLATE.read_text(encoding="utf-8")
 
