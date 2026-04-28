@@ -155,9 +155,23 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
   background:white;padding:7px 9px;border-radius:3px;
   border:1.5px solid #7a4e20;font-family:'Crimson Text',serif;
   font-size:0.8rem;line-height:1.5;color:#1a0f00;
+  max-height:none;overflow:hidden;cursor:default;
 }
 .legend-grad b{font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;}
 .legend-grad i{display:inline-block;width:12px;height:12px;margin-right:5px;vertical-align:middle;border-radius:2px;}
+.legend-grad .legend-toggle{display:none;}
+.legend-grad .legend-body{display:block;}
+@media(max-width:600px){
+  .legend-grad{padding:0;cursor:pointer;font-size:0.75rem;}
+  .legend-grad .legend-toggle{
+    display:block;padding:5px 9px;
+    font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.1em;
+    text-transform:uppercase;color:#1a0f00;white-space:nowrap;user-select:none;
+  }
+  .legend-grad .legend-body{display:none;padding:5px 9px 7px;border-top:1px solid #7a4e20;}
+  .legend-grad.open .legend-body{display:block;}
+  .legend-grad.open .legend-toggle{border-bottom:1px solid #7a4e20;}
+}
 
 @media(max-width:600px){
   .content{padding:1rem 0.75rem 2rem;}
@@ -554,13 +568,27 @@ for(const [name,e] of Object.entries(LAYERS)){
 const legend = L.control({position:'bottomright'});
 legend.onAdd = () => {
   const div = L.DomUtil.create('div','legend-grad');
-  let h='<b>Stays · year</b><br>';
+  let body='<b>Stays · year</b><br>';
   for(let i=0;i<PALETTE.length;i++){
     const t=i/(PALETTE.length-1);
     const yr=Math.round(DATA.year_min + t*(DATA.year_max-DATA.year_min));
-    h += `<i style="background:${PALETTE[i]}"></i>${yr}<br>`;
+    body += `<i style="background:${PALETTE[i]}"></i>${yr}<br>`;
   }
-  div.innerHTML=h; return div;
+  div.innerHTML =
+    `<div class="legend-toggle">🗓 Years <span class="legend-caret">▾</span></div>` +
+    `<div class="legend-body">${body}</div>`;
+  // Don't let taps on the legend pan/zoom the map
+  L.DomEvent.disableClickPropagation(div);
+  L.DomEvent.disableScrollPropagation(div);
+  // Toggle open/closed when the legend is tapped on mobile
+  div.addEventListener('click', () => {
+    if (window.matchMedia('(max-width: 600px)').matches) {
+      div.classList.toggle('open');
+      const caret = div.querySelector('.legend-caret');
+      if (caret) caret.textContent = div.classList.contains('open') ? '▴' : '▾';
+    }
+  });
+  return div;
 };
 legend.addTo(map);
 
