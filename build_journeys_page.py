@@ -33,6 +33,7 @@ from pathlib import Path
 ARCHIVE_ROOT = Path(r"E:\MyPhotoArchive")
 SITE_ROOT    = Path(r"C:\Users\mfuge\OneDrive\Desktop\Github\JourneysWithJerseyMark")
 OUT_PATH     = SITE_ROOT / "journeys.html"
+MANIFEST     = SITE_ROOT / "journeys" / "stay_thumbs.json"
 
 # North America bounding box
 NA_BBOX = {"min_lat": 7.0, "max_lat": 75.0,
@@ -202,6 +203,30 @@ def main():
                 "year": s["start"].year,
             })
     print(f"Stays: {len(stays):,}")
+
+    # ---- merge place names + thumbs from journeys/stay_thumbs.json ----
+    if MANIFEST.exists():
+        try:
+            manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
+            mstays = manifest.get("stays", {}) or {}
+            placed = thumbed = 0
+            for st in stays:
+                entry = mstays.get(str(st["id"])) or {}
+                if isinstance(entry, list):
+                    entry = {"thumbs": entry}
+                place = entry.get("place")
+                if place:
+                    st["place"] = place
+                    placed += 1
+                thumbs = entry.get("thumbs") or []
+                if thumbs:
+                    st["thumbs"] = thumbs
+                    thumbed += 1
+            print(f"  Merged places={placed} thumbs_for={thumbed} from manifest")
+        except Exception as e:
+            print(f"  WARN: could not merge manifest: {e}")
+    else:
+        print(f"  (no manifest at {MANIFEST}; map will lack places/thumbs)")
 
     # ---- hex bins (precomputed for default; recomputed live in JS on filter) ----
     hex_counts = defaultdict(int)
@@ -722,9 +747,18 @@ function buildStays(stays){
     L.circleMarker([s.lat,s.lon],
       {radius:r,color:c,weight:2,fillColor:c,fillOpacity:0.45})
       .bindPopup(
-        `<b>Stay #${s.id}</b><br>${s.start} &rarr; ${s.end}<br>` +
-        `${s.nights} night${s.nights===1?'':'s'} &middot; ${s.photos.toLocaleString()} photo${s.photos===1?'':'s'}<br>`+
-        `(${s.lat.toFixed(3)}, ${s.lon.toFixed(3)})`)
+        (() => {
+          const title = s.place ? s.place : `Stay #${s.id}`;
+          let html = `<b>${title}</b><br>${s.start} &rarr; ${s.end}<br>` +
+            `${s.nights} night${s.nights===1?'':'s'} &middot; ${s.photos.toLocaleString()} photo${s.photos===1?'':'s'}<br>` +
+            `<small>(${s.lat.toFixed(3)}, ${s.lon.toFixed(3)})</small>`;
+          if (s.thumbs && s.thumbs.length) {
+            html += `<div style="margin-top:6px;display:flex;gap:4px;flex-wrap:wrap;">` +
+              s.thumbs.map(t => `<img src="${t.thumb}" alt="" style="width:80px;height:auto;border:1px solid #5a3510;">`).join('') +
+              `</div>`;
+          }
+          return html;
+        })())
       .bindTooltip(`#${s.id} ${s.start} (${s.nights}n)`).addTo(layer);
   }
   return layer;
