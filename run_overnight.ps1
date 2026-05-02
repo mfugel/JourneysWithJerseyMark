@@ -1,4 +1,4 @@
-# run_overnight.ps1 - process a Drive folder of Takeout zips in batches.
+﻿# run_overnight.ps1 - process a Drive folder of Takeout zips in batches.
 #
 # WHAT IT DOES
 #   Moves Takeout zips from G:\My Drive\GooglePhotosTakeout into
@@ -143,8 +143,8 @@ $sig = '[DllImport("kernel32.dll", SetLastError=true)] public static extern uint
 try {
     Add-Type -MemberDefinition $sig -Name Power -Namespace Win32 -ErrorAction SilentlyContinue
 } catch {}
-function Set-StayAwake { [Win32.Power]::SetThreadExecutionState(0x80000000 -bor 0x00000001 -bor 0x00000040) | Out-Null }
-function Set-AllowSleep { [Win32.Power]::SetThreadExecutionState(0x80000000) | Out-Null }
+function Set-StayAwake { [Win32.Power]::SetThreadExecutionState([uint32]([uint32]0x80000000 -bor [uint32]0x00000001 -bor [uint32]0x00000040)) | Out-Null }
+function Set-AllowSleep { [Win32.Power]::SetThreadExecutionState([uint32]0x80000000) | Out-Null }
 Set-StayAwake
 Write-Host "Power: sleep suppressed for this script"
 
