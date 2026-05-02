@@ -143,8 +143,8 @@ $sig = '[DllImport("kernel32.dll", SetLastError=true)] public static extern uint
 try {
     Add-Type -MemberDefinition $sig -Name Power -Namespace Win32 -ErrorAction SilentlyContinue
 } catch {}
-function Set-StayAwake { [Win32.Power]::SetThreadExecutionState([uint32]([uint32]0x80000000 -bor [uint32]0x00000001 -bor [uint32]0x00000040)) | Out-Null }
-function Set-AllowSleep { [Win32.Power]::SetThreadExecutionState([uint32]0x80000000) | Out-Null }
+function Set-StayAwake { [Win32.Power]::SetThreadExecutionState([uint32](2147483648 -bor 1 -bor 64)) | Out-Null }
+function Set-AllowSleep { [Win32.Power]::SetThreadExecutionState([uint32]2147483648) | Out-Null }
 Set-StayAwake
 Write-Host "Power: sleep suppressed for this script"
 
