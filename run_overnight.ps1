@@ -212,10 +212,19 @@ try {
         Write-Host ""
         Write-Host ("Batch $batchNum ingest complete in $ingestMin min") -ForegroundColor Green
 
-        $leftover = @(Get-ChildItem -Path (Join-Path $Inbox '*.zip') -ErrorAction SilentlyContinue)
-        if ($leftover.Count -gt 0) {
-            Write-Host "WARN: $($leftover.Count) zip(s) left in inbox after batch $batchNum" -ForegroundColor Yellow
-            foreach ($z in $leftover) { Write-Host "  $($z.Name)" }
+        # Auto-cleanup: every zip in the inbox was ingested by THIS batch.
+        # At this point Phase 3 has run, staging is empty, so the zips are
+        # fully processed and safe to delete.
+        $processed = @(Get-ChildItem -Path (Join-Path $Inbox 'takeout-*.zip') -ErrorAction SilentlyContinue)
+        if ($processed.Count -gt 0) {
+            $cleanGB = [math]::Round(($processed | Measure-Object Length -Sum).Sum / 1GB, 2)
+            Write-Host ("Cleaning up {0} processed zip(s) ({1} GB)..." -f $processed.Count, $cleanGB)
+            $delFail = 0
+            foreach ($z in $processed) {
+                try { Remove-Item -LiteralPath $z.FullName -Force -ErrorAction Stop }
+                catch { Write-Host ("  failed: {0}: {1}" -f $z.Name, $_) -ForegroundColor Yellow; $delFail++ }
+            }
+            Write-Host ("Cleanup: deleted {0}, failed {1}; free on E: {2} GB" -f ($processed.Count - $delFail), $delFail, (Get-FreeGB E)) -ForegroundColor Green
         }
     }
 

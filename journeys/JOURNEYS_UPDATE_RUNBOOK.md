@@ -267,3 +267,116 @@ CMD:      .\run_pipeline.ps1                       ← from the repo, runs all 4
 
 PUSH:     GitHub Desktop                           ← review, commit, push
 ```
+
+
+---
+
+## Big-batch overnight workflow
+
+For occasional huge ingests (a fresh Takeout of multiple years, hundreds of zips
+totaling many hundreds of GB), the regular `run_pipeline.ps1` is impractical -
+it would tie up a PowerShell window for many hours and process everything in one
+giant Phase 2. The overnight wrapper exists for these.
+
+### When to use the overnight wrapper
+
+Use `run_overnight.ps1` instead of `run_pipeline.ps1` when:
+- You have 50+ Takeout zips to ingest in one session
+- The zips live in `G:\My Drive\GooglePhotosTakeout` (Drive Desktop sync), not
+  in `E:\GooglePhotosTakeouts` directly
+- You want to process them in batches with checkpoints, not all at once
+- You want it to run unattended overnight or longer
+
+For the normal "1-6 zips, just process them" case, keep using `run_pipeline.ps1`.
+
+### What the overnight wrapper does
+
+1. Checks Drive for zips matching the May 1, 2026 Takeout pattern
+   (`takeout-20260501T144741Z-3-*.zip`). If you do another huge Takeout in the
+   future, edit the `$pattern` variable at the top of `run_overnight.ps1` to
+   match its filename prefix.
+2. Pre-flight checks: minimum free disk on E:, no Python already running,
+   inbox is empty, source folder exists.
+3. Suppresses Windows sleep so the run completes uninterrupted.
+4. For each batch of N zips (default 50):
+   - Move N zips from Drive into `E:\GooglePhotosTakeouts\`
+   - Run `extract_to_ssd_v2.py` (Phase 1 extract, Phase 2 classify, Phase 3 cleanup)
+   - **Auto-cleanup**: delete the just-processed zips from the inbox so the next
+     batch does not redundantly re-extract them
+5. After all batches: run thumbnails, geocoding, page render once.
+6. Restore Windows sleep settings on exit (also runs on Ctrl+C).
+7. Writes a full transcript to `E:\MyPhotoArchive\_index\overnight_<timestamp>.log`.
+
+### Running the overnight wrapper
+
+```powershell
+cd C:\Users\mfuge\OneDrive\Desktop\Github\JourneysWithJerseyMark
+
+# Always dry-run first - confirms it found the zips and shows the plan
+.\run_overnight.ps1 -DryRun
+
+# For real
+.\run_overnight.ps1
+
+# Optional flags
+.\run_overnight.ps1 -BatchSize 25            # smaller batches (more checkpoints)
+.\run_overnight.ps1 -SkipFinalSteps          # ingest only, run thumbs/places/page later
+.\run_overnight.ps1 -MinFreeGB 500           # require more free space before starting
+```
+
+If a batch fails, the wrapper stops cleanly. The remaining zips stay in Drive,
+and any zips already in the inbox will be picked up on re-run via dedup.
+
+### Manual cleanup script
+
+If for some reason auto-cleanup did not run (e.g. an older copy of
+`run_overnight.ps1` was used), you can manually clean up zips that have already
+been ingested while the pipeline keeps running.
+
+```powershell
+# In a SEPARATE PowerShell window (don't disturb the running pipeline)
+cd C:\Users\mfuge\OneDrive\Desktop\Github\JourneysWithJerseyMark
+.\cleanup_processed_zips.ps1 -DryRun         # preview what would be deleted
+.\cleanup_processed_zips.ps1                 # actually delete
+```
+
+The script has a 5-minute freshness filter: any zip modified within the last
+5 minutes is treated as "still being processed" and is not touched. This makes
+it safe to run at any moment, even mid-batch.
+
+### Tips for big runs
+
+- **Drive has to be fully synced first.** Right-click the
+  `G:\My Drive\GooglePhotosTakeout` folder and pick "Available offline" before
+  starting. Stream-only stubs will not actually be downloaded until accessed,
+  which slows ingest.
+- **Loose .mp4 files** (videos too big to fit in 2 GB Takeout chunks) live
+  alongside the zips in Drive. The wrapper ignores them. Handle them as a
+  separate task later.
+- **Each batch's Phase 2 walks the entire staging tree.** If the previous
+  batch's Phase 3 cleanup ran (which auto-cleanup helps with), the tree is
+  mostly empty and Phase 2 is fast. If not, it slows down each batch.
+- **Realistic timing:** 1-3 hours per batch of 50 zips depending on how much
+  is dedup-skipped vs newly added, plus tool I/O.
+- **Total zips processed:** check `E:\MyPhotoArchive\_index\overnight_*.log`
+  for "complete in" lines to see how each batch went.
+
+### After an overnight run finishes
+
+1. Check the bottom of the run log for "OVERNIGHT RUN COMPLETE" and a batch
+   count - that confirms it finished cleanly.
+2. Optional: spot-check the local map.
+   ```powershell
+   cd C:\Users\mfuge\OneDrive\Desktop\Github\JourneysWithJerseyMark
+   python -m http.server 8000
+   # browse http://localhost:8000/journeys.html
+   ```
+3. GitHub Desktop -> review changes -> commit -> push. Vercel auto-deploys.
+4. Optional: clean up leftover state.
+   ```powershell
+   # If Drive still has old/unwanted zips you do not want
+   Remove-Item 'G:\My Drive\GooglePhotosTakeout\*.zip' -Force
+
+   # If E: drive has any leftover staging (auto-cleanup should handle this)
+   Remove-Item -Recurse 'E:\MyPhotoArchive\_staging' -ErrorAction SilentlyContinue
+   ```
