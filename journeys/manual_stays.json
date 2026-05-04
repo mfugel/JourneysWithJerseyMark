@@ -19,9 +19,25 @@
       "place": "Rome, Italy",
       "lat": 41.9028,
       "lon": 12.4964,
-      "start_date": "2008-06-15",
-      "end_date": "2008-06-22",
-      "note": "Example entry. Edit dates to match your actual visit, or delete this and add your own."
+      "start_date": "2005-07-15",
+      "end_date": "2005-07-30",
+      "note": "Stayed a week in Rome."
+    },
+    
+      "place": "Florence, Italy",
+      "lat": 43.78500892679679,
+      "lon":  11.248823141940719,
+      "start_date": "2005-07-30",
+      "end_date": "2005-08-15",
+      "note": "Stayed a week in Florence at villa owned by Zubin Mehta."
+    },
+    
+      "place": "St. John, US Virgin Islands",
+      "lat": 18.331958243460367,
+      "lon":  -64.71212909558376,
+      "start_date": "2004-07-10",
+      "end_date": "2004-07-30",
+      "note": "St John, US Virgin Islands."
     }
   ]
 }
