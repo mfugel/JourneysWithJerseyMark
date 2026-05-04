@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-03T15:24:20.853824+00:00",
+  "generated_at": "2026-05-04T00:49:51.633418+00:00",
   "thumb_long_edge": 200,
   "stays": {
     "1": {
@@ -5132,12 +5132,12 @@
         {
           "thumb": "journeys/thumbs/stay-0281-b.jpg",
           "date": "2024-03-14",
-          "title": "20240314_102715.mp4"
+          "title": "20240314_103338.jpg"
         },
         {
           "thumb": "journeys/thumbs/stay-0281-c.jpg",
           "date": "2024-03-18",
-          "title": "20240317_191321.jpg"
+          "title": "20240318_141100.jpg"
         }
       ],
       "place": "?"
@@ -5151,8 +5151,8 @@
         },
         {
           "thumb": "journeys/thumbs/stay-0282-b.jpg",
-          "date": "2024-03-29",
-          "title": "20240329_113904.jpg"
+          "date": "2024-03-28",
+          "title": "20240328_113037.jpg"
         },
         {
           "thumb": "journeys/thumbs/stay-0282-c.jpg",
@@ -5160,7 +5160,7 @@
           "title": "20240401_150044.jpg"
         }
       ],
-      "place": "?"
+      "place": "Municipio de La Paz, Baja California Sur"
     },
     "283": {
       "thumbs": [
@@ -5172,12 +5172,12 @@
         {
           "thumb": "journeys/thumbs/stay-0283-b.jpg",
           "date": "2024-04-05",
-          "title": "20240405_074156.mp4"
+          "title": "20240405_073943.jpg"
         },
         {
           "thumb": "journeys/thumbs/stay-0283-c.jpg",
           "date": "2024-04-07",
-          "title": "20240407_103347.jpg"
+          "title": "20240407_133140.jpg"
         }
       ],
       "place": "Los Cabos Municipality, Baja California Sur"
@@ -5186,13 +5186,18 @@
       "thumbs": [
         {
           "thumb": "journeys/thumbs/stay-0284-a.jpg",
-          "date": "2024-04-12",
-          "title": "20240412_141156.jpg"
+          "date": "2024-04-08",
+          "title": "20240407_173120.jpg"
         },
         {
           "thumb": "journeys/thumbs/stay-0284-b.jpg",
-          "date": "2024-04-13",
-          "title": "20240412_185117.jpg"
+          "date": "2024-04-11",
+          "title": "20240411_151232.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0284-c.jpg",
+          "date": "2024-04-11",
+          "title": "20240411_163037.jpg"
         }
       ],
       "place": "Municipio de La Paz, Baja California Sur"
@@ -5201,1923 +5206,2118 @@
       "thumbs": [
         {
           "thumb": "journeys/thumbs/stay-0285-a.jpg",
-          "date": "2024-04-16",
-          "title": "20240416_163859.jpg"
+          "date": "2024-04-12",
+          "title": "20240412_141156.jpg"
         },
         {
           "thumb": "journeys/thumbs/stay-0285-b.jpg",
-          "date": "2024-04-17",
-          "title": "20240416_185829.mp4"
+          "date": "2024-04-14",
+          "title": "20240414_093955.mp4"
         },
         {
           "thumb": "journeys/thumbs/stay-0285-c.jpg",
-          "date": "2024-04-20",
-          "title": "20240420_090647.jpg"
+          "date": "2024-04-16",
+          "title": "20240416_083048.jpg"
         }
       ],
-      "place": "?"
+      "place": "La Paz, Baja California Sur"
     },
     "286": {
       "thumbs": [
         {
           "thumb": "journeys/thumbs/stay-0286-a.jpg",
+          "date": "2024-04-16",
+          "title": "20240416_163859.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0286-b.jpg",
+          "date": "2024-04-18",
+          "title": "20240418_091237.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0286-c.jpg",
+          "date": "2024-04-22",
+          "title": "20240422_080308.jpg"
+        }
+      ],
+      "place": "?"
+    },
+    "287": {
+      "thumbs": [
+        {
+          "thumb": "journeys/thumbs/stay-0287-a.jpg",
+          "date": "2024-04-22",
+          "title": "20240422_133315.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0287-b.jpg",
+          "date": "2024-04-25",
+          "title": "20240424_185350.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0287-c.jpg",
+          "date": "2024-05-03",
+          "title": "20240503_095202.jpg"
+        }
+      ],
+      "place": "Municipio de Mulegé, Baja California Sur"
+    },
+    "288": {
+      "thumbs": [
+        {
+          "thumb": "journeys/thumbs/stay-0288-a.jpg",
+          "date": "2024-05-05",
+          "title": "20240505_135142.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0288-b.jpg",
+          "date": "2024-05-06",
+          "title": "20240505_192813.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0288-c.jpg",
+          "date": "2024-05-07",
+          "title": "20240507_074908.jpg"
+        }
+      ],
+      "place": "Mexicali Municipality, Baja California, Mexico"
+    },
+    "289": {
+      "thumbs": [
+        {
+          "thumb": "journeys/thumbs/stay-0289-a.jpg",
+          "date": "2024-05-07",
+          "title": "20240507_132356.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0289-b.jpg",
+          "date": "2024-05-09",
+          "title": "20240509_114553.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0289-c.jpg",
+          "date": "2024-05-15",
+          "title": "20240515_092339.jpg"
+        }
+      ],
+      "place": "Yuma, AZ"
+    },
+    "290": {
+      "thumbs": [
+        {
+          "thumb": "journeys/thumbs/stay-0290-a.jpg",
+          "date": "2024-05-16",
+          "title": "20240516_132035.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0290-b.jpg",
+          "date": "2024-05-16",
+          "title": "20240516_152634.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0290-c.jpg",
+          "date": "2024-05-17",
+          "title": "20240517_001836_001.jpg"
+        }
+      ],
+      "place": "Pima County, AZ"
+    },
+    "291": {
+      "thumbs": [
+        {
+          "thumb": "journeys/thumbs/stay-0291-a.jpg",
           "date": "2024-05-20",
           "title": "20240520_140947.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0286-b.jpg",
+          "thumb": "journeys/thumbs/stay-0291-b.jpg",
           "date": "2024-05-20",
           "title": "20240520_165612.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0286-c.jpg",
+          "thumb": "journeys/thumbs/stay-0291-c.jpg",
           "date": "2024-05-21",
           "title": "20240521_100014.jpg"
         }
       ],
       "place": "White Pine County, NV"
     },
-    "287": {
+    "292": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0287-a.jpg",
+          "thumb": "journeys/thumbs/stay-0292-a.jpg",
+          "date": "2024-05-22",
+          "title": "20240522_141856.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0292-b.jpg",
           "date": "2024-05-22",
           "title": "20240522_162717.mp4"
         },
         {
-          "thumb": "journeys/thumbs/stay-0287-b.jpg",
-          "date": "2024-05-23",
-          "title": "20240523_085240.jpg"
-        },
-        {
-          "thumb": "journeys/thumbs/stay-0287-c.jpg",
+          "thumb": "journeys/thumbs/stay-0292-c.jpg",
           "date": "2024-05-23",
           "title": "20240523_085407.jpg"
         }
       ],
       "place": "Shasta County, CA"
     },
-    "288": {
+    "293": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0288-a.jpg",
+          "thumb": "journeys/thumbs/stay-0293-a.jpg",
           "date": "2024-05-23",
           "title": "20240523_141012.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0288-b.jpg",
+          "thumb": "journeys/thumbs/stay-0293-b.jpg",
           "date": "2024-05-24",
-          "title": "20240524_131309.jpg"
+          "title": "20240524_131341.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0288-c.jpg",
-          "date": "2024-05-27",
-          "title": "20240527_151936.jpg"
+          "thumb": "journeys/thumbs/stay-0293-c.jpg",
+          "date": "2024-05-29",
+          "title": "20240529_094146.jpg"
         }
       ],
       "place": "Humboldt County, CA"
     },
-    "289": {
+    "294": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0289-a.jpg",
+          "thumb": "journeys/thumbs/stay-0294-a.jpg",
           "date": "2024-06-03",
           "title": "20240603_153224.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0289-b.jpg",
+          "thumb": "journeys/thumbs/stay-0294-b.jpg",
           "date": "2024-06-04",
           "title": "20240604_105424.mp4"
         },
         {
-          "thumb": "journeys/thumbs/stay-0289-c.jpg",
+          "thumb": "journeys/thumbs/stay-0294-c.jpg",
           "date": "2024-06-04",
           "title": "20240604_120529.jpg"
         }
       ],
       "place": "Whatcom County, WA"
     },
-    "290": {
+    "295": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0290-a.jpg",
+          "thumb": "journeys/thumbs/stay-0295-a.jpg",
           "date": "2024-06-05",
           "title": "20240604_212058.mp4"
         },
         {
-          "thumb": "journeys/thumbs/stay-0290-b.jpg",
+          "thumb": "journeys/thumbs/stay-0295-b.jpg",
           "date": "2024-06-05",
           "title": "20240605_143223.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0290-c.jpg",
+          "thumb": "journeys/thumbs/stay-0295-c.jpg",
           "date": "2024-06-06",
           "title": "20240606_113410.jpg"
         }
       ],
       "place": "Okanogan County, WA"
     },
-    "291": {
+    "296": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0291-a.jpg",
+          "thumb": "journeys/thumbs/stay-0296-a.jpg",
           "date": "2024-06-06",
           "title": "20240606_155820.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0291-b.jpg",
+          "thumb": "journeys/thumbs/stay-0296-b.jpg",
           "date": "2024-06-06",
           "title": "20240606_155859.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0291-c.jpg",
+          "thumb": "journeys/thumbs/stay-0296-c.jpg",
           "date": "2024-06-08",
           "title": "20240607_180435.jpg"
         }
       ],
       "place": "Area F (Trout Creek Valley), BC"
     },
-    "292": {
+    "297": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0292-a.jpg",
+          "thumb": "journeys/thumbs/stay-0297-a.jpg",
           "date": "2024-06-09",
           "title": "20240609_080039.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0292-b.jpg",
+          "thumb": "journeys/thumbs/stay-0297-b.jpg",
           "date": "2024-06-10",
           "title": "20240610_120457.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0292-c.jpg",
+          "thumb": "journeys/thumbs/stay-0297-c.jpg",
           "date": "2024-06-10",
           "title": "20240610_124147.jpg"
         }
       ],
       "place": "Area F (Trout Creek Valley), BC"
     },
-    "293": {
+    "298": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0293-a.jpg",
+          "thumb": "journeys/thumbs/stay-0298-a.jpg",
           "date": "2024-06-11",
           "title": "20240610_210504.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0293-b.jpg",
+          "thumb": "journeys/thumbs/stay-0298-b.jpg",
           "date": "2024-06-12",
           "title": "20240612_112625.jpg"
         }
       ],
       "place": "West Central Okanagan Electoral Area, BC"
     },
-    "294": {
+    "299": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0294-a.jpg",
+          "thumb": "journeys/thumbs/stay-0299-a.jpg",
           "date": "2024-06-13",
           "title": "20240613_120603.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0294-b.jpg",
+          "thumb": "journeys/thumbs/stay-0299-b.jpg",
           "date": "2024-06-13",
           "title": "20240613_121739.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0294-c.jpg",
+          "thumb": "journeys/thumbs/stay-0299-c.jpg",
           "date": "2024-06-16",
           "title": "20240616_061940.jpg"
         }
       ],
       "place": "British Columbia, CA"
     },
-    "295": {
+    "300": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0295-a.jpg",
+          "thumb": "journeys/thumbs/stay-0300-a.jpg",
           "date": "2024-06-17",
           "title": "20240616_192115.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0295-b.jpg",
+          "thumb": "journeys/thumbs/stay-0300-b.jpg",
           "date": "2024-06-18",
           "title": "20240618_130645.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0295-c.jpg",
+          "thumb": "journeys/thumbs/stay-0300-c.jpg",
           "date": "2024-06-20",
           "title": "20240620_074149.jpg"
         }
       ],
       "place": "Area C (Discovery Islands/Mainland Inlets), BC"
     },
-    "296": {
+    "301": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0296-b.jpg",
+          "thumb": "journeys/thumbs/stay-0301-a.jpg",
+          "date": "2024-06-20",
+          "title": "20240620_081622.mp4"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0301-b.jpg",
           "date": "2024-06-20",
           "title": "20240620_162825.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0301-c.jpg",
+          "date": "2024-06-21",
+          "title": "20240621_114931.mp4"
         }
       ],
       "place": "Area C (Discovery Islands/Mainland Inlets), BC"
     },
-    "297": {
+    "302": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0297-b.jpg",
+          "thumb": "journeys/thumbs/stay-0302-b.jpg",
           "date": "2024-06-22",
           "title": "20240622_120718.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0302-c.jpg",
+          "date": "2024-06-24",
+          "title": "20240624_133900.mp4"
         }
       ],
       "place": "Area A (Seymour Inlet/Knight Inlet), BC"
     },
-    "298": {
+    "303": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0298-a.jpg",
+          "thumb": "journeys/thumbs/stay-0303-a.jpg",
           "date": "2024-06-24",
           "title": "20240624_135041.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0298-b.jpg",
+          "thumb": "journeys/thumbs/stay-0303-b.jpg",
           "date": "2024-06-25",
           "title": "20240625_145727.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0303-c.jpg",
+          "date": "2024-06-25",
+          "title": "20240625_162923.mp4"
         }
       ],
       "place": "Area B (Quatsino Sound/Cape Scott), BC"
     },
-    "299": {
+    "304": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0299-b.jpg",
+          "thumb": "journeys/thumbs/stay-0304-b.jpg",
           "date": "2024-06-26",
           "title": "20240626_073809.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0299-c.jpg",
+          "thumb": "journeys/thumbs/stay-0304-c.jpg",
           "date": "2024-06-26",
           "title": "20240626_092659.jpg"
         }
       ],
       "place": "Area B (Quatsino Sound/Cape Scott), BC"
     },
-    "300": {
+    "305": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0300-a.jpg",
+          "thumb": "journeys/thumbs/stay-0305-a.jpg",
           "date": "2024-06-26",
           "title": "20240626_153630.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0300-b.jpg",
+          "thumb": "journeys/thumbs/stay-0305-b.jpg",
           "date": "2024-06-28",
           "title": "20240627_201215.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0300-c.jpg",
+          "thumb": "journeys/thumbs/stay-0305-c.jpg",
           "date": "2024-06-30",
           "title": "20240630_093903.jpg"
         }
       ],
       "place": "Area B (Quatsino Sound/Cape Scott), BC"
     },
-    "301": {
+    "306": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0301-a.jpg",
+          "thumb": "journeys/thumbs/stay-0306-a.jpg",
           "date": "2024-06-30",
           "title": "20240630_111842.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0301-b.jpg",
+          "thumb": "journeys/thumbs/stay-0306-b.jpg",
           "date": "2024-06-30",
           "title": "20240630_125016.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0301-c.jpg",
+          "thumb": "journeys/thumbs/stay-0306-c.jpg",
           "date": "2024-07-01",
           "title": "20240701_144801.jpg"
         }
       ],
       "place": "Area A (Kyuquot/Nootka/Sayward), BC"
     },
-    "302": {
+    "307": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0302-b.jpg",
+          "thumb": "journeys/thumbs/stay-0307-a.jpg",
+          "date": "2024-07-03",
+          "title": "20240703_064036.mp4"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0307-b.jpg",
           "date": "2024-07-03",
           "title": "20240703_072313.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0302-c.jpg",
+          "thumb": "journeys/thumbs/stay-0307-c.jpg",
           "date": "2024-07-04",
           "title": "20240704_080152.jpg"
         }
       ],
       "place": "Area A (Kyuquot/Nootka/Sayward), BC"
     },
-    "303": {
+    "308": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0303-a.jpg",
+          "thumb": "journeys/thumbs/stay-0308-a.jpg",
           "date": "2024-07-04",
           "title": "20240704_111540.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0303-b.jpg",
+          "thumb": "journeys/thumbs/stay-0308-b.jpg",
           "date": "2024-07-04",
           "title": "20240704_123510.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0303-c.jpg",
+          "thumb": "journeys/thumbs/stay-0308-c.jpg",
           "date": "2024-07-05",
           "title": "20240704_170849.jpg"
         }
       ],
       "place": "Area A (Kyuquot/Nootka/Sayward), BC"
     },
-    "304": {
+    "309": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0304-b.jpg",
+          "thumb": "journeys/thumbs/stay-0309-a.jpg",
+          "date": "2024-07-05",
+          "title": "20240705_080235.mp4"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0309-b.jpg",
           "date": "2024-07-05",
           "title": "20240705_134819.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0309-c.jpg",
+          "date": "2024-07-06",
+          "title": "20240706_125026.mp4"
         }
       ],
       "place": "Area C (Long Beach), BC"
     },
-    "305": {
+    "310": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0305-a.jpg",
+          "thumb": "journeys/thumbs/stay-0310-a.jpg",
           "date": "2024-07-06",
           "title": "20240706_140341.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0305-c.jpg",
+          "thumb": "journeys/thumbs/stay-0310-b.jpg",
+          "date": "2024-07-07",
+          "title": "20240707_115755.mp4"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0310-c.jpg",
           "date": "2024-07-08",
           "title": "20240708_105008.jpg"
         }
       ],
       "place": "Area C (Long Beach), BC"
     },
-    "306": {
+    "311": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0306-b.jpg",
+          "thumb": "journeys/thumbs/stay-0311-b.jpg",
           "date": "2024-07-10",
           "title": "20240710_112852.jpg"
         }
       ],
       "place": "Area C (Long Beach), BC"
     },
-    "307": {
+    "312": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0307-a.jpg",
+          "thumb": "journeys/thumbs/stay-0312-a.jpg",
           "date": "2024-07-12",
           "title": "20240712_145513.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0307-b.jpg",
+          "thumb": "journeys/thumbs/stay-0312-b.jpg",
           "date": "2024-07-13",
           "title": "20240712_192813.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0307-c.jpg",
+          "thumb": "journeys/thumbs/stay-0312-c.jpg",
           "date": "2024-07-13",
           "title": "20240713_094917.jpg"
         }
       ],
       "place": "Southern Gulf Islands Electoral Area, BC"
     },
-    "308": {
+    "313": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0308-b.jpg",
+          "thumb": "journeys/thumbs/stay-0313-a.jpg",
+          "date": "2024-07-13",
+          "title": "20240713_113326.mp4"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0313-b.jpg",
           "date": "2024-07-13",
           "title": "20240713_124429.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0313-c.jpg",
+          "date": "2024-07-19",
+          "title": "20240718_214457.mp4"
         }
       ],
       "place": "Area H (North Oyster / Diamond), BC, Canada"
     },
-    "309": {
+    "314": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0309-a.jpg",
+          "thumb": "journeys/thumbs/stay-0314-a.jpg",
           "date": "2024-07-20",
           "title": "20240720_150553.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0309-b.jpg",
+          "thumb": "journeys/thumbs/stay-0314-b.jpg",
           "date": "2024-07-22",
           "title": "20240722_104206.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0309-c.jpg",
+          "thumb": "journeys/thumbs/stay-0314-c.jpg",
           "date": "2024-07-22",
           "title": "original_de848862-f59a-4294-8f4f-da2bddf0c99e_2(1).jpg"
         }
       ],
       "place": "Area D (Granby Valley), BC, Canada"
     },
-    "310": {
+    "315": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0310-a.jpg",
+          "thumb": "journeys/thumbs/stay-0315-a.jpg",
           "date": "2024-07-22",
           "title": "20240722_151004.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0310-b.jpg",
+          "thumb": "journeys/thumbs/stay-0315-b.jpg",
           "date": "2024-07-24",
           "title": "20240724_101306.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0310-c.jpg",
+          "thumb": "journeys/thumbs/stay-0315-c.jpg",
           "date": "2024-07-24",
           "title": "20240724_111702.jpg"
         }
       ],
       "place": "Area E (Balfour/Cottonwood Lake), BC, Canada"
     },
-    "311": {
+    "316": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0311-b.jpg",
+          "thumb": "journeys/thumbs/stay-0316-a.jpg",
+          "date": "2024-07-25",
+          "title": "20240725_110440.mp4"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0316-b.jpg",
           "date": "2024-07-28",
           "title": "20240728_133551.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0316-c.jpg",
+          "date": "2024-07-29",
+          "title": "20240728_191457.mp4"
         }
       ],
       "place": "Lincoln County, MT"
     },
-    "312": {
+    "317": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0312-b.jpg",
+          "thumb": "journeys/thumbs/stay-0317-a.jpg",
+          "date": "2024-08-01",
+          "title": "20240801_124219.mp4"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0317-b.jpg",
           "date": "2024-08-02",
           "title": "20240802_081357.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0312-c.jpg",
+          "thumb": "journeys/thumbs/stay-0317-c.jpg",
           "date": "2024-08-02",
           "title": "20240802_102648.jpg"
         }
       ],
       "place": "Park County, WY"
     },
-    "313": {
+    "318": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0313-a.jpg",
+          "thumb": "journeys/thumbs/stay-0318-a.jpg",
           "date": "2024-08-07",
           "title": "20240807_100508.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0313-b.jpg",
+          "thumb": "journeys/thumbs/stay-0318-b.jpg",
           "date": "2024-08-07",
           "title": "20240807_114258.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0313-c.jpg",
+          "thumb": "journeys/thumbs/stay-0318-c.jpg",
           "date": "2024-08-08",
           "title": "20240807_204840.jpg"
         }
       ],
       "place": "Midway Township, MN"
     },
-    "314": {
+    "319": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0314-a.jpg",
+          "thumb": "journeys/thumbs/stay-0319-a.jpg",
           "date": "2024-08-08",
           "title": "20240808_133806.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0314-c.jpg",
+          "thumb": "journeys/thumbs/stay-0319-b.jpg",
+          "date": "2024-08-09",
+          "title": "20240809_115353.mp4"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0319-c.jpg",
           "date": "2024-08-10",
           "title": "20240810_172606.jpg"
         }
       ],
       "place": "WI"
     },
-    "315": {
+    "320": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0315-a.jpg",
+          "thumb": "journeys/thumbs/stay-0320-a.jpg",
           "date": "2024-08-12",
           "title": "20240812_120226.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0315-b.jpg",
+          "thumb": "journeys/thumbs/stay-0320-b.jpg",
           "date": "2024-08-12",
           "title": "20240812_183252.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0315-c.jpg",
+          "thumb": "journeys/thumbs/stay-0320-c.jpg",
           "date": "2024-08-13",
           "title": "20240813_103042.jpg"
         }
       ],
       "place": "Baraga Township, MI"
     },
-    "316": {
+    "321": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0316-a.jpg",
+          "thumb": "journeys/thumbs/stay-0321-a.jpg",
           "date": "2024-08-13",
           "title": "20240813_150731.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0316-b.jpg",
+          "thumb": "journeys/thumbs/stay-0321-b.jpg",
           "date": "2024-08-13",
           "title": "20240813_184522.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0316-c.jpg",
+          "thumb": "journeys/thumbs/stay-0321-c.jpg",
           "date": "2024-08-14",
           "title": "20240813_210918.jpg"
         }
       ],
       "place": "Burt Township, MI"
     },
-    "317": {
+    "322": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0317-a.jpg",
+          "thumb": "journeys/thumbs/stay-0322-a.jpg",
           "date": "2024-08-14",
           "title": "20240814_123832.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0317-b.jpg",
+          "thumb": "journeys/thumbs/stay-0322-b.jpg",
           "date": "2024-08-14",
           "title": "20240814_124220.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0322-c.jpg",
+          "date": "2024-08-15",
+          "title": "20240815_133655.mp4"
         }
       ],
       "place": "MI"
     },
-    "318": {
+    "323": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0318-a.jpg",
+          "thumb": "journeys/thumbs/stay-0323-a.jpg",
           "date": "2024-08-21",
           "title": "20240821_170023.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0318-b.jpg",
+          "thumb": "journeys/thumbs/stay-0323-b.jpg",
           "date": "2024-08-29",
           "title": "20240829_160556.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0318-c.jpg",
+          "thumb": "journeys/thumbs/stay-0323-c.jpg",
           "date": "2024-09-04",
           "title": "20240904_104509.jpg"
         }
       ],
       "place": "Manchester Township, NJ"
     },
-    "319": {
+    "324": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0319-a.jpg",
+          "thumb": "journeys/thumbs/stay-0324-a.jpg",
           "date": "2024-09-09",
           "title": "20240909_115323.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0319-b.jpg",
+          "thumb": "journeys/thumbs/stay-0324-b.jpg",
           "date": "2024-09-10",
           "title": "20240910_093016.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0319-c.jpg",
+          "thumb": "journeys/thumbs/stay-0324-c.jpg",
           "date": "2024-09-10",
           "title": "20240910_094408.jpg"
         }
       ],
       "place": "Manchester Township, NJ"
     },
-    "320": {
+    "325": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0320-a.jpg",
+          "thumb": "journeys/thumbs/stay-0325-a.jpg",
           "date": "2024-09-13",
           "title": "20240913_154002.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0320-b.jpg",
+          "thumb": "journeys/thumbs/stay-0325-b.jpg",
           "date": "2024-09-14",
           "title": "20240914_143745.jpg"
         }
       ],
       "place": "Bar Harbor, ME"
     },
-    "321": {
+    "326": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0321-a.jpg",
+          "thumb": "journeys/thumbs/stay-0326-a.jpg",
           "date": "2024-09-14",
           "title": "20240914_173305.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0321-b.jpg",
+          "thumb": "journeys/thumbs/stay-0326-b.jpg",
           "date": "2024-09-14",
           "title": "20240914_200541.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0326-c.jpg",
+          "date": "2024-09-15",
+          "title": "20240915_095821.mp4"
         }
       ],
       "place": "Brooklyn, NS"
     },
-    "322": {
+    "327": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0322-a.jpg",
+          "thumb": "journeys/thumbs/stay-0327-a.jpg",
           "date": "2024-09-15",
           "title": "20240915_190614.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0322-b.jpg",
+          "thumb": "journeys/thumbs/stay-0327-b.jpg",
           "date": "2024-09-17",
           "title": "20240917_102458.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0322-c.jpg",
+          "thumb": "journeys/thumbs/stay-0327-c.jpg",
           "date": "2024-09-17",
           "title": "20240917_105514.jpg"
         }
       ],
       "place": "Indian Harbour, NS"
     },
-    "323": {
+    "328": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0323-a.jpg",
+          "thumb": "journeys/thumbs/stay-0328-a.jpg",
           "date": "2024-09-17",
           "title": "20240917_125837.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0323-c.jpg",
+          "thumb": "journeys/thumbs/stay-0328-b.jpg",
+          "date": "2024-09-17",
+          "title": "20240917_192917.mp4"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0328-c.jpg",
           "date": "2024-09-18",
           "title": "20240918_065154.jpg"
         }
       ],
       "place": "West Porters Lake, NS"
     },
-    "324": {
+    "329": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0324-a.jpg",
+          "thumb": "journeys/thumbs/stay-0329-a.jpg",
           "date": "2024-09-19",
           "title": "20240919_150452.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0324-c.jpg",
+          "thumb": "journeys/thumbs/stay-0329-b.jpg",
+          "date": "2024-09-19",
+          "title": "20240919_153005.mp4"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0329-c.jpg",
           "date": "2024-09-20",
           "title": "20240920_101128.jpg"
         }
       ],
       "place": "St. Peter's, NS"
     },
-    "325": {
+    "330": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0325-a.jpg",
+          "thumb": "journeys/thumbs/stay-0330-a.jpg",
           "date": "2024-09-20",
           "title": "20240920_122434.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0330-b.jpg",
+          "date": "2024-09-21",
+          "title": "20240921_133303.mp4"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0330-c.jpg",
+          "date": "2024-09-21",
+          "title": "20240921_160655.mp4"
         }
       ],
       "place": "Fortress of Louisbourg National Historic Park, NS"
     },
-    "326": {
+    "331": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0326-a.jpg",
+          "thumb": "journeys/thumbs/stay-0331-a.jpg",
           "date": "2024-09-22",
           "title": "20240922_191707.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0326-b.jpg",
+          "thumb": "journeys/thumbs/stay-0331-b.jpg",
           "date": "2024-09-22",
           "title": "20240922_192000.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0326-c.jpg",
+          "thumb": "journeys/thumbs/stay-0331-c.jpg",
           "date": "2024-09-23",
           "title": "20240923_123742.jpg"
         }
       ],
       "place": "Unincorporated Newfoundland, NL"
     },
-    "327": {
+    "332": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0327-a.jpg",
+          "thumb": "journeys/thumbs/stay-0332-a.jpg",
           "date": "2024-09-24",
           "title": "20240924_142520.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0327-b.jpg",
+          "thumb": "journeys/thumbs/stay-0332-b.jpg",
           "date": "2024-09-24",
           "title": "20240924_190449(0).jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0327-c.jpg",
+          "thumb": "journeys/thumbs/stay-0332-c.jpg",
           "date": "2024-09-26",
           "title": "20240926_090630.jpg"
         }
       ],
       "place": "Newfoundland and Labrador, CA"
     },
-    "328": {
+    "333": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0328-a.jpg",
+          "thumb": "journeys/thumbs/stay-0333-a.jpg",
           "date": "2024-09-26",
           "title": "20240926_174852.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0328-b.jpg",
+          "thumb": "journeys/thumbs/stay-0333-b.jpg",
           "date": "2024-09-26",
           "title": "20240926_185307.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0328-c.jpg",
+          "thumb": "journeys/thumbs/stay-0333-c.jpg",
           "date": "2024-09-27",
           "title": "20240927_104757.jpg"
         }
       ],
       "place": "Port au Choix, NL"
     },
-    "329": {
+    "334": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0329-a.jpg",
+          "thumb": "journeys/thumbs/stay-0334-a.jpg",
           "date": "2024-09-27",
           "title": "20240927_131234.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0329-b.jpg",
+          "thumb": "journeys/thumbs/stay-0334-b.jpg",
           "date": "2024-09-28",
           "title": "20240928_131830.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0329-c.jpg",
+          "thumb": "journeys/thumbs/stay-0334-c.jpg",
           "date": "2024-09-28",
           "title": "20240928_143240.jpg"
         }
       ],
       "place": "Newfoundland and Labrador, CA"
     },
-    "330": {
+    "335": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0330-a.jpg",
+          "thumb": "journeys/thumbs/stay-0335-a.jpg",
           "date": "2024-10-02",
           "title": "20241002_180411.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0330-b.jpg",
+          "thumb": "journeys/thumbs/stay-0335-b.jpg",
           "date": "2024-10-02",
           "title": "20241002_181043.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0330-c.jpg",
+          "thumb": "journeys/thumbs/stay-0335-c.jpg",
           "date": "2024-10-03",
           "title": "20241003_120201.jpg"
         }
       ],
       "place": "Englishtown, NS"
     },
-    "331": {
+    "336": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0331-a.jpg",
+          "thumb": "journeys/thumbs/stay-0336-a.jpg",
           "date": "2024-10-04",
           "title": "20241004_095715.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0331-b.jpg",
+          "thumb": "journeys/thumbs/stay-0336-b.jpg",
           "date": "2024-10-04",
           "title": "20241004_121934.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0331-c.jpg",
+          "thumb": "journeys/thumbs/stay-0336-c.jpg",
           "date": "2024-10-07",
           "title": "20241007_100153.jpg"
         }
       ],
       "place": "Capstick, NS"
     },
-    "332": {
+    "337": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0332-a.jpg",
+          "thumb": "journeys/thumbs/stay-0337-a.jpg",
           "date": "2024-10-08",
           "title": "20241008_115535.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0332-b.jpg",
+          "thumb": "journeys/thumbs/stay-0337-b.jpg",
           "date": "2024-10-08",
           "title": "20241008_123429.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0332-c.jpg",
+          "thumb": "journeys/thumbs/stay-0337-c.jpg",
           "date": "2024-10-09",
           "title": "20241009_073624.jpg"
         }
       ],
       "place": "Nova Scotia, CA"
     },
-    "333": {
+    "338": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0333-c.jpg",
+          "thumb": "journeys/thumbs/stay-0338-a.jpg",
+          "date": "2024-10-09",
+          "title": "20241009_164631.mp4"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0338-b.jpg",
+          "date": "2024-10-10",
+          "title": "20241010_091843.mp4"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0338-c.jpg",
           "date": "2024-10-10",
           "title": "20241010_091959.jpg"
         }
       ],
       "place": "Yarmouth, NS"
     },
-    "334": {
+    "339": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0334-b.jpg",
+          "thumb": "journeys/thumbs/stay-0339-a.jpg",
+          "date": "2024-10-15",
+          "title": "20241015_153203.mp4"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0339-b.jpg",
           "date": "2024-11-04",
           "title": "20241104_122522.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0334-c.jpg",
+          "thumb": "journeys/thumbs/stay-0339-c.jpg",
           "date": "2024-11-17",
           "title": "20241116_203553.jpg"
         }
       ],
       "place": "Manchester Township, NJ"
     },
-    "335": {
+    "340": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0335-a.jpg",
+          "thumb": "journeys/thumbs/stay-0340-a.jpg",
           "date": "2024-11-26",
           "title": "20241126_185619.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0335-b.jpg",
+          "thumb": "journeys/thumbs/stay-0340-b.jpg",
           "date": "2024-11-27",
           "title": "20241126_194635.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0335-c.jpg",
+          "thumb": "journeys/thumbs/stay-0340-c.jpg",
           "date": "2024-11-27",
           "title": "20241127_141356.jpg"
         }
       ],
       "place": "Gwinnett County, GA"
     },
-    "336": {
+    "341": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0336-a.jpg",
+          "thumb": "journeys/thumbs/stay-0341-a.jpg",
           "date": "2024-11-30",
           "title": "20241130_173657.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0336-b.jpg",
+          "thumb": "journeys/thumbs/stay-0341-b.jpg",
           "date": "2024-11-30",
           "title": "20241130_182530.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0336-c.jpg",
+          "thumb": "journeys/thumbs/stay-0341-c.jpg",
           "date": "2024-12-01",
           "title": "20241201_100051.jpg"
         }
       ],
       "place": "Lexington County, SC"
     },
-    "337": {
+    "342": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0337-b.jpg",
+          "thumb": "journeys/thumbs/stay-0342-a.jpg",
+          "date": "2024-12-03",
+          "title": "20241203_164600.mp4"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0342-b.jpg",
           "date": "2024-12-05",
           "title": "20241205_113733.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0337-c.jpg",
+          "thumb": "journeys/thumbs/stay-0342-c.jpg",
           "date": "2024-12-06",
           "title": "20241206_115156.jpg"
         }
       ],
       "place": "Escambia County, FL"
     },
-    "338": {
+    "343": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0338-a.jpg",
+          "thumb": "journeys/thumbs/stay-0343-a.jpg",
           "date": "2024-12-11",
           "title": "20241211_101203.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0338-b.jpg",
+          "thumb": "journeys/thumbs/stay-0343-b.jpg",
           "date": "2024-12-12",
           "title": "20241212_133606.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0343-c.jpg",
+          "date": "2024-12-12",
+          "title": "IMG_20241212_181755.heic"
         }
       ],
       "place": "Blanco County, TX"
     },
-    "339": {
+    "344": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0339-a.jpg",
+          "thumb": "journeys/thumbs/stay-0344-a.jpg",
           "date": "2024-12-14",
           "title": "20241213_185934.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0339-b.jpg",
+          "thumb": "journeys/thumbs/stay-0344-b.jpg",
           "date": "2024-12-15",
           "title": "20241214_232603.jpg"
         }
       ],
       "place": "Ellis County, TX"
     },
-    "340": {
+    "345": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0340-b.jpg",
+          "thumb": "journeys/thumbs/stay-0345-a.jpg",
+          "date": "2024-12-17",
+          "title": "20241217_152849.mp4"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0345-b.jpg",
           "date": "2024-12-18",
           "title": "20241218_125727.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0340-c.jpg",
+          "thumb": "journeys/thumbs/stay-0345-c.jpg",
           "date": "2024-12-20",
           "title": "20241220_073258.jpg"
         }
       ],
       "place": "Cochise County, AZ"
     },
-    "341": {
+    "346": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0341-a.jpg",
+          "thumb": "journeys/thumbs/stay-0346-a.jpg",
           "date": "2024-12-20",
           "title": "20241220_143710.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0341-b.jpg",
+          "thumb": "journeys/thumbs/stay-0346-b.jpg",
           "date": "2024-12-26",
           "title": "20241226_083823.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0341-c.jpg",
+          "thumb": "journeys/thumbs/stay-0346-c.jpg",
           "date": "2024-12-27",
           "title": "20241227_112431.jpg"
         }
       ],
       "place": "Pima County, AZ"
     },
-    "342": {
+    "347": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0342-a.jpg",
+          "thumb": "journeys/thumbs/stay-0347-a.jpg",
           "date": "2024-12-27",
           "title": "20241227_150344.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0342-b.jpg",
+          "thumb": "journeys/thumbs/stay-0347-b.jpg",
           "date": "2024-12-27",
           "title": "20241227_163131.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0342-c.jpg",
+          "thumb": "journeys/thumbs/stay-0347-c.jpg",
           "date": "2024-12-28",
           "title": "20241227_173656.jpg"
         }
       ],
       "place": "Pima County, AZ"
     },
-    "343": {
+    "348": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0343-a.jpg",
+          "thumb": "journeys/thumbs/stay-0348-a.jpg",
           "date": "2024-12-28",
           "title": "20241228_122047.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0343-b.jpg",
+          "thumb": "journeys/thumbs/stay-0348-b.jpg",
           "date": "2024-12-28",
           "title": "20241228_143022.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0343-c.jpg",
+          "thumb": "journeys/thumbs/stay-0348-c.jpg",
           "date": "2024-12-29",
           "title": "20241228_174802.jpg"
         }
       ],
       "place": "Pima County, AZ"
     },
-    "344": {
+    "349": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0344-a.jpg",
+          "thumb": "journeys/thumbs/stay-0349-a.jpg",
           "date": "2024-12-29",
           "title": "20241229_081541.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0344-b.jpg",
+          "thumb": "journeys/thumbs/stay-0349-b.jpg",
           "date": "2024-12-30",
           "title": "20241229_173109.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0344-c.jpg",
+          "thumb": "journeys/thumbs/stay-0349-c.jpg",
           "date": "2024-12-30",
           "title": "20241229_174554.jpg"
         }
       ],
       "place": "Pima County, AZ"
     },
-    "345": {
+    "350": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0345-a.jpg",
+          "thumb": "journeys/thumbs/stay-0350-a.jpg",
           "date": "2024-12-30",
           "title": "20241230_132831.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0345-b.jpg",
+          "thumb": "journeys/thumbs/stay-0350-b.jpg",
           "date": "2024-12-31",
           "title": "20241231_065608.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0350-c.jpg",
+          "date": "2024-12-31",
+          "title": "20241231_101456.mp4"
         }
       ],
       "place": "Pima County, AZ"
     },
-    "346": {
+    "351": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0346-a.jpg",
+          "thumb": "journeys/thumbs/stay-0351-a.jpg",
+          "date": "2025-01-04",
+          "title": "20250104_141656.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0351-b.jpg",
+          "date": "2025-01-04",
+          "title": "20250104_160337.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0351-c.jpg",
+          "date": "2025-01-05",
+          "title": "20250105_100458.jpg"
+        }
+      ],
+      "place": "Pima County, AZ"
+    },
+    "352": {
+      "thumbs": [
+        {
+          "thumb": "journeys/thumbs/stay-0352-a.jpg",
+          "date": "2025-01-05",
+          "title": "20250105_163955.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0352-b.jpg",
+          "date": "2025-01-11",
+          "title": "20250111_102032.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0352-c.jpg",
+          "date": "2025-01-19",
+          "title": "20250118_183336.jpg"
+        }
+      ],
+      "place": "Quartzsite, AZ"
+    },
+    "353": {
+      "thumbs": [
+        {
+          "thumb": "journeys/thumbs/stay-0353-a.jpg",
+          "date": "2025-01-20",
+          "title": "20250120_155657.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0353-b.jpg",
+          "date": "2025-01-23",
+          "title": "20250123_130509.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0353-c.jpg",
+          "date": "2025-01-23",
+          "title": "20250123_142555.jpg"
+        }
+      ],
+      "place": "Lake Havasu City, AZ"
+    },
+    "354": {
+      "thumbs": [
+        {
+          "thumb": "journeys/thumbs/stay-0354-a.jpg",
+          "date": "2025-01-28",
+          "title": "20250128_144934.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0354-b.jpg",
+          "date": "2025-01-29",
+          "title": "20250129_061805.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0354-c.jpg",
+          "date": "2025-01-29",
+          "title": "20250129_101258.jpg"
+        }
+      ],
+      "place": "Municipio de San Felipe, Baja California"
+    },
+    "355": {
+      "thumbs": [
+        {
+          "thumb": "journeys/thumbs/stay-0355-a.jpg",
+          "date": "2025-01-29",
+          "title": "20250129_103837.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0355-b.jpg",
+          "date": "2025-01-30",
+          "title": "20250129_175939.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0355-c.jpg",
+          "date": "2025-02-03",
+          "title": "20250202_194215.jpg"
+        }
+      ],
+      "place": "Municipio de San Felipe, Baja California"
+    },
+    "356": {
+      "thumbs": [
+        {
+          "thumb": "journeys/thumbs/stay-0356-a.jpg",
+          "date": "2025-02-03",
+          "title": "20250203_165749.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0356-b.jpg",
+          "date": "2025-02-05",
+          "title": "20250205_090725.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0356-c.jpg",
+          "date": "2025-02-10",
+          "title": "20250210_102525.jpg"
+        }
+      ],
+      "place": "Municipio de Mulegé, Baja California Sur"
+    },
+    "357": {
+      "thumbs": [
+        {
+          "thumb": "journeys/thumbs/stay-0357-a.jpg",
+          "date": "2025-02-10",
+          "title": "20250210_131857.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0357-b.jpg",
+          "date": "2025-02-14",
+          "title": "20250213_192716.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0357-c.jpg",
+          "date": "2025-02-21",
+          "title": "20250221_065953.jpg"
+        }
+      ],
+      "place": "Municipio de Mulegé, Baja California Sur"
+    },
+    "358": {
+      "thumbs": [
+        {
+          "thumb": "journeys/thumbs/stay-0358-b.jpg",
+          "date": "2025-02-26",
+          "title": "20250225_200147.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0358-c.jpg",
+          "date": "2025-03-01",
+          "title": "20250301_093039.jpg"
+        }
+      ],
+      "place": "Municipio de Mulegé, Baja California Sur"
+    },
+    "359": {
+      "thumbs": [
+        {
+          "thumb": "journeys/thumbs/stay-0359-a.jpg",
+          "date": "2025-03-02",
+          "title": "20250301_182941.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0359-b.jpg",
+          "date": "2025-03-06",
+          "title": "20250306_123315.jpg"
+        }
+      ],
+      "place": "Municipio de Mulegé, Baja California Sur"
+    },
+    "360": {
+      "thumbs": [
+        {
+          "thumb": "journeys/thumbs/stay-0360-a.jpg",
+          "date": "2025-03-11",
+          "title": "20250311_162944.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0360-b.jpg",
+          "date": "2025-03-12",
+          "title": "20250311_170530.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0360-c.jpg",
+          "date": "2025-03-12",
+          "title": "20250311_171638.jpg"
+        }
+      ],
+      "place": "San Luis Río Colorado, Sonora"
+    },
+    "361": {
+      "thumbs": [
+        {
+          "thumb": "journeys/thumbs/stay-0361-a.jpg",
+          "date": "2025-03-13",
+          "title": "20250313_102353.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0361-b.jpg",
+          "date": "2025-03-16",
+          "title": "20250315_171538.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0361-c.jpg",
+          "date": "2025-03-16",
+          "title": "20250315_181906.jpg"
+        }
+      ],
+      "place": "Yuma County, AZ"
+    },
+    "362": {
+      "thumbs": [
+        {
+          "thumb": "journeys/thumbs/stay-0362-a.jpg",
+          "date": "2025-03-16",
+          "title": "20250316_140034.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0362-b.jpg",
+          "date": "2025-03-17",
+          "title": "20250316_170646.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0362-c.jpg",
+          "date": "2025-03-18",
+          "title": "20250318_120032.jpg"
+        }
+      ],
+      "place": "San Bernardino County, CA"
+    },
+    "363": {
+      "thumbs": [
+        {
+          "thumb": "journeys/thumbs/stay-0363-a.jpg",
           "date": "2025-03-19",
-          "title": "20250319_143347.jpg"
+          "title": "20250319_143336.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0346-b.jpg",
+          "thumb": "journeys/thumbs/stay-0363-b.jpg",
           "date": "2025-03-20",
-          "title": "20250320_100454.jpg"
+          "title": "20250319_183206.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0346-c.jpg",
+          "thumb": "journeys/thumbs/stay-0363-c.jpg",
           "date": "2025-03-22",
           "title": "20250322_080028.jpg"
         }
       ],
       "place": "Inyo County, CA"
     },
-    "347": {
+    "364": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0347-a.jpg",
+          "thumb": "journeys/thumbs/stay-0364-a.jpg",
+          "date": "2025-03-24",
+          "title": "20250324_154622.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0364-b.jpg",
+          "date": "2025-03-25",
+          "title": "20250325_082224.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0364-c.jpg",
+          "date": "2025-03-28",
+          "title": "20250328_100524~2.jpg"
+        }
+      ],
+      "place": "Inyo County, CA"
+    },
+    "365": {
+      "thumbs": [
+        {
+          "thumb": "journeys/thumbs/stay-0365-a.jpg",
           "date": "2025-04-02",
           "title": "20250402_110732.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0347-b.jpg",
+          "thumb": "journeys/thumbs/stay-0365-b.jpg",
           "date": "2025-04-02",
           "title": "20250402_134105.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0347-c.jpg",
+          "thumb": "journeys/thumbs/stay-0365-c.jpg",
           "date": "2025-04-03",
           "title": "20250403_103217.jpg"
         }
       ],
       "place": "Napa County, CA"
     },
-    "348": {
+    "366": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0348-a.jpg",
+          "thumb": "journeys/thumbs/stay-0366-a.jpg",
           "date": "2025-04-03",
           "title": "20250403_115322.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0348-b.jpg",
-          "date": "2025-04-03",
-          "title": "20250403_145105.jpg"
+          "thumb": "journeys/thumbs/stay-0366-b.jpg",
+          "date": "2025-04-04",
+          "title": "20250403_195851.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0366-c.jpg",
+          "date": "2025-04-05",
+          "title": "20250404_220023.mp4"
         }
       ],
       "place": "Sonoma County, CA"
     },
-    "349": {
+    "367": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0349-a.jpg",
+          "thumb": "journeys/thumbs/stay-0367-a.jpg",
           "date": "2025-04-07",
           "title": "20250407_143915.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0349-b.jpg",
+          "thumb": "journeys/thumbs/stay-0367-b.jpg",
           "date": "2025-04-09",
           "title": "20250409_133421.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0349-c.jpg",
+          "thumb": "journeys/thumbs/stay-0367-c.jpg",
           "date": "2025-04-16",
           "title": "20250416_114031.jpg"
         }
       ],
       "place": "Mendocino County, CA"
     },
-    "350": {
+    "368": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0350-a.jpg",
+          "thumb": "journeys/thumbs/stay-0368-a.jpg",
           "date": "2025-04-16",
           "title": "20250416_144807.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0350-c.jpg",
+          "thumb": "journeys/thumbs/stay-0368-b.jpg",
+          "date": "2025-04-17",
+          "title": "20250417_160837.mp4"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0368-c.jpg",
           "date": "2025-04-21",
           "title": "20250420_192416.jpg"
         }
       ],
       "place": "Fort Bragg, CA"
     },
-    "351": {
+    "369": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0351-a.jpg",
+          "thumb": "journeys/thumbs/stay-0369-a.jpg",
           "date": "2025-04-22",
           "title": "20250422_105948.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0351-b.jpg",
+          "thumb": "journeys/thumbs/stay-0369-b.jpg",
           "date": "2025-04-22",
           "title": "20250422_162215.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0351-c.jpg",
+          "thumb": "journeys/thumbs/stay-0369-c.jpg",
           "date": "2025-04-24",
           "title": "20250424_134302.jpg"
         }
       ],
       "place": "Sonoma County, CA"
     },
-    "352": {
+    "370": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0352-a.jpg",
+          "thumb": "journeys/thumbs/stay-0370-a.jpg",
           "date": "2025-04-25",
           "title": "20250425_143713.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0352-b.jpg",
+          "thumb": "journeys/thumbs/stay-0370-b.jpg",
           "date": "2025-04-27",
           "title": "20250427_134005.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0352-c.jpg",
+          "thumb": "journeys/thumbs/stay-0370-c.jpg",
           "date": "2025-05-03",
           "title": "20250503_130821.jpg"
         }
       ],
       "place": "Mariposa County, CA"
     },
-    "353": {
+    "371": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0353-a.jpg",
+          "thumb": "journeys/thumbs/stay-0371-a.jpg",
           "date": "2025-05-03",
           "title": "20250503_131851.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0353-c.jpg",
+          "thumb": "journeys/thumbs/stay-0371-c.jpg",
           "date": "2025-05-04",
           "title": "20250503_172317.jpg"
         }
       ],
       "place": "Tuolumne County, CA"
     },
-    "354": {
+    "372": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0354-a.jpg",
+          "thumb": "journeys/thumbs/stay-0372-a.jpg",
           "date": "2025-05-06",
           "title": "20250506_065010.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0354-b.jpg",
+          "thumb": "journeys/thumbs/stay-0372-b.jpg",
           "date": "2025-05-06",
           "title": "20250506_153945.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0354-c.jpg",
+          "thumb": "journeys/thumbs/stay-0372-c.jpg",
           "date": "2025-05-11",
           "title": "20250510_213408.jpg"
         }
       ],
       "place": "Tulare County, CA"
     },
-    "355": {
+    "373": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0355-a.jpg",
+          "thumb": "journeys/thumbs/stay-0373-a.jpg",
           "date": "2025-05-14",
           "title": "20250514_134810.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0355-b.jpg",
+          "thumb": "journeys/thumbs/stay-0373-b.jpg",
           "date": "2025-05-15",
           "title": "20250515_133500.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0355-c.jpg",
+          "thumb": "journeys/thumbs/stay-0373-c.jpg",
           "date": "2025-05-15",
           "title": "20250515_142244.jpg"
         }
       ],
       "place": "Inyo County, CA"
     },
-    "356": {
+    "374": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0356-a.jpg",
+          "thumb": "journeys/thumbs/stay-0374-a.jpg",
           "date": "2025-05-17",
           "title": "20250517_090906.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0356-b.jpg",
+          "thumb": "journeys/thumbs/stay-0374-b.jpg",
           "date": "2025-05-17",
           "title": "20250517_144252.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0356-c.jpg",
+          "thumb": "journeys/thumbs/stay-0374-c.jpg",
           "date": "2025-05-19",
           "title": "20250519_075124.jpg"
         }
       ],
       "place": "Inyo County, CA"
     },
-    "357": {
+    "375": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0357-a.jpg",
+          "thumb": "journeys/thumbs/stay-0375-a.jpg",
           "date": "2025-05-19",
           "title": "20250519_112602.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0357-b.jpg",
+          "thumb": "journeys/thumbs/stay-0375-b.jpg",
           "date": "2025-05-20",
           "title": "20250520_093500.jpg"
         }
       ],
       "place": "Bishop, CA"
     },
-    "358": {
+    "376": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0358-c.jpg",
+          "thumb": "journeys/thumbs/stay-0376-a.jpg",
+          "date": "2025-05-22",
+          "title": "20250522_091208.mp4"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0376-c.jpg",
           "date": "2025-05-26",
           "title": "20250526_141012.jpg"
         }
       ],
       "place": "Inyo County, CA"
     },
-    "359": {
+    "377": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0359-a.jpg",
+          "thumb": "journeys/thumbs/stay-0377-a.jpg",
           "date": "2025-05-27",
           "title": "20250526_170544.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0359-b.jpg",
+          "thumb": "journeys/thumbs/stay-0377-b.jpg",
           "date": "2025-05-28",
           "title": "20250528_093301.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0377-c.jpg",
+          "date": "2025-05-28",
+          "title": "20250528_114258.mp4"
         }
       ],
       "place": "Mono County, CA"
     },
-    "360": {
+    "378": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0360-a.jpg",
+          "thumb": "journeys/thumbs/stay-0378-a.jpg",
           "date": "2025-05-28",
           "title": "20250528_150037.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0360-b.jpg",
+          "thumb": "journeys/thumbs/stay-0378-b.jpg",
           "date": "2025-05-30",
           "title": "20250529_192729.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0378-c.jpg",
+          "date": "2025-05-30",
+          "title": "20250530_072622.mp4"
         }
       ],
       "place": "Mono County, CA"
     },
-    "361": {
+    "379": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0361-a.jpg",
+          "thumb": "journeys/thumbs/stay-0379-a.jpg",
           "date": "2025-05-30",
           "title": "20250530_100817.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0361-c.jpg",
+          "thumb": "journeys/thumbs/stay-0379-b.jpg",
+          "date": "2025-06-02",
+          "title": "20250602_134739.mp4"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0379-c.jpg",
           "date": "2025-06-07",
           "title": "20250607_085311.jpg"
         }
       ],
       "place": "Mono County, CA"
     },
-    "362": {
+    "380": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0362-a.jpg",
+          "thumb": "journeys/thumbs/stay-0380-a.jpg",
           "date": "2025-06-07",
           "title": "20250607_100047.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0362-b.jpg",
+          "thumb": "journeys/thumbs/stay-0380-b.jpg",
           "date": "2025-06-14",
           "title": "20250614_153244.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0362-c.jpg",
+          "thumb": "journeys/thumbs/stay-0380-c.jpg",
           "date": "2025-06-19",
           "title": "20250619_104435.jpg"
         }
       ],
       "place": "Mono County, CA"
     },
-    "363": {
+    "381": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0363-a.jpg",
+          "thumb": "journeys/thumbs/stay-0381-a.jpg",
           "date": "2025-06-19",
           "title": "20250619_144648.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0363-b.jpg",
+          "thumb": "journeys/thumbs/stay-0381-b.jpg",
           "date": "2025-06-20",
           "title": "20250619_220049.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0363-c.jpg",
+          "thumb": "journeys/thumbs/stay-0381-c.jpg",
           "date": "2025-06-21",
           "title": "20250621_075656.jpg"
         }
       ],
       "place": "Storey County, NV"
     },
-    "364": {
+    "382": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0364-a.jpg",
+          "thumb": "journeys/thumbs/stay-0382-a.jpg",
           "date": "2025-06-21",
           "title": "20250621_140356.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0364-b.jpg",
+          "thumb": "journeys/thumbs/stay-0382-b.jpg",
           "date": "2025-06-24",
           "title": "20250624_105618.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0364-c.jpg",
+          "thumb": "journeys/thumbs/stay-0382-c.jpg",
           "date": "2025-06-29",
           "title": "20250629_084247.jpg"
         }
       ],
       "place": "Plumas County, CA"
     },
-    "365": {
+    "383": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0365-a.jpg",
+          "thumb": "journeys/thumbs/stay-0383-a.jpg",
           "date": "2025-06-30",
           "title": "20250630_105151.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0365-b.jpg",
+          "thumb": "journeys/thumbs/stay-0383-b.jpg",
           "date": "2025-07-06",
           "title": "20250705_193722.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0365-c.jpg",
+          "thumb": "journeys/thumbs/stay-0383-c.jpg",
           "date": "2025-07-14",
           "title": "20250714_085306.jpg"
         }
       ],
       "place": "Siskiyou County, CA"
     },
-    "366": {
+    "384": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0366-a.jpg",
+          "thumb": "journeys/thumbs/stay-0384-a.jpg",
           "date": "2025-07-22",
           "title": "20250721_181045.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0366-b.jpg",
+          "thumb": "journeys/thumbs/stay-0384-b.jpg",
           "date": "2025-07-23",
           "title": "20250723_114055.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0366-c.jpg",
+          "thumb": "journeys/thumbs/stay-0384-c.jpg",
           "date": "2025-07-23",
           "title": "20250723_124342.jpg"
         }
       ],
       "place": "Boise County, ID"
     },
-    "367": {
+    "385": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0367-a.jpg",
+          "thumb": "journeys/thumbs/stay-0385-a.jpg",
           "date": "2025-07-25",
           "title": "20250725_160956.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0367-b.jpg",
+          "thumb": "journeys/thumbs/stay-0385-b.jpg",
           "date": "2025-08-07",
           "title": "20250807_154422.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0367-c.jpg",
+          "thumb": "journeys/thumbs/stay-0385-c.jpg",
           "date": "2025-08-18",
           "title": "20250818_112200(0).jpg"
         }
       ],
       "place": "Custer County, ID"
     },
-    "368": {
+    "386": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0368-a.jpg",
+          "thumb": "journeys/thumbs/stay-0386-a.jpg",
           "date": "2025-08-18",
           "title": "20250818_153439.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0368-b.jpg",
+          "thumb": "journeys/thumbs/stay-0386-b.jpg",
           "date": "2025-08-19",
           "title": "20250819_113835.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0368-c.jpg",
+          "thumb": "journeys/thumbs/stay-0386-c.jpg",
           "date": "2025-08-19",
           "title": "20250819_120233.jpg"
         }
       ],
       "place": "Lemhi County, ID"
     },
-    "369": {
+    "387": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0369-a.jpg",
+          "thumb": "journeys/thumbs/stay-0387-a.jpg",
           "date": "2025-08-19",
           "title": "20250819_162059.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0369-b.jpg",
+          "thumb": "journeys/thumbs/stay-0387-b.jpg",
           "date": "2025-08-19",
           "title": "20250819_163157.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0369-c.jpg",
+          "thumb": "journeys/thumbs/stay-0387-c.jpg",
           "date": "2025-08-22",
           "title": "20250821_201817.jpg"
         }
       ],
       "place": "Madison County, MT"
     },
-    "370": {
+    "388": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0370-a.jpg",
+          "thumb": "journeys/thumbs/stay-0388-a.jpg",
           "date": "2025-08-22",
           "title": "20250822_123156.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0370-b.jpg",
+          "thumb": "journeys/thumbs/stay-0388-b.jpg",
           "date": "2025-08-24",
           "title": "20250824_092651.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0370-c.jpg",
+          "thumb": "journeys/thumbs/stay-0388-c.jpg",
           "date": "2025-08-24",
           "title": "20250824_111141.jpg"
         }
       ],
       "place": "Beaverhead County, MT"
     },
-    "371": {
+    "389": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0371-a.jpg",
+          "thumb": "journeys/thumbs/stay-0389-a.jpg",
           "date": "2025-08-24",
           "title": "20250824_163915.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0389-b.jpg",
+          "date": "2025-08-26",
+          "title": "20250826_135448.mp4"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0389-c.jpg",
+          "date": "2025-08-26",
+          "title": "20250826_171653.mp4"
         }
       ],
       "place": "Custer County, ID"
     },
-    "372": {
+    "390": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0372-a.jpg",
+          "thumb": "journeys/thumbs/stay-0390-a.jpg",
           "date": "2025-08-27",
           "title": "20250827_120655.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0372-c.jpg",
+          "thumb": "journeys/thumbs/stay-0390-b.jpg",
+          "date": "2025-08-28",
+          "title": "20250828_110102.mp4"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0390-c.jpg",
           "date": "2025-08-29",
           "title": "20250829_084621.jpg"
         }
       ],
       "place": "Blaine County, ID"
     },
-    "373": {
+    "391": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0373-a.jpg",
+          "thumb": "journeys/thumbs/stay-0391-a.jpg",
           "date": "2025-08-29",
           "title": "20250829_155813.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0373-b.jpg",
+          "thumb": "journeys/thumbs/stay-0391-b.jpg",
           "date": "2025-08-29",
           "title": "20250829_165146.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0373-c.jpg",
+          "thumb": "journeys/thumbs/stay-0391-c.jpg",
           "date": "2025-08-30",
           "title": "20250829_170153.jpg"
         }
       ],
       "place": "Baker County, OR"
     },
-    "374": {
+    "392": {
       "thumbs": [
         {
-          "thumb": "journeys/thumbs/stay-0374-a.jpg",
+          "thumb": "journeys/thumbs/stay-0392-a.jpg",
           "date": "2025-08-31",
           "title": "20250831_061325.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0374-b.jpg",
+          "thumb": "journeys/thumbs/stay-0392-b.jpg",
           "date": "2025-09-04",
           "title": "20250903_170559.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0374-c.jpg",
+          "thumb": "journeys/thumbs/stay-0392-c.jpg",
           "date": "2025-09-06",
           "title": "20250906_121131.jpg"
         }
       ],
       "place": "Columbia County, OR"
     },
-    "375": {
-      "thumbs": [
-        {
-          "thumb": "journeys/thumbs/stay-0375-b.jpg",
-          "date": "2025-11-10",
-          "title": "20251110_135310.jpg"
-        }
-      ],
-      "place": "Manchester Township, NJ"
-    },
-    "376": {
-      "thumbs": [
-        {
-          "thumb": "journeys/thumbs/stay-0376-a.jpg",
-          "date": "2025-12-13",
-          "title": "20251213_134802.jpg"
-        },
-        {
-          "thumb": "journeys/thumbs/stay-0376-c.jpg",
-          "date": "2025-12-21",
-          "title": "20251221_160202.jpg"
-        }
-      ],
-      "place": "Duluth, GA"
-    },
-    "377": {
-      "thumbs": [
-        {
-          "thumb": "journeys/thumbs/stay-0377-b.jpg",
-          "date": "2025-12-26",
-          "title": "20251226_095417.jpg"
-        },
-        {
-          "thumb": "journeys/thumbs/stay-0377-c.jpg",
-          "date": "2025-12-28",
-          "title": "20251228_151411.jpg"
-        }
-      ],
-      "place": "Sugar Hill, GA"
-    },
-    "378": {
-      "thumbs": [
-        {
-          "thumb": "journeys/thumbs/stay-0378-a.jpg",
-          "date": "2025-12-31",
-          "title": "20251231_160441.jpg"
-        },
-        {
-          "thumb": "journeys/thumbs/stay-0378-b.jpg",
-          "date": "2026-01-01",
-          "title": "20251231_180557.jpg"
-        },
-        {
-          "thumb": "journeys/thumbs/stay-0378-c.jpg",
-          "date": "2026-01-01",
-          "title": "20260101_095741.jpg"
-        }
-      ],
-      "place": "Mitchell County, TX"
-    },
-    "379": {
-      "thumbs": [
-        {
-          "thumb": "journeys/thumbs/stay-0379-a.jpg",
-          "date": "2026-01-04",
-          "title": "20260103_183235.jpg"
-        },
-        {
-          "thumb": "journeys/thumbs/stay-0379-b.jpg",
-          "date": "2026-01-04",
-          "title": "20260104_102628.jpg"
-        },
-        {
-          "thumb": "journeys/thumbs/stay-0379-c.jpg",
-          "date": "2026-01-05",
-          "title": "20260105_103015.jpg"
-        }
-      ],
-      "place": "Quartzsite, AZ"
-    },
-    "380": {
-      "thumbs": [
-        {
-          "thumb": "journeys/thumbs/stay-0380-a.jpg",
-          "date": "2026-01-07",
-          "title": "20260107_113702.jpg"
-        },
-        {
-          "thumb": "journeys/thumbs/stay-0380-b.jpg",
-          "date": "2026-01-07",
-          "title": "20260107_135939.jpg"
-        },
-        {
-          "thumb": "journeys/thumbs/stay-0380-c.jpg",
-          "date": "2026-01-09",
-          "title": "20260108_165829.jpg"
-        }
-      ],
-      "place": "Carlsbad, CA"
-    },
-    "381": {
-      "thumbs": [
-        {
-          "thumb": "journeys/thumbs/stay-0381-a.jpg",
-          "date": "2026-01-11",
-          "title": "20260110_175107.jpg"
-        },
-        {
-          "thumb": "journeys/thumbs/stay-0381-b.jpg",
-          "date": "2026-01-11",
-          "title": "20260111_141250.jpg"
-        },
-        {
-          "thumb": "journeys/thumbs/stay-0381-c.jpg",
-          "date": "2026-01-14",
-          "title": "20260113_192540.jpg"
-        }
-      ],
-      "place": "Orange, CA"
-    },
-    "382": {
-      "thumbs": [
-        {
-          "thumb": "journeys/thumbs/stay-0382-a.jpg",
-          "date": "2026-01-14",
-          "title": "20260114_133403.jpg"
-        },
-        {
-          "thumb": "journeys/thumbs/stay-0382-b.jpg",
-          "date": "2026-01-16",
-          "title": "20260116_102952(0).jpg"
-        },
-        {
-          "thumb": "journeys/thumbs/stay-0382-c.jpg",
-          "date": "2026-01-18",
-          "title": "20260118_110115.jpg"
-        }
-      ],
-      "place": "Municipio de Ensenada, Baja California"
-    },
-    "383": {
-      "thumbs": [
-        {
-          "thumb": "journeys/thumbs/stay-0383-a.jpg",
-          "date": "2026-01-18",
-          "title": "20260118_115014.jpg"
-        },
-        {
-          "thumb": "journeys/thumbs/stay-0383-b.jpg",
-          "date": "2026-01-18",
-          "title": "20260118_130809.jpg"
-        },
-        {
-          "thumb": "journeys/thumbs/stay-0383-c.jpg",
-          "date": "2026-01-19",
-          "title": "20260119_083511.jpg"
-        }
-      ],
-      "place": "Municipio de Ensenada, Baja California"
-    },
-    "384": {
-      "thumbs": [
-        {
-          "thumb": "journeys/thumbs/stay-0384-a.jpg",
-          "date": "2026-01-19",
-          "title": "20260119_114226.jpg"
-        },
-        {
-          "thumb": "journeys/thumbs/stay-0384-b.jpg",
-          "date": "2026-01-20",
-          "title": "20260120_090637.jpg"
-        },
-        {
-          "thumb": "journeys/thumbs/stay-0384-c.jpg",
-          "date": "2026-01-23",
-          "title": "20260123_085342.jpg"
-        }
-      ],
-      "place": "Municipio de Ensenada, Baja California"
-    },
-    "385": {
-      "thumbs": [
-        {
-          "thumb": "journeys/thumbs/stay-0385-a.jpg",
-          "date": "2026-01-23",
-          "title": "20260123_111750.jpg"
-        },
-        {
-          "thumb": "journeys/thumbs/stay-0385-b.jpg",
-          "date": "2026-01-24",
-          "title": "20260124_104522.jpg"
-        },
-        {
-          "thumb": "journeys/thumbs/stay-0385-c.jpg",
-          "date": "2026-01-26",
-          "title": "20260126_093927.jpg"
-        }
-      ],
-      "place": "Municipio de San Quintín, Baja California"
-    },
-    "386": {
-      "thumbs": [
-        {
-          "thumb": "journeys/thumbs/stay-0386-a.jpg",
-          "date": "2026-01-26",
-          "title": "20260126_122236.jpg"
-        },
-        {
-          "thumb": "journeys/thumbs/stay-0386-b.jpg",
-          "date": "2026-01-26",
-          "title": "20260126_134916.jpg"
-        },
-        {
-          "thumb": "journeys/thumbs/stay-0386-c.jpg",
-          "date": "2026-01-28",
-          "title": "20260128_085038.jpg"
-        }
-      ],
-      "place": "Municipio de San Quintín, Baja California"
-    },
-    "387": {
-      "thumbs": [
-        {
-          "thumb": "journeys/thumbs/stay-0387-a.jpg",
-          "date": "2026-01-28",
-          "title": "20260128_113126.jpg"
-        },
-        {
-          "thumb": "journeys/thumbs/stay-0387-b.jpg",
-          "date": "2026-01-31",
-          "title": "20260131_110538.jpg"
-        },
-        {
-          "thumb": "journeys/thumbs/stay-0387-c.jpg",
-          "date": "2026-02-14",
-          "title": "20260214_081844.jpg"
-        }
-      ],
-      "place": "?"
-    },
-    "388": {
-      "thumbs": [
-        {
-          "thumb": "journeys/thumbs/stay-0388-a.jpg",
-          "date": "2026-02-14",
-          "title": "20260214_125543.jpg"
-        },
-        {
-          "thumb": "journeys/thumbs/stay-0388-c.jpg",
-          "date": "2026-02-15",
-          "title": "20260215_090655.jpg"
-        }
-      ],
-      "place": "Municipio de Mulegé, Baja California Sur"
-    },
-    "389": {
-      "thumbs": [
-        {
-          "thumb": "journeys/thumbs/stay-0389-a.jpg",
-          "date": "2026-02-17",
-          "title": "20260217_120823.jpg"
-        },
-        {
-          "thumb": "journeys/thumbs/stay-0389-b.jpg",
-          "date": "2026-02-18",
-          "title": "20260218_140033.jpg"
-        },
-        {
-          "thumb": "journeys/thumbs/stay-0389-c.jpg",
-          "date": "2026-02-23",
-          "title": "20260223_083955.jpg"
-        }
-      ],
-      "place": "Municipio de Mulegé, Baja California Sur"
-    },
-    "390": {
-      "thumbs": [
-        {
-          "thumb": "journeys/thumbs/stay-0390-a.jpg",
-          "date": "2026-02-23",
-          "title": "20260223_122401.jpg"
-        },
-        {
-          "thumb": "journeys/thumbs/stay-0390-b.jpg",
-          "date": "2026-03-11",
-          "title": "20260311_104544.jpg"
-        },
-        {
-          "thumb": "journeys/thumbs/stay-0390-c.jpg",
-          "date": "2026-03-17",
-          "title": "20260317_063607.jpg"
-        }
-      ],
-      "place": "Municipio de Mulegé, Baja California Sur"
-    },
-    "391": {
-      "thumbs": [
-        {
-          "thumb": "journeys/thumbs/stay-0391-a.jpg",
-          "date": "2026-03-17",
-          "title": "20260317_150147.jpg"
-        },
-        {
-          "thumb": "journeys/thumbs/stay-0391-b.jpg",
-          "date": "2026-03-17",
-          "title": "20260317_151500.jpg"
-        },
-        {
-          "thumb": "journeys/thumbs/stay-0391-c.jpg",
-          "date": "2026-03-18",
-          "title": "20260317_174426.jpg"
-        }
-      ],
-      "place": "Municipio de Mulegé, Baja California Sur"
-    },
-    "392": {
-      "thumbs": [
-        {
-          "thumb": "journeys/thumbs/stay-0392-a.jpg",
-          "date": "2026-03-18",
-          "title": "20260318_150621.jpg"
-        },
-        {
-          "thumb": "journeys/thumbs/stay-0392-b.jpg",
-          "date": "2026-03-19",
-          "title": "20260319_062331.jpg"
-        },
-        {
-          "thumb": "journeys/thumbs/stay-0392-c.jpg",
-          "date": "2026-03-19",
-          "title": "20260319_064706.jpg"
-        }
-      ],
-      "place": "Municipio de San Felipe, Baja California"
-    },
     "393": {
       "thumbs": [
         {
           "thumb": "journeys/thumbs/stay-0393-a.jpg",
-          "date": "2026-03-26",
-          "title": "20260326_142202.jpg"
+          "date": "2025-09-20",
+          "title": "20250920_183719.mp4"
         },
         {
           "thumb": "journeys/thumbs/stay-0393-b.jpg",
-          "date": "2026-04-18",
-          "title": "20260418_105952.jpg"
+          "date": "2025-11-10",
+          "title": "20251110_135310.jpg"
         },
         {
           "thumb": "journeys/thumbs/stay-0393-c.jpg",
-          "date": "2026-04-22",
-          "title": "20260422_143931.jpg"
+          "date": "2025-12-07",
+          "title": "20251207_133803.mp4"
         }
       ],
       "place": "Manchester Township, NJ"
@@ -7126,11 +7326,361 @@
       "thumbs": [
         {
           "thumb": "journeys/thumbs/stay-0394-a.jpg",
+          "date": "2025-12-13",
+          "title": "20251213_134802.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0394-b.jpg",
+          "date": "2025-12-21",
+          "title": "20251221_142528.mp4"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0394-c.jpg",
+          "date": "2025-12-21",
+          "title": "20251221_160202.jpg"
+        }
+      ],
+      "place": "Duluth, GA"
+    },
+    "395": {
+      "thumbs": [
+        {
+          "thumb": "journeys/thumbs/stay-0395-b.jpg",
+          "date": "2025-12-26",
+          "title": "20251226_095417.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0395-c.jpg",
+          "date": "2025-12-28",
+          "title": "20251228_151411.jpg"
+        }
+      ],
+      "place": "Sugar Hill, GA"
+    },
+    "396": {
+      "thumbs": [
+        {
+          "thumb": "journeys/thumbs/stay-0396-a.jpg",
+          "date": "2025-12-31",
+          "title": "20251231_160441.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0396-b.jpg",
+          "date": "2026-01-01",
+          "title": "20251231_180557.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0396-c.jpg",
+          "date": "2026-01-01",
+          "title": "20260101_095741.jpg"
+        }
+      ],
+      "place": "Mitchell County, TX"
+    },
+    "397": {
+      "thumbs": [
+        {
+          "thumb": "journeys/thumbs/stay-0397-a.jpg",
+          "date": "2026-01-04",
+          "title": "20260103_183235.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0397-b.jpg",
+          "date": "2026-01-04",
+          "title": "20260104_102628.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0397-c.jpg",
+          "date": "2026-01-05",
+          "title": "20260105_103015.jpg"
+        }
+      ],
+      "place": "Quartzsite, AZ"
+    },
+    "398": {
+      "thumbs": [
+        {
+          "thumb": "journeys/thumbs/stay-0398-a.jpg",
+          "date": "2026-01-07",
+          "title": "20260107_113702.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0398-b.jpg",
+          "date": "2026-01-07",
+          "title": "20260107_135939.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0398-c.jpg",
+          "date": "2026-01-09",
+          "title": "20260108_165829.jpg"
+        }
+      ],
+      "place": "Carlsbad, CA"
+    },
+    "399": {
+      "thumbs": [
+        {
+          "thumb": "journeys/thumbs/stay-0399-a.jpg",
+          "date": "2026-01-11",
+          "title": "20260110_175107.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0399-b.jpg",
+          "date": "2026-01-11",
+          "title": "20260111_141250.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0399-c.jpg",
+          "date": "2026-01-14",
+          "title": "20260113_192540.jpg"
+        }
+      ],
+      "place": "Orange, CA"
+    },
+    "400": {
+      "thumbs": [
+        {
+          "thumb": "journeys/thumbs/stay-0400-a.jpg",
+          "date": "2026-01-14",
+          "title": "20260114_133403.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0400-b.jpg",
+          "date": "2026-01-16",
+          "title": "20260116_102952(0).jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0400-c.jpg",
+          "date": "2026-01-18",
+          "title": "20260118_110115.jpg"
+        }
+      ],
+      "place": "Municipio de Ensenada, Baja California"
+    },
+    "401": {
+      "thumbs": [
+        {
+          "thumb": "journeys/thumbs/stay-0401-a.jpg",
+          "date": "2026-01-18",
+          "title": "20260118_115014.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0401-b.jpg",
+          "date": "2026-01-18",
+          "title": "20260118_130809.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0401-c.jpg",
+          "date": "2026-01-19",
+          "title": "20260119_083511.jpg"
+        }
+      ],
+      "place": "Municipio de Ensenada, Baja California"
+    },
+    "402": {
+      "thumbs": [
+        {
+          "thumb": "journeys/thumbs/stay-0402-a.jpg",
+          "date": "2026-01-19",
+          "title": "20260119_114226.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0402-b.jpg",
+          "date": "2026-01-20",
+          "title": "20260120_090637.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0402-c.jpg",
+          "date": "2026-01-23",
+          "title": "20260123_085342.jpg"
+        }
+      ],
+      "place": "Municipio de Ensenada, Baja California"
+    },
+    "403": {
+      "thumbs": [
+        {
+          "thumb": "journeys/thumbs/stay-0403-a.jpg",
+          "date": "2026-01-23",
+          "title": "20260123_111750.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0403-b.jpg",
+          "date": "2026-01-24",
+          "title": "20260124_104522.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0403-c.jpg",
+          "date": "2026-01-26",
+          "title": "20260126_093927.jpg"
+        }
+      ],
+      "place": "Municipio de San Quintín, Baja California"
+    },
+    "404": {
+      "thumbs": [
+        {
+          "thumb": "journeys/thumbs/stay-0404-a.jpg",
+          "date": "2026-01-26",
+          "title": "20260126_122236.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0404-b.jpg",
+          "date": "2026-01-26",
+          "title": "20260126_134916.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0404-c.jpg",
+          "date": "2026-01-28",
+          "title": "20260128_085038.jpg"
+        }
+      ],
+      "place": "Municipio de San Quintín, Baja California"
+    },
+    "405": {
+      "thumbs": [
+        {
+          "thumb": "journeys/thumbs/stay-0405-a.jpg",
+          "date": "2026-01-28",
+          "title": "20260128_113126.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0405-b.jpg",
+          "date": "2026-01-31",
+          "title": "20260131_110538.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0405-c.jpg",
+          "date": "2026-02-14",
+          "title": "20260214_081844.jpg"
+        }
+      ],
+      "place": "?"
+    },
+    "406": {
+      "thumbs": [
+        {
+          "thumb": "journeys/thumbs/stay-0406-a.jpg",
+          "date": "2026-02-14",
+          "title": "20260214_125543.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0406-c.jpg",
+          "date": "2026-02-15",
+          "title": "20260215_090655.jpg"
+        }
+      ],
+      "place": "Municipio de Mulegé, Baja California Sur"
+    },
+    "407": {
+      "thumbs": [
+        {
+          "thumb": "journeys/thumbs/stay-0407-a.jpg",
+          "date": "2026-02-17",
+          "title": "20260217_120823.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0407-b.jpg",
+          "date": "2026-02-18",
+          "title": "20260218_140033.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0407-c.jpg",
+          "date": "2026-02-23",
+          "title": "20260223_083955.jpg"
+        }
+      ],
+      "place": "Municipio de Mulegé, Baja California Sur"
+    },
+    "408": {
+      "thumbs": [
+        {
+          "thumb": "journeys/thumbs/stay-0408-a.jpg",
+          "date": "2026-02-23",
+          "title": "20260223_122401.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0408-b.jpg",
+          "date": "2026-03-11",
+          "title": "20260311_104544.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0408-c.jpg",
+          "date": "2026-03-17",
+          "title": "20260317_063607.jpg"
+        }
+      ],
+      "place": "Municipio de Mulegé, Baja California Sur"
+    },
+    "409": {
+      "thumbs": [
+        {
+          "thumb": "journeys/thumbs/stay-0409-a.jpg",
+          "date": "2026-03-17",
+          "title": "20260317_150147.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0409-b.jpg",
+          "date": "2026-03-17",
+          "title": "20260317_151500.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0409-c.jpg",
+          "date": "2026-03-18",
+          "title": "20260317_174426.jpg"
+        }
+      ],
+      "place": "Municipio de Mulegé, Baja California Sur"
+    },
+    "410": {
+      "thumbs": [
+        {
+          "thumb": "journeys/thumbs/stay-0410-a.jpg",
+          "date": "2026-03-18",
+          "title": "20260318_150621.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0410-b.jpg",
+          "date": "2026-03-19",
+          "title": "20260319_062331.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0410-c.jpg",
+          "date": "2026-03-19",
+          "title": "20260319_064706.jpg"
+        }
+      ],
+      "place": "Municipio de San Felipe, Baja California"
+    },
+    "411": {
+      "thumbs": [
+        {
+          "thumb": "journeys/thumbs/stay-0411-a.jpg",
+          "date": "2026-03-26",
+          "title": "20260326_142202.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0411-b.jpg",
+          "date": "2026-04-18",
+          "title": "20260418_105952.jpg"
+        },
+        {
+          "thumb": "journeys/thumbs/stay-0411-c.jpg",
+          "date": "2026-04-22",
+          "title": "20260422_143931.jpg"
+        }
+      ],
+      "place": "Manchester Township, NJ"
+    },
+    "412": {
+      "thumbs": [
+        {
+          "thumb": "journeys/thumbs/stay-0412-a.jpg",
           "date": "2026-04-25",
           "title": "20260425_120222.jpg"
         },
         {
-          "thumb": "journeys/thumbs/stay-0394-b.jpg",
+          "thumb": "journeys/thumbs/stay-0412-b.jpg",
           "date": "2026-04-28",
           "title": "20260428_154615.jpg"
         }
@@ -7428,119 +7978,137 @@
     "279": "Municipio de Mulegé, Baja California Sur",
     "280": "Municipio de Mulegé, Baja California Sur",
     "281": "?",
-    "282": "?",
+    "282": "Municipio de La Paz, Baja California Sur",
     "283": "Los Cabos Municipality, Baja California Sur",
     "284": "Municipio de La Paz, Baja California Sur",
-    "285": "?",
-    "286": "White Pine County, NV",
-    "287": "Shasta County, CA",
-    "288": "Humboldt County, CA",
-    "289": "Whatcom County, WA",
-    "290": "Okanogan County, WA",
-    "291": "Area F (Trout Creek Valley), BC",
-    "292": "Area F (Trout Creek Valley), BC",
-    "293": "West Central Okanagan Electoral Area, BC",
-    "294": "British Columbia, CA",
-    "295": "Area C (Discovery Islands/Mainland Inlets), BC",
-    "296": "Area C (Discovery Islands/Mainland Inlets), BC",
-    "297": "Area A (Seymour Inlet/Knight Inlet), BC",
-    "298": "Area B (Quatsino Sound/Cape Scott), BC",
-    "299": "Area B (Quatsino Sound/Cape Scott), BC",
-    "300": "Area B (Quatsino Sound/Cape Scott), BC",
-    "301": "Area A (Kyuquot/Nootka/Sayward), BC",
-    "302": "Area A (Kyuquot/Nootka/Sayward), BC",
-    "303": "Area A (Kyuquot/Nootka/Sayward), BC",
-    "304": "Area C (Long Beach), BC",
-    "305": "Area C (Long Beach), BC",
-    "306": "Area C (Long Beach), BC",
-    "307": "Southern Gulf Islands Electoral Area, BC",
-    "308": "Area H (North Oyster / Diamond), BC, Canada",
-    "309": "Area D (Granby Valley), BC, Canada",
-    "310": "Area E (Balfour/Cottonwood Lake), BC, Canada",
-    "311": "Lincoln County, MT",
-    "312": "Park County, WY",
-    "313": "Midway Township, MN",
-    "314": "WI",
-    "315": "Baraga Township, MI",
-    "316": "Burt Township, MI",
-    "317": "MI",
-    "318": "Manchester Township, NJ",
-    "319": "Manchester Township, NJ",
-    "320": "Bar Harbor, ME",
-    "321": "Brooklyn, NS",
-    "322": "Indian Harbour, NS",
-    "323": "West Porters Lake, NS",
-    "324": "St. Peter's, NS",
-    "325": "Fortress of Louisbourg National Historic Park, NS",
-    "326": "Unincorporated Newfoundland, NL",
-    "327": "Newfoundland and Labrador, CA",
-    "328": "Port au Choix, NL",
-    "329": "Newfoundland and Labrador, CA",
-    "330": "Englishtown, NS",
-    "331": "Capstick, NS",
-    "332": "Nova Scotia, CA",
-    "333": "Yarmouth, NS",
-    "334": "Manchester Township, NJ",
-    "335": "Gwinnett County, GA",
-    "336": "Lexington County, SC",
-    "337": "Escambia County, FL",
-    "338": "Blanco County, TX",
-    "339": "Ellis County, TX",
-    "340": "Cochise County, AZ",
-    "341": "Pima County, AZ",
-    "342": "Pima County, AZ",
-    "343": "Pima County, AZ",
-    "344": "Pima County, AZ",
-    "345": "Pima County, AZ",
-    "346": "Inyo County, CA",
-    "347": "Napa County, CA",
-    "348": "Sonoma County, CA",
-    "349": "Mendocino County, CA",
-    "350": "Fort Bragg, CA",
-    "351": "Sonoma County, CA",
-    "352": "Mariposa County, CA",
-    "353": "Tuolumne County, CA",
-    "354": "Tulare County, CA",
-    "355": "Inyo County, CA",
-    "356": "Inyo County, CA",
-    "357": "Bishop, CA",
-    "358": "Inyo County, CA",
-    "359": "Mono County, CA",
-    "360": "Mono County, CA",
-    "361": "Mono County, CA",
-    "362": "Mono County, CA",
-    "363": "Storey County, NV",
-    "364": "Plumas County, CA",
-    "365": "Siskiyou County, CA",
-    "366": "Boise County, ID",
-    "367": "Custer County, ID",
-    "368": "Lemhi County, ID",
-    "369": "Madison County, MT",
-    "370": "Beaverhead County, MT",
-    "371": "Custer County, ID",
-    "372": "Blaine County, ID",
-    "373": "Baker County, OR",
-    "374": "Columbia County, OR",
-    "375": "Manchester Township, NJ",
-    "376": "Duluth, GA",
-    "377": "Sugar Hill, GA",
-    "378": "Mitchell County, TX",
-    "379": "Quartzsite, AZ",
-    "380": "Carlsbad, CA",
-    "381": "Orange, CA",
-    "382": "Municipio de Ensenada, Baja California",
-    "383": "Municipio de Ensenada, Baja California",
-    "384": "Municipio de Ensenada, Baja California",
-    "385": "Municipio de San Quintín, Baja California",
-    "386": "Municipio de San Quintín, Baja California",
-    "387": "?",
-    "388": "Municipio de Mulegé, Baja California Sur",
-    "389": "Municipio de Mulegé, Baja California Sur",
-    "390": "Municipio de Mulegé, Baja California Sur",
-    "391": "Municipio de Mulegé, Baja California Sur",
-    "392": "Municipio de San Felipe, Baja California",
+    "285": "La Paz, Baja California Sur",
+    "286": "?",
+    "287": "Municipio de Mulegé, Baja California Sur",
+    "288": "Mexicali Municipality, Baja California, Mexico",
+    "289": "Yuma, AZ",
+    "290": "Pima County, AZ",
+    "291": "White Pine County, NV",
+    "292": "Shasta County, CA",
+    "293": "Humboldt County, CA",
+    "294": "Whatcom County, WA",
+    "295": "Okanogan County, WA",
+    "296": "Area F (Trout Creek Valley), BC",
+    "297": "Area F (Trout Creek Valley), BC",
+    "298": "West Central Okanagan Electoral Area, BC",
+    "299": "British Columbia, CA",
+    "300": "Area C (Discovery Islands/Mainland Inlets), BC",
+    "301": "Area C (Discovery Islands/Mainland Inlets), BC",
+    "302": "Area A (Seymour Inlet/Knight Inlet), BC",
+    "303": "Area B (Quatsino Sound/Cape Scott), BC",
+    "304": "Area B (Quatsino Sound/Cape Scott), BC",
+    "305": "Area B (Quatsino Sound/Cape Scott), BC",
+    "306": "Area A (Kyuquot/Nootka/Sayward), BC",
+    "307": "Area A (Kyuquot/Nootka/Sayward), BC",
+    "308": "Area A (Kyuquot/Nootka/Sayward), BC",
+    "309": "Area C (Long Beach), BC",
+    "310": "Area C (Long Beach), BC",
+    "311": "Area C (Long Beach), BC",
+    "312": "Southern Gulf Islands Electoral Area, BC",
+    "313": "Area H (North Oyster / Diamond), BC, Canada",
+    "314": "Area D (Granby Valley), BC, Canada",
+    "315": "Area E (Balfour/Cottonwood Lake), BC, Canada",
+    "316": "Lincoln County, MT",
+    "317": "Park County, WY",
+    "318": "Midway Township, MN",
+    "319": "WI",
+    "320": "Baraga Township, MI",
+    "321": "Burt Township, MI",
+    "322": "MI",
+    "323": "Manchester Township, NJ",
+    "324": "Manchester Township, NJ",
+    "325": "Bar Harbor, ME",
+    "326": "Brooklyn, NS",
+    "327": "Indian Harbour, NS",
+    "328": "West Porters Lake, NS",
+    "329": "St. Peter's, NS",
+    "330": "Fortress of Louisbourg National Historic Park, NS",
+    "331": "Unincorporated Newfoundland, NL",
+    "332": "Newfoundland and Labrador, CA",
+    "333": "Port au Choix, NL",
+    "334": "Newfoundland and Labrador, CA",
+    "335": "Englishtown, NS",
+    "336": "Capstick, NS",
+    "337": "Nova Scotia, CA",
+    "338": "Yarmouth, NS",
+    "339": "Manchester Township, NJ",
+    "340": "Gwinnett County, GA",
+    "341": "Lexington County, SC",
+    "342": "Escambia County, FL",
+    "343": "Blanco County, TX",
+    "344": "Ellis County, TX",
+    "345": "Cochise County, AZ",
+    "346": "Pima County, AZ",
+    "347": "Pima County, AZ",
+    "348": "Pima County, AZ",
+    "349": "Pima County, AZ",
+    "350": "Pima County, AZ",
+    "351": "Pima County, AZ",
+    "352": "Quartzsite, AZ",
+    "353": "Lake Havasu City, AZ",
+    "354": "Municipio de San Felipe, Baja California",
+    "355": "Municipio de San Felipe, Baja California",
+    "356": "Municipio de Mulegé, Baja California Sur",
+    "357": "Municipio de Mulegé, Baja California Sur",
+    "358": "Municipio de Mulegé, Baja California Sur",
+    "359": "Municipio de Mulegé, Baja California Sur",
+    "360": "San Luis Río Colorado, Sonora",
+    "361": "Yuma County, AZ",
+    "362": "San Bernardino County, CA",
+    "363": "Inyo County, CA",
+    "364": "Inyo County, CA",
+    "365": "Napa County, CA",
+    "366": "Sonoma County, CA",
+    "367": "Mendocino County, CA",
+    "368": "Fort Bragg, CA",
+    "369": "Sonoma County, CA",
+    "370": "Mariposa County, CA",
+    "371": "Tuolumne County, CA",
+    "372": "Tulare County, CA",
+    "373": "Inyo County, CA",
+    "374": "Inyo County, CA",
+    "375": "Bishop, CA",
+    "376": "Inyo County, CA",
+    "377": "Mono County, CA",
+    "378": "Mono County, CA",
+    "379": "Mono County, CA",
+    "380": "Mono County, CA",
+    "381": "Storey County, NV",
+    "382": "Plumas County, CA",
+    "383": "Siskiyou County, CA",
+    "384": "Boise County, ID",
+    "385": "Custer County, ID",
+    "386": "Lemhi County, ID",
+    "387": "Madison County, MT",
+    "388": "Beaverhead County, MT",
+    "389": "Custer County, ID",
+    "390": "Blaine County, ID",
+    "391": "Baker County, OR",
+    "392": "Columbia County, OR",
     "393": "Manchester Township, NJ",
-    "394": "Manchester Township, NJ"
+    "394": "Duluth, GA",
+    "395": "Sugar Hill, GA",
+    "396": "Mitchell County, TX",
+    "397": "Quartzsite, AZ",
+    "398": "Carlsbad, CA",
+    "399": "Orange, CA",
+    "400": "Municipio de Ensenada, Baja California",
+    "401": "Municipio de Ensenada, Baja California",
+    "402": "Municipio de Ensenada, Baja California",
+    "403": "Municipio de San Quintín, Baja California",
+    "404": "Municipio de San Quintín, Baja California",
+    "405": "?",
+    "406": "Municipio de Mulegé, Baja California Sur",
+    "407": "Municipio de Mulegé, Baja California Sur",
+    "408": "Municipio de Mulegé, Baja California Sur",
+    "409": "Municipio de Mulegé, Baja California Sur",
+    "410": "Municipio de San Felipe, Baja California",
+    "411": "Manchester Township, NJ",
+    "412": "Manchester Township, NJ"
   },
-  "places_generated_at": "2026-05-03T15:24:21.595638+00:00"
+  "places_generated_at": "2026-05-04T00:50:25.663551+00:00"
 }
