@@ -1,4 +1,4 @@
-﻿# run_overnight.ps1 - process a Drive folder of Takeout zips in batches.
+# run_overnight.ps1 - process a Drive folder of Takeout zips in batches.
 #
 # WHAT IT DOES
 #   Moves Takeout zips from G:\My Drive\GooglePhotosTakeout into

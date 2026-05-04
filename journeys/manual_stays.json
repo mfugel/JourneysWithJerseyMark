@@ -1,17 +1,17 @@
-{
+﻿{
   "_README": [
     "Manually-added stays for places you traveled before the photo archive existed,",
-    "or places where you don't have GPS-tagged photos.",
+    "or places where you don''t have GPS-tagged photos.",
     "",
     "Each stay needs:",
-    "  place      - human-readable name shown in the popup (e.g. 'Rome, Italy')",
+    "  place      - human-readable name shown in the popup (e.g. ''Rome, Italy'')",
     "  lat, lon   - decimal coordinates (e.g. 41.9028, 12.4964 for Rome)",
     "  start_date - YYYY-MM-DD",
     "  end_date   - YYYY-MM-DD (same as start_date for a single-day visit)",
     "Optional:",
     "  note       - any extra context shown in the popup",
     "",
-    "How to look up coordinates: Google Maps → right-click a spot → click the lat/lon to copy.",
+    "How to look up coordinates: Google Maps -> right-click a spot -> click the lat/lon to copy.",
     "After editing this file, run: python build_journeys_page.py and commit + push."
   ],
   "stays": [
@@ -23,18 +23,18 @@
       "end_date": "2005-07-30",
       "note": "Stayed a week in Rome."
     },
-    
+    {
       "place": "Florence, Italy",
       "lat": 43.78500892679679,
-      "lon":  11.248823141940719,
+      "lon": 11.248823141940719,
       "start_date": "2005-07-30",
       "end_date": "2005-08-15",
       "note": "Stayed a week in Florence at villa owned by Zubin Mehta."
     },
-    
+    {
       "place": "St. John, US Virgin Islands",
       "lat": 18.331958243460367,
-      "lon":  -64.71212909558376,
+      "lon": -64.71212909558376,
       "start_date": "2004-07-10",
       "end_date": "2004-07-30",
       "note": "St John, US Virgin Islands."
