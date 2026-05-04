@@ -26,7 +26,7 @@ import math
 import os
 import sys
 from collections import defaultdict
-from datetime import datetime, timezone
+from datetime import datetime, timezone, date
 from pathlib import Path
 
 # ------------------------------------------------------------------ config
@@ -34,6 +34,7 @@ ARCHIVE_ROOT = Path(r"E:\MyPhotoArchive")
 SITE_ROOT    = Path(r"C:\Users\mfuge\OneDrive\Desktop\Github\JourneysWithJerseyMark")
 OUT_PATH     = SITE_ROOT / "journeys.html"
 MANIFEST     = SITE_ROOT / "journeys" / "stay_thumbs.json"
+MANUAL_STAYS = SITE_ROOT / "journeys" / "manual_stays.json"
 
 # North America bounding box
 NA_BBOX = {"min_lat": 7.0, "max_lat": 75.0,
@@ -204,6 +205,42 @@ def main():
             })
     print(f"Stays: {len(stays):,}")
 
+    # ---- merge in manually-added stays from journeys/manual_stays.json ----
+    if MANUAL_STAYS.exists():
+        try:
+            mdata = json.loads(MANUAL_STAYS.read_text(encoding="utf-8"))
+            mlist = mdata.get("stays", []) or []
+            added = 0
+            for m in mlist:
+                place = m.get("place")
+                lat = m.get("lat")
+                lon = m.get("lon")
+                sd = m.get("start_date")
+                ed = m.get("end_date") or sd
+                if not (place and lat is not None and lon is not None and sd):
+                    continue
+                try:
+                    sd_d = date.fromisoformat(sd)
+                    ed_d = date.fromisoformat(ed)
+                except Exception:
+                    continue
+                nights = max(1, (ed_d - sd_d).days)
+                stays.append({
+                    "id": len(stays) + 1,
+                    "lat": float(lat), "lon": float(lon),
+                    "start": str(sd_d), "end": str(ed_d),
+                    "nights": nights, "photos": 0,
+                    "year": sd_d.year,
+                    "manual": True,
+                    "place": place,
+                    "note": m.get("note", ""),
+                })
+                added += 1
+            if added:
+                print(f"  Added {added} manual stay(s) from {MANUAL_STAYS.name}")
+        except Exception as e:
+            print(f"  WARN: could not load manual stays: {e}")
+
     # ---- merge place names + thumbs from journeys/stay_thumbs.json ----
     if MANIFEST.exists():
         try:
@@ -272,6 +309,13 @@ def main():
         year_max = datetime.fromtimestamp(timed[-1]["ts"], tz=timezone.utc).year
     else:
         year_min = year_max = datetime.now().year
+
+    # Extend year range to include manual stays so they show in slider filter
+    if stays:
+        all_years = [s["year"] for s in stays if "year" in s]
+        if all_years:
+            year_min = min(year_min, min(all_years))
+            year_max = max(year_max, max(all_years))
 
     payload = {
         "points": [{"lat": p["lat"], "lon": p["lon"],

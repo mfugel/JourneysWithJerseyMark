@@ -380,3 +380,58 @@ it safe to run at any moment, even mid-batch.
    # If E: drive has any leftover staging (auto-cleanup should handle this)
    Remove-Item -Recurse 'E:\MyPhotoArchive\_staging' -ErrorAction SilentlyContinue
    ```
+
+
+---
+
+## Adding manual stays (places without photos)
+
+If you traveled somewhere before the photo archive existed, or somewhere
+where you didn't take GPS-tagged photos, you can add it manually. These
+appear on the map as ordinary stay circles, just without thumbnails.
+
+**File:** `journeys/manual_stays.json` (committed in git)
+
+**Format:**
+
+```json
+{
+  "stays": [
+    {
+      "place": "Rome, Italy",
+      "lat": 41.9028,
+      "lon": 12.4964,
+      "start_date": "2008-06-15",
+      "end_date": "2008-06-22",
+      "note": "optional context"
+    }
+  ]
+}
+```
+
+**Required fields:** `place`, `lat`, `lon`, `start_date`. The rest are optional.
+`end_date` defaults to `start_date`. `note` is shown in the popup if present.
+
+**How to find lat/lon:** open Google Maps, right-click anywhere, and click the
+coordinates that appear at the top of the menu to copy them.
+
+**After editing:**
+
+```powershell
+cd C:\Users\mfuge\OneDrive\Desktop\Github\JourneysWithJerseyMark
+python build_journeys_page.py
+```
+
+That re-renders journeys.html (~10-15 min). Then commit and push from
+GitHub Desktop. No need to re-run ingest, thumbs, or geocoding for manual
+stays - only the page builder reads `manual_stays.json`.
+
+**Notes:**
+
+- Manual stays bypass the North America filter, so you can add places anywhere
+  in the world (Italy, Asia, etc.).
+- The map's initial view still defaults to North America. To see manual stays
+  outside NA, scroll/zoom the map after it loads.
+- The year slider auto-extends to include any year present in manual stays.
+- Manual stays show `photos: 0` and have no thumbnails. The popup shows place
+  name, dates, nights, and the note if present.
