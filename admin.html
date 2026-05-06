@@ -22,6 +22,14 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#2c1a08;position:
 .divider-rule::before,.divider-rule::after{content:'';flex:1;height:1px;background:#7a4e20;}
 .legend-box{border:1.5px solid #7a4e20;border-radius:3px;padding:1.1rem;background:rgba(160,110,50,0.15);margin-bottom:1.2rem;position:relative;}
 .legend-box-title{font-family:'Cinzel',serif;font-size:0.84rem;font-weight:700;letter-spacing:0.15em;color:#5a3510;background:#dfc99a;padding:0 6px;position:absolute;top:-9px;left:16px;text-transform:uppercase;}
+
+/* ── Add New Album section — distinct dark green style ── */
+.legend-box-new{border:2.5px solid #3a6b35;border-radius:3px;padding:1.3rem 1.1rem 1.1rem;background:rgba(58,107,53,0.10);margin-bottom:1.2rem;position:relative;}
+.legend-box-new .legend-box-title{font-family:'Cinzel',serif;font-size:0.84rem;font-weight:700;letter-spacing:0.15em;color:#3a6b35;background:#dfc99a;padding:0 6px;position:absolute;top:-9px;left:16px;text-transform:uppercase;}
+.legend-box-new label{color:#3a6b35;}
+.legend-box-new input[type="text"],.legend-box-new textarea{border-color:rgba(58,107,53,0.4);}
+.legend-box-new input:focus,.legend-box-new textarea:focus{border-color:#3a6b35;}
+
 .admin-title{font-family:'Cinzel',serif;font-size:1.6rem;font-weight:700;color:#2c1a08;text-align:center;letter-spacing:0.04em;margin-bottom:0.3rem;}
 .admin-sub{font-family:'IM Fell English',serif;font-style:italic;font-size:1rem;color:#5a3510;text-align:center;margin-bottom:1.5rem;}
 label{display:block;font-family:'Cinzel',serif;font-size:0.78rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#5a3510;margin-bottom:0.35rem;}
@@ -34,6 +42,8 @@ textarea{resize:vertical;min-height:100px;}
 .btn{font-family:'Cinzel',serif;font-size:0.78rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:0.45rem 1.1rem;border-radius:3px;border:none;cursor:pointer;transition:all 0.2s;display:inline-block;}
 .btn-primary{background:#5a3510;color:#f5ead0;border:1px solid #5a3510;}
 .btn-primary:hover{background:#3a1f08;}
+.btn-green{background:#3a6b35;color:#f5ead0;border:1px solid #3a6b35;}
+.btn-green:hover{background:#2a5025;}
 .btn-secondary{background:transparent;color:#7a4e20;border:1px solid rgba(122,78,32,0.5);}
 .btn-secondary:hover{background:rgba(122,78,32,0.1);border-color:#7a4e20;}
 .btn-danger{background:transparent;color:#8b2222;border:1px solid rgba(139,34,34,0.35);}
@@ -118,8 +128,8 @@ textarea{resize:vertical;min-height:100px;}
         <div class="status" id="mainStatus"></div>
 
         <div class="divider-rule">✦ Add a New Album ✦</div>
-        <div class="legend-box">
-          <div class="legend-box-title">New Album</div>
+        <div class="legend-box-new">
+          <div class="legend-box-title">+ New Album</div>
 
           <div class="field-row">
             <label for="newTitle">Album Title</label>
@@ -139,7 +149,7 @@ textarea{resize:vertical;min-height:100px;}
             <p class="hint">Ask Claude to "add a new memory to my site" with your album link — Claude will fetch and provide this URL list for you.</p>
           </div>
 
-          <button class="btn btn-primary" onclick="addAlbum()">+ Add Album</button>
+          <button class="btn btn-green" onclick="addAlbum()">+ Add Album</button>
           <div class="status" id="addStatus"></div>
         </div>
 
@@ -310,9 +320,6 @@ function addAlbum(){
   showStatus('mainStatus','Album added — hit Save & Publish to make it live.','info');
 }
 
-// Always fetch a fresh SHA immediately before writing — never trust the cached value.
-// This prevents the "does not match" conflict error when GitHub's file has changed
-// since the page was loaded (e.g. after a previous save in the same session).
 function saveAlbums(){
   if(!token){showStatus('mainStatus','Not logged in.','error');return;}
   showStatus('mainStatus','<span class="spinner">✦</span> Publishing to GitHub…','info');
