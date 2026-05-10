@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Claude Dashboard · Jersey Mark</title>
+<link rel="icon" type="image/svg+xml" href="/images/jersey-mark-seal.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Cinzel:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{width:100%;min-height:100vh;}
+body{
+  background:#dfc99a;
+  font-family:'Crimson Text',serif;
+  color:#0f0800;
+  min-height:100vh;
+  padding:2rem 1rem;
+  position:relative;
+  overflow-x:hidden;
+}
+.parchment-bg{position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 28px,rgba(101,67,33,0.04) 29px),repeating-linear-gradient(90deg,transparent,transparent 28px,rgba(101,67,33,0.04) 29px);pointer-events:none;z-index:0;}
+.vignette{position:fixed;inset:0;background:radial-gradient(ellipse at center,transparent 40%,rgba(80,40,10,0.35) 100%);pointer-events:none;z-index:0;}
+
+.outer-border{
+  position:relative;z-index:1;
+  border:3px solid #5a3510;border-radius:4px;padding:4px;
+  max-width:920px;width:100%;margin:0 auto;
+  background:#dfc99a;
+}
+.inner-border{
+  border:1.5px solid #7a4e20;border-radius:2px;
+  padding:2.4rem 2rem 2.6rem;
+}
+.corner-ornament{position:absolute;font-size:20px;color:#1a0f00;line-height:1;}
+.corner-tl{top:10px;left:10px;}
+.corner-tr{top:10px;right:10px;transform:scaleX(-1);}
+.corner-bl{bottom:10px;left:10px;transform:scaleY(-1);}
+.corner-br{bottom:10px;right:10px;transform:scale(-1);}
+
+.cartouche{text-align:center;margin-bottom:1.6rem;}
+.cartouche-border{
+  border:2px solid #5a3510;border-radius:50% / 30%;
+  padding:1rem 2.2rem 1.2rem;display:inline-block;min-width:60%;
+  background:rgba(180,130,70,0.3);position:relative;
+}
+.cartouche-border::before,.cartouche-border::after{content:'— ✦ —';display:block;font-size:12px;color:#1a0f00;letter-spacing:0.2em;}
+.cartouche-border::before{margin-bottom:0.3rem;}
+.cartouche-border::after{margin-top:0.3rem;}
+h1{font-family:'Cinzel',serif;font-size:1.7rem;font-weight:700;color:#0f0800;line-height:1.15;letter-spacing:0.04em;}
+.subtitle{font-family:'IM Fell English',serif;font-style:italic;font-size:1.05rem;color:#1a0f00;margin-top:0.3rem;}
+
+h2{
+  font-family:'Cinzel',serif;font-weight:700;font-size:1.05rem;letter-spacing:0.08em;text-transform:uppercase;
+  color:#5a3510;margin:1.8rem 0 0.8rem;padding-bottom:0.4rem;
+  border-bottom:1px solid rgba(122,78,32,0.4);
+}
+h2 .h2-sub{font-family:'IM Fell English',serif;font-style:italic;font-weight:400;font-size:0.85rem;text-transform:none;letter-spacing:0;color:#3a2510;margin-left:0.6rem;}
+
+p{line-height:1.55;margin-bottom:0.8rem;}
+
+/* Hero stats */
+.hero{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:1rem;margin:1rem 0 0.5rem;
+}
+.hero-card{
+  border:2px solid #5a3510;border-radius:6px;
+  padding:1rem 1rem;
+  background:rgba(180,130,70,0.18);
+  text-align:center;
+}
+.hero-label{font-family:'Cinzel',serif;font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;color:#5a3510;margin-bottom:0.3rem;}
+.hero-value{font-family:'Cinzel',serif;font-weight:700;font-size:1.85rem;color:#0f0800;line-height:1.05;}
+.hero-sub{font-family:'IM Fell English',serif;font-style:italic;font-size:0.85rem;color:#3a2510;margin-top:0.25rem;}
+.hero-card.green .hero-value{color:#356635;}
+.hero-card.gold  .hero-value{color:#7a4e20;}
+
+/* Chart */
+.chart-wrap{
+  background:rgba(180,130,70,0.1);
+  border:1px solid rgba(122,78,32,0.4);
+  border-radius:4px;
+  padding:1rem;
+}
+.chart{display:block;width:100%;height:200px;}
+.chart .bar{fill:#7a4e20;}
+.chart .bar:hover{fill:#5a3510;}
+.chart .axis{stroke:#3a2510;stroke-width:1;}
+.chart .axis-label{font-family:'IM Fell English',serif;font-style:italic;font-size:11px;fill:#3a2510;}
+.chart .bar-label{font-family:'IM Fell English',serif;font-style:italic;font-size:10px;fill:#0f0800;text-anchor:middle;}
+
+/* Tables */
+table{width:100%;border-collapse:collapse;margin:0.5rem 0;font-size:0.95rem;}
+th,td{text-align:left;padding:0.42rem 0.6rem;border-bottom:1px solid rgba(122,78,32,0.25);}
+th{font-family:'Cinzel',serif;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;color:#5a3510;font-weight:700;}
+td.num{text-align:right;font-variant-numeric:tabular-nums;}
+tr:last-child td{border-bottom:none;}
+tr:hover td{background:rgba(180,130,70,0.12);}
+
+/* Cheat sheet */
+.cheat{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;
+}
+.cheat-card{
+  border:1.5px solid rgba(122,78,32,0.5);border-radius:4px;
+  padding:0.8rem 1rem 0.9rem;
+  background:rgba(180,130,70,0.1);
+}
+.cheat-card h3{
+  font-family:'Cinzel',serif;font-size:0.92rem;font-weight:700;letter-spacing:0.06em;
+  color:#5a3510;margin-bottom:0.5rem;
+}
+.cheat-card dl{display:grid;grid-template-columns:auto 1fr;column-gap:0.6rem;row-gap:0.3rem;}
+.cheat-card dt{
+  font-family:'Courier New',monospace;font-size:0.85rem;color:#0f0800;
+  background:rgba(255,245,210,0.5);padding:0.05rem 0.4rem;border-radius:3px;
+  white-space:nowrap;align-self:center;
+}
+.cheat-card dd{font-size:0.9rem;line-height:1.35;color:#1a0f00;align-self:center;}
+
+/* Agent list */
+.agents{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:0.6rem;}
+.agent-row{
+  border-left:3px solid #7a4e20;
+  background:rgba(180,130,70,0.08);
+  padding:0.55rem 0.8rem;border-radius:0 4px 4px 0;
+}
+.agent-name{
+  font-family:'Courier New',monospace;font-size:0.92rem;font-weight:700;color:#5a3510;
+}
+.agent-desc{font-size:0.88rem;color:#1a0f00;margin-top:0.15rem;line-height:1.35;}
+
+/* Footer */
+.footer{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-top:1.6rem;padding-top:0.8rem;border-top:1px solid rgba(122,78,32,0.4);
+  font-family:'IM Fell English',serif;font-style:italic;font-size:0.85rem;color:#3a2510;
+}
+.footer a, .footer button{
+  color:#3a2510;background:none;border:none;cursor:pointer;
+  font-family:inherit;font-style:italic;font-size:inherit;text-decoration:underline dotted;padding:0;
+}
+.footer a:hover, .footer button:hover{color:#7a2a1a;}
+.refresh-note{font-family:'IM Fell English',serif;font-style:italic;font-size:0.85rem;color:#3a2510;text-align:center;margin-top:0.4rem;}
+
+/* Lock screen reuse */
+.lockscreen{display:flex;flex-direction:column;align-items:center;gap:1.4rem;padding:1rem 0;}
+.lock-prompt{font-family:'IM Fell English',serif;font-style:italic;font-size:1.1rem;color:#1a0f00;text-align:center;}
+.pin-row{display:flex;gap:0.6rem;justify-content:center;}
+.pin-row input{
+  width:46px;height:58px;font-size:24px;text-align:center;
+  background:#f3e6c4;color:#0f0800;
+  border:1.5px solid #7a4e20;border-radius:4px;outline:none;
+  font-family:'Cinzel',serif;font-weight:700;
+  caret-color:#5a3510;
+}
+.pin-row input:focus{border-color:#5a3510;background:#fbefcf;box-shadow:0 0 0 2px rgba(90,53,16,0.25);}
+.pin-error{font-family:'IM Fell English',serif;font-style:italic;color:#7a2a1a;font-size:0.95rem;min-height:1.2em;}
+.hidden{display:none !important;}
+</style>
+</head>
+<body>
+<div class="parchment-bg"></div>
+<div class="vignette"></div>
+
+<div class="outer-border">
+  <span class="corner-ornament corner-tl">✦</span>
+  <span class="corner-ornament corner-tr">✦</span>
+  <span class="corner-ornament corner-bl">✦</span>
+  <span class="corner-ornament corner-br">✦</span>
+
+  <div class="inner-border">
+    <div class="cartouche">
+      <div class="cartouche-border">
+        <h1>Claude Dashboard</h1>
+        <div class="subtitle">— token usage, costs &amp; cheat sheet —</div>
+      </div>
+    </div>
+
+    <!-- Lock screen -->
+    <section id="lockscreen" class="lockscreen">
+      <div class="lock-prompt">Enter PIN to continue</div>
+      <div class="pin-row" id="pin-row">
+        <input type="password" inputmode="numeric" maxlength="1" autocomplete="one-time-code" data-i="0">
+        <input type="password" inputmode="numeric" maxlength="1" data-i="1">
+        <input type="password" inputmode="numeric" maxlength="1" data-i="2">
+        <input type="password" inputmode="numeric" maxlength="1" data-i="3">
+        <input type="password" inputmode="numeric" maxlength="1" data-i="4">
+        <input type="password" inputmode="numeric" maxlength="1" data-i="5">
+      </div>
+      <div class="pin-error" id="pin-error"></div>
+    </section>
+
+    <!-- Dashboard -->
+    <section id="dash" class="hidden">
+
+      <h2>Headline numbers <span class="h2-sub">(API-equivalent cost; you pay $200/mo flat on Max)</span></h2>
+      <div class="hero" id="hero">
+        <!-- populated by JS -->
+      </div>
+
+      <h2>Last 30 days <span class="h2-sub">(API-equivalent $/day)</span></h2>
+      <div class="chart-wrap">
+        <svg class="chart" id="chart" preserveAspectRatio="none" viewBox="0 0 800 200"></svg>
+      </div>
+
+      <h2>Daily breakdown</h2>
+      <table id="daily-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th class="num">Tokens</th>
+            <th class="num">Output</th>
+            <th class="num">Cache reads</th>
+            <th class="num">$ equiv.</th>
+          </tr>
+        </thead>
+        <tbody id="daily-body"></tbody>
+      </table>
+
+      <h2>Sub-agents <span class="h2-sub">(in <code>~/.claude/agents/</code>, backed up via brain repo)</span></h2>
+      <div class="agents">
+        <div class="agent-row"><div class="agent-name">album-fetcher</div><div class="agent-desc">Paste a Google Photos share link → returns 25–35 best landscape URLs ready for the JerseyMark "memory" workflow.</div></div>
+        <div class="agent-row"><div class="agent-name">build-validator</div><div class="agent-desc">Curls deployed URLs, checks HTTP/SSL, verifies PIN endpoints. "Is X working?"</div></div>
+        <div class="agent-row"><div class="agent-name">disk-investigator</div><div class="agent-desc">Diagnoses C: drive bloat. Knows about Phone Link / OneDrive Samsung Gallery / Camera Roll triple-mirror trap.</div></div>
+        <div class="agent-row"><div class="agent-name">morning-briefing</div><div class="agent-desc">4-section daily digest (open loops, portfolio, news, today's queue). Also fires from a 5pm cloud Routine.</div></div>
+        <div class="agent-row"><div class="agent-name">repo-explorer</div><div class="agent-desc">"Look at this repo" / "what is X" → tight ~300-word architectural summary.</div></div>
+        <div class="agent-row"><div class="agent-name">ship-it</div><div class="agent-desc">Full deploy dance: git status → selective add → commit → push → poll Vercel → curl-verify the live HTML.</div></div>
+        <div class="agent-row"><div class="agent-name">vercel-doctor</div><div class="agent-desc">Per-project Vercel health: deploys, domains, SSL, env vars present. Read-only.</div></div>
+      </div>
+
+      <h2>Cheat sheet <span class="h2-sub">(things to type)</span></h2>
+      <div class="cheat">
+
+        <div class="cheat-card">
+          <h3>Slash commands (in Claude)</h3>
+          <dl>
+            <dt>/usage</dt><dd>Token usage in this session + history</dd>
+            <dt>/cost</dt><dd>$ spent so far in this session</dd>
+            <dt>/agents</dt><dd>List installed sub-agents</dd>
+            <dt>/status</dt><dd>Model, session length, working dir</dd>
+            <dt>/clear</dt><dd>Reset context (cheaper than long sessions)</dd>
+            <dt>/resume</dt><dd>Pick a prior session to continue</dd>
+            <dt>/init</dt><dd>Bootstrap a CLAUDE.md for this dir</dd>
+            <dt>/help</dt><dd>Built-in command list</dd>
+          </dl>
+        </div>
+
+        <div class="cheat-card">
+          <h3>Token cost (in your terminal)</h3>
+          <dl>
+            <dt>npx ccusage</dt><dd>Daily token + cost table (this dashboard's source)</dd>
+            <dt>npx ccusage monthly</dt><dd>Monthly rollup</dd>
+            <dt>npx ccusage session</dt><dd>Per-session breakdown</dd>
+            <dt>npx ccusage blocks</dt><dd>5-hour billing windows (Pro-plan check)</dd>
+            <dt>refresh-claude-dashboard.ps1</dt><dd>Update this page (run from anywhere)</dd>
+          </dl>
+        </div>
+
+        <div class="cheat-card">
+          <h3>MCP &amp; plugins</h3>
+          <dl>
+            <dt>claude mcp list</dt><dd>Show all MCP servers + status</dd>
+            <dt>claude mcp add</dt><dd>Add a new MCP server</dd>
+            <dt>claude plugin list</dt><dd>Show installed plugins</dd>
+            <dt>claude plugin disable X</dt><dd>Turn off a plugin</dd>
+          </dl>
+        </div>
+
+        <div class="cheat-card">
+          <h3>Verbal patterns (saves tokens)</h3>
+          <dl>
+            <dt>"use repo-explorer to..."</dt><dd>Force-delegate to a sub-agent</dd>
+            <dt>"check Vercel"</dt><dd>Triggers vercel-doctor</dd>
+            <dt>"check my disk"</dt><dd>Triggers disk-investigator</dd>
+            <dt>"reset" / "fresh session"</dt><dd>Wrap up + start clean</dd>
+            <dt>"wrap up" / "end of session"</dt><dd>Update brain, commit, push</dd>
+          </dl>
+        </div>
+
+        <div class="cheat-card">
+          <h3>Brain locations</h3>
+          <dl>
+            <dt>SOUL.md, USER.md</dt><dd>Identity (auto-read)</dd>
+            <dt>MEMORY.md</dt><dd>Long-term distilled memory (auto-read)</dd>
+            <dt>memory/&lt;date&gt;.md</dt><dd>Daily notes</dd>
+            <dt>projects/&lt;name&gt;.md</dt><dd>Per-project context</dd>
+            <dt>tasks/in-progress/</dt><dd>Active threads</dd>
+            <dt>PLAYBOOK.md</dt><dd>Session habits cheat sheet</dd>
+          </dl>
+        </div>
+
+        <div class="cheat-card">
+          <h3>Useful URLs</h3>
+          <dl>
+            <dt>personal hub</dt><dd><a href="/personal.html">/personal.html</a></dd>
+            <dt>portfolio</dt><dd><a href="https://portfolio.journeyswithjerseymark.com">portfolio.journeys...</a></dd>
+            <dt>budget</dt><dd><a href="https://budget.journeyswithjerseymark.com">budget.journeys...</a></dd>
+            <dt>admin</dt><dd><a href="/admin.html">/admin.html</a></dd>
+            <dt>brain repo</dt><dd>github.com/mfugel/ai-shared-brain</dd>
+          </dl>
+        </div>
+
+      </div>
+
+      <div class="refresh-note" id="refresh-note"></div>
+
+      <div class="footer">
+        <a href="/personal.html">← back to personal hub</a>
+        <button id="lock-btn" type="button">lock</button>
+      </div>
+    </section>
+  </div>
+</div>
+
+<script>
+(function(){
+  const inputs = document.querySelectorAll('#pin-row input');
+  const errEl = document.getElementById('pin-error');
+  const lock = document.getElementById('lockscreen');
+  const dash = document.getElementById('dash');
+
+  function unlock(){
+    lock.classList.add('hidden');
+    dash.classList.remove('hidden');
+    loadData();
+  }
+  function relock(){
+    sessionStorage.removeItem('jm_personal_unlocked');
+    inputs.forEach(i => i.value = '');
+    errEl.textContent = '';
+    dash.classList.add('hidden');
+    lock.classList.remove('hidden');
+    inputs[0].focus();
+  }
+
+  if (sessionStorage.getItem('jm_personal_unlocked') === '1') {
+    unlock();
+  } else {
+    setTimeout(() => inputs[0].focus(), 100);
+  }
+
+  document.getElementById('lock-btn').addEventListener('click', relock);
+
+  inputs.forEach((inp, i) => {
+    inp.addEventListener('input', e => {
+      const v = e.target.value.replace(/\D/g, '');
+      e.target.value = v.slice(0, 1);
+      if (e.target.value && i < inputs.length - 1) inputs[i+1].focus();
+      maybeSubmit();
+    });
+    inp.addEventListener('keydown', e => {
+      if (e.key === 'Backspace' && !e.target.value && i > 0) {
+        inputs[i-1].focus(); inputs[i-1].value = '';
+      } else if (e.key === 'ArrowLeft' && i > 0) { inputs[i-1].focus(); e.preventDefault(); }
+        else if (e.key === 'ArrowRight' && i < inputs.length-1) { inputs[i+1].focus(); e.preventDefault(); }
+    });
+    inp.addEventListener('paste', e => {
+      const txt = (e.clipboardData?.getData('text') || '').replace(/\D/g, '').slice(0, inputs.length);
+      if (!txt) return;
+      e.preventDefault();
+      for (let j = 0; j < inputs.length; j++) inputs[j].value = txt[j] || '';
+      inputs[Math.min(txt.length, inputs.length-1)].focus();
+      maybeSubmit();
+    });
+    inp.addEventListener('focus', e => e.target.select());
+  });
+
+  let submitting = false;
+  async function maybeSubmit() {
+    const pin = Array.from(inputs).map(i => i.value).join('');
+    if (pin.length !== inputs.length || submitting) return;
+    submitting = true;
+    errEl.textContent = '';
+    try {
+      const res = await fetch('/api/verify-pin', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ pin })
+      });
+      if (res.ok) {
+        sessionStorage.setItem('jm_personal_unlocked', '1');
+        unlock();
+      } else {
+        errEl.textContent = 'incorrect — try again';
+        inputs.forEach(i => i.value = '');
+        inputs[0].focus();
+      }
+    } catch (err) {
+      errEl.textContent = 'something went wrong — please retry';
+    }
+    submitting = false;
+  }
+
+  // ---------- Dashboard rendering ----------
+
+  function fmtNum(n) {
+    if (n >= 1e9) return (n/1e9).toFixed(2) + 'B';
+    if (n >= 1e6) return (n/1e6).toFixed(2) + 'M';
+    if (n >= 1e3) return (n/1e3).toFixed(1) + 'k';
+    return String(n);
+  }
+  function fmtUSD(n) {
+    return '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+  function fmtDate(d) {
+    const dt = new Date(d + 'T12:00:00Z');
+    return dt.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+  }
+
+  async function loadData() {
+    let data;
+    try {
+      const res = await fetch('/data/claude-usage.json', { cache: 'no-store' });
+      if (!res.ok) throw new Error('http ' + res.status);
+      data = await res.json();
+    } catch (err) {
+      document.getElementById('hero').innerHTML =
+        '<div class="hero-card"><div class="hero-label">no data</div>' +
+        '<div class="hero-sub">run <code>refresh-claude-dashboard.ps1</code> to seed</div></div>';
+      document.getElementById('refresh-note').textContent = 'snapshot missing: ' + err.message;
+      return;
+    }
+    renderHero(data);
+    renderChart(data);
+    renderTable(data);
+    document.getElementById('refresh-note').textContent =
+      'snapshot generated ' + data.generatedLocal + ' · run refresh-claude-dashboard.ps1 to update';
+  }
+
+  function renderHero(data) {
+    const t = data.totals;
+    const today = data.today;
+    // Rough Max-plan break-even: if you'd otherwise pay API rates, your spend - $200 = surplus value/mo.
+    // We'll just show the side-by-side rather than a single "savings" number that depends on time-window.
+    const days = t.daysActive;
+    const perDay = t.cost / days;
+    const monthlyEst = perDay * 30;
+    const cards = [
+      {
+        label: 'Total API-equiv',
+        value: fmtUSD(t.cost),
+        sub: 'over ' + days + ' active days',
+        cls: 'gold'
+      },
+      {
+        label: 'Today',
+        value: today ? fmtUSD(today.cost) : '—',
+        sub: today ? fmtNum(today.tokens) + ' tokens' : 'no activity yet',
+        cls: today && today.cost > 30 ? 'green' : ''
+      },
+      {
+        label: 'Monthly run-rate',
+        value: fmtUSD(monthlyEst),
+        sub: 'extrapolated · Max plan = $200',
+        cls: monthlyEst > 200 ? 'green' : 'gold'
+      },
+      {
+        label: 'Cache hit',
+        value: ((t.cacheRead / (t.cacheRead + t.cacheCreate + t.input)) * 100).toFixed(1) + '%',
+        sub: fmtNum(t.cacheRead) + ' cache-read tokens',
+        cls: 'green'
+      }
+    ];
+    document.getElementById('hero').innerHTML = cards.map(c =>
+      '<div class="hero-card ' + c.cls + '">' +
+      '<div class="hero-label">' + c.label + '</div>' +
+      '<div class="hero-value">' + c.value + '</div>' +
+      '<div class="hero-sub">' + c.sub + '</div>' +
+      '</div>'
+    ).join('');
+  }
+
+  function renderChart(data) {
+    const days = data.last30 || data.daily || [];
+    if (!days.length) return;
+    const svg = document.getElementById('chart');
+    svg.innerHTML = '';
+    const W = 800, H = 200, padL = 36, padB = 22, padT = 8, padR = 8;
+    const innerW = W - padL - padR;
+    const innerH = H - padT - padB;
+    const max = Math.max(...days.map(d => d.cost), 1);
+    const barW = innerW / days.length * 0.78;
+    const gap  = innerW / days.length * 0.22;
+
+    // Y axis labels (3 ticks)
+    for (let i = 0; i <= 3; i++) {
+      const v = max * (i / 3);
+      const y = padT + innerH * (1 - i/3);
+      svg.insertAdjacentHTML('beforeend',
+        '<line class="axis" x1="' + padL + '" y1="' + y + '" x2="' + (W - padR) + '" y2="' + y + '" stroke-opacity="0.15"/>' +
+        '<text class="axis-label" x="' + (padL - 4) + '" y="' + (y + 3) + '" text-anchor="end">$' + v.toFixed(0) + '</text>'
+      );
+    }
+
+    days.forEach((d, i) => {
+      const h = (d.cost / max) * innerH;
+      const x = padL + i * (innerW / days.length) + (gap / 2);
+      const y = padT + innerH - h;
+      const label = fmtDate(d.date).split(' ').slice(1).join(' '); // e.g. "May 10"
+      svg.insertAdjacentHTML('beforeend',
+        '<rect class="bar" x="' + x + '" y="' + y + '" width="' + barW + '" height="' + h + '">' +
+        '<title>' + fmtDate(d.date) + ': ' + fmtUSD(d.cost) + ' (' + fmtNum(d.tokens) + ' tokens)</title>' +
+        '</rect>' +
+        (i % Math.max(1, Math.floor(days.length / 8)) === 0 ?
+          '<text class="bar-label" x="' + (x + barW/2) + '" y="' + (H - 6) + '">' + label + '</text>' : '')
+      );
+    });
+  }
+
+  function renderTable(data) {
+    const days = (data.daily || []).slice().sort((a,b) => b.date.localeCompare(a.date));
+    document.getElementById('daily-body').innerHTML = days.map(d =>
+      '<tr>' +
+      '<td>' + fmtDate(d.date) + '</td>' +
+      '<td class="num">' + fmtNum(d.tokens) + '</td>' +
+      '<td class="num">' + fmtNum(d.output) + '</td>' +
+      '<td class="num">' + fmtNum(d.cacheRead) + '</td>' +
+      '<td class="num">' + fmtUSD(d.cost) + '</td>' +
+      '</tr>'
+    ).join('');
+  }
+})();
+</script>
+</body>
+</html>
