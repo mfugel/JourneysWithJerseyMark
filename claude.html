@@ -112,13 +112,17 @@ tr:hover td{background:rgba(180,130,70,0.12);}
   font-family:'Cinzel',serif;font-size:0.92rem;font-weight:700;letter-spacing:0.06em;
   color:#5a3510;margin-bottom:0.5rem;
 }
-.cheat-card dl{display:grid;grid-template-columns:auto 1fr;column-gap:0.6rem;row-gap:0.3rem;}
+.cheat-card dl{display:block;margin:0;}
 .cheat-card dt{
   font-family:'Courier New',monospace;font-size:0.85rem;color:#0f0800;
-  background:rgba(255,245,210,0.5);padding:0.05rem 0.4rem;border-radius:3px;
-  white-space:nowrap;align-self:center;
+  background:rgba(255,245,210,0.5);padding:0.08rem 0.45rem;border-radius:3px;
+  display:inline-block;max-width:100%;word-break:break-all;
 }
-.cheat-card dd{font-size:0.9rem;line-height:1.35;color:#1a0f00;align-self:center;}
+.cheat-card dd{
+  font-size:0.9rem;line-height:1.35;color:#1a0f00;
+  margin:0.2rem 0 0.6rem 0.3rem;
+}
+.cheat-card dd:last-child{margin-bottom:0;}
 
 /* Agent list */
 .agents{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:0.6rem;}
