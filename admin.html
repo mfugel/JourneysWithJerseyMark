@@ -81,6 +81,19 @@ textarea{resize:vertical;min-height:100px;}
 /* ── New badge ── */
 .new-badge{display:inline-block;font-family:'Cinzel',serif;font-size:0.52rem;font-weight:700;letter-spacing:0.08em;color:#f5ead0;background:#3a6b35;border-radius:2px;padding:1px 5px;margin-left:6px;vertical-align:middle;text-transform:uppercase;}
 
+/* ── Tabs ── */
+.tab-row{display:flex;gap:0.4rem;margin-bottom:1.2rem;border-bottom:1.5px solid rgba(122,78,32,0.3);}
+.tab-btn{font-family:'Cinzel',serif;font-size:0.82rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:0.55rem 1.2rem;border:1.5px solid transparent;border-bottom:none;border-radius:3px 3px 0 0;background:transparent;color:rgba(90,53,16,0.6);cursor:pointer;transition:all 0.2s;margin-bottom:-1.5px;}
+.tab-btn:hover{color:#5a3510;}
+.tab-btn.active{color:#2c1a08;background:rgba(160,110,50,0.18);border-color:rgba(122,78,32,0.4);border-bottom-color:#dfc99a;}
+
+/* ── Video thumb ── */
+.video-thumb{width:120px;height:68px;flex-shrink:0;background:rgba(44,26,8,0.15);border:1px solid rgba(122,78,32,0.3);border-radius:2px;overflow:hidden;}
+.video-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
+.video-card-body{display:flex;gap:0.7rem;align-items:center;}
+.video-meta{flex:1;min-width:0;font-family:'Crimson Text',serif;font-size:0.90rem;color:rgba(44,26,8,0.7);line-height:1.5;word-break:break-all;}
+.video-meta a{color:#7a4e20;}
+
 @media(max-width:600px){
   .content{padding:1rem 0.75rem 2rem;}
   .inner-border{padding:1.2rem 1rem 1.6rem;}
@@ -123,39 +136,80 @@ textarea{resize:vertical;min-height:100px;}
       <!-- MAIN -->
       <div id="mainScreen">
 
-        <div class="divider-rule">✦ Current Albums on Site ✦</div>
-        <div id="albumList"></div>
-        <div class="status" id="mainStatus"></div>
-
-        <div class="divider-rule">✦ Add a New Album ✦</div>
-        <div class="legend-box-new">
-          <div class="legend-box-title">+ New Album</div>
-
-          <div class="field-row">
-            <label for="newTitle">Album Title</label>
-            <input type="text" id="newTitle" placeholder="e.g. Zion National Park · March 2024">
-            <p class="hint">This becomes the dropdown label on your site. Use · (middle dot) to separate location and date.</p>
-          </div>
-
-          <div class="field-row">
-            <label for="newUrl">Google Photos Share Link (optional)</label>
-            <input type="text" id="newUrl" placeholder="https://photos.app.goo.gl/...">
-            <p class="hint">Used for the "Open Album ↗" button on your site.</p>
-          </div>
-
-          <div class="field-row">
-            <label for="newPhotos">Photo URLs — one per line</label>
-            <textarea id="newPhotos" placeholder="Paste the URL list from Claude here — one URL per line&#10;&#10;https://lh3.googleusercontent.com/pw/...&#10;https://lh3.googleusercontent.com/pw/..."></textarea>
-            <p class="hint">Ask Claude to "add a new memory to my site" with your album link — Claude will fetch and provide this URL list for you.</p>
-          </div>
-
-          <button class="btn btn-green" onclick="addAlbum()">+ Add Album</button>
-          <div class="status" id="addStatus"></div>
+        <!-- ─── TAB SWITCHER ─── -->
+        <div class="tab-row">
+          <button class="tab-btn active" id="tabAlbumsBtn" onclick="switchTab('albums')">📸 Albums</button>
+          <button class="tab-btn" id="tabVideosBtn" onclick="switchTab('videos')">▶ Videos</button>
         </div>
 
-        <div class="btn-row">
-          <button class="btn btn-primary" onclick="saveAlbums()">💾 Save &amp; Publish to Site</button>
-          <button class="btn btn-danger btn-sm" onclick="doLogout()">Sign Out</button>
+        <!-- ─── ALBUMS TAB ─── -->
+        <div id="albumsTab">
+          <div class="divider-rule">✦ Current Albums on Site ✦</div>
+          <div id="albumList"></div>
+          <div class="status" id="mainStatus"></div>
+
+          <div class="divider-rule">✦ Add a New Album ✦</div>
+          <div class="legend-box-new">
+            <div class="legend-box-title">+ New Album</div>
+
+            <div class="field-row">
+              <label for="newTitle">Album Title</label>
+              <input type="text" id="newTitle" placeholder="e.g. Zion National Park · March 2024">
+              <p class="hint">This becomes the dropdown label on your site. Use · (middle dot) to separate location and date.</p>
+            </div>
+
+            <div class="field-row">
+              <label for="newUrl">Google Photos Share Link (optional)</label>
+              <input type="text" id="newUrl" placeholder="https://photos.app.goo.gl/...">
+              <p class="hint">Used for the "Open Album ↗" button on your site.</p>
+            </div>
+
+            <div class="field-row">
+              <label for="newPhotos">Photo URLs — one per line</label>
+              <textarea id="newPhotos" placeholder="Paste the URL list from Claude here — one URL per line&#10;&#10;https://lh3.googleusercontent.com/pw/...&#10;https://lh3.googleusercontent.com/pw/..."></textarea>
+              <p class="hint">Ask Claude to "add a new memory to my site" with your album link — Claude will fetch and provide this URL list for you.</p>
+            </div>
+
+            <button class="btn btn-green" onclick="addAlbum()">+ Add Album</button>
+            <div class="status" id="addStatus"></div>
+          </div>
+
+          <div class="btn-row">
+            <button class="btn btn-primary" onclick="saveAlbums()">💾 Save &amp; Publish to Site</button>
+            <button class="btn btn-danger btn-sm" onclick="doLogout()">Sign Out</button>
+          </div>
+        </div>
+
+        <!-- ─── VIDEOS TAB ─── -->
+        <div id="videosTab" style="display:none;">
+          <div class="divider-rule">✦ Current Videos on Site ✦</div>
+          <div id="videoList"></div>
+          <div class="status" id="videoMainStatus"></div>
+
+          <div class="divider-rule">✦ Add a New Video ✦</div>
+          <div class="legend-box-new">
+            <div class="legend-box-title">+ New Video</div>
+
+            <div class="field-row">
+              <label for="newVideoTitle">Video Title</label>
+              <input type="text" id="newVideoTitle" placeholder="e.g. Sunrise at Bull Trout Lake · July 2025">
+              <p class="hint">This becomes the dropdown label on your site.</p>
+            </div>
+
+            <div class="field-row">
+              <label for="newVideoUrl">YouTube URL or Video ID</label>
+              <input type="text" id="newVideoUrl" placeholder="https://www.youtube.com/watch?v=… or https://youtu.be/…">
+              <p class="hint">Paste any YouTube link (watch, share, embed, or Studio) — the 11-character video ID gets extracted automatically. Find your videos at <a href="https://studio.youtube.com/playlist/PLViyFwiCXtfoxo2S2zc_JPQ8KoFy_Ogfj/videos" target="_blank" rel="noopener">your playlist ↗</a>.</p>
+            </div>
+
+            <button class="btn btn-green" onclick="addVideo()">+ Add Video</button>
+            <div class="status" id="addVideoStatus"></div>
+          </div>
+
+          <div class="btn-row">
+            <button class="btn btn-primary" onclick="saveVideos()">💾 Save &amp; Publish to Site</button>
+            <button class="btn btn-danger btn-sm" onclick="doLogout()">Sign Out</button>
+          </div>
         </div>
 
         <!-- SHARE PANEL — appears after a successful publish -->
@@ -193,11 +247,42 @@ textarea{resize:vertical;min-height:100px;}
 var REPO_OWNER = 'mfugel';
 var REPO_NAME  = 'JourneysWithJerseyMark';
 var FILE_PATH  = 'albums.json';
+var VIDEOS_PATH = 'videos.json';
 var BRANCH     = 'main';
 var SITE_URL   = 'https://journeyswithjerseymark.com';
 
 var token = '', albums = [], fileSha = '';
+var videos = [], videosSha = '';
 var lastPublishedAlbum = null;
+var lastPublishedVideo = null;
+
+function switchTab(name){
+  var albumsActive = name==='albums';
+  document.getElementById('albumsTab').style.display = albumsActive?'block':'none';
+  document.getElementById('videosTab').style.display = albumsActive?'none':'block';
+  document.getElementById('tabAlbumsBtn').classList.toggle('active', albumsActive);
+  document.getElementById('tabVideosBtn').classList.toggle('active', !albumsActive);
+}
+
+function extractYouTubeId(input){
+  if(!input) return '';
+  input = input.trim();
+  // bare 11-char ID
+  if(/^[A-Za-z0-9_-]{11}$/.test(input)) return input;
+  // try common URL patterns
+  var patterns = [
+    /[?&]v=([A-Za-z0-9_-]{11})/,                  // watch?v=ID
+    /youtu\.be\/([A-Za-z0-9_-]{11})/,             // youtu.be/ID
+    /youtube\.com\/embed\/([A-Za-z0-9_-]{11})/,   // youtube.com/embed/ID
+    /youtube\.com\/shorts\/([A-Za-z0-9_-]{11})/,  // shorts
+    /studio\.youtube\.com\/video\/([A-Za-z0-9_-]{11})/ // studio
+  ];
+  for(var i=0;i<patterns.length;i++){
+    var m = input.match(patterns[i]);
+    if(m) return m[1];
+  }
+  return '';
+}
 
 (function(){
   try{var t=localStorage.getItem('jm_admin_token');if(t){document.getElementById('tokenInput').value=t;document.getElementById('rememberToken').checked=true;}}catch(e){}
@@ -236,8 +321,144 @@ function loadAlbums(){
     document.getElementById('loginScreen').style.display='none';
     document.getElementById('mainScreen').style.display='block';
     renderAlbums();
+    loadVideos();
   })
   .catch(function(err){showStatus('loginStatus','Connection error: '+err.message,'error');});
+}
+
+function loadVideos(){
+  fetch('https://api.github.com/repos/'+REPO_OWNER+'/'+REPO_NAME+'/contents/'+VIDEOS_PATH+'?ref='+BRANCH,
+    {headers:{'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json'}})
+  .then(function(r){
+    if(r.status===404){videos=[];videosSha='';renderVideos();return null;}
+    if(!r.ok){showStatus('videoMainStatus','Could not load videos.json ('+r.status+').','error');return null;}
+    return r.json();
+  })
+  .then(function(data){
+    if(!data)return;
+    videosSha=data.sha;
+    var jsonStr=decodeURIComponent(escape(atob(data.content.replace(/\n/g,''))));
+    videos=JSON.parse(jsonStr);
+    renderVideos();
+  })
+  .catch(function(err){showStatus('videoMainStatus','Could not load videos: '+err.message,'error');});
+}
+
+function renderVideos(){
+  var c=document.getElementById('videoList');
+  if(!videos.length){
+    c.innerHTML='<p style="font-family:\'IM Fell English\',serif;font-style:italic;color:rgba(90,53,16,0.5);margin-bottom:1rem;">No videos yet — add one below.</p>';
+    return;
+  }
+  c.innerHTML='';
+  videos.forEach(function(v,idx){
+    var newBadge=isNew(v)?'<span class="new-badge">New!</span>':'';
+    var watchUrl='https://www.youtube.com/watch?v='+encodeURIComponent(v.youtubeId);
+    var thumbUrl='https://i.ytimg.com/vi/'+encodeURIComponent(v.youtubeId)+'/mqdefault.jpg';
+    var card=document.createElement('div');
+    card.className='album-card';
+    card.innerHTML=
+      '<div class="album-card-header">'+
+        '<span class="album-card-title">'+esc(v.title)+newBadge+'</span>'+
+        '<div style="display:flex;gap:0.35rem;flex-shrink:0;">'+
+          (idx>0?'<button class="btn btn-secondary btn-sm" onclick="moveVideo('+idx+',-1)">▲</button>':'')+
+          (idx<videos.length-1?'<button class="btn btn-secondary btn-sm" onclick="moveVideo('+idx+',1)">▼</button>':'')+
+          '<button class="btn btn-danger btn-sm" onclick="removeVideo('+idx+')">✕</button>'+
+        '</div>'+
+      '</div>'+
+      '<div class="album-card-body">'+
+        '<div class="video-card-body">'+
+          '<a class="video-thumb" href="'+esc(watchUrl)+'" target="_blank" rel="noopener" aria-label="Open on YouTube">'+
+            '<img src="'+esc(thumbUrl)+'" alt="" loading="lazy">'+
+          '</a>'+
+          '<div class="video-meta">'+
+            '<div>ID: <code>'+esc(v.youtubeId)+'</code> · <a href="'+esc(watchUrl)+'" target="_blank" rel="noopener">Watch on YouTube ↗</a></div>'+
+            (v.dateAdded?'<div style="font-size:0.84rem;color:rgba(90,53,16,0.5);">Added '+formatDate(v.dateAdded)+'</div>':'')+
+          '</div>'+
+        '</div>'+
+        '<button class="btn btn-secondary btn-sm" style="margin-top:0.55rem;" onclick="editVideo('+idx+')">✎ Edit Title</button>'+
+      '</div>';
+    c.appendChild(card);
+  });
+}
+
+function removeVideo(idx){
+  if(!confirm('Remove "'+videos[idx].title+'"?'))return;
+  videos.splice(idx,1);renderVideos();
+  showStatus('videoMainStatus','Removed — hit Save & Publish when ready.','info');
+}
+
+function moveVideo(idx,dir){
+  var to=idx+dir;if(to<0||to>=videos.length)return;
+  var tmp=videos[idx];videos[idx]=videos[to];videos[to]=tmp;
+  renderVideos();showStatus('videoMainStatus','Reordered — hit Save & Publish when ready.','info');
+}
+
+function editVideo(idx){
+  var t=prompt('Title for this video:',videos[idx].title);
+  if(t===null)return;
+  t=t.trim();if(!t)return;
+  videos[idx].title=t;
+  renderVideos();showStatus('videoMainStatus','Updated — hit Save & Publish when ready.','info');
+}
+
+function addVideo(){
+  var title = document.getElementById('newVideoTitle').value.trim();
+  var raw   = document.getElementById('newVideoUrl').value.trim();
+  if(!title){showStatus('addVideoStatus','Please enter a video title.','error');return;}
+  if(!raw){showStatus('addVideoStatus','Please paste a YouTube URL or ID.','error');return;}
+  var id = extractYouTubeId(raw);
+  if(!id){showStatus('addVideoStatus','Could not find a YouTube video ID in that URL.','error');return;}
+  var dupe=videos.some(function(v){return v.youtubeId===id;});
+  if(dupe){showStatus('addVideoStatus','That video is already in the list.','error');return;}
+  var newVideo={title:title,youtubeId:id,dateAdded:new Date().toISOString()};
+  videos.unshift(newVideo); // newest first — matches playlist order
+  lastPublishedVideo=newVideo;
+  document.getElementById('newVideoTitle').value='';
+  document.getElementById('newVideoUrl').value='';
+  renderVideos();
+  showStatus('addVideoStatus','✦ Video added! Hit Save & Publish to make it live.','success');
+  showStatus('videoMainStatus','Video added — hit Save & Publish to make it live.','info');
+}
+
+function saveVideos(){
+  if(!token){showStatus('videoMainStatus','Not logged in.','error');return;}
+  showStatus('videoMainStatus','<span class="spinner">✦</span> Publishing to GitHub…','info');
+  var freshShaPromise;
+  if(videosSha){
+    freshShaPromise = fetch('https://api.github.com/repos/'+REPO_OWNER+'/'+REPO_NAME+'/contents/'+VIDEOS_PATH+'?ref='+BRANCH+'&_='+Date.now(),
+      {headers:{'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json'}})
+      .then(function(r){
+        if(r.status===404)return null; // file doesn't exist yet
+        if(!r.ok) throw new Error('Could not fetch current file SHA ('+r.status+') — try again');
+        return r.json();
+      })
+      .then(function(data){return data?data.sha:null;});
+  } else {
+    freshShaPromise = Promise.resolve(null);
+  }
+  freshShaPromise.then(function(freshSha){
+    var content=btoa(unescape(encodeURIComponent(JSON.stringify(videos,null,2))));
+    var body={message:'Update videos.json via admin page',content:content,branch:BRANCH};
+    if(freshSha)body.sha=freshSha;
+    return fetch('https://api.github.com/repos/'+REPO_OWNER+'/'+REPO_NAME+'/contents/'+VIDEOS_PATH,{
+      method:'PUT',
+      headers:{'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json','Content-Type':'application/json'},
+      body:JSON.stringify(body)
+    });
+  })
+  .then(function(r){if(!r.ok)return r.json().then(function(e){throw new Error(e.message||r.status);});return r.json();})
+  .then(function(data){
+    videosSha=data.content.sha;
+    showStatus('videoMainStatus','✦ Published! Your site will update in about 30 seconds.','success');
+    if(lastPublishedVideo){showVideoSharePanel(lastPublishedVideo);lastPublishedVideo=null;}
+  })
+  .catch(function(err){showStatus('videoMainStatus','Save failed: '+err.message,'error');});
+}
+
+function showVideoSharePanel(v){
+  // For now, just a console hint — share panel UI is album-specific.
+  // Future enhancement: dedicated video share panel.
 }
 
 function isNew(album){

@@ -254,6 +254,11 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
 .slide-controls-row{display:flex;justify-content:center;align-items:center;gap:0.6rem;margin-top:0.7rem;}
 .slide-btn{font-family:'Cinzel',serif;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(15,8,0,0.75);background:transparent;border:1px solid rgba(90,53,16,0.3);border-radius:3px;padding:0.22rem 0.6rem;cursor:pointer;text-decoration:none;transition:all 0.2s;display:inline-block;}
 .slide-btn:hover{color:#1a0f00;border-color:#1a0f00;}
+
+/* ── Videos from the Road ── */
+.video-stage{position:relative;width:100%;aspect-ratio:16/9;background:rgba(44,26,8,0.08);border:1.5px solid #7a4e20;border-radius:3px;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+.video-stage iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.video-placeholder{display:flex;flex-direction:column;align-items:center;gap:0.5rem;color:rgba(15,8,0,0.65);font-family:'IM Fell English',serif;font-style:italic;font-size:1.07rem;text-align:center;padding:2rem;}
 </style>
 </head>
 <body>
@@ -273,6 +278,8 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
       <span class="nav-dot">✦</span>
       <a href="#memories">Memories</a>
       <span class="nav-dot">✦</span>
+      <a href="#videos">Videos</a>
+      <span class="nav-dot">✦</span>
       <a href="journeys.html">🗺 My Journeys</a>
       <span class="nav-dot">✦</span>
       <a href="#bizcard">Business Card</a>
@@ -291,6 +298,7 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
     <a href="#track">Track Me</a>
     <a href="#gallery">Codiwomple</a>
     <a href="#memories">Memories</a>
+    <a href="#videos">Videos</a>
     <a href="journeys.html">🗺 My Journeys</a>
     <a href="#bizcard">Business Card</a>
     <a href="wallpapers.html">🎁 Gift from the Road</a>
@@ -440,6 +448,33 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
         <div class="slide-controls-row" id="slideControls" style="display:none;">
           <button class="slide-btn" id="slidePauseBtn" onclick="ssTogglePause()">⏸ Pause</button>
           <a class="slide-btn" id="slideOpenAlbum" href="#" target="_blank" rel="noopener">Open Album ↗</a>
+        </div>
+      </div>
+
+      <!-- ══ VIDEOS FROM THE ROAD ══ -->
+      <div class="divider-rule" id="videos">✦ Videos from the Road ✦</div>
+      <div class="legend-box">
+        <div class="legend-box-title">Videos from the Road</div>
+        <p style="font-family:'IM Fell English',serif;font-style:italic;font-size:1.07rem;color:#5a3510;margin-bottom:0.9rem;text-align:center;">Select a video · dispatches in motion from the road</p>
+        <div class="album-select-wrap">
+          <span class="album-select-label">Select Video</span>
+          <select class="album-select" id="videoSelect">
+            <option value="" disabled selected>— Choose a dispatch —</option>
+          </select>
+        </div>
+        <div class="video-stage" id="videoStage">
+          <div class="video-placeholder" id="videoPlaceholder">
+            <span class="compass-spin">✦</span>
+            Choose a video above to begin the journey
+          </div>
+        </div>
+        <div class="slide-caption-bar">
+          <span class="slide-album-title" id="videoTitle"></span>
+          <span class="slide-counter" id="videoCounter"></span>
+        </div>
+        <div class="slide-controls-row" id="videoControls" style="display:none;">
+          <a class="slide-btn" id="videoOpenLink" href="#" target="_blank" rel="noopener">Watch on YouTube ↗</a>
+          <a class="slide-btn" href="https://www.youtube.com/@journeyswithjerseymark" target="_blank" rel="noopener">All Videos ↗</a>
         </div>
       </div>
 
@@ -641,6 +676,65 @@ window.addEventListener('load',function(){
   function stopTimer(){if(S.timer){clearInterval(S.timer);S.timer=null;}}
   function clearStage(){S.imgs.forEach(function(el){el.remove();});S.imgs=[];}
   function showPH(html){E.ph.style.display='flex';E.ph.innerHTML=html;}
+})();
+</script>
+
+<script>
+(function(){
+  var VIDEOS_URL='https://raw.githubusercontent.com/mfugel/JourneysWithJerseyMark/main/videos.json';
+  var V={videos:[],idx:-1};
+  var selectEl=document.getElementById('videoSelect');
+  var stage=document.getElementById('videoStage');
+  var ph=document.getElementById('videoPlaceholder');
+  var titleEl=document.getElementById('videoTitle');
+  var counterEl=document.getElementById('videoCounter');
+  var controlsEl=document.getElementById('videoControls');
+  var openLinkEl=document.getElementById('videoOpenLink');
+  selectEl.addEventListener('change',function(){
+    var idx=parseInt(this.value,10);
+    if(!isNaN(idx))loadVideo(idx);
+  });
+  fetch(VIDEOS_URL+'?_='+Date.now())
+    .then(function(r){return r.json();})
+    .then(function(videos){
+      V.videos=videos;
+      buildDropdown(videos);
+    })
+    .catch(function(){
+      selectEl.innerHTML='<option>No videos configured yet</option>';
+    });
+  function buildDropdown(videos){
+    selectEl.innerHTML='<option value="" disabled selected>— Choose a dispatch —</option>';
+    var now=new Date();
+    videos.forEach(function(v,i){
+      var o=document.createElement('option');
+      o.value=i;
+      var isNew=v.dateAdded&&((now-new Date(v.dateAdded))<(30*24*60*60*1000));
+      o.textContent=v.title+(isNew?' ❖ New!':'');
+      selectEl.appendChild(o);
+    });
+  }
+  function loadVideo(idx){
+    if(isNaN(idx)||idx<0||idx>=V.videos.length)return;
+    V.idx=idx;var v=V.videos[idx];
+    clearStage();
+    var iframe=document.createElement('iframe');
+    iframe.setAttribute('allow','accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+    iframe.setAttribute('allowfullscreen','');
+    iframe.setAttribute('loading','lazy');
+    iframe.setAttribute('referrerpolicy','strict-origin-when-cross-origin');
+    iframe.setAttribute('title',v.title);
+    iframe.src='https://www.youtube-nocookie.com/embed/'+encodeURIComponent(v.youtubeId)+'?rel=0&autoplay=1';
+    ph.style.display='none';
+    stage.appendChild(iframe);
+    titleEl.textContent=v.title;
+    counterEl.textContent=(idx+1)+' / '+V.videos.length;
+    openLinkEl.href='https://www.youtube.com/watch?v='+encodeURIComponent(v.youtubeId);
+    controlsEl.style.display='flex';
+  }
+  function clearStage(){
+    Array.prototype.slice.call(stage.querySelectorAll('iframe')).forEach(function(el){el.remove();});
+  }
 })();
 </script>
 
