@@ -608,16 +608,22 @@ window.addEventListener('load',function(){
     b.onclick=function(){ssJump(S.slide+(d==='prev'?-1:1));};
     E.stage.appendChild(b);
   });
-  fetch(ALBUMS_URL+'?_='+Date.now())
-    .then(function(r){return r.json();})
-    .then(function(albums){
-      S.albums=albums;
-      buildDropdown(albums);
-      if(albums.length===1)loadAlbum(0);
-    })
-    .catch(function(){
-      E.select.innerHTML='<option>No albums configured yet</option>';
-    });
+  var albumsLoaded=false;
+  window.loadAlbumsOnce=function(){
+    if(albumsLoaded)return;
+    albumsLoaded=true;
+    fetch(ALBUMS_URL+'?_='+Date.now())
+      .then(function(r){return r.json();})
+      .then(function(albums){
+        S.albums=albums;
+        buildDropdown(albums);
+        if(albums.length===1)loadAlbum(0);
+      })
+      .catch(function(){
+        albumsLoaded=false; // allow retry
+        E.select.innerHTML='<option>No albums configured yet</option>';
+      });
+  };
   function buildDropdown(albums){
     E.select.innerHTML='<option value="" disabled selected>\u2014 Choose a journey \u2014</option>';
     var now=new Date();
@@ -703,15 +709,21 @@ window.addEventListener('load',function(){
     var idx=parseInt(this.value,10);
     if(!isNaN(idx))loadVideo(idx);
   });
-  fetch(VIDEOS_URL+'?_='+Date.now())
-    .then(function(r){return r.json();})
-    .then(function(videos){
-      V.videos=videos;
-      buildDropdown(videos);
-    })
-    .catch(function(){
-      selectEl.innerHTML='<option>No videos configured yet</option>';
-    });
+  var videosLoaded=false;
+  window.loadVideosOnce=function(){
+    if(videosLoaded)return;
+    videosLoaded=true;
+    fetch(VIDEOS_URL+'?_='+Date.now())
+      .then(function(r){return r.json();})
+      .then(function(videos){
+        V.videos=videos;
+        buildDropdown(videos);
+      })
+      .catch(function(){
+        videosLoaded=false; // allow retry
+        selectEl.innerHTML='<option>No videos configured yet</option>';
+      });
+  };
   function buildDropdown(videos){
     selectEl.innerHTML='<option value="" disabled selected>— Choose a dispatch —</option>';
     var now=new Date();
@@ -776,6 +788,38 @@ window.addEventListener('load',function(){
       }
     });
   });
+})();
+</script>
+
+<script>
+/* Lazy-load albums.json + videos.json — defer ~390KB until the user is
+   approaching the Memories section, or interacts with it directly. */
+(function(){
+  var fired=false;
+  function fire(){
+    if(fired)return;fired=true;
+    if(window.loadAlbumsOnce)window.loadAlbumsOnce();
+    if(window.loadVideosOnce)window.loadVideosOnce();
+  }
+  var memSection=document.getElementById('memories');
+  if(memSection&&'IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){if(e.isIntersecting){fire();io.disconnect();}});
+    },{rootMargin:'400px 0px'});
+    io.observe(memSection);
+  }else{
+    // Fallback: no IntersectionObserver — fetch after first paint.
+    if(document.readyState==='complete')setTimeout(fire,800);
+    else window.addEventListener('load',function(){setTimeout(fire,800);});
+  }
+  // Belt-and-suspenders: also fire on direct interaction or hash nav.
+  document.querySelectorAll('.memory-type-btn').forEach(function(b){b.addEventListener('click',fire,{once:true});});
+  ['albumSelect','videoSelect'].forEach(function(id){
+    var el=document.getElementById(id);
+    if(el)el.addEventListener('mousedown',fire,{once:true});
+  });
+  if(location.hash==='#memories')fire();
+  window.addEventListener('hashchange',function(){if(location.hash==='#memories')fire();});
 })();
 </script>
 
