@@ -255,10 +255,16 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
 .slide-btn{font-family:'Cinzel',serif;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(15,8,0,0.75);background:transparent;border:1px solid rgba(90,53,16,0.3);border-radius:3px;padding:0.22rem 0.6rem;cursor:pointer;text-decoration:none;transition:all 0.2s;display:inline-block;}
 .slide-btn:hover{color:#1a0f00;border-color:#1a0f00;}
 
-/* ── Videos from the Road ── */
+/* ── Videos stage (16:9, used inside Memories) ── */
 .video-stage{position:relative;width:100%;aspect-ratio:16/9;background:rgba(44,26,8,0.08);border:1.5px solid #7a4e20;border-radius:3px;overflow:hidden;display:flex;align-items:center;justify-content:center;}
 .video-stage iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
 .video-placeholder{display:flex;flex-direction:column;align-items:center;gap:0.5rem;color:rgba(15,8,0,0.65);font-family:'IM Fell English',serif;font-style:italic;font-size:1.07rem;text-align:center;padding:2rem;}
+
+/* ── Memory type toggle (Photos / Videos under Memories) ── */
+.memory-type-toggle{display:flex;justify-content:center;gap:0.5rem;margin-bottom:1.1rem;flex-wrap:wrap;}
+.memory-type-btn{font-family:'Cinzel',serif;font-size:0.78rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(15,8,0,0.6);background:rgba(245,234,210,0.4);border:1.5px solid rgba(122,78,32,0.35);border-radius:3px;padding:0.45rem 1.1rem;cursor:pointer;transition:all 0.2s;}
+.memory-type-btn:hover{color:#1a0f00;border-color:#7a4e20;}
+.memory-type-btn.active{color:#f5ead0;background:#5a3510;border-color:#5a3510;}
 </style>
 </head>
 <body>
@@ -278,8 +284,6 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
       <span class="nav-dot">✦</span>
       <a href="#memories">Memories</a>
       <span class="nav-dot">✦</span>
-      <a href="#videos">Videos</a>
-      <span class="nav-dot">✦</span>
       <a href="journeys.html">🗺 My Journeys</a>
       <span class="nav-dot">✦</span>
       <a href="#bizcard">Business Card</a>
@@ -298,7 +302,6 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
     <a href="#track">Track Me</a>
     <a href="#gallery">Codiwomple</a>
     <a href="#memories">Memories</a>
-    <a href="#videos">Videos</a>
     <a href="journeys.html">🗺 My Journeys</a>
     <a href="#bizcard">Business Card</a>
     <a href="wallpapers.html">🎁 Gift from the Road</a>
@@ -427,54 +430,60 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
       <div class="divider-rule" id="memories">✦ Memories from the Road ✦</div>
       <div class="legend-box">
         <div class="legend-box-title">Memories from the Road</div>
-        <p style="font-family:'IM Fell English',serif;font-style:italic;font-size:1.07rem;color:#5a3510;margin-bottom:0.9rem;text-align:center;">Select an album · photographs advance automatically</p>
-        <div class="album-select-wrap">
-          <span class="album-select-label">Select Album</span>
-          <select class="album-select" id="albumSelect">
-            <option value="" disabled selected>— Choose a journey —</option>
-          </select>
-        </div>
-        <div class="slideshow-stage" id="slideshowStage">
-          <div class="slide-placeholder" id="slidePlaceholder">
-            <span class="compass-spin">✦</span>
-            Choose an album above to begin the journey
-          </div>
-        </div>
-        <div class="slide-caption-bar">
-          <span class="slide-album-title" id="slideAlbumTitle"></span>
-          <span class="slide-counter" id="slideCounter"></span>
-        </div>
-        <div class="slide-dots" id="slideDots"></div>
-        <div class="slide-controls-row" id="slideControls" style="display:none;">
-          <button class="slide-btn" id="slidePauseBtn" onclick="ssTogglePause()">⏸ Pause</button>
-          <a class="slide-btn" id="slideOpenAlbum" href="#" target="_blank" rel="noopener">Open Album ↗</a>
-        </div>
-      </div>
+        <p style="font-family:'IM Fell English',serif;font-style:italic;font-size:1.07rem;color:#5a3510;margin-bottom:0.9rem;text-align:center;">Photographs and videos from along the way · choose a type below</p>
 
-      <!-- ══ VIDEOS FROM THE ROAD ══ -->
-      <div class="divider-rule" id="videos">✦ Videos from the Road ✦</div>
-      <div class="legend-box">
-        <div class="legend-box-title">Videos from the Road</div>
-        <p style="font-family:'IM Fell English',serif;font-style:italic;font-size:1.07rem;color:#5a3510;margin-bottom:0.9rem;text-align:center;">Select a video · dispatches in motion from the road</p>
-        <div class="album-select-wrap">
-          <span class="album-select-label">Select Video</span>
-          <select class="album-select" id="videoSelect">
-            <option value="" disabled selected>— Choose a dispatch —</option>
-          </select>
+        <div class="memory-type-toggle" role="tablist" aria-label="Memory type">
+          <button class="memory-type-btn active" data-type="photos" role="tab" aria-selected="true">📸 Photo Albums</button>
+          <button class="memory-type-btn" data-type="videos" role="tab" aria-selected="false">▶ Videos</button>
         </div>
-        <div class="video-stage" id="videoStage">
-          <div class="video-placeholder" id="videoPlaceholder">
-            <span class="compass-spin">✦</span>
-            Choose a video above to begin the journey
+
+        <!-- PHOTOS PANEL -->
+        <div class="memory-panel" id="memoryPanelPhotos">
+          <div class="album-select-wrap">
+            <span class="album-select-label">Select Album</span>
+            <select class="album-select" id="albumSelect">
+              <option value="" disabled selected>— Choose a journey —</option>
+            </select>
+          </div>
+          <div class="slideshow-stage" id="slideshowStage">
+            <div class="slide-placeholder" id="slidePlaceholder">
+              <span class="compass-spin">✦</span>
+              Choose an album above to begin the journey
+            </div>
+          </div>
+          <div class="slide-caption-bar">
+            <span class="slide-album-title" id="slideAlbumTitle"></span>
+            <span class="slide-counter" id="slideCounter"></span>
+          </div>
+          <div class="slide-dots" id="slideDots"></div>
+          <div class="slide-controls-row" id="slideControls" style="display:none;">
+            <button class="slide-btn" id="slidePauseBtn" onclick="ssTogglePause()">⏸ Pause</button>
+            <a class="slide-btn" id="slideOpenAlbum" href="#" target="_blank" rel="noopener">Open Album ↗</a>
           </div>
         </div>
-        <div class="slide-caption-bar">
-          <span class="slide-album-title" id="videoTitle"></span>
-          <span class="slide-counter" id="videoCounter"></span>
-        </div>
-        <div class="slide-controls-row" id="videoControls" style="display:none;">
-          <a class="slide-btn" id="videoOpenLink" href="#" target="_blank" rel="noopener">Watch on YouTube ↗</a>
-          <a class="slide-btn" href="https://www.youtube.com/@journeyswithjerseymark" target="_blank" rel="noopener">All Videos ↗</a>
+
+        <!-- VIDEOS PANEL -->
+        <div class="memory-panel" id="memoryPanelVideos" style="display:none;">
+          <div class="album-select-wrap">
+            <span class="album-select-label">Select Video</span>
+            <select class="album-select" id="videoSelect">
+              <option value="" disabled selected>— Choose a dispatch —</option>
+            </select>
+          </div>
+          <div class="video-stage" id="videoStage">
+            <div class="video-placeholder" id="videoPlaceholder">
+              <span class="compass-spin">✦</span>
+              Choose a video above to begin the journey
+            </div>
+          </div>
+          <div class="slide-caption-bar">
+            <span class="slide-album-title" id="videoTitle"></span>
+            <span class="slide-counter" id="videoCounter"></span>
+          </div>
+          <div class="slide-controls-row" id="videoControls" style="display:none;">
+            <a class="slide-btn" id="videoOpenLink" href="#" target="_blank" rel="noopener">Watch on YouTube ↗</a>
+            <a class="slide-btn" href="https://www.youtube.com/@journeyswithjerseymark" target="_blank" rel="noopener">All Videos ↗</a>
+          </div>
         </div>
       </div>
 
@@ -735,6 +744,38 @@ window.addEventListener('load',function(){
   function clearStage(){
     Array.prototype.slice.call(stage.querySelectorAll('iframe')).forEach(function(el){el.remove();});
   }
+})();
+</script>
+
+<script>
+(function(){
+  var btns = document.querySelectorAll('.memory-type-btn');
+  var photosPanel = document.getElementById('memoryPanelPhotos');
+  var videosPanel = document.getElementById('memoryPanelVideos');
+  btns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var type = btn.dataset.type;
+      btns.forEach(function(b){
+        var on = (b===btn);
+        b.classList.toggle('active', on);
+        b.setAttribute('aria-selected', on?'true':'false');
+      });
+      photosPanel.style.display = (type==='photos')?'block':'none';
+      videosPanel.style.display = (type==='videos')?'block':'none';
+      // When leaving Videos, tear down the iframe so YouTube audio stops
+      if(type!=='videos'){
+        var stage = document.getElementById('videoStage');
+        Array.prototype.slice.call(stage.querySelectorAll('iframe')).forEach(function(el){el.remove();});
+        var ph = document.getElementById('videoPlaceholder');
+        if(ph) ph.style.display = 'flex';
+        document.getElementById('videoControls').style.display = 'none';
+        document.getElementById('videoTitle').textContent = '';
+        document.getElementById('videoCounter').textContent = '';
+        var sel = document.getElementById('videoSelect');
+        if(sel) sel.value = '';
+      }
+    });
+  });
 })();
 </script>
 
