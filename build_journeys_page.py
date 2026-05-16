@@ -597,7 +597,7 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
       <span class="nav-dot">âœ¦</span>
       <a href="wallpapers.html">ðŸŽ Gift from the Road</a>
       <span class="nav-dot">âœ¦</span>
-      <a href="https://buymeacoffee.com/fphnvcduo" target="_blank" rel="noopener" class="nav-coffee">â˜• Buy Me a Coffee</a>
+      <a href="https://ko-fi.com/U7U3RUSTZ" target="_blank" rel="noopener" class="nav-coffee">â˜• Buy Me a Coffee</a>
     </div>
     <a href="index.html" class="nav-brand">âœ¦ Jersey Mark</a>
     <button class="nav-hamburger" onclick="toggleNav()" aria-label="Menu">â˜°</button>
@@ -612,7 +612,7 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
     <a href="journeys.html" class="nav-active">ðŸ—º My Journeys</a>
     <a href="index.html#bizcard">Business Card</a>
     <a href="wallpapers.html">ðŸŽ Gift from the Road</a>
-    <a href="https://buymeacoffee.com/fphnvcduo" target="_blank" rel="noopener" class="nav-coffee">â˜• Buy Me a Coffee</a>
+    <a href="https://ko-fi.com/U7U3RUSTZ" target="_blank" rel="noopener" class="nav-coffee">â˜• Buy Me a Coffee</a>
   </div>
 </nav>
 

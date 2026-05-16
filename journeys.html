@@ -85,6 +85,23 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
   .nav-drawer a.nav-active{border-left:2px solid rgba(220,192,137,0.6);}
 }
 
+/* ── Support Me dropdown (desktop nav) ── */
+.nav-dropdown{position:relative;display:inline-block;}
+.nav-dropdown-trigger{font-family:'Cinzel',serif;font-size:0.72rem;letter-spacing:0.13em;text-transform:uppercase;color:#f8d568;background:none;border:none;cursor:pointer;padding:0.6rem 0.65rem;white-space:nowrap;display:inline-flex;align-items:center;gap:0.3rem;transition:color 0.2s;}
+.nav-dropdown-trigger:hover,.nav-dropdown.open .nav-dropdown-trigger{color:#ffe89a;}
+.nav-dropdown-caret{font-size:0.55rem;transition:transform 0.2s;}
+.nav-dropdown.open .nav-dropdown-caret{transform:rotate(180deg);}
+.nav-dropdown-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%);background:rgba(90,53,16,0.98);border:1px solid rgba(220,192,137,0.35);border-radius:3px;box-shadow:0 6px 18px rgba(15,8,0,0.45);padding:0.35rem 0;min-width:13rem;opacity:0;pointer-events:none;transition:opacity 0.18s ease;z-index:600;}
+.nav-dropdown.open .nav-dropdown-menu{opacity:1;pointer-events:auto;}
+.nav-dropdown-menu a{display:block;font-family:'Cinzel',serif;font-size:0.72rem;letter-spacing:0.13em;text-transform:uppercase;color:#f8d568;text-decoration:none;padding:0.55rem 1.1rem;transition:background 0.2s,color 0.2s;white-space:nowrap;}
+.nav-dropdown-menu a:hover{background:rgba(220,192,137,0.12);color:#ffe89a;}
+@media(max-width:860px){
+  .nav-dropdown-trigger{font-size:0.55rem;padding:0.5rem 0.45rem;letter-spacing:0.08em;}
+  .nav-dropdown-menu a{font-size:0.6rem;letter-spacing:0.1em;}
+}
+/* Mobile drawer: Support Me group label */
+.nav-drawer-group-label{display:block;font-family:'Cinzel',serif;font-size:0.62rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(248,213,104,0.85);padding:0.9rem 1.2rem 0.35rem;border-top:1px solid rgba(220,192,137,0.18);margin-top:0.1rem;}
+
 /* ── Map specific ── */
 #mapHost{position:relative;}
 #map{
@@ -248,7 +265,13 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
       <span class="nav-dot">✦</span>
       <a href="wallpapers.html">🎁 Gift from the Road</a>
       <span class="nav-dot">✦</span>
-      <a href="https://ko-fi.com/U7U3RUSTZ" target="_blank" rel="noopener" class="nav-coffee">☕ Buy Me a Coffee</a>
+      <div class="nav-dropdown" id="supportDropdown">
+        <button type="button" class="nav-dropdown-trigger" onclick="toggleSupport(event)" aria-haspopup="true" aria-expanded="false">✦ Support Me <span class="nav-dropdown-caret">▾</span></button>
+        <div class="nav-dropdown-menu" role="menu">
+          <a href="https://ko-fi.com/U7U3RUSTZ" target="_blank" rel="noopener" role="menuitem">☕ Buy Me a Coffee</a>
+          <a href="https://jersey-mark-mercantile.printify.me/" target="_blank" rel="noopener" role="menuitem">🛍 Shop Merch</a>
+        </div>
+      </div>
     </div>
     <a href="index.html" class="nav-brand">✦ Jersey Mark</a>
     <button class="nav-hamburger" onclick="toggleNav()" aria-label="Menu">☰</button>
@@ -263,7 +286,9 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
     <a href="journeys.html" class="nav-active">🗺 My Journeys</a>
     <a href="index.html#bizcard">Business Card</a>
     <a href="wallpapers.html">🎁 Gift from the Road</a>
+    <span class="nav-drawer-group-label">✦ Support Me</span>
     <a href="https://ko-fi.com/U7U3RUSTZ" target="_blank" rel="noopener" class="nav-coffee">☕ Buy Me a Coffee</a>
+    <a href="https://jersey-mark-mercantile.printify.me/" target="_blank" rel="noopener" class="nav-coffee">🛍 Shop Merch</a>
   </div>
 </nav>
 
@@ -591,6 +616,27 @@ function toggleNav(){ document.getElementById('navDrawer').classList.toggle('ope
 window.toggleNav = toggleNav;
 document.querySelectorAll('#navDrawer a').forEach(a=>{
   a.addEventListener('click',()=>document.getElementById('navDrawer').classList.remove('open'));
+});
+function toggleSupport(e){
+  e.stopPropagation();
+  var dd=document.getElementById('supportDropdown');
+  var open=dd.classList.toggle('open');
+  dd.querySelector('.nav-dropdown-trigger').setAttribute('aria-expanded',open?'true':'false');
+}
+window.toggleSupport = toggleSupport;
+document.addEventListener('click',function(e){
+  var dd=document.getElementById('supportDropdown');
+  if(dd && !dd.contains(e.target) && dd.classList.contains('open')){
+    dd.classList.remove('open');
+    dd.querySelector('.nav-dropdown-trigger').setAttribute('aria-expanded','false');
+  }
+});
+document.querySelectorAll('#supportDropdown a').forEach(function(a){
+  a.addEventListener('click',function(){
+    var dd=document.getElementById('supportDropdown');
+    dd.classList.remove('open');
+    dd.querySelector('.nav-dropdown-trigger').setAttribute('aria-expanded','false');
+  });
 });
 </script>
 
