@@ -335,7 +335,7 @@ def main():
 
     print("Writing journeys.html ...")
     html = HTML_TEMPLATE.replace("__PAYLOAD__", json.dumps(payload))
-    with open(OUT_PATH, "w", encoding="utf-8") as f:
+    with open(OUT_PATH, "w", encoding="utf-8", newline="\n") as f:
         f.write(html)
     size_kb = OUT_PATH.stat().st_size / 1024
     print(f"Wrote {OUT_PATH}  ({size_kb:,.0f} KB)")
@@ -352,16 +352,16 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Journeys | Interactive Travel Map Â· Journeys with Jersey Mark</title>
-<meta name="description" content="An interactive map of every place I've traveled in North America â€” heatmap, stays, chronological path, and more. Filter by year and explore the journey.">
+<title>My Journeys | Interactive Travel Map · Journeys with Jersey Mark</title>
+<meta name="description" content="An interactive map of every place I've traveled in North America — heatmap, stays, chronological path, and more. Filter by year and explore the journey.">
 <meta name="author" content="Mark Fugel">
 <link rel="canonical" href="https://www.journeyswithjerseymark.com/journeys.html">
 <link rel="icon" href="/images/seal.jpg" type="image/jpeg">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.journeyswithjerseymark.com/journeys.html">
-<meta property="og:title" content="My Journeys â€” Interactive Travel Map">
-<meta property="og:description" content="An interactive map of every place I've traveled across North America. Heatmap, stays, chronological path, year filter â€” explore the road.">
+<meta property="og:title" content="My Journeys — Interactive Travel Map">
+<meta property="og:description" content="An interactive map of every place I've traveled across North America. Heatmap, stays, chronological path, year filter — explore the road.">
 <meta property="og:image" content="https://www.journeyswithjerseymark.com/images/seal.jpg">
 <meta property="og:site_name" content="Journeys with Jersey Mark">
 
@@ -387,7 +387,7 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
 .corner-br{bottom:10px;right:10px;transform:scale(-1);}
 .cartouche{text-align:center;margin-bottom:1.5rem;}
 .cartouche-border{border:2px solid #5a3510;border-radius:50% / 30%;padding:1.2rem 2.5rem 1.4rem;display:inline-block;min-width:80%;background:rgba(180,130,70,0.3);position:relative;}
-.cartouche-border::before,.cartouche-border::after{content:'â€” âœ¦ â€”';display:block;font-size:13px;color:#1a0f00;letter-spacing:0.2em;}
+.cartouche-border::before,.cartouche-border::after{content:'— ✦ —';display:block;font-size:13px;color:#1a0f00;letter-spacing:0.2em;}
 .cartouche-border::before{margin-bottom:0.4rem;}
 .cartouche-border::after{margin-top:0.4rem;}
 .logo-seal{width:140px;height:140px;object-fit:contain;margin:0 auto 0.8rem;display:block;filter:sepia(0.55) saturate(0.85) contrast(1.05) brightness(0.97) hue-rotate(-5deg);mix-blend-mode:multiply;}
@@ -406,7 +406,7 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
 .stat-num{font-family:'Cinzel',serif;font-size:1.5rem;font-weight:700;color:#0f0800;}
 .stat-lbl{font-family:'IM Fell English',serif;font-style:italic;font-size:0.90rem;color:#1a0f00;}
 
-/* â”€â”€ Nav â”€â”€ */
+/* ── Nav ── */
 .site-nav{position:sticky;top:0;z-index:500;background:rgba(90,53,16,0.96);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);border-bottom:1px solid rgba(220,192,137,0.25);}
 .nav-inner{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:0;min-height:2.6rem;padding:0 1rem;}
 .site-nav a{font-family:'Cinzel',serif;font-size:0.72rem;letter-spacing:0.13em;text-transform:uppercase;color:rgba(245,234,208,0.82);text-decoration:none;padding:0.6rem 0.65rem;transition:color 0.2s;white-space:nowrap;}
@@ -434,7 +434,24 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
   .nav-drawer a.nav-active{border-left:2px solid rgba(220,192,137,0.6);}
 }
 
-/* â”€â”€ Map specific â”€â”€ */
+/* ── Support Me dropdown (desktop nav) ── */
+.nav-dropdown{position:relative;display:inline-block;}
+.nav-dropdown-trigger{font-family:'Cinzel',serif;font-size:0.72rem;letter-spacing:0.13em;text-transform:uppercase;color:#f8d568;background:none;border:none;cursor:pointer;padding:0.6rem 0.65rem;white-space:nowrap;display:inline-flex;align-items:center;gap:0.3rem;transition:color 0.2s;}
+.nav-dropdown-trigger:hover,.nav-dropdown.open .nav-dropdown-trigger{color:#ffe89a;}
+.nav-dropdown-caret{font-size:0.55rem;transition:transform 0.2s;}
+.nav-dropdown.open .nav-dropdown-caret{transform:rotate(180deg);}
+.nav-dropdown-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%);background:rgba(90,53,16,0.98);border:1px solid rgba(220,192,137,0.35);border-radius:3px;box-shadow:0 6px 18px rgba(15,8,0,0.45);padding:0.35rem 0;min-width:13rem;opacity:0;pointer-events:none;transition:opacity 0.18s ease;z-index:600;}
+.nav-dropdown.open .nav-dropdown-menu{opacity:1;pointer-events:auto;}
+.nav-dropdown-menu a{display:block;font-family:'Cinzel',serif;font-size:0.72rem;letter-spacing:0.13em;text-transform:uppercase;color:#f8d568;text-decoration:none;padding:0.55rem 1.1rem;transition:background 0.2s,color 0.2s;white-space:nowrap;}
+.nav-dropdown-menu a:hover{background:rgba(220,192,137,0.12);color:#ffe89a;}
+@media(max-width:860px){
+  .nav-dropdown-trigger{font-size:0.55rem;padding:0.5rem 0.45rem;letter-spacing:0.08em;}
+  .nav-dropdown-menu a{font-size:0.6rem;letter-spacing:0.1em;}
+}
+/* Mobile drawer: Support Me group label */
+.nav-drawer-group-label{display:block;font-family:'Cinzel',serif;font-size:0.62rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(248,213,104,0.85);padding:0.9rem 1.2rem 0.35rem;border-top:1px solid rgba(220,192,137,0.18);margin-top:0.1rem;}
+
+/* ── Map specific ── */
 #mapHost{position:relative;}
 #map{
   width:100%;
@@ -575,53 +592,61 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
 <div class="parchment-bg"></div>
 <div class="vignette"></div>
 
-<!-- â”€â”€ Nav â”€â”€ -->
+<!-- ── Nav ── -->
 <nav class="site-nav" id="siteNav">
   <div class="nav-inner">
     <div class="nav-links">
-      <a href="index.html">âœ¦ Home</a>
-      <span class="nav-dot">âœ¦</span>
+      <a href="index.html">✦ Home</a>
+      <span class="nav-dot">✦</span>
       <a href="index.html#waypoints">Ports of Call</a>
-      <span class="nav-dot">âœ¦</span>
+      <span class="nav-dot">✦</span>
       <a href="index.html#contact">Contact</a>
-      <span class="nav-dot">âœ¦</span>
+      <span class="nav-dot">✦</span>
       <a href="index.html#track">Track Me</a>
-      <span class="nav-dot">âœ¦</span>
+      <span class="nav-dot">✦</span>
       <a href="index.html#gallery">Codiwomple</a>
-      <span class="nav-dot">âœ¦</span>
+      <span class="nav-dot">✦</span>
       <a href="index.html#memories">Memories</a>
-      <span class="nav-dot">âœ¦</span>
-      <a href="journeys.html" class="nav-active">ðŸ—º My Journeys</a>
-      <span class="nav-dot">âœ¦</span>
+      <span class="nav-dot">✦</span>
+      <a href="journeys.html" class="nav-active">🗺 My Journeys</a>
+      <span class="nav-dot">✦</span>
       <a href="index.html#bizcard">Business Card</a>
-      <span class="nav-dot">âœ¦</span>
-      <a href="wallpapers.html">ðŸŽ Gift from the Road</a>
-      <span class="nav-dot">âœ¦</span>
-      <a href="https://ko-fi.com/U7U3RUSTZ" target="_blank" rel="noopener" class="nav-coffee">â˜• Buy Me a Coffee</a>
+      <span class="nav-dot">✦</span>
+      <a href="wallpapers.html">🎁 Gift from the Road</a>
+      <span class="nav-dot">✦</span>
+      <div class="nav-dropdown" id="supportDropdown">
+        <button type="button" class="nav-dropdown-trigger" onclick="toggleSupport(event)" aria-haspopup="true" aria-expanded="false">✦ Support Me <span class="nav-dropdown-caret">▾</span></button>
+        <div class="nav-dropdown-menu" role="menu">
+          <a href="https://ko-fi.com/U7U3RUSTZ" target="_blank" rel="noopener" role="menuitem">☕ Buy Me a Coffee</a>
+          <a href="https://jersey-mark-mercantile.printify.me/" target="_blank" rel="noopener" role="menuitem">🛍 Shop Merch</a>
+        </div>
+      </div>
     </div>
-    <a href="index.html" class="nav-brand">âœ¦ Jersey Mark</a>
-    <button class="nav-hamburger" onclick="toggleNav()" aria-label="Menu">â˜°</button>
+    <a href="index.html" class="nav-brand">✦ Jersey Mark</a>
+    <button class="nav-hamburger" onclick="toggleNav()" aria-label="Menu">☰</button>
   </div>
   <div class="nav-drawer" id="navDrawer">
-    <a href="index.html">âœ¦ Home</a>
+    <a href="index.html">✦ Home</a>
     <a href="index.html#waypoints">Ports of Call</a>
     <a href="index.html#contact">Contact</a>
     <a href="index.html#track">Track Me</a>
     <a href="index.html#gallery">Codiwomple</a>
     <a href="index.html#memories">Memories</a>
-    <a href="journeys.html" class="nav-active">ðŸ—º My Journeys</a>
+    <a href="journeys.html" class="nav-active">🗺 My Journeys</a>
     <a href="index.html#bizcard">Business Card</a>
-    <a href="wallpapers.html">ðŸŽ Gift from the Road</a>
-    <a href="https://ko-fi.com/U7U3RUSTZ" target="_blank" rel="noopener" class="nav-coffee">â˜• Buy Me a Coffee</a>
+    <a href="wallpapers.html">🎁 Gift from the Road</a>
+    <span class="nav-drawer-group-label">✦ Support Me</span>
+    <a href="https://ko-fi.com/U7U3RUSTZ" target="_blank" rel="noopener" class="nav-coffee">☕ Buy Me a Coffee</a>
+    <a href="https://jersey-mark-mercantile.printify.me/" target="_blank" rel="noopener" class="nav-coffee">🛍 Shop Merch</a>
   </div>
 </nav>
 
 <div class="content">
   <div class="outer-border">
-    <div class="corner-ornament corner-tl">âœ¦</div>
-    <div class="corner-ornament corner-tr">âœ¦</div>
-    <div class="corner-ornament corner-bl">âœ¦</div>
-    <div class="corner-ornament corner-br">âœ¦</div>
+    <div class="corner-ornament corner-tl">✦</div>
+    <div class="corner-ornament corner-tr">✦</div>
+    <div class="corner-ornament corner-bl">✦</div>
+    <div class="corner-ornament corner-br">✦</div>
     <div class="inner-border">
 
       <div class="cartouche">
@@ -636,13 +661,13 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
       <div class="legend-box" style="text-align:center;">
         <div class="legend-box-title">Vital Statistics</div>
         <div class="stats-row" id="statsRow">
-          <div class="stat-item"><div class="stat-num" id="statPhotos">â€”</div><div class="stat-lbl">Geotagged photos</div></div>
-          <div class="stat-item"><div class="stat-num" id="statStays">â€”</div><div class="stat-lbl">Stays detected</div></div>
-          <div class="stat-item"><div class="stat-num" id="statYears">â€”</div><div class="stat-lbl">Years on record</div></div>
+          <div class="stat-item"><div class="stat-num" id="statPhotos">—</div><div class="stat-lbl">Geotagged photos</div></div>
+          <div class="stat-item"><div class="stat-num" id="statStays">—</div><div class="stat-lbl">Stays detected</div></div>
+          <div class="stat-item"><div class="stat-num" id="statYears">—</div><div class="stat-lbl">Years on record</div></div>
         </div>
       </div>
 
-      <div class="divider-rule">âœ¦ The Map âœ¦</div>
+      <div class="divider-rule">✦ The Map ✦</div>
       <div class="legend-box">
         <div class="legend-box-title">Interactive Atlas</div>
         <p style="font-family:'IM Fell English',serif;font-style:italic;font-size:1.05rem;color:#1a0f00;text-align:center;margin-bottom:0.8rem;line-height:1.55;">
@@ -661,7 +686,7 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
         </div>
         <div class="map-controls">
           <div class="slider-wrap">
-            <h4>âœ¦ Year Range</h4>
+            <h4>✦ Year Range</h4>
             <div class="slider-row">
               <span id="yMinLbl" class="year-label"></span>
               <input id="yMin" type="range" />
@@ -674,13 +699,13 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
         <div class="live-stats" id="liveStats"></div>
       </div>
 
-      <div class="divider-rule">âœ¦ Reading the Map âœ¦</div>
+      <div class="divider-rule">✦ Reading the Map ✦</div>
       <div class="legend-box">
         <div class="legend-box-title">A Cartographer's Note</div>
         <p style="font-family:'Crimson Text',serif;font-size:1rem;color:#1a0f00;line-height:1.7;text-align:left;">
           Each point on this map is a photograph I took, plotted by the GPS coordinates the camera
           recorded at the moment of the shutter. The <em>Heatmap</em> reveals where I've spent the most
-          time. <em>Stays</em> are clusters where I lingered overnight or longer â€” the dashed
+          time. <em>Stays</em> are clusters where I lingered overnight or longer — the dashed
           <em>Chronological Path</em> traces my route between them in time order. The <em>State Choropleth</em>
           paints each state by photo count. Toggle the layers, drag the year slider, and the road will
           show you where it has taken me.
@@ -688,7 +713,7 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
       </div>
 
       <div class="footer-seal">
-        <div class="compass-rose">âœ¤</div>
+        <div class="compass-rose">✤</div>
         <p>The road is long &middot; the chart grows longer still.</p>
         <p style="margin-top:0.6rem;">Anno Domini MMXXVI &middot; Home is wherever the road leads</p>
       </div>
@@ -869,14 +894,14 @@ for(const [name,e] of Object.entries(LAYERS)){
 const legend = L.control({position:'bottomright'});
 legend.onAdd = () => {
   const div = L.DomUtil.create('div','legend-grad');
-  let body='<b>Stays Â· year</b><br>';
+  let body='<b>Stays · year</b><br>';
   for(let i=0;i<PALETTE.length;i++){
     const t=i/(PALETTE.length-1);
     const yr=Math.round(DATA.year_min + t*(DATA.year_max-DATA.year_min));
     body += `<i style="background:${PALETTE[i]}"></i>${yr}<br>`;
   }
   div.innerHTML =
-    `<div class="legend-toggle">ðŸ—“ Years <span class="legend-caret">â–¾</span></div>` +
+    `<div class="legend-toggle">🗓 Years <span class="legend-caret">▾</span></div>` +
     `<div class="legend-body">${body}</div>`;
   // Don't let taps on the legend pan/zoom the map
   L.DomEvent.disableClickPropagation(div);
@@ -886,7 +911,7 @@ legend.onAdd = () => {
     if (window.matchMedia('(max-width: 600px)').matches) {
       div.classList.toggle('open');
       const caret = div.querySelector('.legend-caret');
-      if (caret) caret.textContent = div.classList.contains('open') ? 'â–´' : 'â–¾';
+      if (caret) caret.textContent = div.classList.contains('open') ? '▴' : '▾';
     }
   });
   return div;
@@ -940,6 +965,27 @@ function toggleNav(){ document.getElementById('navDrawer').classList.toggle('ope
 window.toggleNav = toggleNav;
 document.querySelectorAll('#navDrawer a').forEach(a=>{
   a.addEventListener('click',()=>document.getElementById('navDrawer').classList.remove('open'));
+});
+function toggleSupport(e){
+  e.stopPropagation();
+  var dd=document.getElementById('supportDropdown');
+  var open=dd.classList.toggle('open');
+  dd.querySelector('.nav-dropdown-trigger').setAttribute('aria-expanded',open?'true':'false');
+}
+window.toggleSupport = toggleSupport;
+document.addEventListener('click',function(e){
+  var dd=document.getElementById('supportDropdown');
+  if(dd && !dd.contains(e.target) && dd.classList.contains('open')){
+    dd.classList.remove('open');
+    dd.querySelector('.nav-dropdown-trigger').setAttribute('aria-expanded','false');
+  }
+});
+document.querySelectorAll('#supportDropdown a').forEach(function(a){
+  a.addEventListener('click',function(){
+    var dd=document.getElementById('supportDropdown');
+    dd.classList.remove('open');
+    dd.querySelector('.nav-dropdown-trigger').setAttribute('aria-expanded','false');
+  });
 });
 </script>
 
