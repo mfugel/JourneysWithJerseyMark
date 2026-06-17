@@ -820,7 +820,7 @@ window.addEventListener('load',function(){
     var mkIcon=L.divIcon({html:'<div style="width:13px;height:13px;background:#5a3510;border:2.5px solid #f5ead0;border-radius:50%;box-shadow:0 1px 4px rgba(0,0,0,0.4);"></div>',className:'',iconSize:[13,13],iconAnchor:[6,6],popupAnchor:[0,-10]});
     var bounds=[];
     albums.forEach(function(album,i){
-      var c=coordsForAlbum(album.title);if(!c)return;
+      var c=album.coords||coordsForAlbum(album.title);if(!c)return;
       bounds.push(c);
       var thumb=album.photos&&album.photos[0]?album.photos[0].replace(/=w\d+-h\d+-no$/,'=w120-h90-no'):'';
       var popup='<div style="font-family:\'IM Fell English\',serif;font-style:italic;color:#2c1a08;min-width:140px;line-height:1.4;">'

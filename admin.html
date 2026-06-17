@@ -564,7 +564,23 @@ async function fetchPhotosFromUrl(){
   }
 }
 
-function addAlbum(){
+async function geocodeTitle(title){
+  var q=title
+    .replace(/\b(jan(uary)?|feb(ruary)?|mar(ch)?|apr(il)?|may|jun(e)?|jul(y)?|aug(ust)?|sep(tember)?|oct(ober)?|nov(ember)?|dec(ember)?)\b/gi,'')
+    .replace(/\b20\d{2}\b/g,'')
+    .replace(/[·\-,]+/g,' ')
+    .replace(/\s+/g,' ').trim();
+  if(!q)return null;
+  try{
+    var r=await fetch('https://nominatim.openstreetmap.org/search?q='+encodeURIComponent(q)+'&format=json&limit=1',
+      {headers:{'User-Agent':'JourneysWithJerseyMark/1.0 (admin)','Accept-Language':'en'}});
+    var data=await r.json();
+    if(data&&data.length>0)return[parseFloat(data[0].lat),parseFloat(data[0].lon)];
+  }catch(e){console.warn('Geocode failed:',e);}
+  return null;
+}
+
+async function addAlbum(){
   var title  = document.getElementById('newTitle').value.trim();
   var url    = document.getElementById('newUrl').value.trim();
   var photos = document.getElementById('newPhotos').value.trim().split('\n').map(function(l){return l.trim();}).filter(Boolean);
@@ -572,14 +588,18 @@ function addAlbum(){
   if(!photos.length){showStatus('addStatus','Please paste at least one photo URL.','error');return;}
   var dupe=albums.some(function(a){return a.title.toLowerCase()===title.toLowerCase();});
   if(dupe){showStatus('addStatus','An album with that title already exists.','error');return;}
+  showStatus('addStatus','<span class="spinner">✦</span> Geocoding location…','info');
+  var coords=await geocodeTitle(title);
   var newAlbum={title:title,url:url,photos:photos,dateAdded:new Date().toISOString()};
+  if(coords)newAlbum.coords=coords;
   albums.push(newAlbum);
   lastPublishedAlbum=newAlbum;
   document.getElementById('newTitle').value='';
   document.getElementById('newUrl').value='';
   document.getElementById('newPhotos').value='';
   renderAlbums();
-  showStatus('addStatus','✦ Album added! Hit Save & Publish to make it live.','success');
+  var locMsg=coords?' · 📍 ['+coords[0].toFixed(2)+', '+coords[1].toFixed(2)+']':' · no location found';
+  showStatus('addStatus','✦ Album added'+locMsg+' — hit Save & Publish to make it live.','success');
   showStatus('mainStatus','Album added — hit Save & Publish to make it live.','info');
 }
 
