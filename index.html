@@ -792,7 +792,7 @@ window.addEventListener('load',function(){
     document.getElementById('albumSearch').style.display=isGrid?'':'none';
     document.getElementById('albumYearFilters').style.display=isGrid?'':'none';
     document.getElementById('albumGrid').style.display=isGrid?'':'none';
-    document.getElementById('albumMap').style.display=isGrid?'none':'';
+    document.getElementById('albumMap').style.display=isGrid?'none':'block';
     document.querySelectorAll('.album-view-btn').forEach(function(b){b.classList.toggle('active',b.dataset.view===view);});
     if(!isGrid)initMap();
   };
