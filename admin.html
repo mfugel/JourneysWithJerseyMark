@@ -159,15 +159,19 @@ textarea{resize:vertical;min-height:100px;}
             </div>
 
             <div class="field-row">
-              <label for="newUrl">Google Photos Share Link (optional)</label>
-              <input type="text" id="newUrl" placeholder="https://photos.app.goo.gl/...">
-              <p class="hint">Used for the "Open Album ↗" button on your site.</p>
+              <label for="newUrl">Google Photos Share Link</label>
+              <div style="display:flex;gap:8px;align-items:center;">
+                <input type="text" id="newUrl" placeholder="https://photos.app.goo.gl/..." style="flex:1;">
+                <button class="btn btn-green" onclick="fetchPhotosFromUrl()" id="fetchBtn" style="white-space:nowrap;">🔍 Fetch Photos</button>
+              </div>
+              <p class="hint">Paste your Google Photos share link and click <strong>Fetch Photos</strong> — the title and photo URLs will be filled in automatically.</p>
+              <div class="status" id="fetchStatus"></div>
             </div>
 
             <div class="field-row">
               <label for="newPhotos">Photo URLs — one per line</label>
-              <textarea id="newPhotos" placeholder="Paste the URL list from Claude here — one URL per line&#10;&#10;https://lh3.googleusercontent.com/pw/...&#10;https://lh3.googleusercontent.com/pw/..."></textarea>
-              <p class="hint">Ask Claude to "add a new memory to my site" with your album link — Claude will fetch and provide this URL list for you.</p>
+              <textarea id="newPhotos" placeholder="Click "Fetch Photos" above — or paste URLs manually here&#10;&#10;https://lh3.googleusercontent.com/pw/...&#10;https://lh3.googleusercontent.com/pw/..."></textarea>
+              <p class="hint" id="photoCountHint"></p>
             </div>
 
             <button class="btn btn-green" onclick="addAlbum()">+ Add Album</button>
@@ -520,6 +524,32 @@ function editAlbum(idx){
   if(urls===null)return;
   albums[idx].photos=urls.split('\n').map(function(l){return l.trim();}).filter(Boolean);
   renderAlbums();showStatus('mainStatus','Updated — hit Save & Publish when ready.','info');
+}
+
+async function fetchPhotosFromUrl(){
+  var url = document.getElementById('newUrl').value.trim();
+  if(!url){ showStatus('fetchStatus','Paste a Google Photos link first.','error'); return; }
+  var btn = document.getElementById('fetchBtn');
+  btn.disabled = true; btn.textContent = '⏳ Fetching…';
+  showStatus('fetchStatus','Fetching photos — this takes a few seconds…','info');
+  try {
+    var res = await fetch('/api/fetch-album-photos?url='+encodeURIComponent(url));
+    var data = await res.json();
+    if(!res.ok || data.error){
+      showStatus('fetchStatus', '✖ ' + (data.error || 'Unknown error'), 'error');
+      return;
+    }
+    if(data.title && !document.getElementById('newTitle').value.trim()){
+      document.getElementById('newTitle').value = data.title;
+    }
+    document.getElementById('newPhotos').value = data.photos.join('\n');
+    document.getElementById('photoCountHint').textContent = data.photos.length + ' photos fetched — review then click + Add Album.';
+    showStatus('fetchStatus', '✦ ' + data.photos.length + ' photos ready!', 'success');
+  } catch(e) {
+    showStatus('fetchStatus', '✖ Fetch failed: ' + e.message, 'error');
+  } finally {
+    btn.disabled = false; btn.textContent = '🔍 Fetch Photos';
+  }
 }
 
 function addAlbum(){
