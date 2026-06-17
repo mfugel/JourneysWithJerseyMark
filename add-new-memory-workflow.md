@@ -7,72 +7,38 @@
 
 This is the procedure for adding a new photo album to the "Memories from the Road" slideshow on the website.
 
-> **Important:** The old web_fetch method no longer works. Google Photos stopped embedding photo URLs in the initial HTML. The correct method uses the **Claude in Chrome** browser extension to extract URLs from the live rendered page.
+The admin page handles everything automatically — no Chrome extension, no Claude Desktop, no copy/pasting URLs.
 
 ---
 
-## Requirements
+## Step 1 — Open the Admin Page
 
-- **Chrome** browser (must be Chrome — not DuckDuckGo, Firefox, Safari, etc.)
-- **Claude in Chrome** extension installed and connected
-- **Claude.ai must be open in Chrome** — this is critical. The extension only pairs with Claude when you are chatting in Chrome, not in another browser.
-
----
-
-## Step 1 — Open Claude.ai in Chrome
-
-1. Open **Chrome**
-2. Go to **claude.ai** and open (or continue) your conversation with Claude
-3. Click the **puzzle piece icon** (Extensions) in the Chrome toolbar
-4. Click the **Claude** extension to open its popup
-5. Click **Connect** in the popup
-6. Tell Claude "try now" — Claude will confirm the connection
-
-> **If Claude says it's not connected:** Go to `chrome://extensions`, find Claude, click Details, make sure the extension is enabled and "Allow access to file URLs" is toggled on. Then click the extension icon → Connect again.
-
-> **If the connection drops mid-session:** Just click the extension icon → Connect again, then tell Claude "try now." This happens occasionally and is a quick fix.
-
----
-
-## Step 2 — Give Claude the Album Link
-
-In the Claude.ai chat (in Chrome), type something like:
-
-```
-add a new memory to my site https://photos.app.goo.gl/YOURLINK
-```
-
-Or just paste the Google Photos link and Claude will know what to do.
-
-Claude will automatically:
-1. Resolve the short link to the full `photos.google.com` URL
-2. Navigate to the album in your Chrome browser via the extension
-3. Wait for the page to fully load and scroll to trigger lazy-loaded photos
-4. Run JavaScript to extract all `lh3.googleusercontent.com/pw/` URLs from the page's script data
-5. Pick **25 evenly spaced photos** from the full album
-6. Strip existing size suffixes and append `=w1200-h900-no` to each URL
-7. **Trigger a browser download** of a `.txt` file named after the album
-
-> **Note:** Short `photos.app.goo.gl` links are blocked by the extension — Claude resolves the full URL automatically via a quick web fetch first.
-> **Note:** Always verify photo URLs end in `-no`. Truncated URLs cause silent JSON parse failures.
-> **Note:** Google Photos URLs expire after a few weeks — always get fresh URLs from the live page, never reuse old ones from a previous session.
-
----
-
-## Step 3 — Add the Album via the Admin Page
-
-1. Open the downloaded `.txt` file in Notepad — **Ctrl+A** → **Ctrl+C** to copy all
-2. Go to: **https://journeyswithjerseymark.com/admin.html**
-3. Enter your GitHub Personal Access Token → click **"Enter the Chart Room"**
+1. Go to: **https://journeyswithjerseymark.com/admin.html**
+2. Enter your GitHub Personal Access Token → click **"✦ Enter the Chart Room"**
    *(Check "Remember on this device" so you only need to do this once per device)*
-4. Scroll down to the **green "Add a New Album" section** and fill in:
-   - **Album Title** — use Claude's suggestion or edit it
-   - **Google Photos Share Link** — the `photos.app.goo.gl` URL
-   - **Photo URLs** — paste the full list from the downloaded `.txt` file
-5. Click **+ Add Album** (green button)
-6. Verify the album appears in the **"Current Albums on Site"** list above
-7. Click **💾 Save & Publish to Site**
-8. Wait about 30 seconds — the site updates automatically via Vercel
+
+---
+
+## Step 2 — Fetch the Album
+
+1. Scroll down to the **green "Add a New Album" section**
+2. Paste your Google Photos share link into the **Google Photos Share Link** field
+3. Click **🔍 Fetch Photos**
+4. The admin page calls the site's own API to fetch the album — within a few seconds:
+   - **Album Title** is filled in automatically (edit it if you want)
+   - **Photo URLs** are populated automatically (25–30 photos)
+
+> **Note:** Always verify photo URLs end in `=w1200-h900-no`. Truncated URLs cause silent JSON parse failures.
+> **Note:** Google Photos URLs expire after a few weeks — always fetch fresh URLs rather than reusing old ones.
+
+---
+
+## Step 3 — Publish
+
+1. Click **+ Add Album** (green button)
+2. Verify the album appears in the **"Current Albums on Site"** list above
+3. Click **💾 Save & Publish to Site**
+4. Wait about 30 seconds — the site updates automatically via Vercel
 
 ---
 
@@ -102,11 +68,14 @@ Always click **Save & Publish to Site** after making any changes.
 
 ## Troubleshooting
 
+**Fetch Photos returns an error or 0 photos**
+The admin page's fetch API was unable to read the album — the album may be set to private, or the share link may have expired. Make sure the album is shared publicly in Google Photos and try again with a fresh share link.
+
 **Photos not loading / blank slideshow**
-The photo URLs have likely expired (Google Photos URLs expire after a few weeks). Ask Claude to re-fetch the album using the Chrome extension procedure above to get fresh URLs, then use Edit Photos in admin.html to replace them.
+The photo URLs have likely expired (Google Photos URLs expire after a few weeks). Open admin.html, click "✎ Edit Photos" for the affected album, delete all URLs, click Fetch Photos with the original share link to get fresh ones, then Save & Publish.
 
 **Wrong photos showing (e.g. previous album's photos)**
-The album was saved with stale URLs from a previous session. Use Edit Photos in admin.html, delete all URLs, and paste in the fresh ones from a new `.txt` download.
+The album was saved with stale URLs. Use Edit Photos in admin.html, delete all URLs, and use Fetch Photos to get fresh ones.
 
 **Only 2 albums showing in the dropdown**
 The `albums.json` file likely has a broken (truncated) URL. Open admin.html, check each album's photo list for any URL that doesn't end in `-no`, fix it via Edit Photos, and save.
@@ -119,14 +88,6 @@ Your GitHub token may have expired. Go to `github.com/settings/tokens`, regenera
 
 **Duplicate album in the dropdown**
 Open admin.html, find the duplicate in the Current Albums list, click ✕ to remove it, then Save & Publish.
-
-**Chrome extension not connecting**
-- Make sure Claude.ai is open **in Chrome** (not DuckDuckGo or another browser)
-- Click the extension puzzle piece → Claude → Connect in the popup
-- Check `chrome://extensions` that the Claude extension is enabled
-- Click Details on the extension and make sure "Allow access to file URLs" is on
-- Try refreshing the Claude.ai tab in Chrome and reconnecting
-- The extension disconnects periodically — just reconnect and continue
 
 ---
 
@@ -164,7 +125,7 @@ Open admin.html, find the duplicate in the Current Albums list, click ✕ to rem
 | Grayton Beach Florida 2024 | |
 | The Gulf Florabama/Mississippi/Louisiana 2022 | |
 | Whale Magic Baja Mexico 2023 | |
-| Joshua Tree National Park 2025 | Added May 2026 — 25 photos via Chrome extension method |
+| Joshua Tree National Park 2025 | Added May 2026 |
 | Kings Canyon 2025 | Added May 2026 |
 | Redwoods · Gold Bluffs Beach Campground 2024 | Added May 2026 |
 | Chasing Dolphins 2024 | Added May 2026 |
@@ -173,7 +134,8 @@ Open admin.html, find the duplicate in the Current Albums list, click ✕ to rem
 | Lassen National Park · CA 2022 | Added May 2026 |
 | Yosemite National Park · CA 2025 | Added May 2026 |
 | Wildlife & Snorkeling · Isle of Coronado · Baja 2024 | Added May 2026 |
+| Antelope Lake · CA · 2025 | Added June 2026 — 30 photos |
 
 ---
 
-*Last updated: May 2026*
+*Last updated: June 2026*
