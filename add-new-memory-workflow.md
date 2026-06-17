@@ -46,8 +46,8 @@ The admin page handles everything automatically — no Chrome extension, no Clau
 
 1. Go to **journeyswithjerseymark.com**
 2. Scroll to the **"Memories from the Road"** section
-3. Open the dropdown — your new album should appear
-4. Select it and confirm photos load and cycle correctly
+3. Find your new album in the cover photo grid — it will show a **New!** badge
+4. Click it and confirm photos load and cycle correctly
 5. Click **"Open Album ↗"** to confirm the Google Photos link works
 
 ---
