@@ -57,9 +57,13 @@ textarea{resize:vertical;min-height:100px;}
 #loginScreen{display:block;}
 #mainScreen{display:none;}
 .album-card{border:1.5px solid #7a4e20;border-radius:3px;margin-bottom:0.9rem;overflow:hidden;background:rgba(160,110,50,0.1);}
-.album-card-header{display:flex;align-items:center;justify-content:space-between;padding:0.6rem 0.9rem;background:rgba(90,53,16,0.08);border-bottom:1px solid rgba(122,78,32,0.3);gap:0.7rem;flex-wrap:wrap;}
+.album-card-header{display:flex;align-items:center;justify-content:space-between;padding:0.6rem 0.9rem;background:rgba(90,53,16,0.08);border-bottom:1px solid rgba(122,78,32,0.3);gap:0.7rem;flex-wrap:wrap;cursor:pointer;user-select:none;}
+.album-card-header:hover{background:rgba(90,53,16,0.13);}
+.album-card-chevron{display:inline-block;font-style:normal;margin-right:0.45rem;color:rgba(122,78,32,0.7);transition:transform 0.18s;transform:rotate(0deg);font-size:0.75rem;}
+.album-card-chevron.open{transform:rotate(90deg);}
 .album-card-title{font-family:'Cinzel',serif;font-size:0.90rem;font-weight:700;letter-spacing:0.06em;color:#2c1a08;flex:1;min-width:140px;}
-.album-card-body{padding:0.75rem 0.9rem;}
+.album-card-body{padding:0.75rem 0.9rem;display:none;}
+.album-card-body.open{display:block;}
 .photo-count{font-family:'IM Fell English',serif;font-style:italic;font-size:0.97rem;color:#7a4e20;margin-bottom:0.5rem;}
 .photo-url-list{font-family:'Crimson Text',serif;font-size:0.90rem;color:rgba(44,26,8,0.6);max-height:72px;overflow-y:auto;word-break:break-all;line-height:1.55;padding:0.35rem;background:rgba(245,234,210,0.5);border:1px solid rgba(122,78,32,0.2);border-radius:2px;margin-bottom:0.55rem;}
 .btn-row{display:flex;gap:0.5rem;flex-wrap:wrap;align-items:center;margin-top:1rem;}
@@ -486,16 +490,17 @@ function renderAlbums(){
     var newBadge=isNew(album)?'<span class="new-badge">New!</span>':'';
     var card=document.createElement('div');
     card.className='album-card';
+    var startOpen = isNew(album);
     card.innerHTML=
-      '<div class="album-card-header">'+
-        '<span class="album-card-title">'+esc(album.title)+newBadge+'</span>'+
+      '<div class="album-card-header" onclick="toggleAlbum(this)">'+
+        '<span class="album-card-title"><span class="album-card-chevron'+(startOpen?' open':'')+'">▶</span>'+esc(album.title)+newBadge+'</span>'+
         '<div style="display:flex;gap:0.35rem;flex-shrink:0;">'+
-          (idx>0?'<button class="btn btn-secondary btn-sm" onclick="moveAlbum('+idx+',-1)">▲</button>':'')+
-          (idx<albums.length-1?'<button class="btn btn-secondary btn-sm" onclick="moveAlbum('+idx+',1)">▼</button>':'')+
-          '<button class="btn btn-danger btn-sm" onclick="removeAlbum('+idx+')">✕</button>'+
+          (idx>0?'<button class="btn btn-secondary btn-sm" onclick="event.stopPropagation();moveAlbum('+idx+',-1)">▲</button>':'')+
+          (idx<albums.length-1?'<button class="btn btn-secondary btn-sm" onclick="event.stopPropagation();moveAlbum('+idx+',1)">▼</button>':'')+
+          '<button class="btn btn-danger btn-sm" onclick="event.stopPropagation();removeAlbum('+idx+')">✕</button>'+
         '</div>'+
       '</div>'+
-      '<div class="album-card-body">'+
+      '<div class="album-card-body'+(startOpen?' open':'')+'">'+
         '<div class="photo-count">'+album.photos.length+' photo'+(album.photos.length!==1?'s':'')+
           (album.url?' · <a href="'+esc(album.url)+'" target="_blank" rel="noopener" style="color:#7a4e20;">Open Album ↗</a>':'')+
           (album.dateAdded?' · <span style="font-size:0.90rem;color:rgba(90,53,16,0.5);">Added '+formatDate(album.dateAdded)+'</span>':'')+
@@ -505,6 +510,13 @@ function renderAlbums(){
       '</div>';
     c.appendChild(card);
   });
+}
+
+function toggleAlbum(header){
+  var body=header.nextElementSibling;
+  var chevron=header.querySelector('.album-card-chevron');
+  var open=body.classList.toggle('open');
+  chevron.classList.toggle('open',open);
 }
 
 function removeAlbum(idx){
