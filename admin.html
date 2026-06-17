@@ -606,8 +606,8 @@ async function addAlbum(){
 function saveAlbums(){
   if(!token){showStatus('mainStatus','Not logged in.','error');return;}
   showStatus('mainStatus','<span class="spinner">✦</span> Publishing to GitHub…','info');
-  fetch('https://api.github.com/repos/'+REPO_OWNER+'/'+REPO_NAME+'/contents/'+FILE_PATH+'?ref='+BRANCH+'&_='+Date.now(),
-    {headers:{'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json'}})
+  fetch('https://api.github.com/repos/'+REPO_OWNER+'/'+REPO_NAME+'/contents/'+FILE_PATH+'?ref='+BRANCH,
+    {cache:'no-store',headers:{'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json','Cache-Control':'no-cache'}})
   .then(function(r){
     if(!r.ok) throw new Error('Could not fetch current file SHA ('+r.status+') — try again');
     return r.json();
