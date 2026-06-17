@@ -742,51 +742,56 @@ window.addEventListener('load',function(){
     });
     if(!shown)grid.innerHTML='<p style="font-family:\'IM Fell English\',serif;font-style:italic;color:rgba(90,53,16,0.5);font-size:0.95rem;padding:0.25rem 0;">No albums match your search.</p>';
   }
-  var ALBUM_COORDS=[
-    [40.08,-120.62],    // 0  Antelope Lake CA
-    [30.3,-87.5],       // 1  Gulf · Florabama
-    [30.3236,-86.1528], // 2  Grayton Beach FL
-    [27.5,-114.0],      // 3  Whale Magic Baja
-    null,               // 4  Best of the Best
-    [43.5,-114.0],      // 5  My Private Idaho
-    [33.8734,-115.901], // 6  Joshua Tree NP
-    [36.8879,-118.555], // 7  Kings Canyon NP
-    [41.3553,-124.062], // 8  Redwoods Gold Bluffs CA
-    [26.0,-111.0],      // 9  Chasing Dolphins Baja
-    [48.6959,-113.718], // 10 Glacier NP MT
-    [33.6489,-111.111], // 11 Tonto NM AZ
-    [40.4977,-121.508], // 12 Lassen NP CA
-    [37.8651,-119.538], // 13 Yosemite NP CA
-    [29.08,-118.28],    // 14 Isle Coronado Baja
-    [38.5,-123.0],      // 15 Northern CA Beaches
-    [38.9833,-114.213], // 16 Great Basin NP NV
-    [23.44,-109.42],    // 17 Cabo Pulmo Baja
-    [44.0,-116.7],      // 18 Oregon Trail
-    [46.5726,-86.536],  // 19 Pictured Rocks MI
-    [30.35,-114.65],    // 20 Puertocitos Baja
-    [37.3635,-118.395], // 21 Mule Days Bishop CA
-    [44.6826,-63.744],  // 22 Canadian Maritime
-    [23.68,-109.78],    // 23 Los Barillas Baja
-    [28.8,-82.5],       // 24 Manatee Mania FL
-    [44.3769,-103.73],  // 25 Deadwood SD
-    [44.3481,-106.701], // 26 Buffalo WY
-    [33.4589,-111.482], // 27 Lost Dutchman AZ
-    [36.1069,-112.113], // 28 Grand Canyon AZ
-    [30.3884,-86.359],  // 29 Miramar Beach FL
-    [27.2028,-97.382],  // 30 Padre Island TX
-    [43.7502,-110.726], // 31 Jenny Lake WY
-    [44.3386,-68.273],  // 32 Maine · Acadia
-    [45.9044,-68.921],  // 33 Mt Katahdin ME
-    [49.6003,-57.778],  // 34 Gros Morne NL
-    [27.9,-114.8],      // 35 Starlink Launch Baja
-    [31.5889,-111.547], // 36 Buenos Aires NWR AZ
-    null,               // 37 Inspirations for the Road
-    [43.8791,-103.459], // 38 Mt Rushmore SD
-    [33.6634,-114.229], // 39 Quartzite AZ
-    [37.7843,-119.077], // 40 June Lake CA
-    [38.0722,-119.026]  // 41 Twin Lakes CA
-  ];
-  var _mapInstance=null,_leafletLoaded=false;
+  var ALBUM_COORDS={
+    'antelope lake':   [40.08,-120.62],
+    'florabama':       [30.3,-87.5],
+    'grayton beach':   [30.3236,-86.1528],
+    'whale magic':     [27.5,-114.0],
+    'idaho':           [43.5,-114.0],
+    'joshua tree':     [33.8734,-115.901],
+    'kings canyon':    [36.8879,-118.555],
+    'gold bluffs':     [41.3553,-124.062],
+    'chasing dolphins':[26.0,-111.0],
+    'glacier national':[48.6959,-113.718],
+    'tonto':           [33.6489,-111.111],
+    'lassen':          [40.4977,-121.508],
+    'yosemite':        [37.8651,-119.538],
+    'coronado':        [29.08,-118.28],
+    'northern california beaches':[38.5,-123.0],
+    'great basin':     [38.9833,-114.213],
+    'cabo pulmo':      [23.44,-109.42],
+    'oregon trail':    [44.0,-116.7],
+    'pictured rocks':  [46.5726,-86.536],
+    'puertocitos':     [30.35,-114.65],
+    'mule days':       [37.3635,-118.395],
+    'canadian maritime':[44.6826,-63.744],
+    'los barillas':    [23.68,-109.78],
+    'manatee':         [28.8,-82.5],
+    'deadwood':        [44.3769,-103.73],
+    'buffalo, wyoming':[44.3481,-106.701],
+    'lost dutchman':   [33.4589,-111.482],
+    'grand canyon':    [36.1069,-112.113],
+    'miramar beach':   [30.3884,-86.359],
+    'padre island':    [27.2028,-97.382],
+    'jenny lake':      [43.7502,-110.726],
+    'acadia':          [44.3386,-68.273],
+    'katahdin':        [45.9044,-68.921],
+    'gros morne':      [49.6003,-57.778],
+    'starlink':        [27.9,-114.8],
+    'buenos aires':    [31.5889,-111.547],
+    'mt rushmore':     [43.8791,-103.459],
+    'quartzite':       [33.6634,-114.229],
+    'june lake':       [37.7843,-119.077],
+    'twin lakes':      [38.0722,-119.026],
+    'valdez':          [61.13,-146.35]
+  };
+  function coordsForAlbum(title){
+    var t=title.toLowerCase();
+    var keys=Object.keys(ALBUM_COORDS);
+    for(var k=0;k<keys.length;k++){if(t.indexOf(keys[k])>=0)return ALBUM_COORDS[keys[k]];}
+    return null;
+  }
+  var _mapInstance=null,_mapAlbumCount=0,_leafletLoaded=false;
   window.setAlbumView=function(view){
     var isGrid=view==='grid';
     document.getElementById('albumSearch').style.display=isGrid?'':'none';
@@ -797,7 +802,9 @@ window.addEventListener('load',function(){
     if(!isGrid)initMap();
   };
   function initMap(){
-    if(_mapInstance)return;
+    var albums=window._albumsData||[];
+    if(_mapInstance&&_mapAlbumCount===albums.length)return;
+    if(_mapInstance){_mapInstance.remove();_mapInstance=null;}
     if(_leafletLoaded){buildMap();return;}
     var lc=document.createElement('link');lc.rel='stylesheet';lc.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
     document.head.appendChild(lc);
@@ -807,12 +814,13 @@ window.addEventListener('load',function(){
   }
   function buildMap(){
     var albums=window._albumsData||[];
+    _mapAlbumCount=albums.length;
     _mapInstance=L.map('albumMap',{zoomControl:true,scrollWheelZoom:false});
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',maxZoom:18}).addTo(_mapInstance);
     var mkIcon=L.divIcon({html:'<div style="width:13px;height:13px;background:#5a3510;border:2.5px solid #f5ead0;border-radius:50%;box-shadow:0 1px 4px rgba(0,0,0,0.4);"></div>',className:'',iconSize:[13,13],iconAnchor:[6,6],popupAnchor:[0,-10]});
     var bounds=[];
     albums.forEach(function(album,i){
-      var c=ALBUM_COORDS[i];if(!c)return;
+      var c=coordsForAlbum(album.title);if(!c)return;
       bounds.push(c);
       var thumb=album.photos&&album.photos[0]?album.photos[0].replace(/=w\d+-h\d+-no$/,'=w120-h90-no'):'';
       var popup='<div style="font-family:\'IM Fell English\',serif;font-style:italic;color:#2c1a08;min-width:140px;line-height:1.4;">'
