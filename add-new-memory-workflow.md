@@ -5,9 +5,9 @@
 
 ## Overview
 
-This is the procedure for adding a new photo album to the "Memories from the Road" slideshow on the website.
+This is the procedure for adding a new photo album to the "Memories from the Road" section on the website.
 
-The admin page handles everything automatically — no Chrome extension, no Claude Desktop, no copy/pasting URLs.
+The admin page handles everything automatically — no Chrome extension, no Claude Desktop, no copy/pasting URLs. Photos are fetched from Google Photos, the album is geocoded and pinned on the map, and everything publishes to the live site in one click.
 
 ---
 
@@ -24,7 +24,7 @@ The admin page handles everything automatically — no Chrome extension, no Clau
 1. Scroll down to the **green "Add a New Album" section**
 2. Paste your Google Photos share link into the **Google Photos Share Link** field
 3. Click **🔍 Fetch Photos**
-4. The admin page calls the site's own API to fetch the album — within a few seconds:
+4. Within a few seconds:
    - **Album Title** is filled in automatically (edit it if you want)
    - **Photo URLs** are populated automatically (25–30 photos)
 
@@ -33,9 +33,11 @@ The admin page handles everything automatically — no Chrome extension, no Clau
 
 ---
 
-## Step 3 — Publish
+## Step 3 — Add & Publish
 
 1. Click **+ Add Album** (green button)
+   - The admin page automatically geocodes the album title using OpenStreetMap and stores map coordinates — you'll see a confirmation like `📍 [59.85, -149.70]` in the status bar
+   - If no location is found (e.g. abstract album titles), it says "no location found" — the album still saves fine, it just won't have a map pin
 2. Verify the album appears in the **"Current Albums on Site"** list above
 3. Click **💾 Save & Publish to Site**
 4. Wait about 30 seconds — the site updates automatically via Vercel
@@ -47,8 +49,10 @@ The admin page handles everything automatically — no Chrome extension, no Clau
 1. Go to **journeyswithjerseymark.com**
 2. Scroll to the **"Memories from the Road"** section
 3. Find your new album in the cover photo grid — it will show a **New!** badge
-4. Click it and confirm photos load and cycle correctly
-5. Click **"Open Album ↗"** to confirm the Google Photos link works
+4. Hover over the card to see the photo filmstrip preview
+5. Click it and confirm photos load and cycle correctly
+6. Click **"Open Album ↗"** to confirm the Google Photos link works
+7. Switch to **✦ Map** view and confirm the album has a pin in the right location
 
 ---
 
@@ -77,16 +81,19 @@ The photo URLs have likely expired (Google Photos URLs expire after a few weeks)
 **Wrong photos showing (e.g. previous album's photos)**
 The album was saved with stale URLs. Use Edit Photos in admin.html, delete all URLs, and use Fetch Photos to get fresh ones.
 
-**Only 2 albums showing in the dropdown**
-The `albums.json` file likely has a broken (truncated) URL. Open admin.html, check each album's photo list for any URL that doesn't end in `-no`, fix it via Edit Photos, and save.
+**Album not showing on the map**
+Either the geocoder couldn't find the location from the title (the status bar would have said "no location found" when you added it), or the album predates the auto-geocode feature. Ask Claude to add coordinates manually — provide the album title and approximate location.
+
+**Save & Publish shows a SHA mismatch error**
+The admin page's cached file version is out of sync with GitHub (usually happens after a direct git push). Hard-refresh the admin page (Ctrl+Shift+R), re-enter your changes, and try again. The SHA is now fetched fresh on every save so this should be rare.
 
 **A photo is sideways / wrong rotation**
 Google Photos sometimes loses EXIF rotation data when serving via URL. Go into Edit Photos for that album, find the offending URL and delete it, then save. You can't force rotation via the URL.
 
-**Save & Publish shows an error**
+**Save & Publish shows a token error**
 Your GitHub token may have expired. Go to `github.com/settings/tokens`, regenerate it with the `repo` scope, and re-enter it on the admin page.
 
-**Duplicate album in the dropdown**
+**Duplicate album showing**
 Open admin.html, find the duplicate in the Current Albums list, click ✕ to remove it, then Save & Publish.
 
 ---
@@ -134,7 +141,10 @@ Open admin.html, find the duplicate in the Current Albums list, click ✕ to rem
 | Lassen National Park · CA 2022 | Added May 2026 |
 | Yosemite National Park · CA 2025 | Added May 2026 |
 | Wildlife & Snorkeling · Isle of Coronado · Baja 2024 | Added May 2026 |
-| Antelope Lake · CA · 2025 | Added June 2026 — 30 photos |
+| Antelope Lake · CA · 2025 | Added June 2026 |
+| Twin Lakes · CA · June 2025 | Added June 2026 |
+| Valdez · Alaska · Aug 2023 | Added June 2026 |
+| Glacier & Wildlife Cruise · Alaska 2023 | Added June 2026 |
 
 ---
 
