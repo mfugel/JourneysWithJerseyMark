@@ -255,9 +255,13 @@ textarea{resize:vertical;min-height:100px;}
             </div>
 
             <div class="field-row">
-              <label for="gearLink">Affiliate Link</label>
-              <input type="text" id="gearLink" placeholder="https://… your affiliate URL">
-              <p class="hint">Your AvantLink or Amazon affiliate link. Leave blank to show "link coming soon" until you have it.</p>
+              <label for="gearLink">Product Link</label>
+              <div style="display:flex;gap:8px;align-items:center;">
+                <input type="text" id="gearLink" placeholder="Paste any Amazon product URL…" style="flex:1;">
+                <button class="btn btn-green" onclick="applyAmazonTag()" id="gearTagBtn" style="white-space:nowrap;">🔗 Tag it</button>
+              </div>
+              <p class="hint">Paste any Amazon product link and click <strong>Tag it</strong> — your affiliate tag (<code>journeysw0832-20</code>) is applied automatically (also applied on save). Direct, non-Amazon brand links are kept as-is. Leave blank to show "link coming soon".</p>
+              <div class="status" id="gearLinkStatus"></div>
             </div>
 
             <button class="btn btn-green" id="gearAddBtn" onclick="addOrUpdateGear()">+ Add Gear</button>
@@ -308,6 +312,7 @@ var REPO_NAME  = 'JourneysWithJerseyMark';
 var FILE_PATH  = 'albums.json';
 var VIDEOS_PATH = 'videos.json';
 var GEAR_PATH  = 'gear.json';
+var AMAZON_TAG = 'journeysw0832-20'; // Amazon Associates tracking ID — auto-applied to Amazon gear links
 var BRANCH     = 'main';
 var SITE_URL   = 'https://journeyswithjerseymark.com';
 
@@ -614,7 +619,7 @@ function addOrUpdateGear(){
   var desc =document.getElementById('gearDesc').value.trim();
   var image=document.getElementById('gearImage').value.trim();
   var icon =document.getElementById('gearIcon').value.trim();
-  var link =document.getElementById('gearLink').value.trim();
+  var link =tagAmazonLink(document.getElementById('gearLink').value.trim());
   if(!name){showStatus('gearAddStatus','Please enter a product name.','error');return;}
   if(!desc){showStatus('gearAddStatus','Please enter a description.','error');return;}
   var item={name:name,icon:icon,description:desc,image:image,link:link};
@@ -678,6 +683,46 @@ function saveGear(){
     showStatus('gearMainStatus','✦ Published! Your gear page will update in about 30 seconds.','success');
   })
   .catch(function(err){showStatus('gearMainStatus','Save failed: '+err.message,'error');});
+}
+
+// Normalize an Amazon product URL so it always carries OUR affiliate tag.
+// Non-Amazon links are returned untouched; amzn.to short links already carry
+// the SiteStripe tag, so they're left as-is.
+function tagAmazonLink(raw){
+  if(!raw) return '';
+  raw=raw.trim();
+  var isAmazon=/(^|\.)amazon\.[a-z.]+/i.test(raw);
+  var isShort=/(^|\.)amzn\.to/i.test(raw);
+  if(!isAmazon && !isShort) return raw;
+  if(isShort) return raw;
+  var m=raw.match(/(?:\/dp\/|\/gp\/product\/|\/gp\/aw\/d\/|\/product\/|\/dp\/product\/)([A-Z0-9]{10})(?:[\/?#]|$)/i)
+       || raw.match(/[?&]asin=([A-Z0-9]{10})\b/i)
+       || raw.match(/\/([A-Z0-9]{10})(?:[\/?#]|$)/);
+  if(m){
+    return 'https://www.amazon.com/dp/'+m[1].toUpperCase()+'?tag='+AMAZON_TAG;
+  }
+  try{
+    var u=new URL(raw);
+    u.searchParams.set('tag', AMAZON_TAG);
+    return u.toString();
+  }catch(e){
+    var base=raw.split('#')[0];
+    if(/[?&]tag=/i.test(base)) base=base.replace(/([?&])tag=[^&]*/i,'$1tag='+AMAZON_TAG);
+    else base += (base.indexOf('?')>=0?'&':'?')+'tag='+AMAZON_TAG;
+    return base;
+  }
+}
+
+function applyAmazonTag(){
+  var el=document.getElementById('gearLink');
+  var raw=el.value.trim();
+  if(!raw){showStatus('gearLinkStatus','Paste a product link first.','error');return;}
+  el.value=tagAmazonLink(raw);
+  if(/amazon\./i.test(raw)||/amzn\.to/i.test(raw)){
+    showStatus('gearLinkStatus','✦ Amazon affiliate tag applied.','success');
+  } else {
+    showStatus('gearLinkStatus','Not an Amazon link — kept as-is (direct brand link).','info');
+  }
 }
 
 function isNew(album){
