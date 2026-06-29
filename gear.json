@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Staying Connected",
+    "icon": "🛰️",
+    "description": "Internet from the middle of nowhere — Starlink plus a cell booster is what keeps me online when the nearest town is an hour away.",
+    "image": "",
+    "link": ""
+  },
+  {
+    "name": "Power on the Go",
+    "icon": "🔋",
+    "description": "A solid portable power station (and a little solar) is the difference between chasing hookups and camping free, off-grid, for days.",
+    "image": "",
+    "link": ""
+  },
+  {
+    "name": "Clean Water",
+    "icon": "💧",
+    "description": "An inline water filter is cheap insurance — you never quite know what's coming out of that campground spigot.",
+    "image": "",
+    "link": ""
+  },
+  {
+    "name": "Finding Camp",
+    "icon": "🗺️",
+    "description": "The apps that find free, legal places to park. I lean on these constantly — see the toolkit in my guide.",
+    "image": "",
+    "link": "nomad-guide.html#toolkit"
+  },
+  {
+    "name": "Peace of Mind",
+    "icon": "🔧",
+    "description": "A tire-pressure monitor and a few recovery basics. Boring until the day they save your trip — then they're everything.",
+    "image": "",
+    "link": ""
+  },
+  {
+    "name": "Outside Living",
+    "icon": "🪑",
+    "description": "A good chair and an awning mat. Camp is where you actually live — make the patch of dirt outside your door feel like home.",
+    "image": "",
+    "link": ""
+  }
+]

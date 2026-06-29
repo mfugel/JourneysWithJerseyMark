@@ -96,6 +96,9 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;min-heigh
 .gear-card{display:flex;flex-direction:column;border:1.5px solid #7a4e20;border-radius:8px;background:rgba(255,247,225,0.4);padding:1.2rem 1.15rem 1.1rem;transition:transform 0.16s, box-shadow 0.16s, background 0.16s;}
 .gear-card:hover{transform:translateY(-2px);background:rgba(255,247,225,0.65);box-shadow:0 6px 18px rgba(80,40,10,0.16);}
 .gear-icon{font-size:1.7rem;line-height:1;margin-bottom:0.5rem;}
+.gear-img{width:100%;height:150px;object-fit:cover;border-radius:6px;border:1px solid #9a774a;background:rgba(160,110,50,0.15);margin-bottom:0.7rem;}
+.gear-iconwrap{height:150px;display:flex;align-items:center;justify-content:center;font-size:3.2rem;line-height:1;background:rgba(160,110,50,0.13);border:1px solid #9a774a;border-radius:6px;margin-bottom:0.7rem;}
+.gear-empty{font-family:'IM Fell English',serif;font-style:italic;color:rgba(90,53,16,0.6);text-align:center;padding:1.5rem 0;}
 .gear-name{font-family:'Cinzel',serif;font-weight:700;font-size:1.02rem;color:#5a3510;letter-spacing:0.02em;margin-bottom:0.35rem;}
 .gear-why{font-size:0.98rem;line-height:1.5;color:#33210f;flex:1;margin-bottom:0.9rem;}
 .gear-btn{align-self:flex-start;font-family:'Cinzel',serif;font-size:0.66rem;letter-spacing:0.12em;text-transform:uppercase;color:#f5ead0;background:#5a3510;border:1px solid #5a3510;border-radius:4px;padding:0.4rem 0.8rem;text-decoration:none;transition:background 0.18s;}
@@ -206,62 +209,9 @@ h2.sec{font-family:'Cinzel',serif;font-size:1.28rem;font-weight:700;color:#5a351
         gear that matters out here. I'm adding specific picks and links as I sort the
         good from the gimmick. Check back. ✦</p>
 
-        <h2 class="sec">The Essentials</h2>
-        <div class="gear-grid">
-
-          <div class="gear-card">
-            <div class="gear-icon">🛰️</div>
-            <div class="gear-name">Staying Connected</div>
-            <div class="gear-why">Internet from the middle of nowhere — Starlink plus a
-            cell booster is what keeps me online when the nearest town is an hour away.</div>
-            <a class="gear-btn" href="#" rel="nofollow sponsored">View →</a>
-            <span class="gear-tag">link coming soon</span>
-          </div>
-
-          <div class="gear-card">
-            <div class="gear-icon">🔋</div>
-            <div class="gear-name">Power on the Go</div>
-            <div class="gear-why">A solid portable power station (and a little solar) is
-            the difference between chasing hookups and camping free, off-grid, for days.</div>
-            <a class="gear-btn" href="#" rel="nofollow sponsored">View →</a>
-            <span class="gear-tag">link coming soon</span>
-          </div>
-
-          <div class="gear-card">
-            <div class="gear-icon">💧</div>
-            <div class="gear-name">Clean Water</div>
-            <div class="gear-why">An inline water filter is cheap insurance — you never
-            quite know what's coming out of that campground spigot.</div>
-            <a class="gear-btn" href="#" rel="nofollow sponsored">View →</a>
-            <span class="gear-tag">link coming soon</span>
-          </div>
-
-          <div class="gear-card">
-            <div class="gear-icon">🗺️</div>
-            <div class="gear-name">Finding Camp</div>
-            <div class="gear-why">The apps that find free, legal places to park. I lean on
-            these constantly — see the <a href="nomad-guide.html#toolkit">toolkit in my guide</a>.</div>
-            <a class="gear-btn" href="nomad-guide.html">In the guide →</a>
-          </div>
-
-          <div class="gear-card">
-            <div class="gear-icon">🔧</div>
-            <div class="gear-name">Peace of Mind</div>
-            <div class="gear-why">A tire-pressure monitor and a few recovery basics. Boring
-            until the day they save your trip — then they're everything.</div>
-            <a class="gear-btn" href="#" rel="nofollow sponsored">View →</a>
-            <span class="gear-tag">link coming soon</span>
-          </div>
-
-          <div class="gear-card">
-            <div class="gear-icon">🪑</div>
-            <div class="gear-name">Outside Living</div>
-            <div class="gear-why">A good chair and an awning mat. Camp is where you actually
-            live — make the patch of dirt outside your door feel like home.</div>
-            <a class="gear-btn" href="#" rel="nofollow sponsored">View →</a>
-            <span class="gear-tag">link coming soon</span>
-          </div>
-
+        <h2 class="sec">My Gear</h2>
+        <div class="gear-grid" id="gearGrid">
+          <p class="gear-empty">Loading gear…</p>
         </div>
 
         <div class="callout">New to all this and not sure what you even need yet? Start
@@ -311,6 +261,42 @@ document.querySelectorAll('.nav-dropdown-menu a').forEach(function(a){
     dd.classList.remove('open'); dd.querySelector('.nav-dropdown-trigger').setAttribute('aria-expanded','false');
   });
 });
+
+/* ── Render gear cards from gear.json (managed in admin.html) ── */
+function escHtml(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+(function(){
+  var grid=document.getElementById('gearGrid');
+  if(!grid) return;
+  fetch('gear.json?_='+Date.now(),{cache:'no-store'})
+    .then(function(r){ return r.ok ? r.json() : []; })
+    .then(function(items){
+      if(!Array.isArray(items) || !items.length){
+        grid.innerHTML='<p class="gear-empty">Gear list coming soon — check back as I sort the good from the gimmick.</p>';
+        return;
+      }
+      grid.innerHTML = items.map(function(it){
+        var visual = it.image
+          ? '<img class="gear-img" src="'+escHtml(it.image)+'" alt="'+escHtml(it.name)+'" loading="lazy">'
+          : '<div class="gear-iconwrap">'+(it.icon||'🎒')+'</div>';
+        var isUrl = it.link && /^https?:/i.test(it.link);
+        var btn;
+        if(isUrl){
+          btn='<a class="gear-btn" href="'+escHtml(it.link)+'" target="_blank" rel="nofollow sponsored noopener">Shop →</a>';
+        } else if(it.link){
+          btn='<a class="gear-btn" href="'+escHtml(it.link)+'">Learn more →</a>';
+        } else {
+          btn='<span class="gear-tag">link coming soon</span>';
+        }
+        return '<div class="gear-card">'+visual+
+          '<div class="gear-name">'+escHtml(it.name)+'</div>'+
+          '<div class="gear-why">'+escHtml(it.description)+'</div>'+
+          btn+'</div>';
+      }).join('');
+    })
+    .catch(function(){
+      grid.innerHTML='<p class="gear-empty">Couldn\'t load the gear list right now — please try again later.</p>';
+    });
+})();
 </script>
 <script defer src="/_vercel/insights/script.js"></script>
 </body>
