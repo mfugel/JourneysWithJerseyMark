@@ -598,24 +598,31 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
     <div class="nav-links">
       <a href="index.html">✦ Home</a>
       <span class="nav-dot">✦</span>
-      <a href="index.html#waypoints">Ports of Call</a>
+      <div class="nav-dropdown">
+        <button type="button" class="nav-dropdown-trigger" onclick="toggleDropdown(event,this)" aria-haspopup="true" aria-expanded="false">Explore <span class="nav-dropdown-caret">▾</span></button>
+        <div class="nav-dropdown-menu" role="menu">
+          <a href="index.html#waypoints" role="menuitem">Ports of Call</a>
+          <a href="index.html#gallery" role="menuitem">Codiwomple</a>
+          <a href="index.html#memories" role="menuitem">Memories</a>
+          <a href="journeys.html" class="nav-active" role="menuitem">🗺 My Journeys</a>
+          <a href="index.html#track" role="menuitem">Track Me</a>
+        </div>
+      </div>
       <span class="nav-dot">✦</span>
-      <a href="index.html#contact">Contact</a>
-      <span class="nav-dot">✦</span>
-      <a href="index.html#track">Track Me</a>
-      <span class="nav-dot">✦</span>
-      <a href="index.html#gallery">Codiwomple</a>
-      <span class="nav-dot">✦</span>
-      <a href="index.html#memories">Memories</a>
-      <span class="nav-dot">✦</span>
-      <a href="journeys.html" class="nav-active">🗺 My Journeys</a>
-      <span class="nav-dot">✦</span>
-      <a href="index.html#bizcard">Business Card</a>
+      <a href="nomad-guide.html">⛺ Nomad Guide</a>
       <span class="nav-dot">✦</span>
       <a href="wallpapers.html">🎁 Gift from the Road</a>
       <span class="nav-dot">✦</span>
+      <div class="nav-dropdown">
+        <button type="button" class="nav-dropdown-trigger" onclick="toggleDropdown(event,this)" aria-haspopup="true" aria-expanded="false">Connect <span class="nav-dropdown-caret">▾</span></button>
+        <div class="nav-dropdown-menu" role="menu">
+          <a href="index.html#contact" role="menuitem">Contact</a>
+          <a href="index.html#bizcard" role="menuitem">Business Card</a>
+        </div>
+      </div>
+      <span class="nav-dot">✦</span>
       <div class="nav-dropdown" id="supportDropdown">
-        <button type="button" class="nav-dropdown-trigger" onclick="toggleSupport(event)" aria-haspopup="true" aria-expanded="false">✦ Support Me <span class="nav-dropdown-caret">▾</span></button>
+        <button type="button" class="nav-dropdown-trigger" onclick="toggleDropdown(event,this)" aria-haspopup="true" aria-expanded="false">✦ Support Me <span class="nav-dropdown-caret">▾</span></button>
         <div class="nav-dropdown-menu" role="menu">
           <a href="https://ko-fi.com/U7U3RUSTZ" target="_blank" rel="noopener" role="menuitem">☕ Buy Me a Coffee</a>
           <a href="https://jersey-mark-mercantile.printify.me/" target="_blank" rel="noopener" role="menuitem">🛍 Shop Merch</a>
@@ -627,14 +634,17 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
   </div>
   <div class="nav-drawer" id="navDrawer">
     <a href="index.html">✦ Home</a>
+    <span class="nav-drawer-group-label">✦ Explore</span>
     <a href="index.html#waypoints">Ports of Call</a>
-    <a href="index.html#contact">Contact</a>
-    <a href="index.html#track">Track Me</a>
     <a href="index.html#gallery">Codiwomple</a>
     <a href="index.html#memories">Memories</a>
     <a href="journeys.html" class="nav-active">🗺 My Journeys</a>
-    <a href="index.html#bizcard">Business Card</a>
+    <a href="index.html#track">Track Me</a>
+    <a href="nomad-guide.html">⛺ Nomad Guide</a>
     <a href="wallpapers.html">🎁 Gift from the Road</a>
+    <span class="nav-drawer-group-label">✦ Connect</span>
+    <a href="index.html#contact">Contact</a>
+    <a href="index.html#bizcard">Business Card</a>
     <span class="nav-drawer-group-label">✦ Support Me</span>
     <a href="https://ko-fi.com/U7U3RUSTZ" target="_blank" rel="noopener" class="nav-coffee">☕ Buy Me a Coffee</a>
     <a href="https://jersey-mark-mercantile.printify.me/" target="_blank" rel="noopener" class="nav-coffee">🛍 Shop Merch</a>
@@ -966,23 +976,24 @@ window.toggleNav = toggleNav;
 document.querySelectorAll('#navDrawer a').forEach(a=>{
   a.addEventListener('click',()=>document.getElementById('navDrawer').classList.remove('open'));
 });
-function toggleSupport(e){
+function toggleDropdown(e, btn){
   e.stopPropagation();
-  var dd=document.getElementById('supportDropdown');
+  var dd=btn.closest('.nav-dropdown');
+  document.querySelectorAll('.nav-dropdown.open').forEach(function(o){
+    if(o!==dd){ o.classList.remove('open'); o.querySelector('.nav-dropdown-trigger').setAttribute('aria-expanded','false'); }
+  });
   var open=dd.classList.toggle('open');
   dd.querySelector('.nav-dropdown-trigger').setAttribute('aria-expanded',open?'true':'false');
 }
-window.toggleSupport = toggleSupport;
+window.toggleDropdown = toggleDropdown;
 document.addEventListener('click',function(e){
-  var dd=document.getElementById('supportDropdown');
-  if(dd && !dd.contains(e.target) && dd.classList.contains('open')){
-    dd.classList.remove('open');
-    dd.querySelector('.nav-dropdown-trigger').setAttribute('aria-expanded','false');
-  }
+  document.querySelectorAll('.nav-dropdown.open').forEach(function(dd){
+    if(!dd.contains(e.target)){ dd.classList.remove('open'); dd.querySelector('.nav-dropdown-trigger').setAttribute('aria-expanded','false'); }
+  });
 });
-document.querySelectorAll('#supportDropdown a').forEach(function(a){
+document.querySelectorAll('.nav-dropdown-menu a').forEach(function(a){
   a.addEventListener('click',function(){
-    var dd=document.getElementById('supportDropdown');
+    var dd=a.closest('.nav-dropdown');
     dd.classList.remove('open');
     dd.querySelector('.nav-dropdown-trigger').setAttribute('aria-expanded','false');
   });
