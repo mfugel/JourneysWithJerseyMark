@@ -264,6 +264,7 @@ document.querySelectorAll('.nav-dropdown-menu a').forEach(function(a){
 
 /* ── Render gear cards from gear.json (managed in admin.html) ── */
 function escHtml(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function gearImgFallback(img, icon){var d=document.createElement('div');d.className='gear-iconwrap';d.textContent=icon||'🎒';img.replaceWith(d);}
 (function(){
   var grid=document.getElementById('gearGrid');
   if(!grid) return;
@@ -275,9 +276,10 @@ function escHtml(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/<
         return;
       }
       grid.innerHTML = items.map(function(it){
+        var icon = it.icon || '🎒';
         var visual = it.image
-          ? '<img class="gear-img" src="'+escHtml(it.image)+'" alt="'+escHtml(it.name)+'" loading="lazy">'
-          : '<div class="gear-iconwrap">'+(it.icon||'🎒')+'</div>';
+          ? '<img class="gear-img" src="'+escHtml(it.image)+'" alt="'+escHtml(it.name)+'" loading="lazy" onerror="gearImgFallback(this,\''+icon+'\')">'
+          : '<div class="gear-iconwrap">'+icon+'</div>';
         var isUrl = it.link && /^https?:/i.test(it.link);
         var btn;
         if(isUrl){
