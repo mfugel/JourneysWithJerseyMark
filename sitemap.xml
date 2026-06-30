@@ -17,4 +17,28 @@
     <priority>0.6</priority>
   </url>
 
+  <!-- My Journeys interactive map -->
+  <url>
+    <loc>https://www.journeyswithjerseymark.com/journeys.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Nomad Guide hub (Life on the Road) -->
+  <url>
+    <loc>https://www.journeyswithjerseymark.com/nomad-guide.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Gear & Goods storefront -->
+  <url>
+    <loc>https://www.journeyswithjerseymark.com/gear.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>
