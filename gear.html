@@ -291,11 +291,12 @@ function gearImgFallback(img, icon){var d=document.createElement('div');d.classN
           ? '<img class="gear-img" src="'+escHtml(it.image)+'" alt="'+escHtml(it.name)+'" loading="lazy" onerror="gearImgFallback(this,\''+icon+'\')">'
           : '<div class="gear-iconwrap">'+icon+'</div>';
         var isUrl = it.link && /^https?:/i.test(it.link);
+        var label = it.cta || (isUrl ? 'Shop →' : 'Learn more →');
         var btn;
         if(isUrl){
-          btn='<a class="gear-btn" href="'+escHtml(it.link)+'" target="_blank" rel="nofollow sponsored noopener">Shop →</a>';
+          btn='<a class="gear-btn" href="'+escHtml(it.link)+'" target="_blank" rel="nofollow sponsored noopener">'+escHtml(label)+'</a>';
         } else if(it.link){
-          btn='<a class="gear-btn" href="'+escHtml(it.link)+'">Learn more →</a>';
+          btn='<a class="gear-btn" href="'+escHtml(it.link)+'">'+escHtml(label)+'</a>';
         } else {
           btn='<span class="gear-tag">link coming soon</span>';
         }
