@@ -1,5 +1,13 @@
 [
   {
+    "name": "Americas Mailbox — SD Mail & Domicile",
+    "icon": "📮",
+    "description": "This is my home base on paper. Americas Mailbox in Box Elder gives full-time travelers a real South Dakota address — for your driver's license, vehicle registration, voting, and mail forwarding — so you can be \"from\" a no-income-tax state while you roam the country. It's how I stay legal and reachable from anywhere. If you sign up, tell them mailbox #21195 referred you. (Their FAQ explains how it all works.)",
+    "image": "/images/gear/americas-mailbox.jpg",
+    "link": "https://americasmailbox.com/faq/",
+    "cta": "Learn More & Join →"
+  },
+  {
     "name": "NOCO Boost X GBX75 Jump Starter",
     "icon": "🔌",
     "description": "2,500 amps of \"you're not stranded today\" in something the size of a lunchbox. It'll jump the Sprinter's diesel, charge a phone as a power bank, and the built-in light has bailed me out of more than one dark-campsite fix. The piece of gear I hope I never need — and am very glad I have.",
@@ -222,14 +230,6 @@
     "description": "The little trick that lets the Starlink Mini (and other DC-barrel gear) run off a USB-C PD power bank or laptop charger instead of a fixed supply. Plug it inline and the Mini sips power from anything that can push 20V over USB-C. Tiny part, big flexibility for off-grid internet.",
     "image": "https://m.media-amazon.com/images/I/61VRGxUGVFL._AC_SL500_.jpg",
     "link": "https://www.amazon.com/dp/B0DX25CJ8H?tag=journeysw0832-20"
-  },
-  {
-    "name": "Americas Mailbox — SD Mail & Domicile",
-    "icon": "📮",
-    "description": "This is my home base on paper. Americas Mailbox in Box Elder gives full-time travelers a real South Dakota address — for your driver's license, vehicle registration, voting, and mail forwarding — so you can be \"from\" a no-income-tax state while you roam the country. It's how I stay legal and reachable from anywhere. If you sign up, tell them mailbox #21195 referred you. (Their FAQ explains how it all works.)",
-    "image": "/images/gear/americas-mailbox.jpg",
-    "link": "https://americasmailbox.com/faq/",
-    "cta": "Learn More & Join →"
   },
   {
     "name": "Finding Camp",
