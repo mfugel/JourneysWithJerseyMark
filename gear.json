@@ -217,6 +217,13 @@
     "link": ""
   },
   {
+    "name": "USB-C to DC Power Adapter (PD 20V)",
+    "icon": "🔌",
+    "description": "The little trick that lets the Starlink Mini (and other DC-barrel gear) run off a USB-C PD power bank or laptop charger instead of a fixed supply. Plug it inline and the Mini sips power from anything that can push 20V over USB-C. Tiny part, big flexibility for off-grid internet.",
+    "image": "https://m.media-amazon.com/images/I/61VRGxUGVFL._AC_SL500_.jpg",
+    "link": "https://www.amazon.com/dp/B0DX25CJ8H?tag=journeysw0832-20"
+  },
+  {
     "name": "Finding Camp",
     "icon": "🗺️",
     "description": "The apps that find free, legal places to park. I lean on these constantly — see the toolkit in my guide.",
