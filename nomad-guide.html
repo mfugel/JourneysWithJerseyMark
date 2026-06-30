@@ -128,6 +128,24 @@ table.cmp tr:nth-child(even) td{background:rgba(180,130,70,0.12);}
 .coming ul{margin:0 0 0 1.2rem;}
 .coming li{font-size:0.98rem;color:#3a2510;margin-bottom:0.25rem;}
 
+/* domicile quiz */
+.quiz{border:1.5px solid #7a4e20;border-radius:8px;background:rgba(255,247,225,0.45);padding:1.2rem 1.3rem;margin:1.5rem 0;}
+.quiz-title{font-family:'Cinzel',serif;font-weight:700;color:#5a3510;font-size:1.12rem;}
+.quiz-sub{font-family:'IM Fell English',serif;font-style:italic;color:#6a4a20;font-size:0.98rem;margin:0.2rem 0 1rem;}
+.quiz-q{margin-bottom:1.05rem;}
+.quiz-q .q{font-weight:600;color:#3a2008;margin-bottom:0.5rem;}
+.quiz-opts{display:flex;flex-direction:column;gap:0.4rem;}
+.quiz-opt{text-align:left;font-family:'Crimson Text',serif;font-size:1rem;color:#33210f;background:rgba(180,130,70,0.10);border:1.5px solid #9a774a;border-radius:6px;padding:0.5rem 0.75rem;cursor:pointer;transition:background 0.15s,border-color 0.15s,color 0.15s;}
+.quiz-opt:hover{background:rgba(180,130,70,0.22);}
+.quiz-opt.sel{background:#5a3510;color:#f5ead0;border-color:#5a3510;}
+.quiz-actions{display:flex;gap:0.9rem;align-items:center;margin-top:0.5rem;flex-wrap:wrap;}
+.quiz-go{font-family:'Cinzel',serif;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:#f5ead0;background:#5a3510;border:none;border-radius:5px;padding:0.55rem 1.1rem;cursor:pointer;}
+.quiz-go:hover{background:#7a4e20;}
+.quiz-reset{font-family:'IM Fell English',serif;font-style:italic;color:#7a4e20;background:none;border:none;cursor:pointer;text-decoration:underline dotted;font-size:0.95rem;}
+.quiz-result{display:none;margin-top:1rem;border-top:1.5px solid rgba(90,53,16,0.3);padding-top:1rem;}
+.quiz-result.show{display:block;}
+.quiz-result .pick{font-family:'Cinzel',serif;font-weight:700;font-size:1.3rem;color:#5a3510;margin-bottom:0.4rem;}
+.quiz-note{font-family:'IM Fell English',serif;font-style:italic;color:#6a4a20;font-size:0.92rem;margin-top:0.7rem;}
 .signoff{font-family:'IM Fell English',serif;font-style:italic;font-size:1.12rem;color:#3a2008;margin-top:1.6rem;text-align:right;}
 
 .guide-footer{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin-top:2rem;padding-top:1.2rem;border-top:1px solid rgba(90,53,16,0.3);font-family:'IM Fell English',serif;font-style:italic;font-size:0.95rem;color:#3a2510;}
@@ -540,9 +558,85 @@ table.cmp tr:nth-child(even) td{background:rgba(180,130,70,0.12);}
         <ul>
           <li><strong>South Dakota</strong> — my pick. Just one overnight stay ever to establish
           residency, cheap registration, no vehicle inspections, easy mail-based renewals.</li>
-          <li><strong>Texas</strong> — big nomad community, but annual vehicle inspections in most counties.</li>
-          <li><strong>Florida</strong> — no income tax, popular with snowbirds; insurance runs higher in spots.</li>
+          <li><strong>Texas</strong> — the biggest RVer community (the Escapees club is based there);
+          no income tax, and Texas dropped its non-commercial safety inspection in 2025.</li>
+          <li><strong>Florida</strong> — no income tax, popular with snowbirds; insurance and
+          healthcare run a bit higher in spots.</li>
         </ul>
+
+        <h3>South Dakota vs. Texas vs. Florida — at a glance</h3>
+        <div class="cmp-wrap">
+          <table class="cmp">
+            <thead><tr><th>Factor</th><th>South Dakota</th><th>Texas</th><th>Florida</th></tr></thead>
+            <tbody>
+              <tr><td>State income tax</td><td>None</td><td>None</td><td>None</td></tr>
+              <tr><td>Establishing residency</td><td><strong>Easiest</strong> — one overnight</td><td>More steps</td><td>More steps</td></tr>
+              <tr><td>License / reg renewals</td><td>By mail, up to ~5 yrs</td><td>Varies</td><td>Varies</td></tr>
+              <tr><td>Vehicle inspections</td><td>None</td><td>None for non-commercial (since 2025; emissions in a few metro counties)</td><td>None</td></tr>
+              <tr><td>Health insurance (under-65 ACA)</td><td>⚠️ Narrow in-state networks — travels poorly</td><td>More national options</td><td>More national options (costs higher)</td></tr>
+              <tr><td>RVer community / support</td><td>Strong (Americas Mailbox, Escapees)</td><td><strong>Strongest</strong> — Escapees HQ</td><td>Strong</td></tr>
+              <tr><td>Best if you…</td><td>Want the simplest setup &amp; don't rely on ACA networks</td><td>Want community &amp; pass through TX</td><td>Are a Southeast snowbird</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="cmp-note">All three skip state income tax — the real differentiators are
+        <strong>health insurance</strong>, ease of setup, and where you actually spend time.</p>
+
+        <div class="quiz" id="domicileQuiz">
+          <div class="quiz-title">⚖️ Which domicile state fits you?</div>
+          <div class="quiz-sub">Answer five quick questions for a starting recommendation. (Not legal or tax advice — just a nudge in the right direction.)</div>
+
+          <div class="quiz-q">
+            <div class="q">1. How will you handle health insurance?</div>
+            <div class="quiz-opts">
+              <button type="button" class="quiz-opt" data-sd="3" data-tx="1" data-fl="1">Medicare, VA, an employer plan, or a health-share — or I'm 65+</button>
+              <button type="button" class="quiz-opt" data-sd="-2" data-tx="3" data-fl="3">I'll need an under-65 ACA "marketplace" plan</button>
+              <button type="button" class="quiz-opt" data-sd="1" data-tx="1" data-fl="1">Not sure yet</button>
+            </div>
+          </div>
+
+          <div class="quiz-q">
+            <div class="q">2. How much do you value the easiest, lowest-friction setup (one overnight to establish, renew by mail)?</div>
+            <div class="quiz-opts">
+              <button type="button" class="quiz-opt" data-sd="3" data-tx="0" data-fl="0">A lot — minimal trips and paperwork</button>
+              <button type="button" class="quiz-opt" data-sd="1" data-tx="1" data-fl="1">Somewhat</button>
+              <button type="button" class="quiz-opt" data-sd="0" data-tx="1" data-fl="1">Not a big deal</button>
+            </div>
+          </div>
+
+          <div class="quiz-q">
+            <div class="q">3. Where will you spend the most time, or have the strongest ties?</div>
+            <div class="quiz-opts">
+              <button type="button" class="quiz-opt" data-sd="0" data-tx="0" data-fl="3">The Southeast — I'm a snowbird</button>
+              <button type="button" class="quiz-opt" data-sd="0" data-tx="3" data-fl="0">Texas or the South-Central / Southwest</button>
+              <button type="button" class="quiz-opt" data-sd="3" data-tx="0" data-fl="0">All over / the West / no strong ties</button>
+            </div>
+          </div>
+
+          <div class="quiz-q">
+            <div class="q">4. Want a big, established RVer community and hands-on domicile support nearby?</div>
+            <div class="quiz-opts">
+              <button type="button" class="quiz-opt" data-sd="1" data-tx="2" data-fl="1">Yes — that matters to me (e.g., the Escapees club)</button>
+              <button type="button" class="quiz-opt" data-sd="0" data-tx="0" data-fl="0">Not really</button>
+            </div>
+          </div>
+
+          <div class="quiz-q">
+            <div class="q">5. Vehicles — does any of this matter to you?</div>
+            <div class="quiz-opts">
+              <button type="button" class="quiz-opt" data-sd="2" data-tx="0" data-fl="1">I want to avoid inspections and keep registration cheap &amp; simple</button>
+              <button type="button" class="quiz-opt" data-sd="1" data-tx="1" data-fl="1">Mildly</button>
+              <button type="button" class="quiz-opt" data-sd="0" data-tx="0" data-fl="0">Not a factor</button>
+            </div>
+          </div>
+
+          <div class="quiz-actions">
+            <button type="button" class="quiz-go" id="quizGo">See my match →</button>
+            <button type="button" class="quiz-reset" id="quizReset">reset</button>
+          </div>
+          <div class="quiz-result" id="quizResult"></div>
+        </div>
+
         <h3>How it actually works</h3>
         <p>You don't need to own property. A <strong>mail-forwarding service</strong> in your chosen
         state gives you a real street address you can use for everything — license, registration,
@@ -706,6 +800,51 @@ document.querySelectorAll('.nav-dropdown-menu a').forEach(function(a){
     dd.classList.remove('open'); dd.querySelector('.nav-dropdown-trigger').setAttribute('aria-expanded','false');
   });
 });
+
+/* ── "Which domicile state?" quiz ── */
+(function(){
+  var quiz=document.getElementById('domicileQuiz');
+  if(!quiz) return;
+  var qs=quiz.querySelectorAll('.quiz-q');
+  qs.forEach(function(q){
+    q.querySelectorAll('.quiz-opt').forEach(function(opt){
+      opt.addEventListener('click',function(){
+        q.querySelectorAll('.quiz-opt').forEach(function(o){o.classList.remove('sel');});
+        opt.classList.add('sel');
+      });
+    });
+  });
+  var names={SD:'South Dakota',TX:'Texas',FL:'Florida'};
+  var reasons={
+    SD:"South Dakota is the fastest, lowest-friction home base — one night to establish, renewals by mail, cheap registration, no inspections. The one real catch is health insurance: its plans have narrow in-state networks, so it shines when you're NOT leaning on an under-65 ACA plan (Medicare, VA, an employer plan, or a health-share all work great). It's my pick — I use Americas Mailbox.",
+    TX:"Texas gives you no income tax plus the biggest, most hands-on RVer community — the Escapees club is headquartered there — and more travel-friendly health-insurance options than South Dakota. A strong all-rounder, especially if you'll pass through the South.",
+    FL:"Florida is the classic snowbird home base — no income tax, no vehicle inspections, strong healthcare infrastructure, and more national insurance options than South Dakota. Great if you spend real time in the Southeast (just know healthcare and insurance run a bit above average)."
+  };
+  document.getElementById('quizGo').addEventListener('click',function(){
+    var s={SD:0,TX:0,FL:0}, answered=0;
+    qs.forEach(function(q){
+      var sel=q.querySelector('.quiz-opt.sel');
+      if(sel){answered++; s.SD+=(+sel.getAttribute('data-sd')||0); s.TX+=(+sel.getAttribute('data-tx')||0); s.FL+=(+sel.getAttribute('data-fl')||0);}
+    });
+    var res=document.getElementById('quizResult');
+    if(answered<qs.length){
+      res.innerHTML='<div class="quiz-note">Pick an answer for all five questions for a match (you\'ve done '+answered+' of '+qs.length+').</div>';
+      res.classList.add('show'); return;
+    }
+    var order=['SD','TX','FL'].sort(function(a,b){return s[b]-s[a];});
+    var top=order[0], second=order[1], close=(s[top]-s[second])<=1;
+    res.innerHTML='<div class="pick">→ '+names[top]+'</div>'
+      +'<p>'+reasons[top]+'</p>'
+      +(close?'<p class="quiz-note">It\'s close between <strong>'+names[top]+'</strong> and <strong>'+names[second]+'</strong> — check the table above and weigh what matters most to you.</p>':'')
+      +'<p class="quiz-note">Reminder: this is a starting point, not legal or tax advice. Health insurance is the biggest real-world swing factor, so confirm your coverage options before you commit — and talk to a pro for anything complex.</p>';
+    res.classList.add('show');
+    res.scrollIntoView({behavior:'smooth',block:'nearest'});
+  });
+  document.getElementById('quizReset').addEventListener('click',function(){
+    quiz.querySelectorAll('.quiz-opt.sel').forEach(function(o){o.classList.remove('sel');});
+    var res=document.getElementById('quizResult'); res.classList.remove('show'); res.innerHTML='';
+  });
+})();
 </script>
 <script defer src="/_vercel/insights/script.js"></script>
 </body>
