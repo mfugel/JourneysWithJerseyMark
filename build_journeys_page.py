@@ -609,7 +609,13 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
         </div>
       </div>
       <span class="nav-dot">✦</span>
-      <a href="nomad-guide.html">⛺ Nomad Guide</a>
+      <div class="nav-dropdown">
+        <button type="button" class="nav-dropdown-trigger" onclick="toggleDropdown(event,this)" aria-haspopup="true" aria-expanded="false">Life on the Road <span class="nav-dropdown-caret">▾</span></button>
+        <div class="nav-dropdown-menu" role="menu">
+          <a href="nomad-guide.html" role="menuitem">⛺ Nomad Guide</a>
+          <a href="gear.html" role="menuitem">🎒 Gear &amp; Goods</a>
+        </div>
+      </div>
       <span class="nav-dot">✦</span>
       <a href="wallpapers.html">🎁 Gift from the Road</a>
       <span class="nav-dot">✦</span>
@@ -640,7 +646,9 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
     <a href="index.html#memories">Memories</a>
     <a href="journeys.html" class="nav-active">🗺 My Journeys</a>
     <a href="index.html#track">Track Me</a>
+    <span class="nav-drawer-group-label">✦ Life on the Road</span>
     <a href="nomad-guide.html">⛺ Nomad Guide</a>
+    <a href="gear.html">🎒 Gear &amp; Goods</a>
     <a href="wallpapers.html">🎁 Gift from the Road</a>
     <span class="nav-drawer-group-label">✦ Connect</span>
     <a href="index.html#contact">Contact</a>
