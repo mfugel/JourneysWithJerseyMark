@@ -151,6 +151,9 @@ table.cmp tr:nth-child(even) td{background:rgba(180,130,70,0.12);}
 .print-only{display:none;}
 .print-btn{font-family:'Cinzel',serif;font-size:0.74rem;letter-spacing:0.1em;text-transform:uppercase;color:#f5ead0;background:#5a3510;border:1px solid #5a3510;border-radius:6px;padding:0.55rem 1.2rem;cursor:pointer;transition:background 0.18s;}
 .print-btn:hover{background:#7a4e20;}
+.page-byline{text-align:center;font-family:'IM Fell English',serif;font-style:italic;color:#5a3510;font-size:1.02rem;margin:0 0 1.3rem;line-height:1.5;}
+.page-byline a{color:#7a3e10;text-decoration:underline dotted;text-underline-offset:2px;}
+.page-byline a:hover{color:#a8521a;}
 @media print{
   .site-nav,.nav-drawer,.parchment-bg,.vignette,.no-print,.corner-ornament,.quiz-actions,.quiz-result,.guide-footer{display:none !important;}
   .print-only{display:block !important;}
@@ -260,7 +263,7 @@ table.cmp tr:nth-child(even) td{background:rgba(180,130,70,0.12);}
 
       <div class="guide">
 
-        <p class="print-only print-byline">A Nomad's Guide by <strong>Jersey Mark</strong> · Journeys with Jersey Mark · journeyswithjerseymark.com</p>
+        <p class="page-byline">A Nomad's Guide by <strong>Jersey Mark</strong> · Journeys with Jersey Mark · <a href="index.html">journeyswithjerseymark.com</a></p>
 
         <div class="no-print" style="text-align:center;margin:0 0 1.4rem;">
           <button type="button" class="print-btn" onclick="window.print()">🖨 Print / Save as PDF</button>
