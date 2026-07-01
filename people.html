@@ -84,6 +84,10 @@ h2.sec{font-family:'Cinzel',serif;font-size:1.28rem;font-weight:700;color:#5a351
 @keyframes pkb{from{transform:scale(1.04);}to{transform:scale(1.15);}}
 .pstage-full{position:absolute;top:10px;right:10px;z-index:3;background:rgba(26,15,0,0.55);color:#f5ead0;border:1px solid rgba(245,234,208,0.45);border-radius:6px;font-size:1rem;line-height:1;padding:0.35rem 0.5rem;cursor:pointer;}
 .pstage-full:hover{background:rgba(26,15,0,0.85);}
+.pstage-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:3;background:rgba(26,15,0,0.5);color:#f5ead0;border:1px solid rgba(245,234,208,0.35);border-radius:50%;width:2.2rem;height:2.2rem;font-size:1.1rem;line-height:1;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background 0.18s;user-select:none;}
+.pstage-nav:hover{background:rgba(26,15,0,0.85);}
+.pstage-prev{left:10px;}
+.pstage-next{right:10px;margin-right:2.6rem;}
 .pstage-cap{position:absolute;left:0;right:0;bottom:0;z-index:3;background:linear-gradient(transparent,rgba(20,12,0,0.82));color:#f5ead0;font-family:'IM Fell English',serif;font-style:italic;font-size:1.05rem;padding:1.6rem 1rem 0.8rem;text-align:center;min-height:2.2rem;}
 .people-empty{font-family:'IM Fell English',serif;font-style:italic;color:rgba(90,53,16,0.65);text-align:center;padding:1.4rem 0;}
 
@@ -208,6 +212,8 @@ h2.sec{font-family:'Cinzel',serif;font-size:1.28rem;font-weight:700;color:#5a351
         <h2 class="sec">📸 The Faces I've Met</h2>
         <div class="pstage-wrap" id="peopleShow" style="display:none;">
           <div class="pstage" id="pstage">
+            <button type="button" class="pstage-nav pstage-prev" id="pstagePrev" title="Previous" aria-label="Previous">‹</button>
+            <button type="button" class="pstage-nav pstage-next" id="pstageNext" title="Next" aria-label="Next">›</button>
             <button type="button" class="pstage-full" id="pstageFull" title="Fullscreen" aria-label="Fullscreen">⛶</button>
             <div class="pstage-cap" id="pstageCap"></div>
           </div>
@@ -320,7 +326,12 @@ function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'
         var t=cur; cur=nxt; nxt=t;
       }
       show(0);
-      if(items.length>1) setInterval(function(){ idx=(idx+1)%items.length; show(idx); },4800);
+      var timer=null;
+      function startAuto(){ if(items.length>1) timer=setInterval(function(){ idx=(idx+1)%items.length; show(idx); },4800); }
+      function resetAuto(){ clearInterval(timer); startAuto(); }
+      startAuto();
+      document.getElementById('pstagePrev').addEventListener('click',function(){ idx=(idx-1+items.length)%items.length; show(idx); resetAuto(); });
+      document.getElementById('pstageNext').addEventListener('click',function(){ idx=(idx+1)%items.length; show(idx); resetAuto(); });
       document.getElementById('pstageFull').addEventListener('click',function(){
         var fn=stage.requestFullscreen||stage.webkitRequestFullscreen;
         if(!document.fullscreenElement && fn){ fn.call(stage); } else if(document.exitFullscreen){ document.exitFullscreen(); }
