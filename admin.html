@@ -145,6 +145,7 @@ textarea{resize:vertical;min-height:100px;}
           <button class="tab-btn active" id="tabAlbumsBtn" onclick="switchTab('albums')">📸 Albums</button>
           <button class="tab-btn" id="tabVideosBtn" onclick="switchTab('videos')">▶ Videos</button>
           <button class="tab-btn" id="tabGearBtn" onclick="switchTab('gear')">🎒 Gear</button>
+          <button class="tab-btn" id="tabMusicBtn" onclick="switchTab('music')">🎵 Music</button>
         </div>
 
         <!-- ─── ALBUMS TAB ─── -->
@@ -275,6 +276,45 @@ textarea{resize:vertical;min-height:100px;}
           </div>
         </div>
 
+        <!-- ─── MUSIC TAB ─── -->
+        <div id="musicTab" style="display:none;">
+          <div class="divider-rule">✦ Current Playlists on Site ✦</div>
+          <div id="musicList"></div>
+          <div class="status" id="musicMainStatus"></div>
+
+          <div class="divider-rule">✦ Add / Edit Playlist ✦</div>
+          <div class="legend-box-new">
+            <div class="legend-box-title" id="musicFormTitle">+ New Playlist</div>
+
+            <div class="field-row">
+              <label for="musicTitle">Playlist Title</label>
+              <input type="text" id="musicTitle" placeholder="e.g. Sunrise Drives">
+              <p class="hint">Short name shown as the card title on the Music for the Road section.</p>
+            </div>
+
+            <div class="field-row">
+              <label for="musicDesc">Description (optional)</label>
+              <textarea id="musicDesc" placeholder="A line about the vibe — in your voice."></textarea>
+            </div>
+
+            <div class="field-row">
+              <label for="musicUrl">Playlist Link</label>
+              <input type="text" id="musicUrl" placeholder="Paste a Spotify, YouTube, or Apple Music link…" oninput="detectMusic()">
+              <p class="hint">Paste the <strong>share link</strong> for a playlist (Spotify, YouTube, or Apple Music) — it becomes a playable player automatically. In the app: <strong>Share → Copy link</strong>.</p>
+              <div class="status" id="musicUrlStatus"></div>
+            </div>
+
+            <button class="btn btn-green" id="musicAddBtn" onclick="addOrUpdateMusic()">+ Add Playlist</button>
+            <button class="btn btn-secondary btn-sm" id="musicCancelBtn" onclick="resetMusicForm()" style="display:none;margin-left:0.4rem;">Cancel edit</button>
+            <div class="status" id="musicAddStatus"></div>
+          </div>
+
+          <div class="btn-row">
+            <button class="btn btn-primary" onclick="saveMusic()">💾 Save &amp; Publish to Site</button>
+            <button class="btn btn-danger btn-sm" onclick="doLogout()">Sign Out</button>
+          </div>
+        </div>
+
         <!-- SHARE PANEL — appears after a successful publish -->
         <div class="share-panel" id="sharePanel">
           <div class="share-panel-title">✦ Share the News ✦</div>
@@ -312,6 +352,7 @@ var REPO_NAME  = 'JourneysWithJerseyMark';
 var FILE_PATH  = 'albums.json';
 var VIDEOS_PATH = 'videos.json';
 var GEAR_PATH  = 'gear.json';
+var MUSIC_PATH = 'music.json';
 var AMAZON_TAG = 'journeysw0832-20'; // Amazon Associates tracking ID — auto-applied to Amazon gear links
 var BRANCH     = 'main';
 var SITE_URL   = 'https://journeyswithjerseymark.com';
@@ -319,11 +360,12 @@ var SITE_URL   = 'https://journeyswithjerseymark.com';
 var token = '', albums = [], fileSha = '';
 var videos = [], videosSha = '';
 var gear = [], gearSha = '', gearEditIndex = -1;
+var music = [], musicSha = '', musicEditIndex = -1;
 var lastPublishedAlbum = null;
 var lastPublishedVideo = null;
 
 function switchTab(name){
-  ['albums','videos','gear'].forEach(function(t){
+  ['albums','videos','gear','music'].forEach(function(t){
     var tab=document.getElementById(t+'Tab');
     var btn=document.getElementById('tab'+t.charAt(0).toUpperCase()+t.slice(1)+'Btn');
     if(tab) tab.style.display=(t===name)?'block':'none';
@@ -390,6 +432,7 @@ function loadAlbums(){
     renderAlbums();
     loadVideos();
     loadGear();
+    loadMusic();
   })
   .catch(function(err){showStatus('loginStatus','Connection error: '+err.message,'error');});
 }
@@ -683,6 +726,164 @@ function saveGear(){
     showStatus('gearMainStatus','✦ Published! Your gear page will update in about 30 seconds.','success');
   })
   .catch(function(err){showStatus('gearMainStatus','Save failed: '+err.message,'error');});
+}
+
+/* ─────────────────── MUSIC ─────────────────── */
+function escMusic(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+
+function detectMusicPlatform(u){
+  u=(u||'').trim();
+  if(/open\.spotify\.com\/(?:intl-[a-z]+\/)?(playlist|album|track|artist|episode|show)\//i.test(u)) return 'Spotify';
+  if(/youtu/.test(u) && /[?&]list=/.test(u)) return 'YouTube playlist';
+  if(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)/.test(u)) return 'YouTube';
+  if(/music\.apple\.com/.test(u)) return 'Apple Music';
+  return null;
+}
+
+function detectMusic(){
+  var el=document.getElementById('musicUrlStatus');
+  var u=document.getElementById('musicUrl').value.trim();
+  if(!u){el.innerHTML='';return;}
+  var p=detectMusicPlatform(u);
+  if(p) showStatus('musicUrlStatus','✓ '+p+' detected — this will embed a playable player.','success');
+  else showStatus('musicUrlStatus','Not a recognized music link — it will show as a "Listen" button instead.','info');
+}
+
+function loadMusic(){
+  fetch('https://api.github.com/repos/'+REPO_OWNER+'/'+REPO_NAME+'/contents/'+MUSIC_PATH+'?ref='+BRANCH,
+    {headers:{'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json'}})
+  .then(function(r){
+    if(r.status===404){music=[];musicSha='';renderMusic();return null;}
+    if(!r.ok){showStatus('musicMainStatus','Could not load music.json ('+r.status+').','error');return null;}
+    return r.json();
+  })
+  .then(function(data){
+    if(!data)return;
+    musicSha=data.sha;
+    var jsonStr=decodeURIComponent(escape(atob(data.content.replace(/\n/g,''))));
+    music=JSON.parse(jsonStr);
+    renderMusic();
+  })
+  .catch(function(err){showStatus('musicMainStatus','Could not load music: '+err.message,'error');});
+}
+
+function renderMusic(){
+  var c=document.getElementById('musicList');
+  if(!music.length){
+    c.innerHTML='<p style="font-family:\'IM Fell English\',serif;font-style:italic;color:rgba(90,53,16,0.5);margin-bottom:1rem;">No playlists yet — add one below.</p>';
+    return;
+  }
+  var html='';
+  music.forEach(function(m,idx){
+    var url=m.url||m.link||'';
+    var plat=detectMusicPlatform(url);
+    html+='<div style="border:1px solid #c8a96e;border-radius:8px;padding:0.7rem 0.9rem;margin-bottom:0.7rem;display:flex;gap:0.8rem;align-items:flex-start;background:rgba(255,247,225,0.5);">'+
+      '<div style="flex:1;min-width:0;">'+
+        '<div style="font-family:\'Cinzel\',serif;font-weight:700;color:#5a3510;">'+escMusic(m.title||m.name||'Playlist')+'</div>'+
+        (m.description?'<div style="font-style:italic;color:#4a3010;font-size:0.9rem;">'+escMusic(m.description)+'</div>':'')+
+        '<div style="font-size:0.8rem;color:rgba(90,53,16,0.7);margin-top:0.2rem;word-break:break-all;">'+(plat?('🎵 '+escMusic(plat)):'🔗 Link')+(url?' — <a href="'+escMusic(url)+'" target="_blank" rel="noopener">open ↗</a>':'')+'</div>'+
+        '<button class="btn btn-secondary btn-sm" style="margin-top:0.55rem;" onclick="editMusic('+idx+')">✎ Edit</button>'+
+      '</div>'+
+      '<div style="display:flex;flex-direction:column;gap:4px;">'+
+        (idx>0?'<button class="btn btn-secondary btn-sm" onclick="moveMusic('+idx+',-1)">▲</button>':'')+
+        (idx<music.length-1?'<button class="btn btn-secondary btn-sm" onclick="moveMusic('+idx+',1)">▼</button>':'')+
+        '<button class="btn btn-danger btn-sm" onclick="removeMusic('+idx+')">✕</button>'+
+      '</div>'+
+    '</div>';
+  });
+  c.innerHTML=html;
+}
+
+function resetMusicForm(){
+  musicEditIndex=-1;
+  document.getElementById('musicTitle').value='';
+  document.getElementById('musicDesc').value='';
+  document.getElementById('musicUrl').value='';
+  document.getElementById('musicUrlStatus').innerHTML='';
+  document.getElementById('musicAddBtn').textContent='+ Add Playlist';
+  document.getElementById('musicFormTitle').textContent='+ New Playlist';
+  document.getElementById('musicCancelBtn').style.display='none';
+}
+
+function editMusic(idx){
+  var m=music[idx];
+  musicEditIndex=idx;
+  document.getElementById('musicTitle').value=m.title||m.name||'';
+  document.getElementById('musicDesc').value=m.description||'';
+  document.getElementById('musicUrl').value=m.url||m.link||'';
+  detectMusic();
+  document.getElementById('musicAddBtn').textContent='✓ Update Playlist';
+  document.getElementById('musicFormTitle').textContent='✎ Editing: '+(m.title||m.name||'');
+  document.getElementById('musicCancelBtn').style.display='inline-block';
+  document.getElementById('musicFormTitle').scrollIntoView({behavior:'smooth',block:'center'});
+}
+
+function addOrUpdateMusic(){
+  var title=document.getElementById('musicTitle').value.trim();
+  var desc =document.getElementById('musicDesc').value.trim();
+  var url  =document.getElementById('musicUrl').value.trim();
+  if(!title){showStatus('musicAddStatus','Please enter a playlist title.','error');return;}
+  if(!url){showStatus('musicAddStatus','Please paste a playlist link.','error');return;}
+  var item={title:title,description:desc,url:url};
+  var editing=(musicEditIndex>=0);
+  if(editing){
+    if(music[musicEditIndex]&&music[musicEditIndex].dateAdded)item.dateAdded=music[musicEditIndex].dateAdded;
+    music[musicEditIndex]=item;
+  } else {
+    music.push(item);
+  }
+  resetMusicForm();
+  renderMusic();
+  showStatus('musicAddStatus','✦ '+(editing?'Updated':'Added')+' — hit Save & Publish to make it live.','success');
+  showStatus('musicMainStatus','Changes pending — hit Save & Publish to make them live.','info');
+}
+
+function removeMusic(idx){
+  if(!confirm('Remove "'+(music[idx].title||music[idx].name||'this playlist')+'"?'))return;
+  music.splice(idx,1);
+  if(musicEditIndex===idx)resetMusicForm();
+  renderMusic();
+  showStatus('musicMainStatus','Removed — hit Save & Publish when ready.','info');
+}
+
+function moveMusic(idx,dir){
+  var to=idx+dir;if(to<0||to>=music.length)return;
+  var tmp=music[idx];music[idx]=music[to];music[to]=tmp;
+  renderMusic();showStatus('musicMainStatus','Reordered — hit Save & Publish when ready.','info');
+}
+
+function saveMusic(){
+  if(!token){showStatus('musicMainStatus','Not logged in.','error');return;}
+  showStatus('musicMainStatus','<span class="spinner">✦</span> Publishing to GitHub…','info');
+  var freshShaPromise;
+  if(musicSha){
+    freshShaPromise = fetch('https://api.github.com/repos/'+REPO_OWNER+'/'+REPO_NAME+'/contents/'+MUSIC_PATH+'?ref='+BRANCH+'&_='+Date.now(),
+      {headers:{'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json'}})
+      .then(function(r){
+        if(r.status===404)return null;
+        if(!r.ok) throw new Error('Could not fetch current file SHA ('+r.status+') — try again');
+        return r.json();
+      })
+      .then(function(data){return data?data.sha:null;});
+  } else {
+    freshShaPromise = Promise.resolve(null);
+  }
+  freshShaPromise.then(function(freshSha){
+    var content=btoa(unescape(encodeURIComponent(JSON.stringify(music,null,2))));
+    var body={message:'Update music.json via admin page',content:content,branch:BRANCH};
+    if(freshSha)body.sha=freshSha;
+    return fetch('https://api.github.com/repos/'+REPO_OWNER+'/'+REPO_NAME+'/contents/'+MUSIC_PATH,{
+      method:'PUT',
+      headers:{'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json','Content-Type':'application/json'},
+      body:JSON.stringify(body)
+    });
+  })
+  .then(function(r){if(!r.ok)return r.json().then(function(e){throw new Error(e.message||r.status);});return r.json();})
+  .then(function(data){
+    musicSha=data.content.sha;
+    showStatus('musicMainStatus','✦ Published! Your Music for the Road section will update in about 30 seconds.','success');
+  })
+  .catch(function(err){showStatus('musicMainStatus','Save failed: '+err.message,'error');});
 }
 
 // Normalize an Amazon product URL so it always carries OUR affiliate tag.
