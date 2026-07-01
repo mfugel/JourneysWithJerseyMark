@@ -86,10 +86,14 @@ textarea{resize:vertical;min-height:100px;}
 .new-badge{display:inline-block;font-family:'Cinzel',serif;font-size:0.52rem;font-weight:700;letter-spacing:0.08em;color:#f5ead0;background:#3a6b35;border-radius:2px;padding:1px 5px;margin-left:6px;vertical-align:middle;text-transform:uppercase;}
 
 /* ── Tabs ── */
-.tab-row{display:flex;gap:0.4rem;margin-bottom:1.2rem;border-bottom:1.5px solid rgba(122,78,32,0.3);}
-.tab-btn{font-family:'Cinzel',serif;font-size:0.82rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:0.55rem 1.2rem;border:1.5px solid transparent;border-bottom:none;border-radius:3px 3px 0 0;background:transparent;color:rgba(90,53,16,0.6);cursor:pointer;transition:all 0.2s;margin-bottom:-1.5px;}
+.tab-row{display:flex;flex-wrap:wrap;gap:0.35rem 0.4rem;margin-bottom:1.2rem;border-bottom:1.5px solid rgba(122,78,32,0.3);}
+.tab-btn{font-family:'Cinzel',serif;font-size:0.82rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.55rem 1rem;border:1.5px solid transparent;border-bottom:none;border-radius:3px 3px 0 0;background:transparent;color:rgba(90,53,16,0.6);cursor:pointer;transition:color 0.2s,background 0.2s;margin-bottom:-1.5px;white-space:nowrap;}
 .tab-btn:hover{color:#5a3510;}
 .tab-btn.active{color:#2c1a08;background:rgba(160,110,50,0.18);border-color:rgba(122,78,32,0.4);border-bottom-color:#dfc99a;}
+@media(max-width:640px){
+  .tab-row{gap:0.3rem;}
+  .tab-btn{font-size:0.64rem;letter-spacing:0.05em;padding:0.45rem 0.6rem;flex:1 1 auto;text-align:center;}
+}
 
 /* ── Video thumb ── */
 .video-thumb{width:120px;height:68px;flex-shrink:0;background:rgba(44,26,8,0.15);border:1px solid rgba(122,78,32,0.3);border-radius:2px;overflow:hidden;}
