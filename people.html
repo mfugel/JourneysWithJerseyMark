@@ -220,15 +220,40 @@ h2.sec{font-family:'Cinzel',serif;font-size:1.28rem;font-weight:700;color:#5a351
         <h2 class="sec">✍️ Sign the Wall</h2>
         <p>Have we crossed paths out here — a campground, a trailhead, a Cracker Barrel lot, the RTR? Leave
         your mark. Every note is read and approved before it goes up, so take your time and say something real.</p>
-        <div class="wall-form">
-          <iframe id="JotFormIFrame-261814193765161" title="Sign the Wall"
-            src="https://form.jotform.com/261814193765161"
-            style="width:100%;min-height:600px;border:none;background:transparent;" scrolling="no"
-            allow="geolocation; microphone; camera"></iframe>
-          <p class="wall-note">Read &amp; approved before posting — no spam, no nonsense. I'd love to hear from you.</p>
+        <div class="wall-form" id="wallFormWrap">
+          <form id="wallSignForm" onsubmit="submitWallForm(event)">
+            <input type="text" name="q2_name" placeholder="Your name (or how we met) *" required>
+            <input type="text" name="q3_location" placeholder="Where you're from / where we crossed paths">
+            <textarea name="q4_message" placeholder="Your note *" required></textarea>
+            <input type="email" name="q5_email" placeholder="Email (optional — private, never shown)">
+            <div style="margin-bottom:0.75rem;">
+              <label style="font-family:'Crimson Text',serif;font-size:0.95rem;color:#6a4a20;display:block;margin-bottom:0.3rem;">A photo (optional)</label>
+              <input type="file" name="file" accept="image/*" style="font-family:'Crimson Text',serif;font-size:0.9rem;color:#241405;">
+            </div>
+            <input type="text" name="website" style="display:none;" tabindex="-1" autocomplete="off">
+            <button type="submit" class="wall-btn" id="wallSubmitBtn">Sign the Wall</button>
+          </form>
+          <div id="wallFormSuccess" style="display:none;text-align:center;padding:1.8rem 0 0.5rem;">
+            <div style="font-family:'Cinzel',serif;font-size:1.1rem;color:#5a3510;margin-bottom:0.6rem;">✦ Thanks for signing!</div>
+            <p style="font-family:'IM Fell English',serif;font-style:italic;color:#6a4a20;line-height:1.6;">Your note has been received. I'll read it and if it's a good one, it'll go up on the wall.</p>
+          </div>
+          <p class="wall-note" style="margin-top:0.8rem;">Read &amp; approved before posting — no spam, no nonsense. I'd love to hear from you.</p>
         </div>
-        <script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
-        <script>window.jotformEmbedHandler("iframe[id='JotFormIFrame-261814193765161']","https://form.jotform.com");</script>
+        <script>
+        function submitWallForm(e){
+          e.preventDefault();
+          var btn=document.getElementById('wallSubmitBtn');
+          btn.disabled=true; btn.textContent='Sending…';
+          fetch('https://eu-submit.jotform.com/submit/261814193765161',{
+            method:'POST', body:new FormData(e.target), mode:'no-cors'
+          }).then(function(){
+            document.getElementById('wallSignForm').style.display='none';
+            document.getElementById('wallFormSuccess').style.display='block';
+          }).catch(function(){
+            btn.disabled=false; btn.textContent='Sign the Wall';
+          });
+        }
+        </script>
 
         <h2 class="sec">🧱 The Wall</h2>
         <div class="wall-grid" id="wallGrid">
