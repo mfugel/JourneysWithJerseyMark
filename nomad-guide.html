@@ -147,6 +147,25 @@ table.cmp tr:nth-child(even) td{background:rgba(180,130,70,0.12);}
 .quiz-result .pick{font-family:'Cinzel',serif;font-weight:700;font-size:1.3rem;color:#5a3510;margin-bottom:0.4rem;}
 .quiz-note{font-family:'IM Fell English',serif;font-style:italic;color:#6a4a20;font-size:0.92rem;margin-top:0.7rem;}
 .signoff{font-family:'IM Fell English',serif;font-style:italic;font-size:1.12rem;color:#3a2008;margin-top:1.6rem;text-align:right;}
+/* print / PDF */
+.print-only{display:none;}
+.print-btn{font-family:'Cinzel',serif;font-size:0.74rem;letter-spacing:0.1em;text-transform:uppercase;color:#f5ead0;background:#5a3510;border:1px solid #5a3510;border-radius:6px;padding:0.55rem 1.2rem;cursor:pointer;transition:background 0.18s;}
+.print-btn:hover{background:#7a4e20;}
+@media print{
+  .site-nav,.nav-drawer,.parchment-bg,.vignette,.no-print,.corner-ornament,.quiz-actions,.quiz-result,.guide-footer{display:none !important;}
+  .print-only{display:block !important;}
+  html,body{background:#fff !important;color:#1a0f00 !important;}
+  .content{max-width:100% !important;padding:0 !important;}
+  .outer-border,.inner-border{border:none !important;padding:0 !important;background:transparent !important;}
+  .print-byline{text-align:center;font-family:'IM Fell English',serif;font-style:italic;color:#3a2008;font-size:1rem;margin:0.2rem 0 1.1rem;}
+  .print-footer{position:fixed;bottom:0;left:0;right:0;text-align:center;font-size:8.5pt;color:#5a3510;padding:4px 0;border-top:1px solid #c8a96e;background:#fff;}
+  body{padding-bottom:0.5in;}
+  h1,h2,h3{page-break-after:avoid;}
+  p,li{orphans:3;widows:3;}
+  .cmp-wrap,table.cmp,.callout,.quiz,.rig,.toolkit,.coming,.paths,.gear-grid{page-break-inside:avoid;}
+  a{color:#1a0f00 !important;}
+  @page{margin:0.6in;}
+}
 
 .guide-footer{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin-top:2rem;padding-top:1.2rem;border-top:1px solid rgba(90,53,16,0.3);font-family:'IM Fell English',serif;font-style:italic;font-size:0.95rem;color:#3a2510;}
 .guide-footer a{color:#3a2510;text-decoration:underline dotted;}
@@ -224,6 +243,7 @@ table.cmp tr:nth-child(even) td{background:rgba(180,130,70,0.12);}
 </nav>
 
 <div class="content">
+  <div class="print-footer print-only">Journeys with Jersey Mark · journeyswithjerseymark.com · © Mark Fugel</div>
   <div class="outer-border">
     <span class="corner-ornament corner-tl">✦</span>
     <span class="corner-ornament corner-tr">✦</span>
@@ -239,6 +259,12 @@ table.cmp tr:nth-child(even) td{background:rgba(180,130,70,0.12);}
       </div>
 
       <div class="guide">
+
+        <p class="print-only print-byline">A Nomad's Guide by <strong>Jersey Mark</strong> · Journeys with Jersey Mark · journeyswithjerseymark.com</p>
+
+        <div class="no-print" style="text-align:center;margin:0 0 1.4rem;">
+          <button type="button" class="print-btn" onclick="window.print()">🖨 Print / Save as PDF</button>
+        </div>
 
         <p class="lede">Friends keep asking me the same thing: "We're dreaming about
         getting out there — where do we even begin?" This is my answer. No sales
@@ -871,6 +897,10 @@ table.cmp tr:nth-child(even) td{background:rgba(180,130,70,0.12);}
             <li><a href="#apps">📱 The apps I live by</a></li>
             <li><a href="#community">🤝 The community (Bob Wells, RTR)</a></li>
           </ul>
+        </div>
+
+        <div class="no-print" style="text-align:center;margin:1.6rem 0 0.4rem;">
+          <button type="button" class="print-btn" onclick="window.print()">🖨 Print / Save this guide as PDF</button>
         </div>
 
         <p class="signoff">See you out there.<br>— Jersey Mark</p>
