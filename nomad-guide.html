@@ -154,6 +154,17 @@ table.cmp tr:nth-child(even) td{background:rgba(180,130,70,0.12);}
 .page-byline{text-align:center;font-family:'IM Fell English',serif;font-style:italic;color:#5a3510;font-size:1.02rem;margin:0 0 1.3rem;line-height:1.5;}
 .page-byline a{color:#7a3e10;text-decoration:underline dotted;text-underline-offset:2px;}
 .page-byline a:hover{color:#a8521a;}
+/* support / share block */
+.support-block{border:2px solid #7a4e20;border-radius:10px;background:rgba(200,150,60,0.14);padding:1.3rem 1.3rem 1.1rem;margin:1.8rem 0 0.6rem;text-align:center;}
+.support-title{font-family:'Cinzel',serif;font-weight:700;color:#5a3510;font-size:1.15rem;letter-spacing:0.04em;margin-bottom:0.4rem;}
+.support-text{font-family:'IM Fell English',serif;font-size:1.05rem;color:#3a2008;margin:0 auto 1rem;max-width:46ch;line-height:1.55;}
+.support-actions{display:flex;flex-wrap:wrap;gap:0.6rem;justify-content:center;align-items:center;}
+.support-block .support-btn{font-family:'Cinzel',serif;font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:#f5ead0;background:#5a3510;border:1px solid #5a3510;border-radius:6px;padding:0.5rem 0.9rem;cursor:pointer;text-decoration:none;transition:background 0.18s,color 0.18s;}
+.support-block .support-btn:hover{background:#7a4e20;color:#fff;}
+.support-block .support-btn.coffee{background:#c8862a;border-color:#c8862a;}
+.support-block .support-btn.coffee:hover{background:#b3751f;}
+.copied-msg{font-family:'IM Fell English',serif;font-style:italic;color:#3a6b35;display:none;font-size:0.95rem;}
+.copied-msg.show{display:inline;}
 @media print{
   .site-nav,.nav-drawer,.parchment-bg,.vignette,.no-print,.corner-ornament,.quiz-actions,.quiz-result,.guide-footer{display:none !important;}
   .print-only{display:block !important;}
@@ -902,6 +913,19 @@ table.cmp tr:nth-child(even) td{background:rgba(180,130,70,0.12);}
           </ul>
         </div>
 
+        <div class="support-block no-print">
+          <div class="support-title">✦ Found this guide helpful? ✦</div>
+          <p class="support-text">I put this together to help folks take the leap — no paywall, no gatekeeping. If it helped you, two things would mean the world:</p>
+          <div class="support-actions">
+            <a class="support-btn coffee" href="https://ko-fi.com/U7U3RUSTZ" target="_blank" rel="noopener">☕ Buy me a coffee</a>
+            <button type="button" class="support-btn" id="nativeShareBtn" style="display:none;">📤 Share</button>
+            <a class="support-btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.journeyswithjerseymark.com%2Fnomad-guide.html" target="_blank" rel="noopener">📘 Facebook</a>
+            <a class="support-btn" href="mailto:?subject=A%20nomad%20guide%20worth%20reading&amp;body=Thought%20you%27d%20like%20this%20%E2%80%94%20Jersey%20Mark%27s%20guide%20to%20life%20on%20the%20road%3A%20https%3A%2F%2Fwww.journeyswithjerseymark.com%2Fnomad-guide.html">✉️ Email a friend</a>
+            <button type="button" class="support-btn" id="copyLinkBtn">🔗 Copy link</button>
+            <span class="copied-msg" id="copiedMsg">✦ Copied!</span>
+          </div>
+        </div>
+
         <div class="no-print" style="text-align:center;margin:1.6rem 0 0.4rem;">
           <button type="button" class="print-btn" onclick="window.print()">🖨 Print / Save this guide as PDF</button>
         </div>
@@ -989,6 +1013,26 @@ document.querySelectorAll('.nav-dropdown-menu a').forEach(function(a){
     quiz.querySelectorAll('.quiz-opt.sel').forEach(function(o){o.classList.remove('sel');});
     var res=document.getElementById('quizResult'); res.classList.remove('show'); res.innerHTML='';
   });
+})();
+
+/* ── Share + copy link ── */
+(function(){
+  var url='https://www.journeyswithjerseymark.com/nomad-guide.html';
+  var copyBtn=document.getElementById('copyLinkBtn');
+  if(copyBtn){
+    copyBtn.addEventListener('click',function(){
+      function done(){var m=document.getElementById('copiedMsg'); if(m){m.classList.add('show'); setTimeout(function(){m.classList.remove('show');},2000);}}
+      if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(url).then(done,done); }
+      else { var t=document.createElement('textarea'); t.value=url; document.body.appendChild(t); t.select(); try{document.execCommand('copy');}catch(e){} document.body.removeChild(t); done(); }
+    });
+  }
+  var shareBtn=document.getElementById('nativeShareBtn');
+  if(shareBtn && navigator.share){
+    shareBtn.style.display='';
+    shareBtn.addEventListener('click',function(){
+      navigator.share({title:"Life on the Road — A Nomad's Guide by Jersey Mark", url:url}).catch(function(){});
+    });
+  }
 })();
 </script>
 <script defer src="/_vercel/insights/script.js"></script>
