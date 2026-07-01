@@ -319,21 +319,7 @@ textarea{resize:vertical;min-height:100px;}
         <!-- ─── MONTAGE TAB ─── -->
         <div id="montageTab" style="display:none;">
           <div class="divider-rule">✦ Road Montage ✦</div>
-          <p class="hint" style="margin-bottom:0.8rem;">Hand-pick the photos for your montage and (optionally) pair a soundtrack. It plays as a crossfading slideshow in the Music for the Road section.</p>
-
-          <div class="legend-box-new">
-            <div class="legend-box-title">🎵 Soundtrack</div>
-            <div class="field-row">
-              <label for="montageTrackSel">Pair a playlist</label>
-              <select id="montageTrackSel" onchange="pickMontageTrackFromList()" style="width:100%;padding:0.5rem;"></select>
-              <p class="hint">Pick one of your playlists, or paste a link below. YouTube playlists get true play/pause sync; Spotify &amp; Apple play alongside.</p>
-            </div>
-            <div class="field-row">
-              <label for="montageTrackUrl">…or paste a link</label>
-              <input type="text" id="montageTrackUrl" placeholder="Spotify / YouTube / Apple Music link" oninput="pickMontageTrackFromUrl()">
-              <div class="status" id="montageTrackStatus"></div>
-            </div>
-          </div>
+          <p class="hint" style="margin-bottom:0.8rem;">Hand-pick the photos for your montage — it plays as a silent, crossfading slideshow at the top of the Music for the Road page. (Visitors play music from the playlist cards below it.)</p>
 
           <div class="divider-rule">✦ Photos <span id="montageCount"></span> ✦</div>
           <div class="status" id="montageMainStatus"></div>
@@ -943,7 +929,7 @@ function loadMontage(){
   .catch(function(err){showStatus('montageMainStatus','Could not load montage: '+err.message,'error');});
 }
 
-function renderMontage(){ renderMontageTrack(); renderMontageSelected(); renderMontageAlbums(); }
+function renderMontage(){ renderMontageSelected(); renderMontageAlbums(); }
 
 function renderMontageTrack(){
   var sel=document.getElementById('montageTrackSel');
