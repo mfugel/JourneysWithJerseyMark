@@ -146,6 +146,7 @@ textarea{resize:vertical;min-height:100px;}
           <button class="tab-btn" id="tabVideosBtn" onclick="switchTab('videos')">▶ Videos</button>
           <button class="tab-btn" id="tabGearBtn" onclick="switchTab('gear')">🎒 Gear</button>
           <button class="tab-btn" id="tabMusicBtn" onclick="switchTab('music')">🎵 Music</button>
+          <button class="tab-btn" id="tabMontageBtn" onclick="switchTab('montage')">🎬 Montage</button>
         </div>
 
         <!-- ─── ALBUMS TAB ─── -->
@@ -315,6 +316,37 @@ textarea{resize:vertical;min-height:100px;}
           </div>
         </div>
 
+        <!-- ─── MONTAGE TAB ─── -->
+        <div id="montageTab" style="display:none;">
+          <div class="divider-rule">✦ Road Montage ✦</div>
+          <p class="hint" style="margin-bottom:0.8rem;">Hand-pick the photos for your montage and (optionally) pair a soundtrack. It plays as a crossfading slideshow in the Music for the Road section.</p>
+
+          <div class="legend-box-new">
+            <div class="legend-box-title">🎵 Soundtrack</div>
+            <div class="field-row">
+              <label for="montageTrackSel">Pair a playlist</label>
+              <select id="montageTrackSel" onchange="pickMontageTrackFromList()" style="width:100%;padding:0.5rem;"></select>
+              <p class="hint">Pick one of your playlists, or paste a link below. YouTube playlists get true play/pause sync; Spotify &amp; Apple play alongside.</p>
+            </div>
+            <div class="field-row">
+              <label for="montageTrackUrl">…or paste a link</label>
+              <input type="text" id="montageTrackUrl" placeholder="Spotify / YouTube / Apple Music link" oninput="pickMontageTrackFromUrl()">
+              <div class="status" id="montageTrackStatus"></div>
+            </div>
+          </div>
+
+          <div class="divider-rule">✦ Photos <span id="montageCount"></span> ✦</div>
+          <div class="status" id="montageMainStatus"></div>
+          <div id="montageSelected" style="display:flex;flex-wrap:wrap;gap:6px;margin:0.3rem 0 0.9rem;"></div>
+          <p class="hint" style="margin-bottom:0.6rem;">Click an album to open it, then click photos to add or remove them from the montage.</p>
+          <div id="montageAlbums"></div>
+
+          <div class="btn-row">
+            <button class="btn btn-primary" onclick="saveMontage()">💾 Save &amp; Publish to Site</button>
+            <button class="btn btn-danger btn-sm" onclick="doLogout()">Sign Out</button>
+          </div>
+        </div>
+
         <!-- SHARE PANEL — appears after a successful publish -->
         <div class="share-panel" id="sharePanel">
           <div class="share-panel-title">✦ Share the News ✦</div>
@@ -353,6 +385,7 @@ var FILE_PATH  = 'albums.json';
 var VIDEOS_PATH = 'videos.json';
 var GEAR_PATH  = 'gear.json';
 var MUSIC_PATH = 'music.json';
+var MONTAGE_PATH = 'montage.json';
 var AMAZON_TAG = 'journeysw0832-20'; // Amazon Associates tracking ID — auto-applied to Amazon gear links
 var BRANCH     = 'main';
 var SITE_URL   = 'https://journeyswithjerseymark.com';
@@ -361,16 +394,18 @@ var token = '', albums = [], fileSha = '';
 var videos = [], videosSha = '';
 var gear = [], gearSha = '', gearEditIndex = -1;
 var music = [], musicSha = '', musicEditIndex = -1;
+var montage = {track:{title:'',url:''}, photos:[]}, montageSha = '';
 var lastPublishedAlbum = null;
 var lastPublishedVideo = null;
 
 function switchTab(name){
-  ['albums','videos','gear','music'].forEach(function(t){
+  ['albums','videos','gear','music','montage'].forEach(function(t){
     var tab=document.getElementById(t+'Tab');
     var btn=document.getElementById('tab'+t.charAt(0).toUpperCase()+t.slice(1)+'Btn');
     if(tab) tab.style.display=(t===name)?'block':'none';
     if(btn) btn.classList.toggle('active', t===name);
   });
+  if(name==='montage') renderMontage();
 }
 
 function extractYouTubeId(input){
@@ -433,6 +468,7 @@ function loadAlbums(){
     loadVideos();
     loadGear();
     loadMusic();
+    loadMontage();
   })
   .catch(function(err){showStatus('loginStatus','Connection error: '+err.message,'error');});
 }
@@ -884,6 +920,129 @@ function saveMusic(){
     showStatus('musicMainStatus','✦ Published! Your Music for the Road section will update in about 30 seconds.','success');
   })
   .catch(function(err){showStatus('musicMainStatus','Save failed: '+err.message,'error');});
+}
+
+/* ─────────────────── MONTAGE ─────────────────── */
+function montageThumb(u){ return u + (u.indexOf('=')>-1?'':'=w150-h150-c'); }
+
+function loadMontage(){
+  fetch('https://api.github.com/repos/'+REPO_OWNER+'/'+REPO_NAME+'/contents/'+MONTAGE_PATH+'?ref='+BRANCH,
+    {headers:{'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json'}})
+  .then(function(r){
+    if(r.status===404){montage={track:{title:'',url:''},photos:[]};montageSha='';return null;}
+    if(!r.ok){showStatus('montageMainStatus','Could not load montage.json ('+r.status+').','error');return null;}
+    return r.json();
+  })
+  .then(function(data){
+    if(!data)return;
+    montageSha=data.sha;
+    var jsonStr=decodeURIComponent(escape(atob(data.content.replace(/\n/g,''))));
+    var m=JSON.parse(jsonStr);
+    montage={track:(m.track||{title:'',url:''}),photos:(m.photos||[])};
+  })
+  .catch(function(err){showStatus('montageMainStatus','Could not load montage: '+err.message,'error');});
+}
+
+function renderMontage(){ renderMontageTrack(); renderMontageSelected(); renderMontageAlbums(); }
+
+function renderMontageTrack(){
+  var sel=document.getElementById('montageTrackSel');
+  var opts='<option value="">— none / paste below —</option>';
+  music.forEach(function(m,i){ opts+='<option value="'+i+'">'+escMusic(m.title||m.name||('Playlist '+(i+1)))+'</option>'; });
+  sel.innerHTML=opts;
+  var url=(montage.track&&(montage.track.url||montage.track.link))||'';
+  var matched=-1;
+  music.forEach(function(m,i){ if((m.url||m.link)===url) matched=i; });
+  if(matched>=0){ sel.value=String(matched); document.getElementById('montageTrackUrl').value=''; }
+  else { sel.value=''; document.getElementById('montageTrackUrl').value=url; }
+}
+
+function pickMontageTrackFromList(){
+  var sel=document.getElementById('montageTrackSel');
+  if(sel.value===''){ return; }
+  var m=music[parseInt(sel.value,10)];
+  if(m){ montage.track={title:(m.title||m.name||''),url:(m.url||m.link||'')}; document.getElementById('montageTrackUrl').value=''; showStatus('montageTrackStatus','✓ Paired: '+escMusic(montage.track.title),'success'); showStatus('montageMainStatus','Changes pending — hit Save & Publish.','info'); }
+}
+
+function pickMontageTrackFromUrl(){
+  var u=document.getElementById('montageTrackUrl').value.trim();
+  document.getElementById('montageTrackSel').value='';
+  montage.track={title:'',url:u};
+  var p=detectMusicPlatform(u);
+  if(!u) document.getElementById('montageTrackStatus').innerHTML='';
+  else if(p) showStatus('montageTrackStatus','✓ '+p+' soundtrack set.','success');
+  else showStatus('montageTrackStatus','Not a recognized music link.','info');
+  showStatus('montageMainStatus','Changes pending — hit Save & Publish.','info');
+}
+
+function renderMontageSelected(){
+  var c=document.getElementById('montageSelected');
+  document.getElementById('montageCount').textContent='('+montage.photos.length+' selected)';
+  if(!montage.photos.length){ c.innerHTML='<p style="font-family:\'IM Fell English\',serif;font-style:italic;color:rgba(90,53,16,0.5);">No photos yet — open an album below and click photos to add them.</p>'; return; }
+  c.innerHTML=montage.photos.map(function(u){
+    return '<span style="position:relative;display:inline-block;"><img src="'+montageThumb(u)+'" style="width:54px;height:54px;object-fit:cover;border-radius:5px;border:1px solid #7a4e20;" loading="lazy"><button onclick="toggleMontagePhoto(\''+u.replace(/'/g,"\\'")+'\')" title="Remove" style="position:absolute;top:-6px;right:-6px;background:#a33;color:#fff;border:none;border-radius:50%;width:18px;height:18px;line-height:1;font-size:11px;cursor:pointer;">✕</button></span>';
+  }).join('');
+}
+
+function renderMontageAlbums(){
+  var c=document.getElementById('montageAlbums');
+  if(!albums||!albums.length){ c.innerHTML='<p class="hint">Albums still loading… reopen this tab in a moment.</p>'; return; }
+  c.innerHTML=albums.map(function(a,i){
+    var n=(a.photos||[]).length;
+    return '<div style="border:1px solid #c8a96e;border-radius:7px;margin-bottom:6px;overflow:hidden;">'+
+      '<div onclick="toggleMontageAlbum('+i+')" style="cursor:pointer;padding:0.5rem 0.7rem;background:rgba(200,169,110,0.18);font-family:\'Cinzel\',serif;font-weight:700;color:#5a3510;font-size:0.9rem;">▸ '+escMusic(a.title||('Album '+(i+1)))+' <span style="font-weight:400;color:rgba(90,53,16,0.6);">('+n+')</span></div>'+
+      '<div id="mAlb'+i+'" style="display:none;padding:0.5rem;"></div>'+
+    '</div>';
+  }).join('');
+}
+
+function toggleMontageAlbum(i){
+  var el=document.getElementById('mAlb'+i);
+  if(el.style.display==='none'){
+    if(!el.getAttribute('data-loaded')){
+      var ph=(albums[i].photos||[]);
+      el.innerHTML='<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(70px,1fr));gap:5px;">'+ph.map(montagePhotoCell).join('')+'</div>';
+      el.setAttribute('data-loaded','1');
+    }
+    el.style.display='block';
+  } else { el.style.display='none'; }
+}
+
+function montagePhotoCell(u){
+  var on=montage.photos.indexOf(u)>=0;
+  return '<div onclick="toggleMontagePhoto(\''+u.replace(/'/g,"\\'")+'\')" data-u="'+escMusic(u)+'" style="position:relative;cursor:pointer;aspect-ratio:1;border-radius:5px;overflow:hidden;border:2px solid '+(on?'#2f7d32':'transparent')+';"><img src="'+montageThumb(u)+'" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;opacity:'+(on?'1':'0.9')+';"><span style="position:absolute;top:3px;right:3px;background:'+(on?'#2f7d32':'rgba(0,0,0,0.4)')+';color:#fff;border-radius:50%;width:18px;height:18px;line-height:18px;text-align:center;font-size:12px;">'+(on?'✓':'+')+'</span></div>';
+}
+
+function toggleMontagePhoto(u){
+  var i=montage.photos.indexOf(u);
+  if(i>=0) montage.photos.splice(i,1); else montage.photos.push(u);
+  renderMontageSelected();
+  var cells=document.querySelectorAll('[data-u]');
+  Array.prototype.forEach.call(cells,function(cell){ if(cell.getAttribute('data-u')===u){ cell.outerHTML=montagePhotoCell(u); } });
+  showStatus('montageMainStatus','Changes pending — hit Save & Publish.','info');
+}
+
+function saveMontage(){
+  if(!token){showStatus('montageMainStatus','Not logged in.','error');return;}
+  showStatus('montageMainStatus','<span class="spinner">✦</span> Publishing to GitHub…','info');
+  var freshShaPromise;
+  if(montageSha){
+    freshShaPromise = fetch('https://api.github.com/repos/'+REPO_OWNER+'/'+REPO_NAME+'/contents/'+MONTAGE_PATH+'?ref='+BRANCH+'&_='+Date.now(),
+      {headers:{'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json'}})
+      .then(function(r){ if(r.status===404)return null; if(!r.ok) throw new Error('Could not fetch current file SHA ('+r.status+')'); return r.json(); })
+      .then(function(data){return data?data.sha:null;});
+  } else { freshShaPromise=Promise.resolve(null); }
+  freshShaPromise.then(function(freshSha){
+    var content=btoa(unescape(encodeURIComponent(JSON.stringify(montage,null,2))));
+    var body={message:'Update montage.json via admin page',content:content,branch:BRANCH};
+    if(freshSha)body.sha=freshSha;
+    return fetch('https://api.github.com/repos/'+REPO_OWNER+'/'+REPO_NAME+'/contents/'+MONTAGE_PATH,{
+      method:'PUT', headers:{'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json','Content-Type':'application/json'}, body:JSON.stringify(body)
+    });
+  })
+  .then(function(r){if(!r.ok)return r.json().then(function(e){throw new Error(e.message||r.status);});return r.json();})
+  .then(function(data){ montageSha=data.content.sha; showStatus('montageMainStatus','✦ Published! Your montage will update in about 30 seconds.','success'); })
+  .catch(function(err){showStatus('montageMainStatus','Save failed: '+err.message,'error');});
 }
 
 // Normalize an Amazon product URL so it always carries OUR affiliate tag.
