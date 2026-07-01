@@ -1303,27 +1303,6 @@ function removeWall(idx){
   showStatus('wallMainStatus','Removed — hit Save & Publish when ready.','info');
 }
 function moveWall(idx,dir){ var to=idx+dir; if(to<0||to>=wall.length)return; var t=wall[idx];wall[idx]=wall[to];wall[to]=t; renderWall(); showStatus('wallMainStatus','Reordered — hit Save & Publish.','info'); }
-function saveWall(){
-  if(!token){showStatus('wallMainStatus','Not logged in.','error');return;}
-  showStatus('wallMainStatus','<span class="spinner">✦</span> Publishing to GitHub…','info');
-  var fp;
-  if(wallSha){
-    fp=fetch('https://api.github.com/repos/'+REPO_OWNER+'/'+REPO_NAME+'/contents/'+WALL_PATH+'?ref='+BRANCH+'&_='+Date.now(),
-      {headers:{'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json'}})
-      .then(function(r){ if(r.status===404)return null; if(!r.ok) throw new Error('SHA fetch ('+r.status+')'); return r.json(); })
-      .then(function(data){return data?data.sha:null;});
-  } else { fp=Promise.resolve(null); }
-  fp.then(function(freshSha){
-    var content=btoa(unescape(encodeURIComponent(JSON.stringify(wall,null,2))));
-    var body={message:'Update wall.json via admin page',content:content,branch:BRANCH};
-    if(freshSha)body.sha=freshSha;
-    return fetch('https://api.github.com/repos/'+REPO_OWNER+'/'+REPO_NAME+'/contents/'+WALL_PATH,{
-      method:'PUT',headers:{'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json','Content-Type':'application/json'},body:JSON.stringify(body)});
-  })
-  .then(function(r){if(!r.ok)return r.json().then(function(e){throw new Error(e.message||r.status);});return r.json();})
-  .then(function(data){ wallSha=data.content.sha; showStatus('wallMainStatus','✦ Published! The Wall updates in ~30 seconds.','success'); })
-  .catch(function(err){showStatus('wallMainStatus','Save failed: '+err.message,'error');});
-}
 
 // Normalize an Amazon product URL so it always carries OUR affiliate tag.
 // Non-Amazon links are returned untouched; amzn.to short links already carry
@@ -1674,17 +1653,25 @@ function renderJFPending(subs, fieldMap){
 
 function approveJFSub(sid){
   var d = jfPendingMap[sid];
-  if(!d){ showStatus('wallMainStatus','Could not find submission data — try reloading.','error'); return; }
+  if(!d){ showStatus('wallPendingStatus','Could not find submission data — try reloading.','error'); return; }
+  // Remove from pending immediately so there's no ambiguity
+  var card = document.getElementById('jfcard_'+sid);
+  if(card) card.remove();
+  delete jfPendingMap[sid];
+  // Check if all pending cards are gone
+  if(!document.querySelector('[id^="jfcard_"]')){
+    document.getElementById('wallPending').innerHTML='';
+  }
   wall.unshift({jfId:sid, name:d.name, location:d.location, message:d.message, photo:d.photo, date:d.date});
   renderWall();
-  var card = document.getElementById('jfcard_'+sid);
-  if(card){ card.style.opacity='0.4'; card.style.pointerEvents='none'; }
-  showStatus('wallMainStatus','<span class="spinner">✦</span> Approved — publishing to site…','info');
-  saveWallThen(sid, card);
+  showStatus('wallPendingStatus','<span class="spinner">✦</span> Publishing…','info');
+  saveWall(true);
 }
 
-function saveWallThen(sid, card){
+function saveWall(fromApprove){
   if(!token){ showStatus('wallMainStatus','Not logged in.','error'); return; }
+  var statusEl = fromApprove ? 'wallPendingStatus' : 'wallMainStatus';
+  if(!fromApprove) showStatus('wallMainStatus','<span class="spinner">✦</span> Publishing to GitHub…','info');
   var fp;
   if(wallSha){
     fp=fetch('https://api.github.com/repos/'+REPO_OWNER+'/'+REPO_NAME+'/contents/'+WALL_PATH+'?ref='+BRANCH+'&_='+Date.now(),
@@ -1694,7 +1681,7 @@ function saveWallThen(sid, card){
   } else { fp=Promise.resolve(null); }
   fp.then(function(freshSha){
     var content=btoa(unescape(encodeURIComponent(JSON.stringify(wall,null,2))));
-    var body={message:'Approve wall signature via admin',content:content,branch:BRANCH};
+    var body={message:'Update wall.json via admin page',content:content,branch:BRANCH};
     if(freshSha)body.sha=freshSha;
     return fetch('https://api.github.com/repos/'+REPO_OWNER+'/'+REPO_NAME+'/contents/'+WALL_PATH,{
       method:'PUT',headers:{'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json','Content-Type':'application/json'},body:JSON.stringify(body)});
@@ -1702,12 +1689,9 @@ function saveWallThen(sid, card){
   .then(function(r){if(!r.ok)return r.json().then(function(e){throw new Error(e.message||r.status);});return r.json();})
   .then(function(data){
     wallSha=data.content.sha;
-    if(card) card.remove();
-    showStatus('wallMainStatus','✦ Published! Signature will appear on the site in ~30 seconds.','success');
+    showStatus(statusEl,'✦ Published! Signature will appear on site in ~30 seconds.','success');
   })
-  .catch(function(err){
-    showStatus('wallMainStatus','Approved locally but publish failed: '+err.message+' — hit Save & Publish to retry.','error');
-  });
+  .catch(function(err){ showStatus(statusEl,'Save failed: '+err.message,'error'); });
 }
 
 function ignoreJFSub(sid){
