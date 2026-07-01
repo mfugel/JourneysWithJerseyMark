@@ -220,15 +220,15 @@ h2.sec{font-family:'Cinzel',serif;font-size:1.28rem;font-weight:700;color:#5a351
         <h2 class="sec">✍️ Sign the Wall</h2>
         <p>Have we crossed paths out here — a campground, a trailhead, a Cracker Barrel lot, the RTR? Leave
         your mark. Every note is read and approved before it goes up, so take your time and say something real.</p>
-        <form class="wall-form" id="wallForm" action="https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID" method="POST">
-          <input type="text" name="name" placeholder="Your name (or how we met)" required maxlength="80">
-          <input type="text" name="location" placeholder="Where you're from / where we crossed paths" maxlength="100">
-          <textarea name="message" placeholder="Leave a note for the road…" required maxlength="600"></textarea>
-          <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-          <input type="hidden" name="_subject" value="New Wall signature — Journeys with Jersey Mark">
-          <button type="submit" class="wall-btn">✍️ Sign the Wall</button>
+        <div class="wall-form">
+          <iframe id="JotFormIFrame-261814193765161" title="Sign the Wall"
+            src="https://form.jotform.com/261814193765161"
+            style="width:100%;min-height:600px;border:none;background:transparent;" scrolling="no"
+            allow="geolocation; microphone; camera"></iframe>
           <p class="wall-note">Read &amp; approved before posting — no spam, no nonsense. I'd love to hear from you.</p>
-        </form>
+        </div>
+        <script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
+        <script>window.jotformEmbedHandler("iframe[id='JotFormIFrame-261814193765161']","https://form.jotform.com");</script>
 
         <h2 class="sec">🧱 The Wall</h2>
         <div class="wall-grid" id="wallGrid">
@@ -321,13 +321,6 @@ function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'
     .catch(function(){ grid.innerHTML='<p class="wall-empty">Couldn\'t load the wall right now — try again later.</p>'; });
 })();
 
-/* graceful note if the form endpoint hasn't been set up yet */
-document.getElementById('wallForm').addEventListener('submit',function(e){
-  if(this.action.indexOf('REPLACE_WITH_YOUR_FORM_ID')>-1){
-    e.preventDefault();
-    alert("The sign-the-wall form isn't quite hooked up yet — check back very soon!");
-  }
-});
 </script>
 <script defer src="/_vercel/insights/script.js"></script>
 </body>
