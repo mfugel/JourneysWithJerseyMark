@@ -371,8 +371,25 @@ textarea{resize:vertical;min-height:100px;}
         <!-- ─── WALL TAB ─── -->
         <div id="wallTab" style="display:none;">
           <div class="divider-rule">✦ The Wall — Approved Signatures <span id="wallCount"></span> ✦</div>
-          <p class="hint" style="margin-bottom:0.7rem;">People sign the wall via the form on the People page — you get an email from JotForm. Add the good ones here to publish them. You're the moderator: only what you add here ever shows.</p>
-          <p class="hint" style="margin-bottom:1rem;"><a href="https://www.jotform.com/inbox/261814193765161" target="_blank" rel="noopener" style="font-family:'Cinzel',serif;font-size:0.82rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#3a6b35;border:1.5px solid #3a6b35;border-radius:3px;padding:0.4rem 0.9rem;text-decoration:none;display:inline-block;">📬 View JotForm Submissions ↗</a></p>
+          <p class="hint" style="margin-bottom:0.8rem;">People sign the wall via the form on the People page. Load pending submissions below — approve the real ones, ignore the rest. Only approved signatures ever appear on your site.</p>
+
+          <!-- JotForm key + fetch -->
+          <div class="legend-box" style="margin-bottom:1rem;">
+            <div class="legend-box-title">JotForm API Key</div>
+            <div style="display:flex;gap:8px;align-items:center;">
+              <input type="password" id="jfKeyInput" placeholder="Paste your JotForm API key…" style="flex:1;">
+              <button class="btn btn-green" onclick="saveJFKey()" style="white-space:nowrap;">Save Key</button>
+            </div>
+            <p class="hint" style="margin-top:0.3rem;">Get it at <a href="https://eu.jotform.com/myaccount/api" target="_blank" rel="noopener">JotForm → Account → API</a>. Stored only on this device, never sent anywhere except JotForm.</p>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.7rem;margin-bottom:0.8rem;flex-wrap:wrap;">
+            <button class="btn btn-green" onclick="fetchJFSubmissions()" id="jfFetchBtn">📥 Load Pending Submissions</button>
+            <a href="https://www.jotform.com/inbox/261814193765161" target="_blank" rel="noopener" style="font-family:'Cinzel',serif;font-size:0.78rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#3a6b35;border:1.5px solid #3a6b35;border-radius:3px;padding:0.38rem 0.8rem;text-decoration:none;display:inline-block;">📬 JotForm Inbox ↗</a>
+          </div>
+          <div class="status" id="wallPendingStatus"></div>
+          <div id="wallPending"></div>
+
+          <div class="divider-rule" style="margin-top:1rem;">✦ Live on Site ✦</div>
           <div id="wallList"></div>
           <div class="status" id="wallMainStatus"></div>
 
@@ -1538,6 +1555,140 @@ function copyShare(textareaId,copiedId){
 
 function showStatus(id,msg,type){var el=document.getElementById(id);el.innerHTML=msg;el.className='status show '+type;}
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+
+/* ─────────────────── JOTFORM INBOX ─────────────────── */
+var JF_FORM_ID = '261814193765161';
+var JF_BASE    = 'https://eu-api.jotform.com';
+var jfKey      = '';
+var jfIgnored  = [];  // submission IDs the user dismissed
+
+(function(){
+  try { jfKey = localStorage.getItem('jm_jotform_key') || ''; if(jfKey) document.getElementById('jfKeyInput').value = jfKey; } catch(e){}
+  try { jfIgnored = JSON.parse(localStorage.getItem('jm_wall_ignored') || '[]'); } catch(e){}
+})();
+
+function saveJFKey(){
+  jfKey = document.getElementById('jfKeyInput').value.trim();
+  if(!jfKey){ showStatus('wallPendingStatus','Paste your API key first.','error'); return; }
+  try{ localStorage.setItem('jm_jotform_key', jfKey); }catch(e){}
+  showStatus('wallPendingStatus','✦ API key saved — click Load Pending Submissions.','success');
+}
+
+function jfApprovedIds(){
+  return wall.map(function(w){ return w.jfId || ''; }).filter(Boolean);
+}
+
+function fetchJFSubmissions(){
+  if(!jfKey){ showStatus('wallPendingStatus','Save your JotForm API key first.','error'); return; }
+  var btn = document.getElementById('jfFetchBtn');
+  btn.disabled = true; btn.textContent = '⏳ Loading…';
+  showStatus('wallPendingStatus','<span class="spinner">✦</span> Fetching submissions from JotForm…','info');
+
+  // Fetch questions first so we can map field names dynamically
+  fetch(JF_BASE+'/form/'+JF_FORM_ID+'/questions?apiKey='+encodeURIComponent(jfKey))
+  .then(function(r){ if(!r.ok) throw new Error('JotForm API error ('+r.status+') — check your key.'); return r.json(); })
+  .then(function(qData){
+    var fieldMap = mapJFFields(qData.content || {});
+    return fetch(JF_BASE+'/form/'+JF_FORM_ID+'/submissions?apiKey='+encodeURIComponent(jfKey)+'&limit=100&orderby=created_at,DESC')
+      .then(function(r){ if(!r.ok) throw new Error('JotForm submissions error ('+r.status+').'); return r.json(); })
+      .then(function(sData){ return {subs: sData.content || [], fieldMap: fieldMap}; });
+  })
+  .then(function(result){
+    btn.disabled = false; btn.textContent = '📥 Load Pending Submissions';
+    var approved = jfApprovedIds();
+    var pending = (result.subs || []).filter(function(s){
+      return s.status !== 'DELETED' && approved.indexOf(s.id) < 0 && jfIgnored.indexOf(s.id) < 0;
+    });
+    renderJFPending(pending, result.fieldMap);
+    if(!pending.length){
+      showStatus('wallPendingStatus','✦ All caught up — no new submissions pending.','success');
+    } else {
+      showStatus('wallPendingStatus',pending.length+' pending submission'+(pending.length===1?'':'s')+' — approve or ignore each one.','info');
+    }
+  })
+  .catch(function(err){
+    btn.disabled = false; btn.textContent = '📥 Load Pending Submissions';
+    showStatus('wallPendingStatus','✖ '+err.message,'error');
+  });
+}
+
+function mapJFFields(questions){
+  var map = {name:null, location:null, message:null, email:null, photo:null};
+  Object.keys(questions).forEach(function(qid){
+    var q = questions[qid];
+    var text = (q.text || q.name || '').toLowerCase();
+    if      (!map.name     && /name|how.*(met|know)/i.test(text))          map.name     = qid;
+    else if (!map.location && /where|location|from|hometown/i.test(text))  map.location = qid;
+    else if (!map.message  && /note|message|say|comment/i.test(text))      map.message  = qid;
+    else if (!map.email    && /email/i.test(text))                          map.email    = qid;
+    else if (!map.photo    && /photo|image|picture|upload/i.test(text))     map.photo    = qid;
+  });
+  return map;
+}
+
+function getJFAnswer(answers, qid){
+  if(!qid || !answers[qid]) return '';
+  var a = answers[qid].answer;
+  if(!a) return '';
+  if(typeof a === 'string') return a;
+  if(Array.isArray(a)){
+    // file upload array
+    if(a[0] && typeof a[0] === 'object' && a[0].url) return a[0].url;
+    return a.join(', ');
+  }
+  if(typeof a === 'object' && a.url) return a.url;
+  return String(a);
+}
+
+function renderJFPending(subs, fieldMap){
+  var c = document.getElementById('wallPending');
+  if(!subs.length){ c.innerHTML = ''; return; }
+  var html = '<div style="margin-bottom:0.5rem;font-family:\'Cinzel\',serif;font-size:0.78rem;font-weight:700;letter-spacing:0.1em;color:#3a6b35;text-transform:uppercase;">Pending Approvals</div>';
+  subs.forEach(function(s){
+    var name     = getJFAnswer(s.answers, fieldMap.name)     || '(no name)';
+    var location = getJFAnswer(s.answers, fieldMap.location) || '';
+    var message  = getJFAnswer(s.answers, fieldMap.message)  || '';
+    var photo    = getJFAnswer(s.answers, fieldMap.photo)    || '';
+    var dateStr  = s.created_at ? s.created_at.split(' ')[0] : '';
+    var sid = esc(s.id);
+    html +=
+      '<div id="jfcard_'+sid+'" style="border:2px solid #3a6b35;border-radius:8px;padding:0.8rem 0.9rem;margin-bottom:0.7rem;background:rgba(58,107,53,0.06);">'+
+        '<div style="font-family:\'Cinzel\',serif;font-weight:700;color:#2c4a28;font-size:0.95rem;">'+esc(name)+
+          (location?' <span style="font-weight:400;font-style:italic;color:#4a7040;">· '+esc(location)+'</span>':'')+
+          (dateStr?' <span style="font-weight:400;font-size:0.8rem;color:rgba(90,53,16,0.5);">· '+esc(dateStr)+'</span>':'')+
+        '</div>'+
+        (message?'<div style="font-style:italic;color:#241405;margin:0.3rem 0 0.4rem;">"'+esc(message)+'"</div>':
+                 '<div style="color:rgba(90,53,16,0.45);font-style:italic;margin:0.3rem 0 0.4rem;">(no message)</div>')+
+        (photo?'<div style="font-size:0.78rem;color:rgba(58,107,53,0.7);margin-bottom:0.4rem;word-break:break-all;">📷 '+esc(photo)+'</div>':'')+
+        '<div style="display:flex;gap:6px;margin-top:0.3rem;">'+
+          '<button class="btn btn-green btn-sm" onclick="approveJFSub(\''+sid+'\','+
+            JSON.stringify(esc(name))+','+
+            JSON.stringify(esc(location))+','+
+            JSON.stringify(esc(message))+','+
+            JSON.stringify(esc(photo))+','+
+            JSON.stringify(esc(dateStr))+
+          ')">✓ Approve</button>'+
+          '<button class="btn btn-danger btn-sm" onclick="ignoreJFSub(\''+sid+'\')">✕ Ignore</button>'+
+        '</div>'+
+      '</div>';
+  });
+  c.innerHTML = html;
+}
+
+function approveJFSub(sid, name, location, message, photo, dateStr){
+  wall.unshift({jfId:sid, name:name, location:location, message:message, photo:photo, date:dateStr});
+  renderWall();
+  var card = document.getElementById('jfcard_'+sid);
+  if(card) card.remove();
+  showStatus('wallMainStatus','✦ Approved and added — hit Save & Publish to make it live.','success');
+}
+
+function ignoreJFSub(sid){
+  jfIgnored.push(sid);
+  try{ localStorage.setItem('jm_wall_ignored', JSON.stringify(jfIgnored)); }catch(e){}
+  var card = document.getElementById('jfcard_'+sid);
+  if(card){ card.style.opacity='0.35'; card.style.pointerEvents='none'; setTimeout(function(){ card.remove(); },400); }
+}
 </script>
 </body>
 </html>
