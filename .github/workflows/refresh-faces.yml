@@ -1,0 +1,34 @@
+name: Refresh Faces From the Road
+
+# Auto-updates people.json from Mark's Google Photos album so newly-added
+# people appear in the People-of-the-Road slideshow with no manual work.
+on:
+  schedule:
+    - cron: "17 8 * * 0"      # weekly, Sunday ~08:17 UTC
+  workflow_dispatch: {}        # + a manual "Run workflow" button in the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Scrape album into people.json
+        run: python refresh_faces.py
+      - name: Commit & push if the photo set changed
+        run: |
+          if [ -n "$(git status --porcelain people.json)" ]; then
+            git config user.name "faces-refresh-bot"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add people.json
+            git commit -m "Auto-refresh Faces From the Road slideshow"
+            git push
+            echo "people.json updated & pushed."
+          else
+            echo "No change in the album — nothing to do."
+          fi
