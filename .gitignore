@@ -5,3 +5,7 @@ journeys/place_cache.json
 
 # --- Private business/legal docs (repo is PUBLIC — keep these out of git & off the live site) ---
 Business/
+
+# Python build artifacts
+__pycache__/
+*.pyc
