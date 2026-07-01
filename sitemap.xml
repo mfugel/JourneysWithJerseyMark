@@ -49,4 +49,12 @@
     <priority>0.6</priority>
   </url>
 
+  <!-- People of the Road -->
+  <url>
+    <loc>https://www.journeyswithjerseymark.com/people.html</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
 </urlset>

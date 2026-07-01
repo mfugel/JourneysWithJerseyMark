@@ -4,26 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- ── SEO ── -->
-<title>Music for the Road — Playlists &amp; a Road Montage | Journeys with Jersey Mark</title>
-<meta name="description" content="The playlists I actually drive to — sunrise starts, long highways, quiet desert nights — plus a crossfading montage of the road set to music.">
-<meta name="keywords" content="road trip playlists, van life music, driving playlist, nomad music, RV road trip soundtrack">
+<title>People of the Road — The Folks Who Make It Home | Journeys with Jersey Mark</title>
+<meta name="description" content="The people I've met on the road — fellow travelers, kind strangers, and new friends — plus a wall where you can sign in and say hello.">
 <meta name="author" content="Mark Fugel">
-<link rel="canonical" href="https://www.journeyswithjerseymark.com/music.html">
-
+<link rel="canonical" href="https://www.journeyswithjerseymark.com/people.html">
 <link rel="icon" type="image/svg+xml" href="/images/jersey-mark-seal.svg">
 <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://www.journeyswithjerseymark.com/music.html">
-<meta property="og:title" content="Music for the Road — Journeys with Jersey Mark">
-<meta property="og:description" content="The playlists I drive to, plus a montage of the road set to music.">
+<meta property="og:url" content="https://www.journeyswithjerseymark.com/people.html">
+<meta property="og:title" content="People of the Road — Journeys with Jersey Mark">
+<meta property="og:description" content="The people I've met on the road — and a wall where you can sign in.">
 <meta property="og:image" content="https://www.journeyswithjerseymark.com/images/seal.jpg">
 <meta property="og:site_name" content="Journeys with Jersey Mark">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Music for the Road — Journeys with Jersey Mark">
-<meta name="twitter:description" content="The playlists I drive to, plus a montage of the road set to music.">
-<meta name="twitter:image" content="https://www.journeyswithjerseymark.com/images/seal.jpg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Cinzel:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
@@ -33,8 +25,6 @@ html{scroll-behavior:smooth;}
 body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;min-height:100vh;position:relative;overflow-x:hidden;}
 .parchment-bg{position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 28px,rgba(101,67,33,0.04) 29px),repeating-linear-gradient(90deg,transparent,transparent 28px,rgba(101,67,33,0.04) 29px);pointer-events:none;z-index:0;}
 .vignette{position:fixed;inset:0;background:radial-gradient(ellipse at center,transparent 45%,rgba(80,40,10,0.30) 100%);pointer-events:none;z-index:0;}
-
-/* ── Nav (shared with the rest of the site) ── */
 .site-nav{position:sticky;top:0;z-index:500;background:rgba(90,53,16,0.96);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);border-bottom:1px solid rgba(220,192,137,0.25);}
 .nav-inner{display:flex;align-items:center;gap:0.2rem;max-width:1100px;margin:0 auto;padding:0 0.8rem;}
 .site-nav a{font-family:'Cinzel',serif;font-size:0.72rem;letter-spacing:0.13em;text-transform:uppercase;color:rgba(245,234,208,0.82);text-decoration:none;padding:0.6rem 0.65rem;transition:color 0.2s;white-space:nowrap;}
@@ -64,7 +54,6 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;min-heigh
 .nav-dropdown-menu a:hover{background:rgba(220,192,137,0.12);color:#ffe89a;}
 @media(max-width:860px){.nav-dropdown-trigger{font-size:0.55rem;padding:0.5rem 0.45rem;letter-spacing:0.08em;}.nav-dropdown-menu a{font-size:0.6rem;letter-spacing:0.1em;}}
 
-/* ── Content frame ── */
 .content{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:2rem 1rem 3rem;}
 .outer-border{position:relative;border:3px solid #5a3510;border-radius:4px;padding:4px;background:#dfc99a;}
 .inner-border{border:1.5px solid #7a4e20;border-radius:2px;padding:2.4rem 1.8rem 2.6rem;}
@@ -83,42 +72,41 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;min-heigh
 .wrap p{font-size:1.05rem;line-height:1.6;margin:0 0 1rem;}
 .wrap a{color:#7a3e10;text-decoration:underline dotted;text-underline-offset:2px;}
 .wrap a:hover{color:#a8521a;}
+h2.sec{font-family:'Cinzel',serif;font-size:1.28rem;font-weight:700;color:#5a3510;letter-spacing:0.02em;margin:1.9rem 0 0.5rem;padding-bottom:0.3rem;border-bottom:1.5px solid rgba(90,53,16,0.3);}
+.divider{text-align:center;color:#7a4e20;letter-spacing:0.4em;margin:1.8rem 0;}
 
-h2.sec{font-family:'Cinzel',serif;font-size:1.28rem;font-weight:700;color:#5a3510;letter-spacing:0.02em;margin:1.8rem 0 0.3rem;padding-bottom:0.3rem;border-bottom:1.5px solid rgba(90,53,16,0.3);}
+/* people slideshow */
+.pstage-wrap{margin:0 0 1rem;}
+.pstage{position:relative;aspect-ratio:16/10;border-radius:10px;overflow:hidden;background:#1a0f00;border:2px solid #7a4e20;box-shadow:0 5px 20px rgba(40,20,0,0.35);}
+.pstage .slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.3s ease;transform:scale(1.04);}
+.pstage .slide.on{opacity:1;}
+.pstage .slide.kb{animation:pkb 7s ease-out forwards;}
+@keyframes pkb{from{transform:scale(1.04);}to{transform:scale(1.15);}}
+.pstage-full{position:absolute;top:10px;right:10px;z-index:3;background:rgba(26,15,0,0.55);color:#f5ead0;border:1px solid rgba(245,234,208,0.45);border-radius:6px;font-size:1rem;line-height:1;padding:0.35rem 0.5rem;cursor:pointer;}
+.pstage-full:hover{background:rgba(26,15,0,0.85);}
+.pstage-cap{position:absolute;left:0;right:0;bottom:0;z-index:3;background:linear-gradient(transparent,rgba(20,12,0,0.82));color:#f5ead0;font-family:'IM Fell English',serif;font-style:italic;font-size:1.05rem;padding:1.6rem 1rem 0.8rem;text-align:center;min-height:2.2rem;}
+.people-empty{font-family:'IM Fell English',serif;font-style:italic;color:rgba(90,53,16,0.65);text-align:center;padding:1.4rem 0;}
 
-.callout{border-left:5px solid #c8862a;background:rgba(200,150,60,0.16);border-radius:0 6px 6px 0;padding:0.85rem 1.1rem;margin:1.4rem 0;font-style:italic;font-family:'IM Fell English',serif;font-size:1.06rem;color:#3a2008;}
-.callout a{color:#7a3e10;}
+/* the wall */
+.wall-form{border:1.5px solid #9a774a;border-radius:8px;background:rgba(180,130,70,0.14);padding:1.1rem 1.2rem 1.3rem;margin:0.6rem 0 1.4rem;}
+.wall-form input,.wall-form textarea{width:100%;font-family:'Crimson Text',serif;font-size:1rem;color:#241405;background:#f7efdc;border:1px solid #b28a58;border-radius:5px;padding:0.55rem 0.7rem;margin-bottom:0.6rem;}
+.wall-form textarea{min-height:88px;resize:vertical;}
+.wall-btn{font-family:'Cinzel',serif;font-size:0.74rem;letter-spacing:0.1em;text-transform:uppercase;color:#f5ead0;background:#5a3510;border:1px solid #5a3510;border-radius:6px;padding:0.6rem 1.3rem;cursor:pointer;transition:background 0.18s;}
+.wall-btn:hover{background:#7a4e20;}
+.wall-note{font-family:'IM Fell English',serif;font-style:italic;font-size:0.9rem;color:#6a4a20;margin:0.6rem 0 0;}
+.hp{position:absolute;left:-9999px;}
+.wall-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1rem;margin:1rem 0 0.5rem;}
+.wall-card{border:1px solid #b28a58;border-radius:8px;background:rgba(255,247,225,0.55);padding:0.9rem 1rem 1rem;box-shadow:0 2px 8px rgba(80,40,10,0.1);}
+.wall-card .wm{font-size:1.02rem;line-height:1.5;color:#241405;font-style:italic;font-family:'IM Fell English',serif;margin-bottom:0.6rem;}
+.wall-card .wn{font-family:'Cinzel',serif;font-weight:700;font-size:0.82rem;color:#5a3510;letter-spacing:0.03em;}
+.wall-card .wl{font-family:'IM Fell English',serif;font-style:italic;font-size:0.9rem;color:#7a4e20;}
+.wall-card img.wp{width:100%;height:150px;object-fit:cover;border-radius:6px;border:1px solid #9a774a;margin-bottom:0.6rem;}
+.wall-empty{grid-column:1/-1;font-family:'IM Fell English',serif;font-style:italic;color:rgba(90,53,16,0.65);text-align:center;padding:1.2rem 0;}
+.pstage:fullscreen{aspect-ratio:auto;width:100vw;height:100vh;border-radius:0;border:0;}
 
-.page-footer{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin-top:2rem;padding-top:1.2rem;border-top:1px solid rgba(90,53,16,0.3);font-family:'IM Fell English',serif;font-style:italic;font-size:0.95rem;color:#3a2510;}
+.page-footer{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin-top:2.2rem;padding-top:1.2rem;border-top:1px solid rgba(90,53,16,0.3);font-family:'IM Fell English',serif;font-style:italic;font-size:0.95rem;color:#3a2510;}
 .page-footer a{color:#3a2510;text-decoration:underline dotted;}
 .page-footer a:hover{color:#7a2a1a;}
-
-/* ── Music for the Road ── */
-.music-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.3rem;margin:1.3rem 0 0.5rem;}
-.music-card{border:1.5px solid #7a4e20;border-radius:9px;background:rgba(255,247,225,0.4);padding:1rem 1rem 1.1rem;}
-.music-card .m-title{font-family:'Cinzel',serif;font-weight:700;color:#5a3510;font-size:1.05rem;margin:0 0 0.2rem;}
-.music-card .m-desc{font-family:'IM Fell English',serif;font-style:italic;color:#4a3010;font-size:0.98rem;margin:0 0 0.7rem;line-height:1.5;}
-.music-embed{position:relative;border-radius:8px;overflow:hidden;background:rgba(90,53,16,0.06);}
-.music-embed iframe{display:block;width:100%;border:0;border-radius:8px;}
-.music-embed.yt{aspect-ratio:16/9;}
-.music-embed.yt iframe{position:absolute;inset:0;width:100%;height:100%;}
-.m-link{display:inline-block;margin-top:0.3rem;font-family:'Cinzel',serif;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:#f5ead0;background:#5a3510;border-radius:6px;padding:0.45rem 0.9rem;text-decoration:none;}
-.wrap a.m-link:hover{background:#7a4e20;color:#fff;}
-.music-empty{font-family:'IM Fell English',serif;font-style:italic;color:rgba(90,53,16,0.65);text-align:center;padding:1.4rem 0;grid-column:1/-1;}
-/* road montage */
-.montage{margin:0 0 1.7rem;}
-.montage-stage{position:relative;aspect-ratio:16/9;border-radius:10px;overflow:hidden;background:#1a0f00;border:2px solid #7a4e20;box-shadow:0 5px 20px rgba(40,20,0,0.35);}
-.montage-stage .slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.4s ease;transform:scale(1.05);}
-.montage-stage .slide.on{opacity:1;}
-.montage-stage .slide.kb{animation:kenburns 6.4s ease-out forwards;}
-@keyframes kenburns{from{transform:scale(1.05) translate(0,0);}to{transform:scale(1.17) translate(-1.6%,-1.6%);}}
-.montage-full{position:absolute;top:10px;right:10px;z-index:3;background:rgba(26,15,0,0.55);color:#f5ead0;border:1px solid rgba(245,234,208,0.45);border-radius:6px;font-size:1rem;line-height:1;padding:0.35rem 0.5rem;cursor:pointer;transition:background 0.18s;}
-.montage-full:hover{background:rgba(26,15,0,0.85);}
-.montage-cap{position:absolute;left:12px;bottom:10px;z-index:3;font-family:'Cinzel',serif;letter-spacing:0.1em;text-transform:uppercase;font-size:0.7rem;color:#f5ead0;text-shadow:0 1px 5px rgba(0,0,0,0.85);pointer-events:none;}
-.montage-music{margin-top:0.7rem;}
-.montage-music .music-embed{max-width:540px;margin:0 auto;}
-.montage-hint{font-family:'IM Fell English',serif;font-style:italic;color:rgba(90,53,16,0.6);text-align:center;font-size:0.92rem;margin-top:0.5rem;}
-.montage-stage:fullscreen{aspect-ratio:auto;width:100vw;height:100vh;border-radius:0;border:0;}
 </style>
 </head>
 <body>
@@ -146,8 +134,8 @@ h2.sec{font-family:'Cinzel',serif;font-size:1.28rem;font-weight:700;color:#5a351
         <div class="nav-dropdown-menu" role="menu">
           <a href="nomad-guide.html" role="menuitem">⛺ Nomad Guide</a>
           <a href="gear.html" role="menuitem">🎒 Gear &amp; Goods</a>
-          <a href="music.html" class="nav-active" role="menuitem">🎵 Music for the Road</a>
-          <a href="people.html" role="menuitem">🤝 People of the Road</a>
+          <a href="music.html" role="menuitem">🎵 Music for the Road</a>
+          <a href="people.html" class="nav-active" role="menuitem">🤝 People of the Road</a>
         </div>
       </div>
       <span class="nav-dot">✦</span>
@@ -183,8 +171,8 @@ h2.sec{font-family:'Cinzel',serif;font-size:1.28rem;font-weight:700;color:#5a351
     <span class="nav-drawer-group-label">✦ Life on the Road</span>
     <a href="nomad-guide.html">⛺ Nomad Guide</a>
     <a href="gear.html">🎒 Gear &amp; Goods</a>
-    <a href="music.html" class="nav-active">🎵 Music for the Road</a>
-    <a href="people.html">🤝 People of the Road</a>
+    <a href="music.html">🎵 Music for the Road</a>
+    <a href="people.html" class="nav-active">🤝 People of the Road</a>
     <a href="wallpapers.html">🎁 Gift from the Road</a>
     <span class="nav-drawer-group-label">✦ Connect</span>
     <a href="index.html#contact">Contact</a>
@@ -205,38 +193,50 @@ h2.sec{font-family:'Cinzel',serif;font-size:1.28rem;font-weight:700;color:#5a351
 
       <div class="cartouche">
         <div class="cartouche-border">
-          <h1>Music for the Road</h1>
-          <div class="subtitle">— the soundtrack &amp; a montage of the miles —</div>
+          <h1>People of the Road</h1>
+          <div class="subtitle">— the folks who make the road feel like home —</div>
         </div>
       </div>
 
       <div class="wrap">
 
-        <p class="lede">Miles go easier with the right soundtrack. These are the playlists I actually
-        drive to — sunrise starts, long empty highways, quiet desert nights — plus a little montage
-        of the road set to the music. Hit play and roll.</p>
+        <p class="lede">The road looks like a solitary life, but it's the opposite. The best part of all
+        this has been the people — fellow travelers, kind strangers, folks who fixed my rig or shared a
+        fire or pointed me somewhere I'd never have found. Here are some of them. Scroll down and add your
+        name to the wall if our paths have crossed.</p>
 
-        <div class="montage" id="montage" style="display:none;">
-          <div class="montage-stage" id="montageStage">
-            <button type="button" class="montage-full" id="montageFull" title="Fullscreen" aria-label="Fullscreen">⛶</button>
-            <div class="montage-cap">🎬 Road Montage</div>
+        <h2 class="sec">📸 The Faces I've Met</h2>
+        <div class="pstage-wrap" id="peopleShow" style="display:none;">
+          <div class="pstage" id="pstage">
+            <button type="button" class="pstage-full" id="pstageFull" title="Fullscreen" aria-label="Fullscreen">⛶</button>
+            <div class="pstage-cap" id="pstageCap"></div>
           </div>
-          <p class="montage-hint">Press ▶ on any playlist below — the photos roll right along.</p>
         </div>
+        <p class="people-empty" id="peopleEmpty" style="display:none;">Photos of the folks I've met are
+        coming soon — check back.</p>
 
-        <h2 class="sec">🎵 The Playlists</h2>
-        <div class="music-grid" id="musicGrid">
-          <p class="music-empty">Loading the playlists…</p>
+        <div class="divider">✦ ✦ ✦</div>
+
+        <h2 class="sec">✍️ Sign the Wall</h2>
+        <p>Have we crossed paths out here — a campground, a trailhead, a Cracker Barrel lot, the RTR? Leave
+        your mark. Every note is read and approved before it goes up, so take your time and say something real.</p>
+        <form class="wall-form" id="wallForm" action="https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID" method="POST">
+          <input type="text" name="name" placeholder="Your name (or how we met)" required maxlength="80">
+          <input type="text" name="location" placeholder="Where you're from / where we crossed paths" maxlength="100">
+          <textarea name="message" placeholder="Leave a note for the road…" required maxlength="600"></textarea>
+          <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <input type="hidden" name="_subject" value="New Wall signature — Journeys with Jersey Mark">
+          <button type="submit" class="wall-btn">✍️ Sign the Wall</button>
+          <p class="wall-note">Read &amp; approved before posting — no spam, no nonsense. I'd love to hear from you.</p>
+        </form>
+
+        <h2 class="sec">🧱 The Wall</h2>
+        <div class="wall-grid" id="wallGrid">
+          <p class="wall-empty">Loading the wall…</p>
         </div>
-
-        <div class="callout">Everything plays through each service's own player — Spotify, YouTube,
-        or Apple Music — so just press play right here. New playlists get added as the road hands
-        them to me.</div>
-
-        <p class="signoff" style="font-family:'IM Fell English',serif;font-style:italic;font-size:1.1rem;color:#3a2008;text-align:right;margin-top:1.4rem;">See you down the road.<br>— Jersey Mark</p>
 
         <div class="page-footer">
-          <a href="nomad-guide.html">← back to the Nomad Guide</a>
+          <a href="index.html#memories">← photos &amp; videos from the road</a>
           <a href="https://ko-fi.com/U7U3RUSTZ" target="_blank" rel="noopener">☕ Buy me a coffee</a>
         </div>
 
@@ -246,9 +246,7 @@ h2.sec{font-family:'Cinzel',serif;font-size:1.28rem;font-weight:700;color:#5a351
 </div>
 
 <script>
-function toggleNav(){
-  document.getElementById('navDrawer').classList.toggle('open');
-}
+function toggleNav(){ document.getElementById('navDrawer').classList.toggle('open'); }
 document.querySelectorAll('#navDrawer a').forEach(function(a){
   a.addEventListener('click',function(){ document.getElementById('navDrawer').classList.remove('open'); });
 });
@@ -267,82 +265,69 @@ document.addEventListener('click',function(e){
   });
 });
 document.querySelectorAll('.nav-dropdown-menu a').forEach(function(a){
-  a.addEventListener('click',function(){
-    var dd=a.closest('.nav-dropdown');
-    dd.classList.remove('open'); dd.querySelector('.nav-dropdown-trigger').setAttribute('aria-expanded','false');
-  });
+  a.addEventListener('click',function(){ var dd=a.closest('.nav-dropdown'); dd.classList.remove('open'); dd.querySelector('.nav-dropdown-trigger').setAttribute('aria-expanded','false'); });
 });
+function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 
-/* ── Render playlist cards from music.json (managed in admin.html) ── */
+/* ── People slideshow ── */
 (function(){
-  var grid=document.getElementById('musicGrid');
-  if(!grid) return;
-  function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
-  function embed(u){
-    u=(u||'').trim(); var m;
-    if((m=u.match(/open\.spotify\.com\/(?:intl-[a-z]+\/)?(playlist|album|track|artist|episode|show)\/([A-Za-z0-9]+)/i))){
-      var h=(m[1]==='track'||m[1]==='episode')?152:232;
-      return '<div class="music-embed"><iframe src="https://open.spotify.com/embed/'+m[1]+'/'+m[2]+'?utm_source=generator" height="'+h+'" loading="lazy" allow="encrypted-media" title="Spotify player"></iframe></div>';
-    }
-    if(/youtu/.test(u) && (m=u.match(/[?&]list=([A-Za-z0-9_-]+)/))){
-      return '<div class="music-embed yt"><iframe src="https://www.youtube.com/embed/videoseries?list='+m[1]+'" loading="lazy" allow="encrypted-media" allowfullscreen title="YouTube playlist"></iframe></div>';
-    }
-    if((m=u.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([A-Za-z0-9_-]{11})/))){
-      return '<div class="music-embed yt"><iframe src="https://www.youtube.com/embed/'+m[1]+'" loading="lazy" allow="encrypted-media" allowfullscreen title="YouTube"></iframe></div>';
-    }
-    if(/music\.apple\.com/.test(u)){
-      return '<div class="music-embed"><iframe src="'+esc(u.replace('music.apple.com','embed.music.apple.com'))+'" height="175" loading="lazy" allow="encrypted-media *; autoplay *" title="Apple Music player"></iframe></div>';
-    }
-    if(u) return '<a class="m-link" href="'+esc(u)+'" target="_blank" rel="noopener">▶ Listen →</a>';
-    return '';
-  }
-  fetch('music.json?_='+(new Date().getTime()),{cache:'no-store'})
+  var wrap=document.getElementById('peopleShow'), empty=document.getElementById('peopleEmpty');
+  var stage=document.getElementById('pstage'), cap=document.getElementById('pstageCap');
+  function sized(u){ return (u.indexOf('=')>-1)?u:(u+'=w1400'); }
+  fetch('people.json?_='+(new Date().getTime()),{cache:'no-store'})
     .then(function(r){return r.ok?r.json():[];})
     .then(function(items){
-      if(!Array.isArray(items)||!items.length){
-        grid.innerHTML='<p class="music-empty">🎵 My road playlists are coming soon — I\'m curating them now. Check back!</p>';
-        return;
-      }
-      grid.innerHTML=items.map(function(it){
-        return '<div class="music-card"><div class="m-title">'+esc(it.title||it.name||'Playlist')+'</div>'+
-          (it.description?'<div class="m-desc">'+esc(it.description)+'</div>':'')+
-          embed(it.url||it.link)+'</div>';
-      }).join('');
-    })
-    .catch(function(){ grid.innerHTML='<p class="music-empty">Couldn\'t load the playlists right now — try again later.</p>'; });
-})();
-
-/* ── Road Montage (silent, always-drifting photo slideshow; music plays from the cards below) ── */
-(function(){
-  var box=document.getElementById('montage'); if(!box) return;
-  var stage=document.getElementById('montageStage');
-  function sized(u){ return (u.indexOf('=')>-1)?u:(u+'=w1600'); }
-  fetch('montage.json?_='+(new Date().getTime()),{cache:'no-store'})
-    .then(function(r){return r.ok?r.json():null;})
-    .then(function(mon){
-      if(!mon||!Array.isArray(mon.photos)||!mon.photos.length){ box.style.display='none'; return; }
-      box.style.display='block';
-      var photos=mon.photos, cur, nxt, idx=0;
+      items=(items||[]).filter(function(x){return x && (x.url||x.photo);});
+      if(!items.length){ empty.style.display='block'; return; }
+      wrap.style.display='block';
       var a=document.createElement('div'); a.className='slide';
       var b=document.createElement('div'); b.className='slide';
-      stage.insertBefore(b, stage.firstChild);
-      stage.insertBefore(a, stage.firstChild);
-      cur=a; nxt=b;
+      stage.insertBefore(b,stage.firstChild); stage.insertBefore(a,stage.firstChild);
+      var cur=a,nxt=b,idx=0;
       function show(i){
-        nxt.style.backgroundImage='url("'+sized(photos[i]).replace(/"/g,'')+'")';
+        var it=items[i], u=sized(it.url||it.photo).replace(/"/g,'');
+        nxt.style.backgroundImage='url("'+u+'")';
         nxt.classList.remove('kb'); void nxt.offsetWidth; nxt.classList.add('on','kb');
         cur.classList.remove('on');
+        cap.textContent = it.caption || '';
+        cap.style.opacity = it.caption ? '1':'0';
         var t=cur; cur=nxt; nxt=t;
       }
       show(0);
-      setInterval(function(){ idx=(idx+1)%photos.length; show(idx); },5000);
-      document.getElementById('montageFull').addEventListener('click',function(){
+      if(items.length>1) setInterval(function(){ idx=(idx+1)%items.length; show(idx); },4800);
+      document.getElementById('pstageFull').addEventListener('click',function(){
         var fn=stage.requestFullscreen||stage.webkitRequestFullscreen;
         if(!document.fullscreenElement && fn){ fn.call(stage); } else if(document.exitFullscreen){ document.exitFullscreen(); }
       });
     })
-    .catch(function(){ box.style.display='none'; });
+    .catch(function(){ empty.style.display='block'; });
 })();
+
+/* ── The Wall ── */
+(function(){
+  var grid=document.getElementById('wallGrid');
+  fetch('wall.json?_='+(new Date().getTime()),{cache:'no-store'})
+    .then(function(r){return r.ok?r.json():[];})
+    .then(function(items){
+      items=items||[];
+      if(!items.length){ grid.innerHTML='<p class="wall-empty">No signatures yet — be the first to sign the wall above. ✍️</p>'; return; }
+      grid.innerHTML=items.map(function(w){
+        var photo=w.photo?('<img class="wp" src="'+esc(w.photo)+'" alt="" loading="lazy">'):'';
+        var who=esc(w.name||'A fellow traveler');
+        var loc=w.location?('<div class="wl">'+esc(w.location)+(w.date?' · '+esc(w.date):'')+'</div>'):(w.date?'<div class="wl">'+esc(w.date)+'</div>':'');
+        return '<div class="wall-card">'+photo+'<div class="wm">“'+esc(w.message||'')+'”</div><div class="wn">— '+who+'</div>'+loc+'</div>';
+      }).join('');
+    })
+    .catch(function(){ grid.innerHTML='<p class="wall-empty">Couldn\'t load the wall right now — try again later.</p>'; });
+})();
+
+/* graceful note if the form endpoint hasn't been set up yet */
+document.getElementById('wallForm').addEventListener('submit',function(e){
+  if(this.action.indexOf('REPLACE_WITH_YOUR_FORM_ID')>-1){
+    e.preventDefault();
+    alert("The sign-the-wall form isn't quite hooked up yet — check back very soon!");
+  }
+});
 </script>
 <script defer src="/_vercel/insights/script.js"></script>
 </body>

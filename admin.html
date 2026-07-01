@@ -147,6 +147,8 @@ textarea{resize:vertical;min-height:100px;}
           <button class="tab-btn" id="tabGearBtn" onclick="switchTab('gear')">🎒 Gear</button>
           <button class="tab-btn" id="tabMusicBtn" onclick="switchTab('music')">🎵 Music</button>
           <button class="tab-btn" id="tabMontageBtn" onclick="switchTab('montage')">🎬 Montage</button>
+          <button class="tab-btn" id="tabPeopleBtn" onclick="switchTab('people')">👥 People</button>
+          <button class="tab-btn" id="tabWallBtn" onclick="switchTab('wall')">🧱 Wall</button>
         </div>
 
         <!-- ─── ALBUMS TAB ─── -->
@@ -333,6 +335,76 @@ textarea{resize:vertical;min-height:100px;}
           </div>
         </div>
 
+        <!-- ─── PEOPLE TAB ─── -->
+        <div id="peopleTab" style="display:none;">
+          <div class="divider-rule">✦ People of the Road — Slideshow Photos <span id="peopleCount"></span> ✦</div>
+          <p class="hint" style="margin-bottom:0.7rem;">Add photos of the folks you've met (you with people). A caption/name is optional — leave it blank if you don't have their name. These play as a crossfading slideshow on the People of the Road page.</p>
+          <div id="peopleList"></div>
+          <div class="status" id="peopleMainStatus"></div>
+
+          <div class="legend-box-new">
+            <div class="legend-box-title">Add a photo by URL</div>
+            <div class="field-row">
+              <label for="personUrl">Photo URL</label>
+              <div style="display:flex;gap:8px;align-items:center;">
+                <input type="text" id="personUrl" placeholder="Paste a photo link…" style="flex:1;">
+                <button class="btn btn-green" onclick="addPersonByUrl()" style="white-space:nowrap;">+ Add</button>
+              </div>
+              <p class="hint">Or click photos from your albums below to add them.</p>
+            </div>
+          </div>
+
+          <div class="divider-rule">✦ Pick from your albums ✦</div>
+          <p class="hint" style="margin-bottom:0.5rem;">Click a photo to add it to the slideshow (✓ = already added).</p>
+          <div id="peopleAlbums"></div>
+
+          <div class="btn-row">
+            <button class="btn btn-primary" onclick="savePeople()">💾 Save &amp; Publish to Site</button>
+            <button class="btn btn-danger btn-sm" onclick="doLogout()">Sign Out</button>
+          </div>
+        </div>
+
+        <!-- ─── WALL TAB ─── -->
+        <div id="wallTab" style="display:none;">
+          <div class="divider-rule">✦ The Wall — Approved Signatures <span id="wallCount"></span> ✦</div>
+          <p class="hint" style="margin-bottom:0.7rem;">People sign the wall via the form on the People page — you get an email (Formspree). Add the good ones here to publish them. You're the moderator: only what you add here ever shows.</p>
+          <div id="wallList"></div>
+          <div class="status" id="wallMainStatus"></div>
+
+          <div class="divider-rule">✦ Add / Edit a Signature ✦</div>
+          <div class="legend-box-new">
+            <div class="legend-box-title" id="wallFormTitle">+ New Signature</div>
+            <div class="field-row">
+              <label for="wallName">Name (or how you met)</label>
+              <input type="text" id="wallName" placeholder="e.g. Dave from Quartzsite">
+            </div>
+            <div class="field-row">
+              <label for="wallLocation">Location / where you met (optional)</label>
+              <input type="text" id="wallLocation" placeholder="e.g. RTR, Quartzsite AZ">
+            </div>
+            <div class="field-row">
+              <label for="wallMessage">Message</label>
+              <textarea id="wallMessage" placeholder="Their note…"></textarea>
+            </div>
+            <div class="field-row">
+              <label for="wallPhoto">Photo URL (optional)</label>
+              <input type="text" id="wallPhoto" placeholder="https://… (optional)">
+            </div>
+            <div class="field-row">
+              <label for="wallDate">Date (optional)</label>
+              <input type="text" id="wallDate" placeholder="e.g. June 2026" style="max-width:220px;">
+            </div>
+            <button class="btn btn-green" id="wallAddBtn" onclick="addOrUpdateWall()">+ Add Signature</button>
+            <button class="btn btn-secondary btn-sm" id="wallCancelBtn" onclick="resetWallForm()" style="display:none;margin-left:0.4rem;">Cancel edit</button>
+            <div class="status" id="wallAddStatus"></div>
+          </div>
+
+          <div class="btn-row">
+            <button class="btn btn-primary" onclick="saveWall()">💾 Save &amp; Publish to Site</button>
+            <button class="btn btn-danger btn-sm" onclick="doLogout()">Sign Out</button>
+          </div>
+        </div>
+
         <!-- SHARE PANEL — appears after a successful publish -->
         <div class="share-panel" id="sharePanel">
           <div class="share-panel-title">✦ Share the News ✦</div>
@@ -372,6 +444,8 @@ var VIDEOS_PATH = 'videos.json';
 var GEAR_PATH  = 'gear.json';
 var MUSIC_PATH = 'music.json';
 var MONTAGE_PATH = 'montage.json';
+var PEOPLE_PATH = 'people.json';
+var WALL_PATH = 'wall.json';
 var AMAZON_TAG = 'journeysw0832-20'; // Amazon Associates tracking ID — auto-applied to Amazon gear links
 var BRANCH     = 'main';
 var SITE_URL   = 'https://journeyswithjerseymark.com';
@@ -381,17 +455,21 @@ var videos = [], videosSha = '';
 var gear = [], gearSha = '', gearEditIndex = -1;
 var music = [], musicSha = '', musicEditIndex = -1;
 var montage = {track:{title:'',url:''}, photos:[]}, montageSha = '';
+var people = [], peopleSha = '';
+var wall = [], wallSha = '', wallEditIndex = -1;
 var lastPublishedAlbum = null;
 var lastPublishedVideo = null;
 
 function switchTab(name){
-  ['albums','videos','gear','music','montage'].forEach(function(t){
+  ['albums','videos','gear','music','montage','people','wall'].forEach(function(t){
     var tab=document.getElementById(t+'Tab');
     var btn=document.getElementById('tab'+t.charAt(0).toUpperCase()+t.slice(1)+'Btn');
     if(tab) tab.style.display=(t===name)?'block':'none';
     if(btn) btn.classList.toggle('active', t===name);
   });
   if(name==='montage') renderMontage();
+  if(name==='people') renderPeople();
+  if(name==='wall') renderWall();
 }
 
 function extractYouTubeId(input){
@@ -455,6 +533,8 @@ function loadAlbums(){
     loadGear();
     loadMusic();
     loadMontage();
+    loadPeople();
+    loadWall();
   })
   .catch(function(err){showStatus('loginStatus','Connection error: '+err.message,'error');});
 }
@@ -1029,6 +1109,198 @@ function saveMontage(){
   .then(function(r){if(!r.ok)return r.json().then(function(e){throw new Error(e.message||r.status);});return r.json();})
   .then(function(data){ montageSha=data.content.sha; showStatus('montageMainStatus','✦ Published! Your montage will update in about 30 seconds.','success'); })
   .catch(function(err){showStatus('montageMainStatus','Save failed: '+err.message,'error');});
+}
+
+/* ─────────────────── PEOPLE (slideshow) ─────────────────── */
+function loadPeople(){
+  fetch('https://api.github.com/repos/'+REPO_OWNER+'/'+REPO_NAME+'/contents/'+PEOPLE_PATH+'?ref='+BRANCH,
+    {headers:{'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json'}})
+  .then(function(r){
+    if(r.status===404){people=[];peopleSha='';renderPeople();return null;}
+    if(!r.ok){showStatus('peopleMainStatus','Could not load people.json ('+r.status+').','error');return null;}
+    return r.json();
+  })
+  .then(function(data){
+    if(!data)return;
+    peopleSha=data.sha;
+    var jsonStr=decodeURIComponent(escape(atob(data.content.replace(/\n/g,''))));
+    people=JSON.parse(jsonStr);
+  })
+  .catch(function(err){showStatus('peopleMainStatus','Could not load people: '+err.message,'error');});
+}
+function renderPeople(){ renderPeopleList(); renderPeopleAlbums(); }
+function renderPeopleList(){
+  var c=document.getElementById('peopleList');
+  document.getElementById('peopleCount').textContent='('+people.length+')';
+  if(!people.length){ c.innerHTML='<p style="font-family:\'IM Fell English\',serif;font-style:italic;color:rgba(90,53,16,0.5);margin-bottom:1rem;">No people photos yet — add some below.</p>'; return; }
+  c.innerHTML=people.map(function(p,idx){
+    return '<div style="border:1px solid #c8a96e;border-radius:8px;padding:0.55rem;margin-bottom:0.55rem;display:flex;gap:0.7rem;align-items:center;background:rgba(255,247,225,0.5);">'+
+      '<img src="'+montageThumb(p.url)+'" style="width:74px;height:54px;object-fit:cover;border-radius:5px;border:1px solid #7a4e20;flex:none;">'+
+      '<input type="text" value="'+escMusic(p.caption||'')+'" placeholder="Caption / name (optional)" oninput="setPersonCaption('+idx+',this.value)" style="flex:1;min-width:0;padding:0.45rem 0.6rem;">'+
+      '<div style="display:flex;flex-direction:column;gap:3px;flex:none;">'+
+        (idx>0?'<button class="btn btn-secondary btn-sm" onclick="movePerson('+idx+',-1)">▲</button>':'')+
+        (idx<people.length-1?'<button class="btn btn-secondary btn-sm" onclick="movePerson('+idx+',1)">▼</button>':'')+
+        '<button class="btn btn-danger btn-sm" onclick="removePerson('+idx+')">✕</button>'+
+      '</div></div>';
+  }).join('');
+}
+function setPersonCaption(idx,val){ if(people[idx]){ people[idx].caption=val; showStatus('peopleMainStatus','Changes pending — hit Save & Publish.','info'); } }
+function addPersonByUrl(){
+  var el=document.getElementById('personUrl'); var u=el.value.trim();
+  if(!u){ showStatus('peopleMainStatus','Paste a photo link first.','error'); return; }
+  people.push({url:u,caption:''}); el.value='';
+  renderPeople(); showStatus('peopleMainStatus','Added — hit Save & Publish.','info');
+}
+function addPersonPhoto(url){
+  if(people.some(function(p){return p.url===url;})){ showStatus('peopleMainStatus','That photo is already in the slideshow.','info'); return; }
+  people.push({url:url,caption:''}); renderPeopleList();
+  var cells=document.querySelectorAll('[data-pu]');
+  Array.prototype.forEach.call(cells,function(cell){ if(cell.getAttribute('data-pu')===url) cell.outerHTML=peoplePhotoCell(url); });
+  showStatus('peopleMainStatus','Added — hit Save & Publish.','info');
+}
+function removePerson(idx){ people.splice(idx,1); renderPeople(); showStatus('peopleMainStatus','Removed — hit Save & Publish.','info'); }
+function movePerson(idx,dir){ var to=idx+dir; if(to<0||to>=people.length)return; var t=people[idx];people[idx]=people[to];people[to]=t; renderPeopleList(); showStatus('peopleMainStatus','Reordered — hit Save & Publish.','info'); }
+function renderPeopleAlbums(){
+  var c=document.getElementById('peopleAlbums');
+  if(!albums||!albums.length){ c.innerHTML='<p class="hint">Albums still loading… reopen this tab in a moment.</p>'; return; }
+  c.innerHTML=albums.map(function(a,i){
+    var n=(a.photos||[]).length;
+    return '<div style="border:1px solid #c8a96e;border-radius:7px;margin-bottom:6px;overflow:hidden;">'+
+      '<div onclick="togglePeopleAlbum('+i+')" style="cursor:pointer;padding:0.5rem 0.7rem;background:rgba(200,169,110,0.18);font-family:\'Cinzel\',serif;font-weight:700;color:#5a3510;font-size:0.9rem;">▸ '+escMusic(a.title||('Album '+(i+1)))+' <span style="font-weight:400;color:rgba(90,53,16,0.6);">('+n+')</span></div>'+
+      '<div id="pAlb'+i+'" style="display:none;padding:0.5rem;"></div></div>';
+  }).join('');
+}
+function togglePeopleAlbum(i){
+  var el=document.getElementById('pAlb'+i);
+  if(el.style.display==='none'){
+    if(!el.getAttribute('data-loaded')){
+      var ph=(albums[i].photos||[]);
+      el.innerHTML='<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(70px,1fr));gap:5px;">'+ph.map(peoplePhotoCell).join('')+'</div>';
+      el.setAttribute('data-loaded','1');
+    }
+    el.style.display='block';
+  } else { el.style.display='none'; }
+}
+function peoplePhotoCell(u){
+  var on=people.some(function(p){return p.url===u;});
+  return '<div onclick="addPersonPhoto(\''+u.replace(/'/g,"\\'")+'\')" data-pu="'+escMusic(u)+'" style="position:relative;cursor:pointer;aspect-ratio:1;border-radius:5px;overflow:hidden;border:2px solid '+(on?'#2f7d32':'transparent')+';"><img src="'+montageThumb(u)+'" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;opacity:'+(on?'1':'0.9')+';"><span style="position:absolute;top:3px;right:3px;background:'+(on?'#2f7d32':'rgba(0,0,0,0.4)')+';color:#fff;border-radius:50%;width:18px;height:18px;line-height:18px;text-align:center;font-size:12px;">'+(on?'✓':'+')+'</span></div>';
+}
+function savePeople(){
+  if(!token){showStatus('peopleMainStatus','Not logged in.','error');return;}
+  showStatus('peopleMainStatus','<span class="spinner">✦</span> Publishing to GitHub…','info');
+  var fp;
+  if(peopleSha){
+    fp=fetch('https://api.github.com/repos/'+REPO_OWNER+'/'+REPO_NAME+'/contents/'+PEOPLE_PATH+'?ref='+BRANCH+'&_='+Date.now(),
+      {headers:{'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json'}})
+      .then(function(r){ if(r.status===404)return null; if(!r.ok) throw new Error('SHA fetch ('+r.status+')'); return r.json(); })
+      .then(function(data){return data?data.sha:null;});
+  } else { fp=Promise.resolve(null); }
+  fp.then(function(freshSha){
+    var content=btoa(unescape(encodeURIComponent(JSON.stringify(people,null,2))));
+    var body={message:'Update people.json via admin page',content:content,branch:BRANCH};
+    if(freshSha)body.sha=freshSha;
+    return fetch('https://api.github.com/repos/'+REPO_OWNER+'/'+REPO_NAME+'/contents/'+PEOPLE_PATH,{
+      method:'PUT',headers:{'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json','Content-Type':'application/json'},body:JSON.stringify(body)});
+  })
+  .then(function(r){if(!r.ok)return r.json().then(function(e){throw new Error(e.message||r.status);});return r.json();})
+  .then(function(data){ peopleSha=data.content.sha; showStatus('peopleMainStatus','✦ Published! The People page updates in ~30 seconds.','success'); })
+  .catch(function(err){showStatus('peopleMainStatus','Save failed: '+err.message,'error');});
+}
+
+/* ─────────────────── WALL (guestbook) ─────────────────── */
+function loadWall(){
+  fetch('https://api.github.com/repos/'+REPO_OWNER+'/'+REPO_NAME+'/contents/'+WALL_PATH+'?ref='+BRANCH,
+    {headers:{'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json'}})
+  .then(function(r){
+    if(r.status===404){wall=[];wallSha='';renderWall();return null;}
+    if(!r.ok){showStatus('wallMainStatus','Could not load wall.json ('+r.status+').','error');return null;}
+    return r.json();
+  })
+  .then(function(data){
+    if(!data)return;
+    wallSha=data.sha;
+    var jsonStr=decodeURIComponent(escape(atob(data.content.replace(/\n/g,''))));
+    wall=JSON.parse(jsonStr);
+  })
+  .catch(function(err){showStatus('wallMainStatus','Could not load wall: '+err.message,'error');});
+}
+function renderWall(){
+  var c=document.getElementById('wallList');
+  document.getElementById('wallCount').textContent='('+wall.length+')';
+  if(!wall.length){ c.innerHTML='<p style="font-family:\'IM Fell English\',serif;font-style:italic;color:rgba(90,53,16,0.5);margin-bottom:1rem;">No signatures posted yet — add approved ones below.</p>'; return; }
+  c.innerHTML=wall.map(function(w,idx){
+    return '<div style="border:1px solid #c8a96e;border-radius:8px;padding:0.7rem 0.9rem;margin-bottom:0.6rem;background:rgba(255,247,225,0.5);">'+
+      '<div style="font-family:\'Cinzel\',serif;font-weight:700;color:#5a3510;">'+escMusic(w.name||'A fellow traveler')+
+        (w.location?' <span style="font-weight:400;font-style:italic;color:#7a4e20;">· '+escMusic(w.location)+'</span>':'')+
+        (w.date?' <span style="font-weight:400;color:#7a4e20;">· '+escMusic(w.date)+'</span>':'')+'</div>'+
+      '<div style="font-style:italic;color:#241405;margin:0.25rem 0;">“'+escMusic(w.message||'')+'”</div>'+
+      (w.photo?'<div style="font-size:0.78rem;color:rgba(90,53,16,0.6);word-break:break-all;">📷 '+escMusic(w.photo)+'</div>':'')+
+      '<div style="margin-top:0.45rem;display:flex;gap:5px;">'+
+        '<button class="btn btn-secondary btn-sm" onclick="editWall('+idx+')">✎ Edit</button>'+
+        (idx>0?'<button class="btn btn-secondary btn-sm" onclick="moveWall('+idx+',-1)">▲</button>':'')+
+        (idx<wall.length-1?'<button class="btn btn-secondary btn-sm" onclick="moveWall('+idx+',1)">▼</button>':'')+
+        '<button class="btn btn-danger btn-sm" onclick="removeWall('+idx+')">✕</button>'+
+      '</div></div>';
+  }).join('');
+}
+function resetWallForm(){
+  wallEditIndex=-1;
+  ['wallName','wallLocation','wallMessage','wallPhoto','wallDate'].forEach(function(id){document.getElementById(id).value='';});
+  document.getElementById('wallAddBtn').textContent='+ Add Signature';
+  document.getElementById('wallFormTitle').textContent='+ New Signature';
+  document.getElementById('wallCancelBtn').style.display='none';
+}
+function editWall(idx){
+  var w=wall[idx]; wallEditIndex=idx;
+  document.getElementById('wallName').value=w.name||'';
+  document.getElementById('wallLocation').value=w.location||'';
+  document.getElementById('wallMessage').value=w.message||'';
+  document.getElementById('wallPhoto').value=w.photo||'';
+  document.getElementById('wallDate').value=w.date||'';
+  document.getElementById('wallAddBtn').textContent='✓ Update Signature';
+  document.getElementById('wallFormTitle').textContent='✎ Editing signature';
+  document.getElementById('wallCancelBtn').style.display='inline-block';
+  document.getElementById('wallFormTitle').scrollIntoView({behavior:'smooth',block:'center'});
+}
+function addOrUpdateWall(){
+  var name=document.getElementById('wallName').value.trim();
+  var msg=document.getElementById('wallMessage').value.trim();
+  if(!name){showStatus('wallAddStatus','Enter a name.','error');return;}
+  if(!msg){showStatus('wallAddStatus','Enter a message.','error');return;}
+  var item={name:name,location:document.getElementById('wallLocation').value.trim(),message:msg,
+            photo:document.getElementById('wallPhoto').value.trim(),date:document.getElementById('wallDate').value.trim()};
+  var editing=(wallEditIndex>=0);
+  if(editing){ wall[wallEditIndex]=item; } else { wall.unshift(item); }  // newest on top
+  resetWallForm(); renderWall();
+  showStatus('wallAddStatus','✦ '+(editing?'Updated':'Added')+' — hit Save & Publish to make it live.','success');
+  showStatus('wallMainStatus','Changes pending — hit Save & Publish.','info');
+}
+function removeWall(idx){
+  if(!confirm('Remove this signature?'))return;
+  wall.splice(idx,1); if(wallEditIndex===idx)resetWallForm(); renderWall();
+  showStatus('wallMainStatus','Removed — hit Save & Publish when ready.','info');
+}
+function moveWall(idx,dir){ var to=idx+dir; if(to<0||to>=wall.length)return; var t=wall[idx];wall[idx]=wall[to];wall[to]=t; renderWall(); showStatus('wallMainStatus','Reordered — hit Save & Publish.','info'); }
+function saveWall(){
+  if(!token){showStatus('wallMainStatus','Not logged in.','error');return;}
+  showStatus('wallMainStatus','<span class="spinner">✦</span> Publishing to GitHub…','info');
+  var fp;
+  if(wallSha){
+    fp=fetch('https://api.github.com/repos/'+REPO_OWNER+'/'+REPO_NAME+'/contents/'+WALL_PATH+'?ref='+BRANCH+'&_='+Date.now(),
+      {headers:{'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json'}})
+      .then(function(r){ if(r.status===404)return null; if(!r.ok) throw new Error('SHA fetch ('+r.status+')'); return r.json(); })
+      .then(function(data){return data?data.sha:null;});
+  } else { fp=Promise.resolve(null); }
+  fp.then(function(freshSha){
+    var content=btoa(unescape(encodeURIComponent(JSON.stringify(wall,null,2))));
+    var body={message:'Update wall.json via admin page',content:content,branch:BRANCH};
+    if(freshSha)body.sha=freshSha;
+    return fetch('https://api.github.com/repos/'+REPO_OWNER+'/'+REPO_NAME+'/contents/'+WALL_PATH,{
+      method:'PUT',headers:{'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json','Content-Type':'application/json'},body:JSON.stringify(body)});
+  })
+  .then(function(r){if(!r.ok)return r.json().then(function(e){throw new Error(e.message||r.status);});return r.json();})
+  .then(function(data){ wallSha=data.content.sha; showStatus('wallMainStatus','✦ Published! The Wall updates in ~30 seconds.','success'); })
+  .catch(function(err){showStatus('wallMainStatus','Save failed: '+err.message,'error');});
 }
 
 // Normalize an Amazon product URL so it always carries OUR affiliate tag.
