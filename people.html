@@ -312,6 +312,7 @@ function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'
       function show(i){
         var it=items[i], u=sized(it.url||it.photo).replace(/"/g,'');
         nxt.style.backgroundImage='url("'+u+'")';
+        nxt.style.backgroundPosition=it.position||'top center';
         nxt.classList.remove('kb'); void nxt.offsetWidth; nxt.classList.add('on','kb');
         cur.classList.remove('on');
         cap.textContent = it.caption || '';

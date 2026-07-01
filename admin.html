@@ -1168,9 +1168,15 @@ function renderPeopleList(){
   document.getElementById('peopleCount').textContent='('+people.length+')';
   if(!people.length){ c.innerHTML='<p style="font-family:\'IM Fell English\',serif;font-style:italic;color:rgba(90,53,16,0.5);margin-bottom:1rem;">No people photos yet — add some below.</p>'; return; }
   c.innerHTML=people.map(function(p,idx){
+    var pos=p.position||'top center';
     return '<div style="border:1px solid #c8a96e;border-radius:8px;padding:0.55rem;margin-bottom:0.55rem;display:flex;gap:0.7rem;align-items:center;background:rgba(255,247,225,0.5);">'+
-      '<img src="'+montageThumb(p.url)+'" style="width:74px;height:54px;object-fit:cover;border-radius:5px;border:1px solid #7a4e20;flex:none;">'+
+      '<img src="'+montageThumb(p.url)+'" style="width:74px;height:54px;object-fit:cover;object-position:'+escMusic(pos)+';border-radius:5px;border:1px solid #7a4e20;flex:none;">'+
       '<input type="text" value="'+escMusic(p.caption||'')+'" placeholder="Caption / name (optional)" oninput="setPersonCaption('+idx+',this.value)" style="flex:1;min-width:0;padding:0.45rem 0.6rem;">'+
+      '<select onchange="setPersonPosition('+idx+',this.value)" style="font-family:\'Crimson Text\',serif;font-size:0.9rem;padding:0.35rem 0.4rem;border:1px solid rgba(90,53,16,0.4);border-radius:3px;background:#f5ead0;color:#241405;flex:none;" title="Crop position">'+
+        '<option value="top center"'+(pos==='top center'?' selected':'')+'>Top</option>'+
+        '<option value="center"'+(pos==='center'?' selected':'')+'>Center</option>'+
+        '<option value="bottom center"'+(pos==='bottom center'?' selected':'')+'>Bottom</option>'+
+      '</select>'+
       '<div style="display:flex;flex-direction:column;gap:3px;flex:none;">'+
         (idx>0?'<button class="btn btn-secondary btn-sm" onclick="movePerson('+idx+',-1)">▲</button>':'')+
         (idx<people.length-1?'<button class="btn btn-secondary btn-sm" onclick="movePerson('+idx+',1)">▼</button>':'')+
@@ -1179,6 +1185,14 @@ function renderPeopleList(){
   }).join('');
 }
 function setPersonCaption(idx,val){ if(people[idx]){ people[idx].caption=val; showStatus('peopleMainStatus','Changes pending — hit Save & Publish.','info'); } }
+function setPersonPosition(idx,val){
+  if(!people[idx]) return;
+  people[idx].position=val;
+  // update the thumbnail's object-position live so you see the effect immediately
+  var imgs=document.querySelectorAll('#peopleList img');
+  if(imgs[idx]) imgs[idx].style.objectPosition=val;
+  showStatus('peopleMainStatus','Changes pending — hit Save & Publish.','info');
+}
 function addPersonByUrl(){
   var el=document.getElementById('personUrl'); var u=el.value.trim();
   if(!u){ showStatus('peopleMainStatus','Paste a photo link first.','error'); return; }
