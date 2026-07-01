@@ -1557,10 +1557,11 @@ function showStatus(id,msg,type){var el=document.getElementById(id);el.innerHTML
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 
 /* ─────────────────── JOTFORM INBOX ─────────────────── */
-var JF_FORM_ID = '261814193765161';
-var JF_BASE    = 'https://eu-api.jotform.com';
-var jfKey      = '';
-var jfIgnored  = [];  // submission IDs the user dismissed
+var JF_FORM_ID  = '261814193765161';
+var JF_BASE     = 'https://eu-api.jotform.com';
+var jfKey       = '';
+var jfIgnored   = [];  // submission IDs the user dismissed
+var jfPendingMap = {};  // sid → {name,location,message,photo,date}
 
 (function(){
   try { jfKey = localStorage.getItem('jm_jotform_key') || ''; if(jfKey) document.getElementById('jfKeyInput').value = jfKey; } catch(e){}
@@ -1642,6 +1643,7 @@ function getJFAnswer(answers, qid){
 
 function renderJFPending(subs, fieldMap){
   var c = document.getElementById('wallPending');
+  jfPendingMap = {};
   if(!subs.length){ c.innerHTML = ''; return; }
   var html = '<div style="margin-bottom:0.5rem;font-family:\'Cinzel\',serif;font-size:0.78rem;font-weight:700;letter-spacing:0.1em;color:#3a6b35;text-transform:uppercase;">Pending Approvals</div>';
   subs.forEach(function(s){
@@ -1650,7 +1652,8 @@ function renderJFPending(subs, fieldMap){
     var message  = getJFAnswer(s.answers, fieldMap.message)  || '';
     var photo    = getJFAnswer(s.answers, fieldMap.photo)    || '';
     var dateStr  = s.created_at ? s.created_at.split(' ')[0] : '';
-    var sid = esc(s.id);
+    var sid = s.id;
+    jfPendingMap[sid] = {name:name, location:location, message:message, photo:photo, date:dateStr};
     html +=
       '<div id="jfcard_'+sid+'" style="border:2px solid #3a6b35;border-radius:8px;padding:0.8rem 0.9rem;margin-bottom:0.7rem;background:rgba(58,107,53,0.06);">'+
         '<div style="font-family:\'Cinzel\',serif;font-weight:700;color:#2c4a28;font-size:0.95rem;">'+esc(name)+
@@ -1661,13 +1664,7 @@ function renderJFPending(subs, fieldMap){
                  '<div style="color:rgba(90,53,16,0.45);font-style:italic;margin:0.3rem 0 0.4rem;">(no message)</div>')+
         (photo?'<div style="font-size:0.78rem;color:rgba(58,107,53,0.7);margin-bottom:0.4rem;word-break:break-all;">📷 '+esc(photo)+'</div>':'')+
         '<div style="display:flex;gap:6px;margin-top:0.3rem;">'+
-          '<button class="btn btn-green btn-sm" onclick="approveJFSub(\''+sid+'\','+
-            JSON.stringify(esc(name))+','+
-            JSON.stringify(esc(location))+','+
-            JSON.stringify(esc(message))+','+
-            JSON.stringify(esc(photo))+','+
-            JSON.stringify(esc(dateStr))+
-          ')">✓ Approve</button>'+
+          '<button class="btn btn-green btn-sm" onclick="approveJFSub(\''+sid+'\')">✓ Approve</button>'+
           '<button class="btn btn-danger btn-sm" onclick="ignoreJFSub(\''+sid+'\')">✕ Ignore</button>'+
         '</div>'+
       '</div>';
@@ -1675,8 +1672,10 @@ function renderJFPending(subs, fieldMap){
   c.innerHTML = html;
 }
 
-function approveJFSub(sid, name, location, message, photo, dateStr){
-  wall.unshift({jfId:sid, name:name, location:location, message:message, photo:photo, date:dateStr});
+function approveJFSub(sid){
+  var d = jfPendingMap[sid];
+  if(!d){ showStatus('wallMainStatus','Could not find submission data — try reloading.','error'); return; }
+  wall.unshift({jfId:sid, name:d.name, location:d.location, message:d.message, photo:d.photo, date:d.date});
   renderWall();
   var card = document.getElementById('jfcard_'+sid);
   if(card) card.remove();
