@@ -614,6 +614,7 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
         <div class="nav-dropdown-menu" role="menu">
           <a href="nomad-guide.html" role="menuitem">⛺ Nomad Guide</a>
           <a href="gear.html" role="menuitem">🎒 Gear &amp; Goods</a>
+          <a href="music.html" role="menuitem">🎵 Music for the Road</a>
         </div>
       </div>
       <span class="nav-dot">✦</span>
@@ -649,6 +650,7 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
     <span class="nav-drawer-group-label">✦ Life on the Road</span>
     <a href="nomad-guide.html">⛺ Nomad Guide</a>
     <a href="gear.html">🎒 Gear &amp; Goods</a>
+    <a href="music.html">🎵 Music for the Road</a>
     <a href="wallpapers.html">🎁 Gift from the Road</a>
     <span class="nav-drawer-group-label">✦ Connect</span>
     <a href="index.html#contact">Contact</a>
