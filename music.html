@@ -279,7 +279,7 @@ document.querySelectorAll('.nav-dropdown-menu a').forEach(function(a){
   function embed(u){
     u=(u||'').trim(); var m;
     if((m=u.match(/open\.spotify\.com\/(?:intl-[a-z]+\/)?(playlist|album|track|artist|episode|show)\/([A-Za-z0-9]+)/i))){
-      var h=(m[1]==='track'||m[1]==='episode')?152:380;
+      var h=(m[1]==='track'||m[1]==='episode')?152:232;
       return '<div class="music-embed"><iframe src="https://open.spotify.com/embed/'+m[1]+'/'+m[2]+'?utm_source=generator" height="'+h+'" loading="lazy" allow="encrypted-media" title="Spotify player"></iframe></div>';
     }
     if(/youtu/.test(u) && (m=u.match(/[?&]list=([A-Za-z0-9_-]+)/))){
@@ -289,7 +289,7 @@ document.querySelectorAll('.nav-dropdown-menu a').forEach(function(a){
       return '<div class="music-embed yt"><iframe src="https://www.youtube.com/embed/'+m[1]+'" loading="lazy" allow="encrypted-media" allowfullscreen title="YouTube"></iframe></div>';
     }
     if(/music\.apple\.com/.test(u)){
-      return '<div class="music-embed"><iframe src="'+esc(u.replace('music.apple.com','embed.music.apple.com'))+'" height="450" loading="lazy" allow="encrypted-media *; autoplay *" title="Apple Music player"></iframe></div>';
+      return '<div class="music-embed"><iframe src="'+esc(u.replace('music.apple.com','embed.music.apple.com'))+'" height="175" loading="lazy" allow="encrypted-media *; autoplay *" title="Apple Music player"></iframe></div>';
     }
     if(u) return '<a class="m-link" href="'+esc(u)+'" target="_blank" rel="noopener">▶ Listen →</a>';
     return '';
