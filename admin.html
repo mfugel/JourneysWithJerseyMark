@@ -107,9 +107,21 @@ textarea{resize:vertical;min-height:100px;}
   .inner-border{padding:1.2rem 1rem 1.6rem;}
   .admin-title{font-size:1.3rem;}
 }
+
+/* ── Photo hover preview ── */
+#photoHoverPreview{
+  position:fixed;z-index:9999;pointer-events:none;
+  display:none;
+  max-width:280px;max-height:280px;
+  border:3px solid #7a4e20;border-radius:8px;
+  box-shadow:0 8px 32px rgba(40,20,0,0.55);
+  background:#1a0f00;overflow:hidden;
+}
+#photoHoverPreview img{width:100%;height:100%;object-fit:contain;display:block;}
 </style>
 </head>
 <body>
+<div id="photoHoverPreview"><img id="photoHoverImg" src="" alt=""></div>
 <div class="parchment-bg"></div>
 <div class="vignette"></div>
 <div class="content">
@@ -1531,6 +1543,39 @@ function copyShare(textareaId,copiedId){
   badge.classList.add('show');
   setTimeout(function(){badge.classList.remove('show');},2500);
 }
+
+/* ── Photo hover preview ── */
+(function(){
+  var box=document.getElementById('photoHoverPreview');
+  var img=document.getElementById('photoHoverImg');
+  var OFFSET=14;
+  document.addEventListener('mouseover',function(e){
+    var el=e.target;
+    if(el.tagName!=='IMG') return;
+    // only inside peopleTab or montageTab
+    var tab=el.closest('#peopleTab,#montageTab,#montageSelected,#peopleList,#peopleAlbums');
+    if(!tab) return;
+    var src=el.src||'';
+    if(!src) return;
+    // strip Google Photos size suffix and request a larger version
+    var full=src.replace(/=w\d+.*$/, '=w400-h400-c');
+    img.src=full;
+    box.style.display='block';
+  });
+  document.addEventListener('mousemove',function(e){
+    if(box.style.display==='none') return;
+    var x=e.clientX+OFFSET, y=e.clientY+OFFSET;
+    // keep inside viewport
+    if(x+290>window.innerWidth)  x=e.clientX-290-OFFSET;
+    if(y+290>window.innerHeight) y=e.clientY-290-OFFSET;
+    box.style.left=x+'px';
+    box.style.top=y+'px';
+  });
+  document.addEventListener('mouseout',function(e){
+    var el=e.target;
+    if(el.tagName==='IMG') box.style.display='none';
+  });
+})();
 
 function showStatus(id,msg,type){var el=document.getElementById(id);el.innerHTML=msg;el.className='status show '+type;}
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
