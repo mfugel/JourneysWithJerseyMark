@@ -12,6 +12,33 @@
   },
   "projects": [
     {
+      "id": "pmrtq-aluminess",
+      "createdAt": "2026-07-20T22:05:00.000Z",
+      "title": "Aluminess rear-door storage box — quote & install",
+      "area": "Exterior / Body",
+      "priority": "Medium",
+      "status": "Open",
+      "desc": "Add an Aluminess exterior storage box on the rear door(s) — black powder-coated aluminum box with fold-down door, mounted on their rear-door box rack. Codi is the 2007–2018 Sprinter body style, so the matching rack/box line applies. Want product options, pricing, and install quote.",
+      "who": "Colonial RV",
+      "where": "",
+      "when": "",
+      "cost": "",
+      "parts": "Aluminess rear-door box rack + storage box, 2007-18 Sprinter fitment",
+      "notes": "Colonial RV is an Aluminess dealer (per Mark) — confirm at Wednesday's visit and get a quote alongside the repair work.",
+      "photos": [],
+      "docs": [
+        {
+          "url": "https://www.aluminess.com/products/passenger-side-rear-door-box-rack-mercedes-dodge-2007-18-sprinter-2017-18-revel/",
+          "label": "Aluminess rear-door box rack (2007-18 Sprinter) — product page"
+        },
+        {
+          "url": "https://www.aluminess.com/collections/boxes/",
+          "label": "Aluminess storage boxes — full lineup"
+        }
+      ],
+      "updatedAt": "2026-07-20T22:05:00.000Z"
+    },
+    {
       "id": "pmrtq3hvdq3bqz",
       "createdAt": "2026-07-20T21:14:45.433Z",
       "title": "Main console does not register Propane status",
