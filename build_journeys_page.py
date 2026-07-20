@@ -616,6 +616,7 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
           <a href="gear.html" role="menuitem">🎒 Gear &amp; Goods</a>
           <a href="music.html" role="menuitem">🎵 Music for the Road</a>
           <a href="people.html" role="menuitem">🤝 People of the Road</a>
+          <a href="https://rvweather.com/weather-hub/" target="_blank" rel="noopener" role="menuitem">🌦 RV Weather ↗</a>
         </div>
       </div>
       <span class="nav-dot">✦</span>
@@ -653,6 +654,7 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
     <a href="gear.html">🎒 Gear &amp; Goods</a>
     <a href="music.html">🎵 Music for the Road</a>
     <a href="people.html">🤝 People of the Road</a>
+    <a href="https://rvweather.com/weather-hub/" target="_blank" rel="noopener">🌦 RV Weather ↗</a>
     <a href="wallpapers.html">🎁 Gift from the Road</a>
     <span class="nav-drawer-group-label">✦ Connect</span>
     <a href="index.html#contact">Contact</a>
