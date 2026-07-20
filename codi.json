@@ -11,6 +11,24 @@
   },
   "projects": [
     {
+      "id": "pmrtq1y55x6sfk",
+      "createdAt": "2026-07-20T21:13:33.209Z",
+      "title": "Test out Fridge 3 way power",
+      "area": "Chassis / Engine",
+      "priority": "Medium",
+      "status": "Open",
+      "desc": "New replacement of fridge...same model...does it work all 3 power sources?",
+      "who": "Colonial RV",
+      "where": "",
+      "when": "",
+      "cost": "",
+      "parts": "",
+      "notes": "",
+      "photos": [],
+      "docs": [],
+      "updatedAt": "2026-07-20T21:13:33.209Z"
+    },
+    {
       "id": "pmrtq0q4hhtjin",
       "createdAt": "2026-07-20T21:12:36.161Z",
       "title": "Maintenance of Air Conditioning",
