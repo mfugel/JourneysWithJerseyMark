@@ -12,6 +12,24 @@
   },
   "projects": [
     {
+      "id": "pmrtr9f7ckyw4r",
+      "createdAt": "2026-07-20T21:47:21.528Z",
+      "title": "Light switches not working",
+      "area": "Electrical / Solar",
+      "priority": "High",
+      "status": "Open",
+      "desc": "The front light panel switches work. But the panel of light buttons near the main console as well as the buttons above the bed DO NOT WORK (although they are lit).",
+      "who": "Colonial RV",
+      "where": "",
+      "when": "",
+      "cost": "",
+      "parts": "",
+      "notes": "",
+      "photos": [],
+      "docs": [],
+      "updatedAt": "2026-07-20T21:47:21.528Z"
+    },
+    {
       "id": "pmrtq-aluminess",
       "createdAt": "2026-07-20T22:05:00.000Z",
       "title": "Aluminess rear-door storage box — quote & install",
