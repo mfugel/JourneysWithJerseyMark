@@ -11,6 +11,24 @@
   },
   "projects": [
     {
+      "id": "pmrtpxi1x2ayp5",
+      "createdAt": "2026-07-20T21:10:05.733Z",
+      "title": "Bedroom TV no power",
+      "area": "Interior",
+      "priority": "High",
+      "status": "Open",
+      "desc": "No power...not sure if the plug got disconnected or what?",
+      "who": "Colonial RV",
+      "where": "",
+      "when": "",
+      "cost": "",
+      "parts": "",
+      "notes": "It did work but suddenly stopped working",
+      "photos": [],
+      "docs": [],
+      "updatedAt": "2026-07-20T21:10:05.733Z"
+    },
+    {
       "id": "pmrtpuh98lybxt",
       "createdAt": "2026-07-20T21:07:44.732Z",
       "title": "Main Console Screen shows Comm error",
