@@ -9,7 +9,26 @@
     "phone": "",
     "email": "mfugel@gmail.com"
   },
-  "projects": [],
+  "projects": [
+    {
+      "id": "pmrtpp0nsm0an8",
+      "createdAt": "2026-07-20T21:03:29.943Z",
+      "title": "Replace broken and non-working hinges and locks on drawers, cabinets",
+      "area": "Interior",
+      "priority": "Medium",
+      "status": "Open",
+      "desc": "Crappy plastic hinges broken do not allow drawers or cabinets to stay closed especially when driving",
+      "who": "Colonial RV",
+      "where": "",
+      "when": "",
+      "cost": "",
+      "parts": "",
+      "notes": "",
+      "photos": [],
+      "docs": [],
+      "updatedAt": "2026-07-20T21:03:29.943Z"
+    }
+  ],
   "directory": [
     {
       "id": "d-colonialrv",
