@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Codi Maintenance Log · Jersey Mark</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Cinzel:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{width:100%;min-height:100vh;}
+body{background:#dfc99a;font-family:'Crimson Text',serif;color:#2c1a08;position:relative;overflow-x:hidden;}
+.parchment-bg{position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 28px,rgba(101,67,33,0.04) 29px),repeating-linear-gradient(90deg,transparent,transparent 28px,rgba(101,67,33,0.04) 29px);pointer-events:none;z-index:0;}
+.vignette{position:fixed;inset:0;background:radial-gradient(ellipse at center,transparent 40%,rgba(80,40,10,0.35) 100%);pointer-events:none;z-index:0;}
+.content{position:relative;z-index:1;width:100%;padding:2rem 3rem 3rem;}
+.outer-border{border:3px solid #5a3510;border-radius:4px;padding:4px;position:relative;max-width:860px;margin:0 auto;}
+.inner-border{border:1.5px solid #7a4e20;border-radius:2px;padding:1.8rem 1.8rem 2.2rem;}
+.corner-ornament{position:absolute;font-size:20px;color:#5a3510;line-height:1;}
+.corner-tl{top:10px;left:10px;}.corner-tr{top:10px;right:10px;transform:scaleX(-1);}
+.corner-bl{bottom:10px;left:10px;transform:scaleY(-1);}.corner-br{bottom:10px;right:10px;transform:scale(-1);}
+.divider-rule{display:flex;align-items:center;gap:8px;margin:1.3rem 0;color:#7a4e20;font-size:14px;letter-spacing:0.15em;}
+.divider-rule::before,.divider-rule::after{content:'';flex:1;height:1px;background:#7a4e20;}
+.legend-box{border:1.5px solid #7a4e20;border-radius:3px;padding:1.1rem;background:rgba(160,110,50,0.15);margin-bottom:1.2rem;position:relative;}
+.legend-box-title{font-family:'Cinzel',serif;font-size:0.84rem;font-weight:700;letter-spacing:0.15em;color:#5a3510;background:#dfc99a;padding:0 6px;position:absolute;top:-9px;left:16px;text-transform:uppercase;}
+.legend-box-new{border:2.5px solid #3a6b35;border-radius:3px;padding:1.3rem 1.1rem 1.1rem;background:rgba(58,107,53,0.10);margin-bottom:1.2rem;position:relative;}
+.legend-box-new .legend-box-title{color:#3a6b35;}
+.legend-box-new label{color:#3a6b35;}
+.admin-title{font-family:'Cinzel',serif;font-size:1.6rem;font-weight:700;color:#2c1a08;text-align:center;letter-spacing:0.04em;margin-bottom:0.3rem;}
+.admin-sub{font-family:'IM Fell English',serif;font-style:italic;font-size:1rem;color:#5a3510;text-align:center;margin-bottom:1.5rem;}
+label{display:block;font-family:'Cinzel',serif;font-size:0.78rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#5a3510;margin-bottom:0.35rem;}
+input[type="text"],input[type="password"],input[type="date"],textarea,select{width:100%;font-family:'Crimson Text',serif;font-size:1.12rem;color:#2c1a08;background:rgba(245,234,210,0.7);border:1px solid rgba(90,53,16,0.4);border-radius:3px;padding:0.45rem 0.65rem;outline:none;transition:border-color 0.2s;}
+input:focus,textarea:focus,select:focus{border-color:#7a4e20;background:rgba(245,234,210,0.95);}
+textarea{resize:vertical;min-height:80px;}
+.field-row{margin-bottom:0.85rem;}
+.field-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.7rem 0.9rem;margin-bottom:0.85rem;}
+.field-grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.7rem 0.9rem;margin-bottom:0.85rem;}
+@media(max-width:640px){.field-grid,.field-grid-3{grid-template-columns:1fr;}}
+.hint{font-family:'IM Fell English',serif;font-style:italic;font-size:0.93rem;color:rgba(90,53,16,0.65);margin-top:0.25rem;line-height:1.4;}
+.hint a{color:#7a4e20;}
+.btn{font-family:'Cinzel',serif;font-size:0.78rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:0.45rem 1.1rem;border-radius:3px;border:none;cursor:pointer;transition:all 0.2s;display:inline-block;text-decoration:none;}
+.btn-primary{background:#5a3510;color:#f5ead0;border:1px solid #5a3510;}
+.btn-primary:hover{background:#3a1f08;}
+.btn-green{background:#3a6b35;color:#f5ead0;border:1px solid #3a6b35;}
+.btn-green:hover{background:#2a5025;}
+.btn-secondary{background:transparent;color:#7a4e20;border:1px solid rgba(122,78,32,0.5);}
+.btn-secondary:hover{background:rgba(122,78,32,0.1);border-color:#7a4e20;}
+.btn-danger{background:transparent;color:#8b2222;border:1px solid rgba(139,34,34,0.35);}
+.btn-danger:hover{background:rgba(139,34,34,0.08);border-color:#8b2222;}
+.btn-sm{font-size:0.70rem;padding:0.28rem 0.65rem;}
+.status{font-family:'IM Fell English',serif;font-style:italic;font-size:1.07rem;padding:0.55rem 0.85rem;border-radius:3px;margin:0.7rem 0;display:none;}
+.status.show{display:block;}
+.status.success{background:rgba(58,107,53,0.12);color:#3a6b35;border:1px solid rgba(58,107,53,0.3);}
+.status.error{background:rgba(139,34,34,0.1);color:#8b2222;border:1px solid rgba(139,34,34,0.25);}
+.status.info{background:rgba(122,78,32,0.1);color:#7a4e20;border:1px solid rgba(90,53,16,0.3);}
+#loginScreen{display:block;}
+#mainScreen{display:none;}
+.spinner{display:inline-block;animation:spin 1s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.tab-row{display:flex;flex-wrap:wrap;gap:0.35rem 0.4rem;margin-bottom:1.2rem;border-bottom:1.5px solid rgba(122,78,32,0.3);}
+.tab-btn{font-family:'Cinzel',serif;font-size:0.82rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.55rem 1rem;border:1.5px solid transparent;border-bottom:none;border-radius:3px 3px 0 0;background:transparent;color:rgba(90,53,16,0.6);cursor:pointer;transition:color 0.2s,background 0.2s;margin-bottom:-1.5px;white-space:nowrap;}
+.tab-btn:hover{color:#5a3510;}
+.tab-btn.active{color:#2c1a08;background:rgba(160,110,50,0.18);border-color:rgba(122,78,32,0.4);border-bottom-color:#dfc99a;}
+@media(max-width:640px){.tab-row{gap:0.3rem;}.tab-btn{font-size:0.64rem;letter-spacing:0.05em;padding:0.45rem 0.6rem;flex:1 1 auto;text-align:center;}}
+
+/* ── Project cards ── */
+.proj-card{border:1.5px solid #7a4e20;border-radius:3px;margin-bottom:0.9rem;overflow:hidden;background:rgba(160,110,50,0.1);}
+.proj-card-header{display:flex;align-items:center;justify-content:space-between;padding:0.6rem 0.9rem;background:rgba(90,53,16,0.08);border-bottom:1px solid rgba(122,78,32,0.3);gap:0.7rem;flex-wrap:wrap;cursor:pointer;user-select:none;}
+.proj-card-header:hover{background:rgba(90,53,16,0.13);}
+.proj-chevron{display:inline-block;font-style:normal;margin-right:0.45rem;color:rgba(122,78,32,0.7);transition:transform 0.18s;font-size:0.75rem;}
+.proj-chevron.open{transform:rotate(90deg);}
+.proj-title{font-family:'Cinzel',serif;font-size:0.90rem;font-weight:700;letter-spacing:0.06em;color:#2c1a08;flex:1;min-width:140px;}
+.proj-card-body{padding:0.75rem 0.9rem;display:none;}
+.proj-card-body.open{display:block;}
+.proj-meta{font-family:'Crimson Text',serif;font-size:1.02rem;color:rgba(44,26,8,0.85);line-height:1.55;margin-bottom:0.55rem;white-space:pre-wrap;}
+.proj-meta b{font-family:'Cinzel',serif;font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:#5a3510;}
+.badge{display:inline-block;font-family:'Cinzel',serif;font-size:0.60rem;font-weight:700;letter-spacing:0.08em;border-radius:2px;padding:2px 7px;text-transform:uppercase;white-space:nowrap;}
+.badge.st-open{background:rgba(139,34,34,0.15);color:#8b2222;border:1px solid rgba(139,34,34,0.3);}
+.badge.st-researching{background:rgba(122,78,32,0.15);color:#7a4e20;border:1px solid rgba(122,78,32,0.3);}
+.badge.st-scheduled{background:rgba(40,80,140,0.13);color:#2a5080;border:1px solid rgba(40,80,140,0.3);}
+.badge.st-inprogress{background:rgba(180,120,20,0.18);color:#8a5a00;border:1px solid rgba(180,120,20,0.35);}
+.badge.st-waiting{background:rgba(120,70,140,0.13);color:#6a3a80;border:1px solid rgba(120,70,140,0.3);}
+.badge.st-completed{background:rgba(58,107,53,0.15);color:#3a6b35;border:1px solid rgba(58,107,53,0.3);}
+.badge.pr-high{background:#8b2222;color:#f5ead0;border:1px solid #8b2222;}
+.badge.pr-medium{background:rgba(180,120,20,0.85);color:#f5ead0;border:1px solid rgba(150,100,15,1);}
+.badge.pr-low{background:rgba(90,53,16,0.55);color:#f5ead0;border:1px solid rgba(90,53,16,0.55);}
+.thumb-row{display:flex;flex-wrap:wrap;gap:0.5rem;margin:0.5rem 0;}
+.thumb-box{width:104px;text-align:center;}
+.thumb-box img{width:104px;height:78px;object-fit:cover;border:1.5px solid #7a4e20;border-radius:3px;display:block;background:rgba(44,26,8,0.15);cursor:pointer;}
+.thumb-cap{font-family:'IM Fell English',serif;font-style:italic;font-size:0.78rem;color:#5a3510;line-height:1.25;margin-top:2px;word-break:break-word;}
+.doc-list{margin:0.4rem 0;}
+.doc-list a{font-family:'Crimson Text',serif;font-size:1rem;color:#7a4e20;}
+.toolbar{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:0.5rem;margin-bottom:0.9rem;}
+@media(max-width:640px){.toolbar{grid-template-columns:1fr 1fr;}}
+.count-line{font-family:'IM Fell English',serif;font-style:italic;font-size:0.98rem;color:#5a3510;margin-bottom:0.7rem;}
+.btn-row{display:flex;gap:0.5rem;flex-wrap:wrap;align-items:center;margin-top:1rem;}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:0.6rem;flex-wrap:wrap;margin-bottom:1rem;}
+.savebar{position:sticky;top:0;z-index:50;display:none;background:#8a5a00;color:#f5ead0;border-radius:3px;padding:0.5rem 0.9rem;margin-bottom:1rem;font-family:'IM Fell English',serif;font-style:italic;font-size:1rem;align-items:center;justify-content:space-between;gap:0.6rem;flex-wrap:wrap;box-shadow:0 3px 12px rgba(40,20,0,0.35);}
+.savebar.show{display:flex;}
+.form-photo-item{display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;}
+.form-photo-item img{width:70px;height:52px;object-fit:cover;border:1px solid #7a4e20;border-radius:2px;background:rgba(44,26,8,0.15);}
+.form-photo-item input[type="text"]{flex:1;min-width:140px;font-size:0.98rem;}
+.dir-meta{font-family:'Crimson Text',serif;font-size:1.02rem;color:rgba(44,26,8,0.85);line-height:1.6;}
+.dir-meta a{color:#7a4e20;}
+#photoHoverPreview{position:fixed;z-index:9999;pointer-events:none;display:none;max-width:340px;max-height:340px;border:3px solid #7a4e20;border-radius:8px;box-shadow:0 8px 32px rgba(40,20,0,0.55);background:#1a0f00;overflow:hidden;}
+#photoHoverPreview img{width:100%;height:100%;object-fit:contain;display:block;}
+@media(max-width:600px){.content{padding:1rem 0.75rem 2rem;}.inner-border{padding:1.2rem 1rem 1.6rem;}.admin-title{font-size:1.3rem;}}
+
+/* ── Report preview (clean, service-writer friendly) ── */
+.report-sheet{background:#fff;color:#111;border:1px solid #999;border-radius:2px;padding:1.4rem 1.6rem;font-family:Georgia,'Times New Roman',serif;box-shadow:0 4px 18px rgba(40,20,0,0.3);}
+.report-sheet h1{font-size:1.35rem;margin-bottom:0.15rem;letter-spacing:0.02em;}
+.report-sheet .rpt-sub{font-size:0.95rem;color:#444;margin-bottom:0.8rem;}
+.report-sheet .rpt-vehicle{border:1px solid #bbb;border-radius:3px;padding:0.6rem 0.8rem;margin-bottom:1rem;font-size:0.95rem;line-height:1.5;display:grid;grid-template-columns:1fr 1fr;gap:0 1rem;}
+@media(max-width:640px){.report-sheet .rpt-vehicle{grid-template-columns:1fr;}}
+.report-sheet .rpt-intro{font-size:0.98rem;margin-bottom:1rem;white-space:pre-wrap;}
+.rpt-item{border-top:2px solid #333;padding:0.7rem 0 0.9rem;page-break-inside:avoid;}
+.rpt-item h2{font-size:1.08rem;margin-bottom:0.2rem;}
+.rpt-tags{font-size:0.82rem;color:#333;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.4rem;}
+.rpt-desc{font-size:0.98rem;line-height:1.5;white-space:pre-wrap;margin-bottom:0.4rem;}
+.rpt-label{font-size:0.78rem;font-weight:bold;text-transform:uppercase;letter-spacing:0.06em;color:#555;margin-top:0.45rem;}
+.rpt-photos{display:flex;flex-wrap:wrap;gap:6px;margin-top:0.4rem;}
+.rpt-photos .ph{width:150px;}
+.rpt-photos img{width:150px;height:112px;object-fit:cover;border:1px solid #888;display:block;}
+.rpt-photos .cap{font-size:0.78rem;color:#444;line-height:1.3;}
+.rpt-notes-box{border:1px dashed #999;border-radius:3px;min-height:52px;margin-top:0.5rem;padding:0.3rem 0.5rem;font-size:0.8rem;color:#999;}
+.rpt-footer{border-top:2px solid #333;margin-top:0.4rem;padding-top:0.5rem;font-size:0.85rem;color:#555;}
+#printArea{display:none;}
+@media print{
+  body{background:#fff;overflow:visible;}
+  .parchment-bg,.vignette,.content,#photoHoverPreview{display:none !important;}
+  #printArea{display:block;}
+  #printArea .report-sheet{border:none;box-shadow:none;padding:0;}
+  @page{margin:0.6in;}
+}
+</style>
+</head>
+<body>
+<div id="photoHoverPreview"><img id="photoHoverImg" src="" alt=""></div>
+<div id="printArea"></div>
+<div class="parchment-bg"></div>
+<div class="vignette"></div>
+<div class="content">
+  <div class="outer-border">
+    <div class="corner-ornament corner-tl">✦</div>
+    <div class="corner-ornament corner-tr">✦</div>
+    <div class="corner-ornament corner-bl">✦</div>
+    <div class="corner-ornament corner-br">✦</div>
+    <div class="inner-border">
+
+      <div class="admin-title">🚐 Codi Maintenance Log</div>
+      <div class="admin-sub">Projects, Repairs &amp; Trusted Hands · Codiwomple · Jersey Mark Admin</div>
+
+      <!-- LOGIN -->
+      <div id="loginScreen">
+        <div class="legend-box">
+          <span class="legend-box-title">Sign In</span>
+          <div class="field-row">
+            <label for="tokenInput">GitHub Personal Access Token</label>
+            <input type="password" id="tokenInput" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" autocomplete="current-password">
+            <p class="hint">Same token as the Album Manager — if you saved it there, it's already filled in. Need one? <a href="https://github.com/settings/tokens/new?scopes=repo&description=JerseyMarkAdmin" target="_blank" rel="noopener">Create it here</a> with the <strong>repo</strong> scope.</p>
+          </div>
+          <div class="field-row">
+            <label style="display:flex;align-items:center;gap:0.4rem;text-transform:none;font-family:'Crimson Text',serif;font-size:1.02rem;font-weight:400;letter-spacing:0;"><input type="checkbox" id="rememberToken" style="width:auto;"> Remember on this device</label>
+          </div>
+          <button class="btn btn-primary" onclick="doLogin()">Enter the Workshop</button>
+          <div class="status" id="loginStatus"></div>
+        </div>
+      </div>
+
+      <!-- MAIN -->
+      <div id="mainScreen">
+        <div class="savebar" id="saveBar">
+          <span>✦ Unsaved changes — publish when ready.</span>
+          <button class="btn btn-green btn-sm" onclick="saveAll()">💾 Save &amp; Publish</button>
+        </div>
+        <div class="topbar">
+          <a class="btn btn-secondary btn-sm" href="admin.html">← Album Manager</a>
+          <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+            <button class="btn btn-green btn-sm" onclick="saveAll()">💾 Save &amp; Publish</button>
+            <button class="btn btn-secondary btn-sm" onclick="doLogout()">Sign Out</button>
+          </div>
+        </div>
+        <div class="status" id="mainStatus"></div>
+
+        <div class="tab-row">
+          <button class="tab-btn active" id="tabProjectsBtn" onclick="switchTab('projects')">🔧 Projects</button>
+          <button class="tab-btn" id="tabReportBtn" onclick="switchTab('report')">🖨 Report</button>
+          <button class="tab-btn" id="tabDirectoryBtn" onclick="switchTab('directory')">🗺 Directory</button>
+          <button class="tab-btn" id="tabVanBtn" onclick="switchTab('van')">🚐 Van Info</button>
+        </div>
+
+        <!-- ─── PROJECTS TAB ─── -->
+        <div id="projectsTab">
+          <div class="toolbar">
+            <input type="text" id="projSearch" placeholder="🔍 Search projects…" oninput="renderProjects()">
+            <select id="filterStatus" onchange="renderProjects()"><option value="">All Statuses</option></select>
+            <select id="filterArea" onchange="renderProjects()"><option value="">All Areas</option></select>
+            <select id="filterWho" onchange="renderProjects()"><option value="">Anyone</option></select>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:0.6rem;flex-wrap:wrap;">
+            <div class="count-line" id="projCount"></div>
+            <button class="btn btn-green btn-sm" onclick="openProjectForm(null)">＋ New Project</button>
+          </div>
+
+          <!-- Add / edit form -->
+          <div class="legend-box-new" id="projectForm" style="display:none;">
+            <span class="legend-box-title" id="projectFormTitle">New Project</span>
+            <div class="field-row">
+              <label>Title *</label>
+              <input type="text" id="pfTitle" placeholder="e.g. Roof A/C not cooling">
+            </div>
+            <div class="field-grid-3">
+              <div><label>Area</label><select id="pfArea"></select></div>
+              <div><label>Priority</label><select id="pfPriority"></select></div>
+              <div><label>Status</label><select id="pfStatus"></select></div>
+            </div>
+            <div class="field-row">
+              <label>Description / Symptoms</label>
+              <textarea id="pfDesc" placeholder="What's wrong, when it started, what you've tried…"></textarea>
+            </div>
+            <div class="field-grid-3">
+              <div><label>Who (outsource to)</label><input type="text" id="pfWho" list="whoOptions" placeholder="e.g. Colonial RV"><datalist id="whoOptions"></datalist></div>
+              <div><label>Where</label><input type="text" id="pfWhere" placeholder="e.g. Millstone Twp, NJ"></div>
+              <div><label>When</label><input type="date" id="pfWhen"></div>
+            </div>
+            <div class="field-grid">
+              <div><label>Est. Cost</label><input type="text" id="pfCost" placeholder="e.g. $450 quoted"></div>
+              <div><label>Parts / Model #s</label><input type="text" id="pfParts" placeholder="e.g. Coleman Mach 15, part #…"></div>
+            </div>
+            <div class="field-row">
+              <label>Notes / History</label>
+              <textarea id="pfNotes" placeholder="Calls made, quotes, what the tech said…" style="min-height:60px;"></textarea>
+            </div>
+            <div class="field-row">
+              <label>Photos</label>
+              <div id="pfPhotoList"></div>
+              <div style="display:flex;gap:0.5rem;flex-wrap:wrap;align-items:center;margin-top:0.3rem;">
+                <input type="text" id="pfPhotoUrl" placeholder="Paste an image URL…" style="flex:1;min-width:180px;">
+                <button class="btn btn-secondary btn-sm" onclick="addPhotoUrl()">＋ Add URL</button>
+                <label class="btn btn-secondary btn-sm" style="display:inline-block;margin:0;">⬆ Upload Photos<input type="file" id="pfPhotoFile" accept="image/*" multiple style="display:none;" onchange="uploadPhotos(this.files)"></label>
+              </div>
+              <p class="hint">Uploads are resized and stored in the site repo (images/codi/) — they'll work forever, unlike Google Photos links which expire after a few weeks.</p>
+            </div>
+            <div class="field-row">
+              <label>Documents</label>
+              <div id="pfDocList"></div>
+              <div style="display:flex;gap:0.5rem;flex-wrap:wrap;align-items:center;margin-top:0.3rem;">
+                <input type="text" id="pfDocUrl" placeholder="Paste a link (manual, quote, invoice)…" style="flex:1;min-width:180px;">
+                <button class="btn btn-secondary btn-sm" onclick="addDocUrl()">＋ Add Link</button>
+                <label class="btn btn-secondary btn-sm" style="display:inline-block;margin:0;">⬆ Upload Doc<input type="file" id="pfDocFile" style="display:none;" onchange="uploadDoc(this.files)"></label>
+              </div>
+            </div>
+            <div class="status" id="projFormStatus"></div>
+            <div class="btn-row">
+              <button class="btn btn-green" onclick="submitProjectForm()">✓ Save Project</button>
+              <button class="btn btn-secondary" onclick="closeProjectForm()">Cancel</button>
+            </div>
+          </div>
+
+          <div id="projectList"></div>
+        </div>
+
+        <!-- ─── REPORT TAB ─── -->
+        <div id="reportTab" style="display:none;">
+          <div class="legend-box">
+            <span class="legend-box-title">Build a Service Report</span>
+            <div class="field-grid">
+              <div>
+                <label>Prepared For</label>
+                <select id="rptWho"></select>
+                <p class="hint">Filters to projects assigned to them, plus unassigned open items if you check the box below.</p>
+              </div>
+              <div>
+                <label>Include Statuses</label>
+                <div id="rptStatuses" style="display:flex;flex-direction:column;gap:0.2rem;font-family:'Crimson Text',serif;font-size:1.02rem;"></div>
+              </div>
+            </div>
+            <div class="field-row">
+              <label style="display:flex;align-items:center;gap:0.4rem;text-transform:none;font-family:'Crimson Text',serif;font-size:1.02rem;font-weight:400;letter-spacing:0;"><input type="checkbox" id="rptIncludeUnassigned" checked style="width:auto;"> Also include items not assigned to anyone</label>
+              <label style="display:flex;align-items:center;gap:0.4rem;text-transform:none;font-family:'Crimson Text',serif;font-size:1.02rem;font-weight:400;letter-spacing:0;"><input type="checkbox" id="rptIncludePhotos" checked style="width:auto;"> Include photos</label>
+              <label style="display:flex;align-items:center;gap:0.4rem;text-transform:none;font-family:'Crimson Text',serif;font-size:1.02rem;font-weight:400;letter-spacing:0;"><input type="checkbox" id="rptNotesBox" checked style="width:auto;"> Leave a blank "shop notes / estimate" box under each item</label>
+            </div>
+            <div class="field-row">
+              <label>Intro Note (optional)</label>
+              <textarea id="rptIntro" style="min-height:56px;" placeholder="e.g. Dropping Codi off Wednesday 7/22 — please call with an estimate before starting work."></textarea>
+            </div>
+            <div class="btn-row">
+              <button class="btn btn-primary" onclick="buildReport()">📄 Preview Report</button>
+              <button class="btn btn-green" onclick="printReport()">🖨 Print / Save as PDF</button>
+            </div>
+          </div>
+          <div id="reportPreview"></div>
+        </div>
+
+        <!-- ─── DIRECTORY TAB ─── -->
+        <div id="directoryTab" style="display:none;">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:0.6rem;flex-wrap:wrap;margin-bottom:0.7rem;">
+            <input type="text" id="dirSearch" placeholder="🔍 Search directory…" oninput="renderDirectory()" style="flex:1;min-width:180px;">
+            <button class="btn btn-green btn-sm" onclick="openDirForm(null)">＋ Add Resource</button>
+          </div>
+
+          <div class="legend-box-new" id="dirForm" style="display:none;">
+            <span class="legend-box-title" id="dirFormTitle">New Resource</span>
+            <div class="field-grid">
+              <div><label>Name *</label><input type="text" id="dfName" placeholder="Shop or tech name"></div>
+              <div><label>Type</label><select id="dfType"></select></div>
+            </div>
+            <div class="field-grid-3">
+              <div><label>Location</label><input type="text" id="dfLocation" placeholder="Town, State"></div>
+              <div><label>Phone</label><input type="text" id="dfPhone" placeholder="(xxx) xxx-xxxx"></div>
+              <div><label>Website</label><input type="text" id="dfWebsite" placeholder="https://…"></div>
+            </div>
+            <div class="field-row">
+              <label>Specialty</label>
+              <input type="text" id="dfSpecialty" placeholder="e.g. Coach systems, Sprinter chassis, mobile A/C work…">
+            </div>
+            <div class="field-row">
+              <label>Notes / Experience</label>
+              <textarea id="dfNotes" style="min-height:60px;" placeholder="How you found them, quotes, how the work went…"></textarea>
+            </div>
+            <div class="btn-row">
+              <button class="btn btn-green" onclick="submitDirForm()">✓ Save Resource</button>
+              <button class="btn btn-secondary" onclick="closeDirForm()">Cancel</button>
+            </div>
+          </div>
+
+          <div id="dirList"></div>
+
+          <div class="legend-box" style="margin-top:1.2rem;">
+            <span class="legend-box-title">Find More Help Near You</span>
+            <div class="dir-meta">
+              ✦ <a href="https://rvhelp.com/mobile-rv-repair/new-jersey" target="_blank" rel="noopener">RVHelp — mobile RV techs in NJ</a> (certified techs, reviews)<br>
+              ✦ <a href="https://www.yelp.com/search?cflt=rvrepair&find_loc=Ocean+County%2C+NJ" target="_blank" rel="noopener">Yelp — RV repair, Ocean County NJ</a><br>
+              ✦ <a href="https://www.benzshops.com/near/toms-river-nj/" target="_blank" rel="noopener">BenzShops — Mercedes specialists near Toms River</a><br>
+              ✦ <a href="https://sprintermanual.com/sprinter-van-repair-service-directory/" target="_blank" rel="noopener">Sprinter Manual — nationwide Sprinter service directory</a><br>
+              ✦ <a href="https://www.rvservicereviews.com/" target="_blank" rel="noopener">RV Service Reviews — nationwide, by state</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ─── VAN INFO TAB ─── -->
+        <div id="vanTab" style="display:none;">
+          <div class="legend-box">
+            <span class="legend-box-title">Codiwomple — The Rig</span>
+            <p class="hint" style="margin-bottom:0.8rem;">This header appears on every printed service report. Keep VIN and mileage current — dealers ask for both.</p>
+            <div class="field-grid">
+              <div><label>Coach</label><input type="text" id="vanCoach"></div>
+              <div><label>Chassis</label><input type="text" id="vanChassis"></div>
+            </div>
+            <div class="field-grid-3">
+              <div><label>VIN</label><input type="text" id="vanVin" placeholder="17 characters"></div>
+              <div><label>Mileage</label><input type="text" id="vanMileage" placeholder="e.g. 87,400"></div>
+              <div><label>License Plate</label><input type="text" id="vanPlate" placeholder="optional"></div>
+            </div>
+            <div class="field-grid-3">
+              <div><label>Owner</label><input type="text" id="vanOwner"></div>
+              <div><label>Phone</label><input type="text" id="vanPhone"></div>
+              <div><label>Email</label><input type="text" id="vanEmail"></div>
+            </div>
+            <p class="hint">⚠ Remember: this file is publicly readable on the site (like all admin data). Leave phone/VIN blank here if you'd rather hand-write them on the printed report.</p>
+            <div class="btn-row">
+              <button class="btn btn-green" onclick="saveVanInfo()">✓ Apply Van Info</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+var REPO_OWNER='mfugel';
+var REPO_NAME='JourneysWithJerseyMark';
+var CODI_PATH='codi.json';
+var BRANCH='main';
+var RAW_BASE='https://raw.githubusercontent.com/'+REPO_OWNER+'/'+REPO_NAME+'/'+BRANCH+'/';
+
+var STATUSES=['Open','Researching','Scheduled','In Progress','Waiting on Parts','Completed'];
+var STATUS_CLASS={'Open':'st-open','Researching':'st-researching','Scheduled':'st-scheduled','In Progress':'st-inprogress','Waiting on Parts':'st-waiting','Completed':'st-completed'};
+var PRIORITIES=['High','Medium','Low'];
+var AREAS=['Chassis / Engine','Electrical / Solar','Plumbing / Water','Heating / Cooling','Appliances','Exterior / Body','Interior','Other'];
+var DIR_TYPES=['Dealer Service','Mobile RV Tech','Sprinter / Chassis Shop','RV Repair Shop','Tires / Alignment','Parts Supplier','Other'];
+
+var token='', data=null, fileSha='', dirty=false, editingId=null, dirEditingId=null;
+var formPhotos=[], formDocs=[];
+
+function defaultData(){
+  return {
+    van:{coach:'2017 Winnebago ERA 70A "Codiwomple"',chassis:'2016 Mercedes-Benz Sprinter (diesel)',vin:'',mileage:'',plate:'',owner:'Mark Fugel',phone:'',email:'mfugel@gmail.com'},
+    projects:[],
+    directory:[]
+  };
+}
+
+function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');}
+function uid(p){return p+Date.now().toString(36)+Math.random().toString(36).slice(2,7);}
+function today(){return new Date().toISOString().slice(0,10);}
+function photoSrc(p){var s=(typeof p==='string')?p:p.src;return /^https?:\/\//.test(s)?s:RAW_BASE+s;}
+function fmtDate(d){if(!d)return '';var parts=d.split('-');if(parts.length!==3)return d;return parts[1]+'/'+parts[2]+'/'+parts[0];}
+
+function showStatus(id,msg,type){
+  var el=document.getElementById(id);if(!el)return;
+  el.className='status show '+type;el.innerHTML=msg;
+  if(type==='success'){setTimeout(function(){el.className='status';},4000);}
+}
+
+function markDirty(){dirty=true;document.getElementById('saveBar').classList.add('show');}
+function clearDirty(){dirty=false;document.getElementById('saveBar').classList.remove('show');}
+window.addEventListener('beforeunload',function(e){if(dirty){e.preventDefault();e.returnValue='';}});
+
+/* ── Auth & load ── */
+(function(){
+  try{var t=localStorage.getItem('jm_admin_token');if(t){document.getElementById('tokenInput').value=t;document.getElementById('rememberToken').checked=true;}}catch(e){}
+})();
+
+function doLogin(){
+  var t=document.getElementById('tokenInput').value.trim();
+  if(!t){showStatus('loginStatus','Please enter your GitHub token.','error');return;}
+  showStatus('loginStatus','<span class="spinner">✦</span> Verifying…','info');
+  token=t;
+  if(document.getElementById('rememberToken').checked){try{localStorage.setItem('jm_admin_token',t);}catch(e){}}
+  loadData();
+}
+
+function doLogout(){
+  if(dirty && !confirm('You have unsaved changes. Sign out anyway?'))return;
+  token='';dirty=false;
+  try{localStorage.removeItem('jm_admin_token');}catch(e){}
+  document.getElementById('tokenInput').value='';
+  document.getElementById('loginScreen').style.display='block';
+  document.getElementById('mainScreen').style.display='none';
+}
+
+function loadData(){
+  fetch('https://api.github.com/repos/'+REPO_OWNER+'/'+REPO_NAME+'/contents/'+CODI_PATH+'?ref='+BRANCH+'&_='+Date.now(),
+    {cache:'no-store',headers:{'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json'}})
+  .then(function(r){
+    if(r.status===401){showStatus('loginStatus','Invalid token — check and try again.','error');token='';return null;}
+    if(r.status===404){return {missing:true};}
+    if(!r.ok){showStatus('loginStatus','Could not load codi.json ('+r.status+').','error');return null;}
+    return r.json();
+  })
+  .then(function(d){
+    if(!d)return;
+    if(d.missing){data=defaultData();fileSha='';}
+    else{
+      fileSha=d.sha;
+      var jsonStr=decodeURIComponent(escape(atob(d.content.replace(/\n/g,''))));
+      data=JSON.parse(jsonStr);
+      if(!data.van)data.van=defaultData().van;
+      if(!data.projects)data.projects=[];
+      if(!data.directory)data.directory=[];
+    }
+    document.getElementById('loginScreen').style.display='none';
+    document.getElementById('mainScreen').style.display='block';
+    initSelects();
+    loadVanForm();
+    renderProjects();
+    renderDirectory();
+    initReportControls();
+  })
+  .catch(function(err){showStatus('loginStatus','Connection error: '+err.message,'error');});
+}
+
+/* ── Save ── */
+function saveAll(){
+  if(!token){showStatus('mainStatus','Not logged in.','error');return;}
+  showStatus('mainStatus','<span class="spinner">✦</span> Publishing…','info');
+  fetch('https://api.github.com/repos/'+REPO_OWNER+'/'+REPO_NAME+'/contents/'+CODI_PATH+'?ref='+BRANCH+'&_='+Date.now(),
+    {cache:'no-store',headers:{'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json'}})
+  .then(function(r){return r.status===404?{sha:null}:r.json();})
+  .then(function(d){
+    var body={message:'Update codi.json via Codi Maintenance Log',branch:BRANCH,
+      content:btoa(unescape(encodeURIComponent(JSON.stringify(data,null,2))))};
+    if(d && d.sha)body.sha=d.sha;
+    return fetch('https://api.github.com/repos/'+REPO_OWNER+'/'+REPO_NAME+'/contents/'+CODI_PATH,{
+      method:'PUT',headers:{'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json','Content-Type':'application/json'},
+      body:JSON.stringify(body)});
+  })
+  .then(function(r){
+    if(!r.ok)throw new Error('GitHub said '+r.status);
+    return r.json();
+  })
+  .then(function(res){
+    fileSha=res.content?res.content.sha:'';
+    clearDirty();
+    showStatus('mainStatus','✦ Published! Site refreshes in ~30 seconds.','success');
+  })
+  .catch(function(err){showStatus('mainStatus','Save failed: '+err.message,'error');});
+}
+
+/* ── Upload helper ── */
+function uploadToRepo(path,base64,msg){
+  return fetch('https://api.github.com/repos/'+REPO_OWNER+'/'+REPO_NAME+'/contents/'+path,{
+    method:'PUT',headers:{'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json','Content-Type':'application/json'},
+    body:JSON.stringify({message:msg,branch:BRANCH,content:base64})})
+  .then(function(r){if(!r.ok)throw new Error('upload failed ('+r.status+')');return r.json();});
+}
+
+function safeName(name){return name.toLowerCase().replace(/[^a-z0-9.]+/g,'-').replace(/^-+|-+$/g,'').slice(0,60);}
+
+function shrinkImage(file){
+  return new Promise(function(resolve){
+    var img=new Image();
+    var url=URL.createObjectURL(file);
+    img.onload=function(){
+      var MAX=1600,w=img.width,h=img.height;
+      if(w>MAX||h>MAX){var sc=MAX/Math.max(w,h);w=Math.round(w*sc);h=Math.round(h*sc);}
+      var c=document.createElement('canvas');c.width=w;c.height=h;
+      c.getContext('2d').drawImage(img,0,0,w,h);
+      URL.revokeObjectURL(url);
+      resolve({base64:c.toDataURL('image/jpeg',0.85).split(',')[1],ext:'jpg'});
+    };
+    img.onerror=function(){ // can't decode (e.g. HEIC) — upload as-is
+      URL.revokeObjectURL(url);
+      var rd=new FileReader();
+      rd.onload=function(){resolve({base64:String(rd.result).split(',')[1],ext:(file.name.split('.').pop()||'bin')});};
+      rd.readAsDataURL(file);
+    };
+    img.src=url;
+  });
+}
+
+/* ── Tabs ── */
+function switchTab(name){
+  ['projects','report','directory','van'].forEach(function(t){
+    var tab=document.getElementById(t+'Tab');
+    var btn=document.getElementById('tab'+t.charAt(0).toUpperCase()+t.slice(1)+'Btn');
+    if(tab)tab.style.display=(t===name)?'block':'none';
+    if(btn)btn.classList.toggle('active',t===name);
+  });
+  if(name==='report')initReportControls();
+}
+
+/* ── Select population ── */
+function fillSelect(id,opts,withBlank){
+  var el=document.getElementById(id);if(!el)return;
+  var html=withBlank?'<option value="">—</option>':'';
+  opts.forEach(function(o){html+='<option value="'+esc(o)+'">'+esc(o)+'</option>';});
+  el.innerHTML=html;
+}
+function initSelects(){
+  fillSelect('pfArea',AREAS);fillSelect('pfPriority',PRIORITIES);fillSelect('pfStatus',STATUSES);
+  fillSelect('dfType',DIR_TYPES);
+  var fs=document.getElementById('filterStatus');
+  fs.innerHTML='<option value="">All Statuses</option><option value="__active__">Active (not completed)</option>';
+  STATUSES.forEach(function(s){fs.innerHTML+='<option value="'+esc(s)+'">'+esc(s)+'</option>';});
+  var fa=document.getElementById('filterArea');
+  fa.innerHTML='<option value="">All Areas</option>';
+  AREAS.forEach(function(a){fa.innerHTML+='<option value="'+esc(a)+'">'+esc(a)+'</option>';});
+  refreshWhoLists();
+}
+function distinctWhos(){
+  var s={};
+  data.projects.forEach(function(p){if(p.who&&p.who.trim())s[p.who.trim()]=1;});
+  data.directory.forEach(function(d){if(d.name)s[d.name]=1;});
+  return Object.keys(s).sort();
+}
+function refreshWhoLists(){
+  var whos=distinctWhos();
+  var fw=document.getElementById('filterWho');
+  var cur=fw.value;
+  fw.innerHTML='<option value="">Anyone</option><option value="__none__">Unassigned</option>';
+  whos.forEach(function(w){fw.innerHTML+='<option value="'+esc(w)+'">'+esc(w)+'</option>';});
+  fw.value=cur;
+  var dl=document.getElementById('whoOptions');
+  dl.innerHTML='';
+  whos.forEach(function(w){var o=document.createElement('option');o.value=w;dl.appendChild(o);});
+}
+
+/* ── Projects render ── */
+var openCards={};
+function projectMatches(p,q){
+  if(!q)return true;
+  var hay=[p.title,p.desc,p.notes,p.who,p.where,p.area,p.status,p.parts,p.cost].join(' ').toLowerCase();
+  return q.toLowerCase().split(/\s+/).every(function(w){return hay.indexOf(w)>=0;});
+}
+function visibleProjects(){
+  var q=document.getElementById('projSearch').value.trim();
+  var st=document.getElementById('filterStatus').value;
+  var ar=document.getElementById('filterArea').value;
+  var wh=document.getElementById('filterWho').value;
+  return data.projects.filter(function(p){
+    if(st==='__active__'){if(p.status==='Completed')return false;}
+    else if(st && p.status!==st)return false;
+    if(ar && p.area!==ar)return false;
+    if(wh==='__none__'){if(p.who&&p.who.trim())return false;}
+    else if(wh && (p.who||'').trim()!==wh)return false;
+    return projectMatches(p,q);
+  });
+}
+var PRIORITY_ORDER={'High':0,'Medium':1,'Low':2};
+function renderProjects(){
+  refreshWhoLists();
+  var list=visibleProjects().slice().sort(function(a,b){
+    var d=(a.status==='Completed'?1:0)-(b.status==='Completed'?1:0);
+    if(d)return d;
+    d=(PRIORITY_ORDER[a.priority]||1)-(PRIORITY_ORDER[b.priority]||1);
+    if(d)return d;
+    return (b.createdAt||'').localeCompare(a.createdAt||'');
+  });
+  var total=data.projects.length;
+  var activeCount=data.projects.filter(function(p){return p.status!=='Completed';}).length;
+  document.getElementById('projCount').textContent='Showing '+list.length+' of '+total+' projects · '+activeCount+' active';
+  var html='';
+  list.forEach(function(p){
+    var open=openCards[p.id]?' open':'';
+    html+='<div class="proj-card"><div class="proj-card-header" onclick="toggleCard(\''+p.id+'\')">'
+      +'<span class="proj-title"><span class="proj-chevron'+open+'" id="chev-'+p.id+'">▶</span>'+esc(p.title)+'</span>'
+      +'<span class="badge pr-'+(p.priority||'Medium').toLowerCase()+'">'+esc(p.priority||'Medium')+'</span>'
+      +'<span class="badge '+(STATUS_CLASS[p.status]||'st-open')+'">'+esc(p.status||'Open')+'</span>'
+      +'</div>'
+      +'<div class="proj-card-body'+open+'" id="body-'+p.id+'">';
+    var meta='';
+    if(p.area)meta+='<b>Area:</b> '+esc(p.area)+'   ';
+    if(p.who)meta+='<b>Who:</b> '+esc(p.who)+'   ';
+    if(p.where)meta+='<b>Where:</b> '+esc(p.where)+'   ';
+    if(p.when)meta+='<b>When:</b> '+fmtDate(p.when)+'   ';
+    if(p.cost)meta+='<b>Est:</b> '+esc(p.cost)+'   ';
+    if(p.parts)meta+='<b>Parts:</b> '+esc(p.parts);
+    if(meta)html+='<div class="proj-meta">'+meta+'</div>';
+    if(p.desc)html+='<div class="proj-meta">'+esc(p.desc)+'</div>';
+    if(p.notes)html+='<div class="proj-meta"><b>Notes:</b>\n'+esc(p.notes)+'</div>';
+    if(p.photos&&p.photos.length){
+      html+='<div class="thumb-row">';
+      p.photos.forEach(function(ph){
+        var src=photoSrc(ph);
+        html+='<div class="thumb-box"><a href="'+esc(src)+'" target="_blank" rel="noopener"><img src="'+esc(src)+'" loading="lazy" onmouseenter="hoverPhoto(event,this.src)" onmouseleave="unhoverPhoto()"></a>'
+          +(ph.cap?'<div class="thumb-cap">'+esc(ph.cap)+'</div>':'')+'</div>';
+      });
+      html+='</div>';
+    }
+    if(p.docs&&p.docs.length){
+      html+='<div class="doc-list">';
+      p.docs.forEach(function(d){
+        var url=/^https?:\/\//.test(d.url)?d.url:RAW_BASE+d.url;
+        html+='📄 <a href="'+esc(url)+'" target="_blank" rel="noopener">'+esc(d.label||d.url)+'</a><br>';
+      });
+      html+='</div>';
+    }
+    html+='<div class="proj-meta" style="font-size:0.88rem;color:rgba(90,53,16,0.6);">Added '+esc((p.createdAt||'').slice(0,10))+(p.updatedAt?' · Updated '+esc(p.updatedAt.slice(0,10)):'')+'</div>';
+    html+='<div class="btn-row">'
+      +'<select style="width:auto;font-size:0.95rem;padding:0.25rem 0.4rem;" onchange="quickStatus(\''+p.id+'\',this.value)">'+STATUSES.map(function(s){return '<option'+(s===p.status?' selected':'')+'>'+esc(s)+'</option>';}).join('')+'</select>'
+      +'<button class="btn btn-secondary btn-sm" onclick="openProjectForm(\''+p.id+'\')">✎ Edit</button>'
+      +'<button class="btn btn-danger btn-sm" onclick="deleteProject(\''+p.id+'\')">✕ Delete</button>'
+      +'</div></div></div>';
+  });
+  if(!total)html='<p class="hint" style="text-align:center;padding:1rem;">No projects yet — click <strong>＋ New Project</strong> to log the first one.</p>';
+  else if(!list.length)html='<p class="hint" style="text-align:center;padding:1rem;">Nothing matches that search/filter.</p>';
+  document.getElementById('projectList').innerHTML=html;
+}
+function toggleCard(id){
+  openCards[id]=!openCards[id];
+  var b=document.getElementById('body-'+id),c=document.getElementById('chev-'+id);
+  if(b)b.classList.toggle('open',openCards[id]);
+  if(c)c.classList.toggle('open',openCards[id]);
+}
+function hoverPhoto(ev,src){
+  var pv=document.getElementById('photoHoverPreview');
+  document.getElementById('photoHoverImg').src=src;
+  pv.style.display='block';
+  var x=Math.min(ev.clientX+18,window.innerWidth-360),y=Math.min(ev.clientY+12,window.innerHeight-360);
+  pv.style.left=Math.max(0,x)+'px';pv.style.top=Math.max(0,y)+'px';
+}
+function unhoverPhoto(){document.getElementById('photoHoverPreview').style.display='none';}
+function quickStatus(id,st){
+  var p=data.projects.find(function(x){return x.id===id;});
+  if(!p)return;
+  p.status=st;p.updatedAt=new Date().toISOString();
+  markDirty();renderProjects();
+}
+function deleteProject(id){
+  var p=data.projects.find(function(x){return x.id===id;});
+  if(!p)return;
+  if(!confirm('Delete "'+p.title+'"? (Takes effect when you Save & Publish.)'))return;
+  data.projects=data.projects.filter(function(x){return x.id!==id;});
+  markDirty();renderProjects();
+}
+
+/* ── Project form ── */
+function openProjectForm(id){
+  editingId=id;formPhotos=[];formDocs=[];
+  var f=document.getElementById('projectForm');
+  var p=id?data.projects.find(function(x){return x.id===id;}):null;
+  document.getElementById('projectFormTitle').textContent=p?'Edit Project':'New Project';
+  document.getElementById('pfTitle').value=p?p.title:'';
+  document.getElementById('pfArea').value=p&&p.area?p.area:AREAS[0];
+  document.getElementById('pfPriority').value=p&&p.priority?p.priority:'Medium';
+  document.getElementById('pfStatus').value=p&&p.status?p.status:'Open';
+  document.getElementById('pfDesc').value=p?p.desc||'':'';
+  document.getElementById('pfWho').value=p?p.who||'':'';
+  document.getElementById('pfWhere').value=p?p.where||'':'';
+  document.getElementById('pfWhen').value=p?p.when||'':'';
+  document.getElementById('pfCost').value=p?p.cost||'':'';
+  document.getElementById('pfParts').value=p?p.parts||'':'';
+  document.getElementById('pfNotes').value=p?p.notes||'':'';
+  if(p&&p.photos)formPhotos=JSON.parse(JSON.stringify(p.photos));
+  if(p&&p.docs)formDocs=JSON.parse(JSON.stringify(p.docs));
+  renderFormPhotos();renderFormDocs();
+  f.style.display='block';
+  f.scrollIntoView({behavior:'smooth',block:'start'});
+}
+function closeProjectForm(){document.getElementById('projectForm').style.display='none';editingId=null;}
+function renderFormPhotos(){
+  var html='';
+  formPhotos.forEach(function(ph,i){
+    html+='<div class="form-photo-item"><img src="'+esc(photoSrc(ph))+'">'
+      +'<input type="text" placeholder="Caption (optional)" value="'+esc(ph.cap||'')+'" onchange="formPhotos['+i+'].cap=this.value">'
+      +'<button class="btn btn-danger btn-sm" onclick="formPhotos.splice('+i+',1);renderFormPhotos()">✕</button></div>';
+  });
+  document.getElementById('pfPhotoList').innerHTML=html;
+}
+function renderFormDocs(){
+  var html='';
+  formDocs.forEach(function(d,i){
+    html+='<div class="form-photo-item">📄 <input type="text" placeholder="Label" value="'+esc(d.label||'')+'" onchange="formDocs['+i+'].label=this.value" style="max-width:220px;">'
+      +'<span style="font-size:0.85rem;word-break:break-all;flex:1;">'+esc(d.url)+'</span>'
+      +'<button class="btn btn-danger btn-sm" onclick="formDocs.splice('+i+',1);renderFormDocs()">✕</button></div>';
+  });
+  document.getElementById('pfDocList').innerHTML=html;
+}
+function addPhotoUrl(){
+  var u=document.getElementById('pfPhotoUrl').value.trim();
+  if(!u)return;
+  formPhotos.push({src:u,cap:''});
+  document.getElementById('pfPhotoUrl').value='';
+  renderFormPhotos();
+}
+function uploadPhotos(files){
+  if(!files||!files.length)return;
+  if(!token){showStatus('projFormStatus','Not logged in.','error');return;}
+  var arr=Array.prototype.slice.call(files);
+  showStatus('projFormStatus','<span class="spinner">✦</span> Uploading '+arr.length+' photo(s)…','info');
+  var chain=Promise.resolve();
+  arr.forEach(function(file){
+    chain=chain.then(function(){
+      return shrinkImage(file).then(function(r){
+        var path='images/codi/'+Date.now().toString(36)+'-'+safeName(file.name.replace(/\.[^.]+$/,''))+'.'+r.ext;
+        return uploadToRepo(path,r.base64,'Codi: upload photo '+file.name).then(function(){
+          formPhotos.push({src:path,cap:''});renderFormPhotos();
+        });
+      });
+    });
+  });
+  chain.then(function(){showStatus('projFormStatus','✦ Photo(s) uploaded.','success');document.getElementById('pfPhotoFile').value='';})
+    .catch(function(e){showStatus('projFormStatus','Upload failed: '+e.message,'error');});
+}
+function addDocUrl(){
+  var u=document.getElementById('pfDocUrl').value.trim();
+  if(!u)return;
+  formDocs.push({url:u,label:''});
+  document.getElementById('pfDocUrl').value='';
+  renderFormDocs();
+}
+function uploadDoc(files){
+  if(!files||!files.length)return;
+  var file=files[0];
+  if(!token){showStatus('projFormStatus','Not logged in.','error');return;}
+  if(file.size>20*1024*1024){showStatus('projFormStatus','File too big (20 MB max).','error');return;}
+  showStatus('projFormStatus','<span class="spinner">✦</span> Uploading '+esc(file.name)+'…','info');
+  var rd=new FileReader();
+  rd.onload=function(){
+    var path='docs/codi/'+Date.now().toString(36)+'-'+safeName(file.name);
+    uploadToRepo(path,String(rd.result).split(',')[1],'Codi: upload doc '+file.name)
+    .then(function(){
+      formDocs.push({url:path,label:file.name});renderFormDocs();
+      showStatus('projFormStatus','✦ Document uploaded.','success');
+      document.getElementById('pfDocFile').value='';
+    })
+    .catch(function(e){showStatus('projFormStatus','Upload failed: '+e.message,'error');});
+  };
+  rd.readAsDataURL(file);
+}
+function submitProjectForm(){
+  var title=document.getElementById('pfTitle').value.trim();
+  if(!title){showStatus('projFormStatus','A title is required.','error');return;}
+  var now=new Date().toISOString();
+  var p=editingId?data.projects.find(function(x){return x.id===editingId;}):null;
+  if(!p){p={id:uid('p'),createdAt:now};data.projects.unshift(p);}
+  p.title=title;
+  p.area=document.getElementById('pfArea').value;
+  p.priority=document.getElementById('pfPriority').value;
+  p.status=document.getElementById('pfStatus').value;
+  p.desc=document.getElementById('pfDesc').value.trim();
+  p.who=document.getElementById('pfWho').value.trim();
+  p.where=document.getElementById('pfWhere').value.trim();
+  p.when=document.getElementById('pfWhen').value;
+  p.cost=document.getElementById('pfCost').value.trim();
+  p.parts=document.getElementById('pfParts').value.trim();
+  p.notes=document.getElementById('pfNotes').value.trim();
+  p.photos=formPhotos;
+  p.docs=formDocs;
+  p.updatedAt=now;
+  openCards[p.id]=true;
+  closeProjectForm();
+  markDirty();renderProjects();
+  showStatus('mainStatus','✦ Project saved locally — hit Save & Publish to make it stick.','success');
+}
+
+/* ── Directory ── */
+function renderDirectory(){
+  var q=document.getElementById('dirSearch').value.trim().toLowerCase();
+  var list=data.directory.filter(function(d){
+    if(!q)return true;
+    var hay=[d.name,d.type,d.location,d.specialty,d.notes,d.phone].join(' ').toLowerCase();
+    return q.split(/\s+/).every(function(w){return hay.indexOf(w)>=0;});
+  });
+  var html='';
+  list.forEach(function(d){
+    html+='<div class="proj-card"><div class="proj-card-body open" style="display:block;">'
+      +'<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:0.6rem;flex-wrap:wrap;">'
+      +'<span class="proj-title" style="font-size:1rem;">'+esc(d.name)+'</span>'
+      +'<span class="badge st-scheduled">'+esc(d.type||'')+'</span></div>'
+      +'<div class="dir-meta">';
+    if(d.specialty)html+='✦ '+esc(d.specialty)+'<br>';
+    if(d.location)html+='📍 '+esc(d.location)+'<br>';
+    if(d.phone)html+='📞 <a href="tel:'+esc(d.phone.replace(/[^0-9+]/g,''))+'">'+esc(d.phone)+'</a><br>';
+    if(d.website)html+='🔗 <a href="'+esc(d.website)+'" target="_blank" rel="noopener">'+esc(d.website.replace(/^https?:\/\//,''))+'</a><br>';
+    if(d.notes)html+='<span style="font-style:italic;">'+esc(d.notes)+'</span>';
+    html+='</div><div class="btn-row">'
+      +'<button class="btn btn-secondary btn-sm" onclick="openDirForm(\''+d.id+'\')">✎ Edit</button>'
+      +'<button class="btn btn-danger btn-sm" onclick="deleteDir(\''+d.id+'\')">✕ Delete</button>'
+      +'</div></div></div>';
+  });
+  if(!data.directory.length)html='<p class="hint" style="text-align:center;padding:1rem;">No resources yet — add the folks you trust with Codi.</p>';
+  else if(!list.length)html='<p class="hint" style="text-align:center;padding:1rem;">Nothing matches that search.</p>';
+  document.getElementById('dirList').innerHTML=html;
+}
+function openDirForm(id){
+  dirEditingId=id;
+  var d=id?data.directory.find(function(x){return x.id===id;}):null;
+  document.getElementById('dirFormTitle').textContent=d?'Edit Resource':'New Resource';
+  document.getElementById('dfName').value=d?d.name:'';
+  document.getElementById('dfType').value=d&&d.type?d.type:DIR_TYPES[0];
+  document.getElementById('dfLocation').value=d?d.location||'':'';
+  document.getElementById('dfPhone').value=d?d.phone||'':'';
+  document.getElementById('dfWebsite').value=d?d.website||'':'';
+  document.getElementById('dfSpecialty').value=d?d.specialty||'':'';
+  document.getElementById('dfNotes').value=d?d.notes||'':'';
+  var f=document.getElementById('dirForm');
+  f.style.display='block';
+  f.scrollIntoView({behavior:'smooth',block:'start'});
+}
+function closeDirForm(){document.getElementById('dirForm').style.display='none';dirEditingId=null;}
+function submitDirForm(){
+  var name=document.getElementById('dfName').value.trim();
+  if(!name){alert('A name is required.');return;}
+  var d=dirEditingId?data.directory.find(function(x){return x.id===dirEditingId;}):null;
+  if(!d){d={id:uid('d')};data.directory.push(d);}
+  d.name=name;
+  d.type=document.getElementById('dfType').value;
+  d.location=document.getElementById('dfLocation').value.trim();
+  d.phone=document.getElementById('dfPhone').value.trim();
+  d.website=document.getElementById('dfWebsite').value.trim();
+  d.specialty=document.getElementById('dfSpecialty').value.trim();
+  d.notes=document.getElementById('dfNotes').value.trim();
+  closeDirForm();
+  markDirty();renderDirectory();refreshWhoLists();
+}
+function deleteDir(id){
+  var d=data.directory.find(function(x){return x.id===id;});
+  if(!d)return;
+  if(!confirm('Delete "'+d.name+'" from the directory?'))return;
+  data.directory=data.directory.filter(function(x){return x.id!==id;});
+  markDirty();renderDirectory();refreshWhoLists();
+}
+
+/* ── Van info ── */
+function loadVanForm(){
+  var v=data.van;
+  document.getElementById('vanCoach').value=v.coach||'';
+  document.getElementById('vanChassis').value=v.chassis||'';
+  document.getElementById('vanVin').value=v.vin||'';
+  document.getElementById('vanMileage').value=v.mileage||'';
+  document.getElementById('vanPlate').value=v.plate||'';
+  document.getElementById('vanOwner').value=v.owner||'';
+  document.getElementById('vanPhone').value=v.phone||'';
+  document.getElementById('vanEmail').value=v.email||'';
+}
+function saveVanInfo(){
+  var v=data.van;
+  v.coach=document.getElementById('vanCoach').value.trim();
+  v.chassis=document.getElementById('vanChassis').value.trim();
+  v.vin=document.getElementById('vanVin').value.trim();
+  v.mileage=document.getElementById('vanMileage').value.trim();
+  v.plate=document.getElementById('vanPlate').value.trim();
+  v.owner=document.getElementById('vanOwner').value.trim();
+  v.phone=document.getElementById('vanPhone').value.trim();
+  v.email=document.getElementById('vanEmail').value.trim();
+  markDirty();
+  showStatus('mainStatus','✦ Van info applied — hit Save & Publish to make it stick.','success');
+}
+
+/* ── Report ── */
+function initReportControls(){
+  var sel=document.getElementById('rptWho');
+  var cur=sel.value;
+  var whos={};
+  data.projects.forEach(function(p){if(p.who&&p.who.trim())whos[p.who.trim()]=1;});
+  sel.innerHTML='<option value="__all__">Everyone (full list)</option>';
+  Object.keys(whos).sort().forEach(function(w){sel.innerHTML+='<option value="'+esc(w)+'">'+esc(w)+'</option>';});
+  if(cur)sel.value=cur;
+  var box=document.getElementById('rptStatuses');
+  if(!box.childNodes.length){
+    var html='';
+    STATUSES.forEach(function(s){
+      var chk=s==='Completed'?'':' checked';
+      html+='<label style="display:flex;align-items:center;gap:0.4rem;text-transform:none;font-family:\'Crimson Text\',serif;font-size:1.02rem;font-weight:400;letter-spacing:0;margin:0;"><input type="checkbox" class="rptSt" value="'+esc(s)+'"'+chk+' style="width:auto;"> '+esc(s)+'</label>';
+    });
+    box.innerHTML=html;
+  }
+}
+function reportProjects(){
+  var who=document.getElementById('rptWho').value;
+  var incUn=document.getElementById('rptIncludeUnassigned').checked;
+  var sts={};
+  Array.prototype.forEach.call(document.querySelectorAll('.rptSt:checked'),function(c){sts[c.value]=1;});
+  return data.projects.filter(function(p){
+    if(!sts[p.status||'Open'])return false;
+    if(who==='__all__')return true;
+    var w=(p.who||'').trim();
+    if(w===who)return true;
+    if(!w&&incUn)return true;
+    return false;
+  }).sort(function(a,b){return (PRIORITY_ORDER[a.priority]||1)-(PRIORITY_ORDER[b.priority]||1);});
+}
+function buildReportHtml(){
+  var who=document.getElementById('rptWho').value;
+  var incPhotos=document.getElementById('rptIncludePhotos').checked;
+  var notesBox=document.getElementById('rptNotesBox').checked;
+  var intro=document.getElementById('rptIntro').value.trim();
+  var list=reportProjects();
+  var v=data.van;
+  var d=new Date();
+  var dateStr=(d.getMonth()+1)+'/'+d.getDate()+'/'+d.getFullYear();
+  var html='<div class="report-sheet">';
+  html+='<h1>Service Request — '+esc(v.coach||'Codiwomple')+'</h1>';
+  html+='<div class="rpt-sub">Prepared '+dateStr+(who!=='__all__'?' for <strong>'+esc(who)+'</strong>':'')+' · '+list.length+' item'+(list.length===1?'':'s')+'</div>';
+  html+='<div class="rpt-vehicle">';
+  html+='<span><strong>Coach:</strong> '+esc(v.coach||'—')+'</span>';
+  html+='<span><strong>Chassis:</strong> '+esc(v.chassis||'—')+'</span>';
+  if(v.vin)html+='<span><strong>VIN:</strong> '+esc(v.vin)+'</span>';
+  if(v.mileage)html+='<span><strong>Mileage:</strong> '+esc(v.mileage)+'</span>';
+  if(v.plate)html+='<span><strong>Plate:</strong> '+esc(v.plate)+'</span>';
+  html+='<span><strong>Owner:</strong> '+esc(v.owner||'—')+'</span>';
+  if(v.phone)html+='<span><strong>Phone:</strong> '+esc(v.phone)+'</span>';
+  if(v.email)html+='<span><strong>Email:</strong> '+esc(v.email)+'</span>';
+  html+='</div>';
+  if(intro)html+='<div class="rpt-intro">'+esc(intro)+'</div>';
+  if(!list.length)html+='<p>No projects match the current filters.</p>';
+  list.forEach(function(p,i){
+    html+='<div class="rpt-item"><h2>'+(i+1)+'. '+esc(p.title)+'</h2>';
+    var tags=[p.area,p.priority?'Priority: '+p.priority:'',p.status].filter(Boolean).join(' · ');
+    if(p.when)tags+=' · Target: '+fmtDate(p.when);
+    html+='<div class="rpt-tags">'+esc(tags)+'</div>';
+    if(p.desc)html+='<div class="rpt-desc">'+esc(p.desc)+'</div>';
+    if(p.parts)html+='<div class="rpt-desc"><strong>Parts / model #s:</strong> '+esc(p.parts)+'</div>';
+    if(p.notes)html+='<div class="rpt-label">Owner notes</div><div class="rpt-desc">'+esc(p.notes)+'</div>';
+    if(incPhotos&&p.photos&&p.photos.length){
+      html+='<div class="rpt-photos">';
+      p.photos.forEach(function(ph){
+        html+='<div class="ph"><img src="'+esc(photoSrc(ph))+'">'+(ph.cap?'<div class="cap">'+esc(ph.cap)+'</div>':'')+'</div>';
+      });
+      html+='</div>';
+    }
+    if(p.docs&&p.docs.length){
+      html+='<div class="rpt-label">Attached documents</div><div class="rpt-desc">';
+      p.docs.forEach(function(doc){
+        var url=/^https?:\/\//.test(doc.url)?doc.url:'https://journeyswithjerseymark.com/'+doc.url;
+        html+=esc(doc.label||doc.url)+' — '+esc(url)+'<br>';
+      });
+      html+='</div>';
+    }
+    if(notesBox)html+='<div class="rpt-notes-box">Shop notes / estimate:</div>';
+    html+='</div>';
+  });
+  html+='<div class="rpt-footer">Generated from the Codi Maintenance Log · journeyswithjerseymark.com</div>';
+  html+='</div>';
+  return html;
+}
+function buildReport(){
+  document.getElementById('reportPreview').innerHTML=buildReportHtml();
+}
+function printReport(){
+  document.getElementById('printArea').innerHTML=buildReportHtml();
+  var imgs=document.getElementById('printArea').querySelectorAll('img');
+  var pending=imgs.length;
+  if(!pending){window.print();return;}
+  var done=function(){if(--pending<=0)setTimeout(function(){window.print();},150);};
+  Array.prototype.forEach.call(imgs,function(im){
+    if(im.complete)done();
+    else{im.onload=done;im.onerror=done;}
+  });
+  setTimeout(function(){if(pending>0)window.print();},4000);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+{
+  "van": {
+    "coach": "2017 Winnebago ERA 70A \"Codiwomple\"",
+    "chassis": "2016 Mercedes-Benz Sprinter (diesel)",
+    "vin": "",
+    "mileage": "",
+    "plate": "",
+    "owner": "Mark Fugel",
+    "phone": "",
+    "email": "mfugel@gmail.com"
+  },
+  "projects": [],
+  "directory": [
+    {
+      "id": "d-colonialrv",
+      "name": "Colonial RV",
+      "type": "Dealer Service",
+      "location": "595 State Highway 33, Millstone Township, NJ 08535",
+      "phone": "800-265-9019",
+      "website": "https://www.colonialrv.com/",
+      "specialty": "Authorized Winnebago dealer — \"Flying W Service Excellence\" factory-certified service department; coach/house systems",
+      "notes": "Codi scheduled here Wednesday 7/22/2026 for the items the mobile techs couldn't handle."
+    },
+    {
+      "id": "d-allprorv",
+      "name": "All Pro RV Repairs",
+      "type": "Mobile RV Tech",
+      "location": "Serves Ocean County / central NJ",
+      "phone": "",
+      "website": "",
+      "specialty": "Mobile RV service, NRVTA-certified technicians",
+      "notes": "Seeded from a web search (Yelp Ocean County results) — verify contact info before calling. Not yet used."
+    },
+    {
+      "id": "d-rightyo",
+      "name": "Righty'O Mobile RV Repair and Service",
+      "type": "Mobile RV Tech",
+      "location": "Serves Ocean County / Toms River area",
+      "phone": "",
+      "website": "",
+      "specialty": "Mobile: A/C, water heater, furnace and other appliances; veteran-owned",
+      "notes": "Seeded from a web search — verify contact info before calling. Not yet used."
+    },
+    {
+      "id": "d-autobahn",
+      "name": "Autobahn Automotive",
+      "type": "Sprinter / Chassis Shop",
+      "location": "Sea Girt, NJ (opened on the Lakewood/Toms River border)",
+      "phone": "",
+      "website": "https://njautobahn.com/",
+      "specialty": "European auto specialists; services Sprinter vans — good candidate for chassis/diesel work close to Manchester",
+      "notes": "Seeded from a web search — verify Sprinter 3500-class lift capacity and diesel work before booking. Not yet used."
+    },
+    {
+      "id": "d-mbprinceton",
+      "name": "Mercedes-Benz of Princeton — Sprinter Service Center",
+      "type": "Sprinter / Chassis Shop",
+      "location": "Lawrenceville, NJ",
+      "phone": "(609) 372-5433",
+      "website": "https://www.mbprinceton.com/service/sprinter-service-center/",
+      "specialty": "Authorized Mercedes-Benz Sprinter service center — the by-the-book option for chassis, emissions, and recall work",
+      "notes": "Seeded from a web search — ~1 hr from Manchester. Confirm they take Class B motorhome conversions (most MB Sprinter centers do, but ask about height clearance)."
+    },
+    {
+      "id": "d-kdm",
+      "name": "KDM Car Clinic",
+      "type": "Sprinter / Chassis Shop",
+      "location": "Edison, NJ",
+      "phone": "",
+      "website": "https://kdmcarclinic.com/sprinter-van-repair-nj/",
+      "specialty": "Independent NJ Sprinter van repair specialist",
+      "notes": "Seeded from a web search — independent alternative to the MB dealer for out-of-warranty Sprinter work. Verify before calling."
+    }
+  ]
+}
