@@ -14,7 +14,7 @@
       "id": "pmrtpuh98lybxt",
       "createdAt": "2026-07-20T21:07:44.732Z",
       "title": "Main Console Screen shows Comm error",
-      "area": "Chassis / Engine",
+      "area": "Electrical / Solar",
       "priority": "Medium",
       "status": "Open",
       "desc": "Precision Components main screen shows COMM error",
@@ -35,7 +35,7 @@
         }
       ],
       "docs": [],
-      "updatedAt": "2026-07-20T21:07:44.732Z"
+      "updatedAt": "2026-07-20T21:08:15.115Z"
     },
     {
       "id": "pmrtprr3l033gi",
