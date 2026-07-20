@@ -43,7 +43,7 @@
       "createdAt": "2026-07-20T21:14:45.433Z",
       "title": "Main console does not register Propane status",
       "area": "Plumbing / Water",
-      "priority": "Medium",
+      "priority": "High",
       "status": "Open",
       "desc": "the main power console did report status of Propane. But it stopped reporting how full it was.",
       "who": "Colonial RV",
@@ -54,7 +54,7 @@
       "notes": "",
       "photos": [],
       "docs": [],
-      "updatedAt": "2026-07-20T21:14:45.433Z"
+      "updatedAt": "2026-07-20T21:37:04.900Z"
     },
     {
       "id": "pmrtq1y55x6sfk",
