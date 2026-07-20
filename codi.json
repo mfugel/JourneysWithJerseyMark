@@ -1,8 +1,9 @@
 {
   "van": {
     "coach": "2017 Winnebago ERA 70A \"Codiwomple\"",
-    "chassis": "2016 Mercedes-Benz Sprinter (diesel)",
-    "vin": "",
+    "chassis": "2016 Mercedes-Benz Sprinter 3500 (diesel, dual rear wheels)",
+    "vin": "WDAPF4CC1GP273124",
+    "specs": "Coach serial no.: 15164W112665 (Winnebago, completed 08/16)\nChassis: Mercedes-Benz LLC, mfd 04/16 · 2017 ERA (BM170A) · Type MPV · Color GAF\nGVWR: 11,030 lb (5,003 kg)\nGAWR: front 4,410 lb / rear 7,720 lb\nTires: LT215/85R16E on 16.0x5.50 rims\nCold tire pressure: 61 PSI front (single) / 61 PSI rear (dual)",
     "mileage": "",
     "plate": "",
     "owner": "Mark Fugel",

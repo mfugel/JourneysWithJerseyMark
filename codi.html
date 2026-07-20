@@ -377,6 +377,11 @@ textarea{resize:vertical;min-height:80px;}
               <div><label>Phone</label><input type="text" id="vanPhone"></div>
               <div><label>Email</label><input type="text" id="vanEmail"></div>
             </div>
+            <div class="field-row">
+              <label>Data Plate / Specs</label>
+              <textarea id="vanSpecs" style="min-height:110px;" placeholder="Serial no., GVWR, axle ratings, tire size &amp; pressures…"></textarea>
+              <p class="hint">From the Winnebago certification sticker. Prints on every service report — tire pressures and weight ratings are the first things a shop asks for.</p>
+            </div>
             <p class="hint">⚠ Remember: this file is publicly readable on the site (like all admin data). Leave phone/VIN blank here if you'd rather hand-write them on the printed report.</p>
             <div class="btn-row">
               <button class="btn btn-green" onclick="saveVanInfo()">✓ Apply Van Info</button>
@@ -908,6 +913,7 @@ function loadVanForm(){
   document.getElementById('vanOwner').value=v.owner||'';
   document.getElementById('vanPhone').value=v.phone||'';
   document.getElementById('vanEmail').value=v.email||'';
+  document.getElementById('vanSpecs').value=v.specs||'';
 }
 function saveVanInfo(){
   var v=data.van;
@@ -919,6 +925,7 @@ function saveVanInfo(){
   v.owner=document.getElementById('vanOwner').value.trim();
   v.phone=document.getElementById('vanPhone').value.trim();
   v.email=document.getElementById('vanEmail').value.trim();
+  v.specs=document.getElementById('vanSpecs').value.trim();
   markDirty();
   showStatus('mainStatus','✦ Van info applied — hit Save & Publish to make it stick.','success');
 }
@@ -978,6 +985,7 @@ function buildReportHtml(){
   if(v.phone)html+='<span><strong>Phone:</strong> '+esc(v.phone)+'</span>';
   if(v.email)html+='<span><strong>Email:</strong> '+esc(v.email)+'</span>';
   html+='</div>';
+  if(v.specs)html+='<div class="rpt-label">Data plate</div><div class="rpt-desc" style="font-size:.88rem;margin-bottom:0.9rem;">'+esc(v.specs)+'</div>';
   if(intro)html+='<div class="rpt-intro">'+esc(intro)+'</div>';
   if(!list.length)html+='<p>No projects match the current filters.</p>';
   list.forEach(function(p,i){
