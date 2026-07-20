@@ -299,10 +299,30 @@ textarea{resize:vertical;min-height:80px;}
             <button class="btn btn-green btn-sm" onclick="openDirForm(null)">＋ Add Resource</button>
           </div>
 
+          <div class="legend-box" style="margin-bottom:1rem;">
+            <span class="legend-box-title">Look Up a Shop</span>
+            <p class="hint" style="margin-bottom:0.6rem;">Heard of a place but not sure about it? Search Google, Maps, or Yelp right from here — check the ratings and reviews, then click <strong>＋ Add Resource</strong> to save it to your directory.</p>
+            <div style="display:flex;gap:0.5rem;flex-wrap:wrap;align-items:center;">
+              <input type="text" id="dirLookupQ" placeholder="Shop name, or e.g. “rv repair”, “sprinter service”…" style="flex:2;min-width:200px;" onkeydown="if(event.key==='Enter')lookupShop('maps')">
+              <input type="text" id="dirLookupNear" value="Manchester, NJ" placeholder="Near…" style="flex:1;min-width:120px;">
+            </div>
+            <div class="btn-row" style="margin-top:0.6rem;">
+              <button class="btn btn-secondary btn-sm" onclick="lookupShop('maps')">🗺 Google Maps</button>
+              <button class="btn btn-secondary btn-sm" onclick="lookupShop('google')">🔍 Google</button>
+              <button class="btn btn-secondary btn-sm" onclick="lookupShop('yelp')">⭐ Yelp</button>
+            </div>
+          </div>
+
           <div class="legend-box-new" id="dirForm" style="display:none;">
             <span class="legend-box-title" id="dirFormTitle">New Resource</span>
             <div class="field-grid">
-              <div><label>Name *</label><input type="text" id="dfName" placeholder="Shop or tech name"></div>
+              <div>
+                <label>Name *</label><input type="text" id="dfName" placeholder="Shop or tech name">
+                <div style="display:flex;gap:0.4rem;flex-wrap:wrap;margin-top:0.35rem;">
+                  <button class="btn btn-secondary btn-sm" onclick="lookupShop('maps',document.getElementById('dfName').value)">🗺 Check on Maps</button>
+                  <button class="btn btn-secondary btn-sm" onclick="lookupShop('google',document.getElementById('dfName').value)">🔍 Check on Google</button>
+                </div>
+              </div>
               <div><label>Type</label><select id="dfType"></select></div>
             </div>
             <div class="field-grid-3">
@@ -857,6 +877,17 @@ function submitDirForm(){
   d.notes=document.getElementById('dfNotes').value.trim();
   closeDirForm();
   markDirty();renderDirectory();refreshWhoLists();
+}
+function lookupShop(engine,qOverride){
+  var q=(qOverride!==undefined?qOverride:document.getElementById('dirLookupQ').value).trim();
+  if(!q){alert('Type a shop name or what you\'re looking for first.');return;}
+  var near=document.getElementById('dirLookupNear').value.trim();
+  var full=near?q+' near '+near:q;
+  var url;
+  if(engine==='maps')url='https://www.google.com/maps/search/'+encodeURIComponent(full);
+  else if(engine==='yelp')url='https://www.yelp.com/search?find_desc='+encodeURIComponent(q)+'&find_loc='+encodeURIComponent(near||'Manchester, NJ');
+  else url='https://www.google.com/search?q='+encodeURIComponent(full);
+  window.open(url,'_blank','noopener');
 }
 function deleteDir(id){
   var d=data.directory.find(function(x){return x.id===id;});
