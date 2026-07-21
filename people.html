@@ -351,7 +351,7 @@ function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'
       items=items||[];
       if(!items.length){ grid.innerHTML='<p class="wall-empty">No signatures yet — be the first to sign the wall above. ✍️</p>'; return; }
       grid.innerHTML=items.map(function(w){
-        var photo=w.photo?('<img class="wp" src="'+esc(w.photo)+'" alt="" loading="lazy">'):'';
+        var photo=w.photo?('<img class="wp" src="'+esc(w.photo)+'" alt="" loading="lazy" onerror="this.style.display=\'none\'">'):'';
         var who=esc(w.name||'A fellow traveler');
         var loc=w.location?('<div class="wl">'+esc(w.location)+(w.date?' · '+esc(w.date):'')+'</div>'):(w.date?'<div class="wl">'+esc(w.date)+'</div>':'');
         return '<div class="wall-card">'+photo+'<div class="wm">“'+esc(w.message||'')+'”</div><div class="wn">— '+who+'</div>'+loc+'</div>';
