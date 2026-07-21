@@ -596,16 +596,16 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
 <nav class="site-nav" id="siteNav">
   <div class="nav-inner">
     <div class="nav-links">
-      <a href="index.html">✦ Home</a>
+      <a href="index.html">🏠 Home</a>
       <span class="nav-dot">✦</span>
       <div class="nav-dropdown">
         <button type="button" class="nav-dropdown-trigger" onclick="toggleDropdown(event,this)" aria-haspopup="true" aria-expanded="false">Explore <span class="nav-dropdown-caret">▾</span></button>
         <div class="nav-dropdown-menu" role="menu">
-          <a href="index.html#waypoints" role="menuitem">Ports of Call</a>
-          <a href="index.html#gallery" role="menuitem">Codiwomple</a>
-          <a href="index.html#memories" role="menuitem">Memories</a>
+          <a href="index.html#waypoints" role="menuitem">⚓ Ports of Call</a>
+          <a href="index.html#gallery" role="menuitem">🚐 Codiwomple</a>
+          <a href="index.html#memories" role="menuitem">📸 Memories</a>
           <a href="journeys.html" class="nav-active" role="menuitem">🗺 My Journeys</a>
-          <a href="index.html#track" role="menuitem">Track Me</a>
+          <a href="index.html#track" role="menuitem">📍 Track Me</a>
         </div>
       </div>
       <span class="nav-dot">✦</span>
@@ -625,8 +625,8 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
       <div class="nav-dropdown">
         <button type="button" class="nav-dropdown-trigger" onclick="toggleDropdown(event,this)" aria-haspopup="true" aria-expanded="false">Connect <span class="nav-dropdown-caret">▾</span></button>
         <div class="nav-dropdown-menu" role="menu">
-          <a href="index.html#contact" role="menuitem">Contact</a>
-          <a href="index.html#bizcard" role="menuitem">Business Card</a>
+          <a href="index.html#contact" role="menuitem">✉️ Contact</a>
+          <a href="index.html#bizcard" role="menuitem">📇 Business Card</a>
         </div>
       </div>
       <span class="nav-dot">✦</span>
@@ -642,13 +642,13 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
     <button class="nav-hamburger" onclick="toggleNav()" aria-label="Menu">☰</button>
   </div>
   <div class="nav-drawer" id="navDrawer">
-    <a href="index.html">✦ Home</a>
+    <a href="index.html">🏠 Home</a>
     <span class="nav-drawer-group-label">✦ Explore</span>
-    <a href="index.html#waypoints">Ports of Call</a>
-    <a href="index.html#gallery">Codiwomple</a>
-    <a href="index.html#memories">Memories</a>
+    <a href="index.html#waypoints">⚓ Ports of Call</a>
+    <a href="index.html#gallery">🚐 Codiwomple</a>
+    <a href="index.html#memories">📸 Memories</a>
     <a href="journeys.html" class="nav-active">🗺 My Journeys</a>
-    <a href="index.html#track">Track Me</a>
+    <a href="index.html#track">📍 Track Me</a>
     <span class="nav-drawer-group-label">✦ Life on the Road</span>
     <a href="nomad-guide.html">⛺ Nomad Guide</a>
     <a href="gear.html">🎒 Gear &amp; Goods</a>
@@ -657,8 +657,8 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
     <a href="https://rvweather.com/weather-hub/" target="_blank" rel="noopener">🌦 RV Weather ↗</a>
     <a href="wallpapers.html">🎁 Gift from the Road</a>
     <span class="nav-drawer-group-label">✦ Connect</span>
-    <a href="index.html#contact">Contact</a>
-    <a href="index.html#bizcard">Business Card</a>
+    <a href="index.html#contact">✉️ Contact</a>
+    <a href="index.html#bizcard">📇 Business Card</a>
     <span class="nav-drawer-group-label">✦ Support Me</span>
     <a href="https://ko-fi.com/U7U3RUSTZ" target="_blank" rel="noopener" class="nav-coffee">☕ Buy Me a Coffee</a>
     <a href="https://jersey-mark-mercantile.printify.me/" target="_blank" rel="noopener" class="nav-coffee">🛍 Shop Merch</a>
