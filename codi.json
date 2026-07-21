@@ -25,9 +25,14 @@
       "cost": "",
       "parts": "",
       "notes": "",
-      "photos": [],
+      "photos": [
+        {
+          "src": "images/codi/mruvu5n8-1000078850.jpg",
+          "cap": ""
+        }
+      ],
       "docs": [],
-      "updatedAt": "2026-07-21T16:20:09.245Z"
+      "updatedAt": "2026-07-21T16:43:19.601Z"
     },
     {
       "id": "pmruo8d8liovf5",
