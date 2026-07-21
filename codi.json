@@ -12,6 +12,24 @@
   },
   "projects": [
     {
+      "id": "pmruv0hi542w10",
+      "createdAt": "2026-07-21T16:20:09.245Z",
+      "title": "Popup power plug in galley area",
+      "area": "Electrical / Solar",
+      "priority": "Medium",
+      "status": "Open",
+      "desc": "Drill hole with drill and purchased hole punch",
+      "who": "Colonial RV",
+      "where": "",
+      "when": "",
+      "cost": "",
+      "parts": "",
+      "notes": "",
+      "photos": [],
+      "docs": [],
+      "updatedAt": "2026-07-21T16:20:09.245Z"
+    },
+    {
       "id": "pmruo8d8liovf5",
       "createdAt": "2026-07-21T13:10:19.653Z",
       "title": "Jensen Stereo",
