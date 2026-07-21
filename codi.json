@@ -12,6 +12,24 @@
   },
   "projects": [
     {
+      "id": "pmruo8d8liovf5",
+      "createdAt": "2026-07-21T13:10:19.653Z",
+      "title": "Jensen Stereo",
+      "area": "Appliances",
+      "priority": "Medium",
+      "status": "Open",
+      "desc": "Stereo not working. Can it be replaced.",
+      "who": "Colonial RV",
+      "where": "",
+      "when": "",
+      "cost": "",
+      "parts": "",
+      "notes": "",
+      "photos": [],
+      "docs": [],
+      "updatedAt": "2026-07-21T13:10:19.653Z"
+    },
+    {
       "id": "pmrtr9f7ckyw4r",
       "createdAt": "2026-07-20T21:47:21.528Z",
       "title": "Light switches not working",
