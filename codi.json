@@ -12,6 +12,24 @@
   },
   "projects": [
     {
+      "id": "pmrwccev464oqn",
+      "createdAt": "2026-07-22T17:13:05.344Z",
+      "title": "Take out Roof TV Antenna",
+      "area": "Electrical / Solar",
+      "priority": "Medium",
+      "status": "Open",
+      "desc": "",
+      "who": "Colonial RV",
+      "where": "",
+      "when": "",
+      "cost": "",
+      "parts": "",
+      "notes": "",
+      "photos": [],
+      "docs": [],
+      "updatedAt": "2026-07-22T17:13:05.344Z"
+    },
+    {
       "id": "pmruv0hi542w10",
       "createdAt": "2026-07-21T16:20:09.245Z",
       "title": "Popup power plug in galley area",
