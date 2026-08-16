@@ -12,6 +12,24 @@
   },
   "projects": [
     {
+      "id": "pmsv2wgorvunp3",
+      "createdAt": "2026-08-16T00:40:40.826Z",
+      "title": "Rear Camera has no power",
+      "area": "Electrical / Solar",
+      "priority": "High",
+      "status": "Completed",
+      "desc": "Rear camera needs power. Power cord plugged into Bluetti cord came apart. Replaced cord and used on off switch",
+      "who": "Self",
+      "where": "Pine Barrens",
+      "when": "2026-08-13",
+      "cost": "0",
+      "parts": "spare 12v wiring and switch",
+      "notes": "Craig helped me splice wiring.",
+      "photos": [],
+      "docs": [],
+      "updatedAt": "2026-08-16T00:40:40.826Z"
+    },
+    {
       "id": "pmrwccev464oqn",
       "createdAt": "2026-07-22T17:13:05.344Z",
       "title": "Take out Roof TV Antenna",
