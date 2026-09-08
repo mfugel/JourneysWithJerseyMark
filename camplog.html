@@ -111,6 +111,12 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;min-heigh
 .log-verdict.yes{color:#2e5a2e;border:1px solid #6b8a72;}
 .log-verdict.no{color:#8a1f1f;border:1px solid #b06060;}
 .log-empty{font-family:'IM Fell English',serif;font-style:italic;color:rgba(90,53,16,0.6);text-align:center;padding:1.5rem 0;}
+/* FindPenguins footprints that fall on the same days as a stay */
+.log-fp{margin:0.2rem 0 0.9rem;}
+.log-fp-lbl{font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:#8a6a2a;margin:0 0 0.4rem;}
+.log-fp-lbl a{color:#8a6a2a;text-decoration:none;}
+.log-fp-lbl a:hover{color:#a8521a;}
+.log-fp iframe{display:block;width:100%;max-width:560px;height:520px;border:1px solid #9a774a;border-radius:6px;background:#fff;margin:0 0 0.5rem;}
 
 h2.sec{font-family:'Cinzel',serif;font-size:1.28rem;font-weight:700;color:#5a3510;letter-spacing:0.02em;margin:1.8rem 0 0.3rem;padding-bottom:0.3rem;border-bottom:1.5px solid rgba(90,53,16,0.3);}
 .callout{border-left:5px solid #c8862a;background:rgba(200,150,60,0.16);border-radius:0 6px 6px 0;padding:0.85rem 1.1rem;margin:1.4rem 0;font-style:italic;font-family:'IM Fell English',serif;font-size:1.06rem;color:#3a2008;}
@@ -234,7 +240,9 @@ h2.sec{font-family:'Cinzel',serif;font-size:1.28rem;font-weight:700;color:#5a351
 
         <div class="callout">Want the map? Every stay is a pin on the
         <a href="https://staytonight.app/embed/1cbf9a068bd10f7212d89277df5a0d69b9b9?theme=paper" target="_blank" rel="noopener">journal map</a>,
-        red line through them in the order I traveled.</div>
+        red line through them in the order I traveled. And when a stay lines up with a post in my
+        <a href="https://findpenguins.com/jerseymark" target="_blank" rel="noopener">FindPenguins journal</a>,
+        that post appears right under the entry — photos, penguin and all.</div>
 
         <p>If one of these places is on your way and you want the site number, the road in,
         or the honest verdict, <a href="index.html#contact">drop me a line</a> — I've usually
@@ -283,6 +291,10 @@ document.querySelectorAll('.nav-dropdown-menu a').forEach(function(a){
 /* ── The log itself: read from StayTonight's public feed of my published stays.
       Only entries I've marked Published in the app are in this feed. ── */
 var FEED = 'https://staytonight.app/api/public/journal/1cbf9a068bd10f7212d89277df5a0d69b9b9';
+/* My FindPenguins trip, indexed by StayTonight (public data only). A footprint
+   dated inside a stay's arrive→depart window is embedded under that stay. */
+var FP_INDEX = 'https://staytonight.app/api/public/findpenguins/jerseymark/2025-26-jerseymark-vanlife';
+var FP_MAX_PER_STAY = 3;
 function escHtml(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 function fmtDate(iso){
   var p=(iso||'').split('-').map(Number);
@@ -299,12 +311,46 @@ function tents(r){
   for(var i=1;i<=5;i++) out+='<span'+(i<=r?'':' class="off"')+'>⛺</span>';
   return '<span class="log-tents" title="'+r+' of 5 tents">'+out+'</span>';
 }
+/* FindPenguins embeds size themselves: each posts {height,id:window.name}. */
+window.addEventListener('message',function(e){
+  if(e.origin!=='https://findpenguins.com') return;
+  var m=e.data;
+  if(typeof m==='string'){ try{ m=JSON.parse(m); }catch(_){ return; } }
+  if(!m||!m.id||!m.height) return;
+  var f=document.getElementsByName(m.id)[0];
+  if(f&&f.tagName==='IFRAME') f.style.height=(Math.round(m.height)+8)+'px';
+});
+function footprintsFor(s, index){
+  if(s.footprintEmbedUrl){
+    return [{embedUrl:s.footprintEmbedUrl,url:s.footprintUrl||s.footprintEmbedUrl,id:'x'+(s.footprintEmbedUrl.split('/').pop()||'')}];
+  }
+  var from=s.arriveOn||'', to=s.departOn||s.arriveOn||'';
+  if(!from) return [];
+  return index.filter(function(f){ return f.date>=from && f.date<=to; }).slice(0,FP_MAX_PER_STAY);
+}
+function footprintHtml(s, index){
+  var fps=footprintsFor(s, index);
+  if(!fps.length) return '';
+  return '<div class="log-fp">'+
+    '<div class="log-fp-lbl">🐧 <a href="'+escHtml(fps[0].url)+'" target="_blank" rel="noopener">The same days on FindPenguins ↗</a></div>'+
+    fps.map(function(f){
+      return '<iframe src="'+escHtml(f.embedUrl)+'" name="'+escHtml(f.id)+'" title="FindPenguins footprint" loading="lazy" scrolling="no" referrerpolicy="no-referrer-when-downgrade"></iframe>';
+    }).join('')+
+  '</div>';
+}
 (function(){
   var list=document.getElementById('logList');
   if(!list) return;
-  fetch(FEED)
+  var fpIndex = fetch(FP_INDEX)
     .then(function(r){ return r.ok ? r.json() : null; })
-    .then(function(d){
+    .then(function(d){ return d && Array.isArray(d.footprints) ? d.footprints : []; })
+    .catch(function(){ return []; });
+  Promise.all([
+    fetch(FEED).then(function(r){ return r.ok ? r.json() : null; }),
+    fpIndex
+  ])
+    .then(function(res){
+      var d=res[0], index=res[1]||[];
       var stays = d && Array.isArray(d.stays) ? d.stays : [];
       if(!stays.length){
         list.innerHTML='<p class="log-empty">Nothing published yet — the first entries are on their way.</p>';
@@ -348,6 +394,7 @@ function tents(r){
           (photos?'<div class="log-photos">'+photos+'</div>':'')+
           (s.highlights?'<p class="log-words">'+escHtml(s.highlights)+'</p>':'')+
           (facts?'<div class="log-facts">'+escHtml(facts)+'</div>':'')+
+          footprintHtml(s, index)+
           '<a class="log-btn" href="'+escHtml(s.url)+'" target="_blank" rel="noopener">Read the full entry ↗</a>'+
         '</article>';
       }).join('');

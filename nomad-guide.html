@@ -121,6 +121,12 @@ table.cmp tr:nth-child(even) td{background:rgba(180,130,70,0.12);}
 .toolkit ul{list-style:none;margin-left:0;}
 .toolkit li{margin-bottom:0.4rem;padding-left:1.1rem;position:relative;}
 .toolkit li::before{content:'➤';position:absolute;left:0;color:#5a3510;font-size:0.8rem;top:0.18rem;}
+/* Live resources pulled from StayTonight */
+.res-note{font-family:'IM Fell English',serif;font-style:italic;font-size:0.95rem;color:#6a4a20;margin:0.2rem 0 0.8rem;}
+.res-free{display:inline-block;font-family:'Cinzel',serif;font-size:0.55rem;letter-spacing:0.12em;text-transform:uppercase;color:#2e5a2e;border:1px solid #6b8a72;border-radius:3px;padding:0.08rem 0.35rem;margin-left:0.4rem;vertical-align:middle;}
+.res-embed{margin:1rem 0 1.4rem;}
+.res-embed iframe{display:block;width:100%;border:1.5px solid #7a4e20;border-radius:8px;background:#fff;}
+.res-embed .res-cap{font-family:'IM Fell English',serif;font-style:italic;font-size:0.9rem;color:#6a4a20;margin-top:0.35rem;text-align:right;}
 
 /* coming soon */
 .coming{border:1.5px dashed #9a774a;border-radius:6px;padding:1rem 1.2rem;margin:1.4rem 0;background:rgba(180,130,70,0.1);}
@@ -333,6 +339,7 @@ table.cmp tr:nth-child(even) td{background:rgba(180,130,70,0.12);}
             <li><a href="#connected">📡 Staying connected</a></li>
             <li><a href="#budgeting">💰 Budgeting the life</a></li>
             <li><a href="#apps">📱 The apps I live by</a></li>
+            <li><a href="#resources">🔗 Road resources — live from StayTonight</a></li>
             <li><a href="#community">🤝 The community (Bob Wells, RTR)</a></li>
           </ul>
         </div>
@@ -940,6 +947,16 @@ table.cmp tr:nth-child(even) td{background:rgba(180,130,70,0.12);}
 
         <div class="divider">✦ ✦ ✦</div>
 
+        <h2 id="resources">🔗 Road Resources — live from StayTonight</h2>
+        <p>This list is the same one behind <strong>Help → Useful resources</strong> in
+        <a href="https://staytonight.app" target="_blank" rel="noopener">StayTonight</a>. I keep it in one
+        place and the page reads it fresh each time, so when I add a site there it shows up here the same
+        day. Everything marked <span class="res-free">free</span> costs nothing for the part that matters.</p>
+        <div class="toolkit" id="stResources"><p class="res-note">Fetching the list…</p></div>
+        <div class="res-embed" id="stEmbeds"></div>
+
+        <div class="divider">✦ ✦ ✦</div>
+
         <h2 id="community">🤝 Guide Seven · The Community — You're Not Doing This Alone</h2>
         <p>The road can look like a solitary life, and sometimes it is — beautifully so. But there's a
         whole community out here, and leaning into it early makes the whole thing far less daunting.</p>
@@ -985,6 +1002,7 @@ table.cmp tr:nth-child(even) td{background:rgba(180,130,70,0.12);}
             <li><a href="#connected">📡 Staying connected</a></li>
             <li><a href="#budgeting">💰 Budgeting the life</a></li>
             <li><a href="#apps">📱 The apps I live by</a></li>
+            <li><a href="#resources">🔗 Road resources — live from StayTonight</a></li>
             <li><a href="#community">🤝 The community (Bob Wells, RTR)</a></li>
           </ul>
         </div>
@@ -1109,6 +1127,35 @@ document.querySelectorAll('.nav-dropdown-menu a').forEach(function(a){
       navigator.share({title:"Life on the Road — A Nomad's Guide by Jersey Mark", url:url}).catch(function(){});
     });
   }
+})();
+</script>
+<script>
+/* Road resources — read live from StayTonight so the two never drift. */
+(function(){
+  var box=document.getElementById('stResources'), emb=document.getElementById('stEmbeds');
+  if(!box) return;
+  function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+  fetch('https://staytonight.app/api/public/resources')
+    .then(function(r){ return r.ok ? r.json() : null; })
+    .then(function(d){
+      var groups=d&&Array.isArray(d.groups)?d.groups:[];
+      if(!groups.length){ box.innerHTML='<p class="res-note">The list is unavailable right now — try again shortly.</p>'; return; }
+      box.innerHTML=groups.map(function(g){
+        return '<h3>'+esc(g.group)+'</h3><ul>'+(g.links||[]).map(function(l){
+          return '<li><a href="'+esc(l.url)+'" target="_blank" rel="noopener">'+esc(l.label)+'</a>'+
+            (l.note?' — '+esc(l.note):'')+(l.free?' <span class="res-free">free</span>':'')+'</li>';
+        }).join('')+'</ul>';
+      }).join('');
+      var embeds=[];
+      groups.forEach(function(g){ (g.links||[]).forEach(function(l){ if(l.embed&&l.embed.src) embeds.push(l); }); });
+      if(emb&&embeds.length){
+        emb.innerHTML=embeds.map(function(l){
+          return '<iframe src="'+esc(l.embed.src)+'" title="'+esc(l.embed.title||l.label)+'" style="height:'+(Number(l.embed.height)||420)+'px" loading="lazy"></iframe>'+
+            '<div class="res-cap">'+esc(l.embed.title||l.label)+' · <a href="'+esc(l.url)+'" target="_blank" rel="noopener">open ↗</a></div>';
+        }).join('');
+      }
+    })
+    .catch(function(){ box.innerHTML='<p class="res-note">The list is unavailable right now — try again shortly.</p>'; });
 })();
 </script>
 <script defer src="/_vercel/insights/script.js"></script>
