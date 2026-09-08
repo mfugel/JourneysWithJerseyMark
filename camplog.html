@@ -331,6 +331,7 @@ function tents(r){
           photos+='<a class="log-more" href="'+escHtml(s.url)+'" target="_blank" rel="noopener">+'+((s.photos||[]).length-5)+' more</a>';
         }
         var facts=[
+          s.costPerNight!=null?(s.costPerNight===0?'Free':('$'+s.costPerNight+'/night'+((s.nights||1)>1?(' · $'+Math.round(s.costPerNight*(s.nights||1)*100)/100+' total'):''))):'',
           s.weather?('Weather: '+s.weather):'',
           s.elevationFt!=null?('Elevation: '+Number(s.elevationFt).toLocaleString()+' ft'):'',
           s.fees?('Fees: '+s.fees):''
