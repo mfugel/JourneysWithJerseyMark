@@ -367,9 +367,9 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Cinzel:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
-<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" integrity="sha384-pmjIAcz2bAn0xukfxADbZIb3t8oRT9Sv0rvO+BR5Csr6Dhqq+nZs59P0pPKQJkEV" crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" integrity="sha384-wgw+aLYNQ7dlhK47ZPK7FRACiq7ROZwgFNg0m04avm4CaXS+Z9Y7nMu8yNjBKYC+" crossorigin="anonymous">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-padding-top:3rem;}
@@ -377,7 +377,7 @@ html,body{width:100%;min-height:100vh;}
 body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:relative;overflow-x:hidden;}
 .parchment-bg{position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 28px,rgba(101,67,33,0.04) 29px),repeating-linear-gradient(90deg,transparent,transparent 28px,rgba(101,67,33,0.04) 29px);pointer-events:none;z-index:0;}
 .vignette{position:fixed;inset:0;background:radial-gradient(ellipse at center,transparent 40%,rgba(80,40,10,0.35) 100%);pointer-events:none;z-index:0;}
-.content{position:relative;z-index:1;width:100%;padding:2rem 3rem 3rem;}
+.content{display:block;position:relative;z-index:1;width:100%;padding:2rem 3rem 3rem;}
 .outer-border{border:3px solid #5a3510;border-radius:4px;padding:4px;position:relative;max-width:1100px;margin:0 auto;}
 .inner-border{border:1.5px solid #7a4e20;border-radius:2px;padding:1.8rem 1.8rem 2.2rem;}
 .corner-ornament{position:absolute;font-size:20px;color:#1a0f00;line-height:1;}
@@ -391,13 +391,13 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
 .cartouche-border::before{margin-bottom:0.4rem;}
 .cartouche-border::after{margin-top:0.4rem;}
 .logo-seal{width:140px;height:140px;object-fit:contain;margin:0 auto 0.8rem;display:block;filter:sepia(0.55) saturate(0.85) contrast(1.05) brightness(0.97) hue-rotate(-5deg);mix-blend-mode:multiply;}
-.map-title{font-family:'Cinzel',serif;font-size:1.9rem;font-weight:700;color:#0f0800;line-height:1.15;text-align:center;letter-spacing:0.04em;}
+.map-title{margin:0;font-family:'Cinzel',serif;font-size:1.9rem;font-weight:700;color:#0f0800;line-height:1.15;text-align:center;letter-spacing:0.04em;}
 .map-subtitle{font-family:'IM Fell English',serif;font-style:italic;font-size:1.15rem;color:#1a0f00;text-align:center;margin-top:0.4rem;}
 .map-motto{font-family:'IM Fell English',serif;font-style:italic;font-size:1rem;color:#1a0f00;text-align:center;margin-top:0.6rem;letter-spacing:0.03em;}
 .divider-rule{display:flex;align-items:center;gap:8px;margin:1.3rem 0;color:#1a0f00;font-size:14px;letter-spacing:0.15em;}
 .divider-rule::before,.divider-rule::after{content:'';flex:1;height:1px;background:#7a4e20;}
 .legend-box{border:1.5px solid #7a4e20;border-radius:3px;padding:1.1rem;background:rgba(160,110,50,0.15);margin-bottom:1.2rem;position:relative;}
-.legend-box-title{font-family:'Cinzel',serif;font-size:0.84rem;font-weight:700;letter-spacing:0.15em;color:#1a0f00;background:#dfc99a;padding:0 6px;position:absolute;top:-9px;left:16px;text-transform:uppercase;}
+.legend-box-title{margin:0;font-family:'Cinzel',serif;font-size:0.84rem;font-weight:700;letter-spacing:0.15em;color:#1a0f00;background:#dfc99a;padding:0 6px;position:absolute;top:-9px;left:16px;text-transform:uppercase;}
 .footer-seal{text-align:center;margin-top:1.5rem;font-family:'IM Fell English',serif;font-style:italic;font-size:1.07rem;color:#1a0f00;letter-spacing:0.05em;}
 .compass-rose{font-size:52px;color:#1a0f00;line-height:1;margin-bottom:0.3rem;}
 .stats-row{display:flex;justify-content:space-around;text-align:center;margin:0.5rem 0;flex-wrap:wrap;}
@@ -413,7 +413,7 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
 .site-nav a:hover,.site-nav a.nav-active{color:#f5ead0;}
 .site-nav a.nav-active{border-bottom:1px solid rgba(220,192,137,0.5);}
 .nav-dot{color:rgba(220,192,137,0.35);font-size:0.5rem;line-height:1;align-self:center;}
-.nav-hamburger{display:none;background:none;border:1px solid rgba(220,192,137,0.35);border-radius:3px;color:#f5ead0;cursor:pointer;padding:0.3rem 0.55rem;font-size:1rem;line-height:1;margin-left:auto;}
+.nav-hamburger{display:none;min-width:44px;min-height:44px;align-items:center;justify-content:center;background:none;border:1px solid rgba(220,192,137,0.35);border-radius:3px;color:#f5ead0;cursor:pointer;padding:0.3rem 0.55rem;font-size:1rem;line-height:1;margin-left:auto;}
 .nav-hamburger:hover{border-color:rgba(220,192,137,0.7);}
 .nav-brand{font-family:'Cinzel',serif;font-size:0.72rem;letter-spacing:0.13em;text-transform:uppercase;color:rgba(245,234,208,0.82);text-decoration:none;padding:0.6rem 0.65rem;white-space:nowrap;}
 .nav-brand:hover{color:#f5ead0;}
@@ -426,7 +426,7 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
 @media(max-width:600px){
   .nav-inner{justify-content:space-between;flex-wrap:nowrap;}
   .nav-links{display:none;}
-  .nav-hamburger{display:block;}
+  .nav-hamburger{display:inline-flex;}
   .nav-drawer{display:block;max-height:0;overflow:hidden;transition:max-height 0.3s ease;}
   .nav-drawer.open{max-height:30rem;}
   .nav-drawer a{display:block;font-family:'Cinzel',serif;font-size:0.74rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(245,234,208,0.82);text-decoration:none;padding:0.7rem 1.2rem;border-top:1px solid rgba(220,192,137,0.12);transition:background 0.2s,color 0.2s;}
@@ -440,8 +440,8 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
 .nav-dropdown-trigger:hover,.nav-dropdown.open .nav-dropdown-trigger{color:#ffe89a;}
 .nav-dropdown-caret{font-size:0.55rem;transition:transform 0.2s;}
 .nav-dropdown.open .nav-dropdown-caret{transform:rotate(180deg);}
-.nav-dropdown-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%);background:rgba(90,53,16,0.98);border:1px solid rgba(220,192,137,0.35);border-radius:3px;box-shadow:0 6px 18px rgba(15,8,0,0.45);padding:0.35rem 0;min-width:13rem;opacity:0;pointer-events:none;transition:opacity 0.18s ease;z-index:600;}
-.nav-dropdown.open .nav-dropdown-menu{opacity:1;pointer-events:auto;}
+.nav-dropdown-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%);background:rgba(90,53,16,0.98);border:1px solid rgba(220,192,137,0.35);border-radius:3px;box-shadow:0 6px 18px rgba(15,8,0,0.45);padding:0.35rem 0;min-width:13rem;opacity:0;visibility:hidden;pointer-events:none;transition:opacity 0.18s ease,visibility 0s linear .2s;z-index:600;}
+.nav-dropdown.open .nav-dropdown-menu{opacity:1;visibility:visible;pointer-events:auto;transition:opacity 0.18s ease,visibility 0s;}
 .nav-dropdown-menu a{display:block;font-family:'Cinzel',serif;font-size:0.72rem;letter-spacing:0.13em;text-transform:uppercase;color:#f8d568;text-decoration:none;padding:0.55rem 1.1rem;transition:background 0.2s,color 0.2s;white-space:nowrap;}
 .nav-dropdown-menu a:hover{background:rgba(220,192,137,0.12);color:#ffe89a;}
 @media(max-width:860px){
@@ -479,8 +479,8 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
   display:flex;align-items:center;gap:0.6rem;flex-wrap:wrap;
   width:100%;
 }
-.slider-wrap h4{
-  font-family:'Cinzel',serif;font-size:0.72rem;font-weight:700;
+.slider-wrap h3{
+  margin:0;font-family:'Cinzel',serif;font-size:0.72rem;font-weight:700;
   letter-spacing:0.12em;text-transform:uppercase;color:#1a0f00;
   margin-right:0.3rem;flex-shrink:0;
 }
@@ -518,8 +518,8 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
 .leaflet-tooltip-top:before,.leaflet-tooltip-bottom:before,
 .leaflet-tooltip-left:before,.leaflet-tooltip-right:before{border-top-color:#7a4e20;}
 .legend-grad{
-  background:white;padding:7px 9px;border-radius:3px;
-  border:1.5px solid #7a4e20;font-family:'Crimson Text',serif;
+  background:#f5ead0;padding:7px 9px;border-radius:3px;
+  border:1px solid #7a4e20;font-family:'Crimson Text',serif;
   font-size:0.8rem;line-height:1.5;color:#1a0f00;
   max-height:none;overflow:hidden;cursor:default;
 }
@@ -530,7 +530,8 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
 @media(max-width:600px){
   .legend-grad{padding:0;cursor:pointer;font-size:0.75rem;}
   .legend-grad .legend-toggle{
-    display:block;padding:5px 9px;
+    display:block;width:100%;text-align:left;background:none;border:0;border-radius:0;
+    line-height:inherit;cursor:pointer;padding:5px 9px;
     font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.1em;
     text-transform:uppercase;color:#1a0f00;white-space:nowrap;user-select:none;
   }
@@ -549,6 +550,8 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
   .map-motto{font-size:1.04rem;}
   #map{height:440px;}
   .map-controls{flex-direction:column;align-items:stretch;}
+  .slider-row{flex-wrap:wrap;min-width:0;}
+  #resetBtn{flex-basis:100%;margin-top:.4rem;}
   .layer-toggles{justify-content:flex-start;}
   .stat-num{font-size:1.25rem;}
   .stat-lbl{font-size:0.84rem;}
@@ -576,6 +579,8 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
   .logo-seal{width:155px;height:155px;}
   #map{height:620px;}
 }
+@media (prefers-reduced-motion: reduce){ *{transition-duration:.01ms !important;animation-duration:.01ms !important;animation-iteration-count:1 !important} html{scroll-behavior:auto} }
+:where(a,button,input,select,textarea,[tabindex]):focus-visible{outline:2px solid #3a1f08;outline-offset:2px}
 </style>
 
 <!-- Google tag (gtag.js) -->
@@ -600,23 +605,24 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
       <span class="nav-dot">✦</span>
       <div class="nav-dropdown">
         <button type="button" class="nav-dropdown-trigger" onclick="toggleDropdown(event,this)" aria-haspopup="true" aria-expanded="false">Explore <span class="nav-dropdown-caret">▾</span></button>
-        <div class="nav-dropdown-menu" role="menu">
-          <a href="index.html#waypoints" role="menuitem">⚓ Ports of Call</a>
-          <a href="index.html#gallery" role="menuitem">🚐 Codiwomple</a>
-          <a href="index.html#memories" role="menuitem">📸 Memories</a>
-          <a href="journeys.html" class="nav-active" role="menuitem">🗺 My Journeys</a>
-          <a href="index.html#track" role="menuitem">📍 Track Me</a>
+        <div class="nav-dropdown-menu">
+          <a href="index.html#waypoints">⚓ Ports of Call</a>
+          <a href="index.html#gallery">🚐 Codiwomple</a>
+          <a href="index.html#memories">📸 Memories</a>
+          <a href="journeys.html" class="nav-active">🗺 My Journeys</a>
+          <a href="index.html#track">📍 Track Me</a>
         </div>
       </div>
       <span class="nav-dot">✦</span>
       <div class="nav-dropdown">
         <button type="button" class="nav-dropdown-trigger" onclick="toggleDropdown(event,this)" aria-haspopup="true" aria-expanded="false">Life on the Road <span class="nav-dropdown-caret">▾</span></button>
-        <div class="nav-dropdown-menu" role="menu">
-          <a href="nomad-guide.html" role="menuitem">⛺ Nomad Guide</a>
-          <a href="gear.html" role="menuitem">🎒 Gear &amp; Goods</a>
-          <a href="music.html" role="menuitem">🎵 Music for the Road</a>
-          <a href="people.html" role="menuitem">🤝 People of the Road</a>
-          <a href="https://rvweather.com/weather-hub/" target="_blank" rel="noopener" role="menuitem">🌦 RV Weather ↗</a>
+        <div class="nav-dropdown-menu">
+          <a href="nomad-guide.html">⛺ Nomad Guide</a>
+          <a href="camplog.html">🏕 Camp Log</a>
+          <a href="gear.html">🎒 Gear &amp; Goods</a>
+          <a href="music.html">🎵 Music for the Road</a>
+          <a href="people.html">🤝 People of the Road</a>
+          <a href="https://rvweather.com/weather-hub/" target="_blank" rel="noopener">🌦 RV Weather ↗</a>
         </div>
       </div>
       <span class="nav-dot">✦</span>
@@ -624,22 +630,22 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
       <span class="nav-dot">✦</span>
       <div class="nav-dropdown">
         <button type="button" class="nav-dropdown-trigger" onclick="toggleDropdown(event,this)" aria-haspopup="true" aria-expanded="false">Connect <span class="nav-dropdown-caret">▾</span></button>
-        <div class="nav-dropdown-menu" role="menu">
-          <a href="index.html#contact" role="menuitem">✉️ Contact</a>
-          <a href="index.html#bizcard" role="menuitem">📇 Business Card</a>
+        <div class="nav-dropdown-menu">
+          <a href="index.html#contact">✉️ Contact</a>
+          <a href="index.html#bizcard">📇 Business Card</a>
         </div>
       </div>
       <span class="nav-dot">✦</span>
       <div class="nav-dropdown" id="supportDropdown">
         <button type="button" class="nav-dropdown-trigger" onclick="toggleDropdown(event,this)" aria-haspopup="true" aria-expanded="false">✦ Support Me <span class="nav-dropdown-caret">▾</span></button>
-        <div class="nav-dropdown-menu" role="menu">
-          <a href="https://ko-fi.com/U7U3RUSTZ" target="_blank" rel="noopener" role="menuitem">☕ Buy Me a Coffee</a>
-          <a href="https://jersey-mark-mercantile.printify.me/" target="_blank" rel="noopener" role="menuitem">🛍 Shop Merch</a>
+        <div class="nav-dropdown-menu">
+          <a href="https://ko-fi.com/U7U3RUSTZ" target="_blank" rel="noopener">☕ Buy Me a Coffee</a>
+          <a href="https://jersey-mark-mercantile.printify.me/" target="_blank" rel="noopener">🛍 Shop Merch</a>
         </div>
       </div>
     </div>
     <a href="index.html" class="nav-brand">✦ Jersey Mark</a>
-    <button class="nav-hamburger" onclick="toggleNav()" aria-label="Menu">☰</button>
+    <button class="nav-hamburger" onclick="toggleNav()" aria-label="Menu" aria-expanded="false" aria-controls="navDrawer">☰</button>
   </div>
   <div class="nav-drawer" id="navDrawer">
     <a href="index.html">🏠 Home</a>
@@ -651,6 +657,7 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
     <a href="index.html#track">📍 Track Me</a>
     <span class="nav-drawer-group-label">✦ Life on the Road</span>
     <a href="nomad-guide.html">⛺ Nomad Guide</a>
+    <a href="camplog.html">🏕 Camp Log</a>
     <a href="gear.html">🎒 Gear &amp; Goods</a>
     <a href="music.html">🎵 Music for the Road</a>
     <a href="people.html">🤝 People of the Road</a>
@@ -665,7 +672,7 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
   </div>
 </nav>
 
-<div class="content">
+<main class="content">
   <div class="outer-border">
     <div class="corner-ornament corner-tl">✦</div>
     <div class="corner-ornament corner-tr">✦</div>
@@ -676,14 +683,14 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
       <div class="cartouche">
         <div class="cartouche-border">
           <img src="images/seal.jpg" alt="Journeys with Jersey Mark" class="logo-seal" />
-          <div class="map-title">My Journeys</div>
+          <h1 class="map-title">My Journeys</h1>
           <div class="map-subtitle">An Interactive Map of the Road</div>
           <div class="map-motto">Every mile, every memory, every place I've laid my head</div>
         </div>
       </div>
 
       <div class="legend-box" style="text-align:center;">
-        <div class="legend-box-title">Vital Statistics</div>
+        <h2 class="legend-box-title">Vital Statistics</h2>
         <div class="stats-row" id="statsRow">
           <div class="stat-item"><div class="stat-num" id="statPhotos">—</div><div class="stat-lbl">Geotagged photos</div></div>
           <div class="stat-item"><div class="stat-num" id="statStays">—</div><div class="stat-lbl">Stays detected</div></div>
@@ -693,7 +700,7 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
 
       <div class="divider-rule">✦ The Map ✦</div>
       <div class="legend-box">
-        <div class="legend-box-title">Interactive Atlas</div>
+        <h2 class="legend-box-title">Interactive Atlas</h2>
         <p style="font-family:'IM Fell English',serif;font-style:italic;font-size:1.05rem;color:#1a0f00;text-align:center;margin-bottom:0.8rem;line-height:1.55;">
           Toggle layers to switch between views. Drag the year handles to filter by date.<br>
           Click any circle for details &middot; pinch or scroll to zoom.
@@ -710,11 +717,11 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
         </div>
         <div class="map-controls">
           <div class="slider-wrap">
-            <h4>✦ Year Range</h4>
+            <h3>✦ Year Range</h3>
             <div class="slider-row">
               <span id="yMinLbl" class="year-label"></span>
-              <input id="yMin" type="range" />
-              <input id="yMax" type="range" />
+              <input id="yMin" type="range" aria-label="Earliest year" />
+              <input id="yMax" type="range" aria-label="Latest year" />
               <span id="yMaxLbl" class="year-label"></span>
               <button id="resetBtn" class="reset-btn">Reset</button>
             </div>
@@ -725,7 +732,7 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
 
       <div class="divider-rule">✦ Reading the Map ✦</div>
       <div class="legend-box">
-        <div class="legend-box-title">A Cartographer's Note</div>
+        <h2 class="legend-box-title">A Cartographer's Note</h2>
         <p style="font-family:'Crimson Text',serif;font-size:1rem;color:#1a0f00;line-height:1.7;text-align:left;">
           Each point on this map is a photograph I took, plotted by the GPS coordinates the camera
           recorded at the moment of the shutter. The <em>Heatmap</em> reveals where I've spent the most
@@ -744,18 +751,18 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
 
     </div>
   </div>
-</div>
+</main>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
-<script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js" integrity="sha384-eXVCORTRlv4FUUgS/xmOyr66XBVraen8ATNLMESp92FKXLAMiKkerixTiBvXriZr" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js" integrity="sha384-mFKkGiGvT5vo1fEyGCD3hshDdKmW3wzXW/x+fWriYJArD0R3gawT6lMvLboM22c0" crossorigin="anonymous"></script>
 <script>
 const DATA = __PAYLOAD__;
 
 // ---------- helpers ----------
 function tsToYear(ts){ return ts ? new Date(ts*1000).getUTCFullYear() : null; }
 function tsToDateStr(ts){ if(!ts) return ''; return new Date(ts*1000).toISOString().slice(0,10); }
-const PALETTE = ["#3b4cc0","#5977e3","#7b9ff9","#a3c2fc","#c9d7f0","#f0c4c0","#f6a385","#e7745b","#cb3e38","#a02226"];
+const PALETTE = ["#dfc99a","#d2b47f","#c69f65","#b98a4a","#a4763c","#8f622e","#7a4e20","#653e18","#4f2f10","#3a1f08"];
 function colorForYear(y){
   if(DATA.year_min===DATA.year_max) return PALETTE[5];
   const t=(y-DATA.year_min)/(DATA.year_max-DATA.year_min);
@@ -927,17 +934,19 @@ legend.onAdd = () => {
     body += `<i style="background:${PALETTE[i]}"></i>${yr}<br>`;
   }
   div.innerHTML =
-    `<div class="legend-toggle">🗓 Years <span class="legend-caret">▾</span></div>` +
-    `<div class="legend-body">${body}</div>`;
+    `<button type="button" class="legend-toggle" aria-expanded="false" aria-controls="legendBody">🗓 Years <span class="legend-caret">▾</span></button>` +
+    `<div class="legend-body" id="legendBody">${body}</div>`;
   // Don't let taps on the legend pan/zoom the map
   L.DomEvent.disableClickPropagation(div);
   L.DomEvent.disableScrollPropagation(div);
   // Toggle open/closed when the legend is tapped on mobile
   div.addEventListener('click', () => {
     if (window.matchMedia('(max-width: 600px)').matches) {
-      div.classList.toggle('open');
+      const open = div.classList.toggle('open');
+      const tgl = div.querySelector('.legend-toggle');
+      if (tgl) tgl.setAttribute('aria-expanded', open ? 'true' : 'false');
       const caret = div.querySelector('.legend-caret');
-      if (caret) caret.textContent = div.classList.contains('open') ? '▴' : '▾';
+      if (caret) caret.textContent = open ? '▴' : '▾';
     }
   });
   return div;
@@ -955,6 +964,7 @@ yMin.value=DATA.year_min; yMax.value=DATA.year_max;
 
 function refreshLabels(){
   yMinLbl.textContent=curMin; yMaxLbl.textContent=curMax;
+  yMin.setAttribute('aria-valuetext',String(curMin)); yMax.setAttribute('aria-valuetext',String(curMax));
   const pts=filteredPoints(), stays=filteredStays();
   liveStats.innerHTML = `<b>${pts.length.toLocaleString()}</b> photos &middot; ` +
                         `<b>${stays.length.toLocaleString()}</b> stays &middot; ` +
@@ -987,10 +997,15 @@ document.getElementById('statYears').textContent  = (DATA.stats.year_max - DATA.
 refreshLabels();
 
 // ---------- nav drawer ----------
-function toggleNav(){ document.getElementById('navDrawer').classList.toggle('open'); }
+function setNav(open){
+  var d=document.getElementById('navDrawer'), h=document.querySelector('.nav-hamburger');
+  d.classList.toggle('open',open);
+  if(h) h.setAttribute('aria-expanded',open?'true':'false');
+}
+function toggleNav(){ setNav(!document.getElementById('navDrawer').classList.contains('open')); }
 window.toggleNav = toggleNav;
 document.querySelectorAll('#navDrawer a').forEach(a=>{
-  a.addEventListener('click',()=>document.getElementById('navDrawer').classList.remove('open'));
+  a.addEventListener('click',()=>setNav(false));
 });
 function toggleDropdown(e, btn){
   e.stopPropagation();

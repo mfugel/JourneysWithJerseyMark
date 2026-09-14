@@ -16,16 +16,16 @@
 <meta property="og:url" content="https://www.journeyswithjerseymark.com/wallpapers.html">
 <meta property="og:title" content="Free Travel Wallpapers — Gift from the Road · Journeys with Jersey Mark">
 <meta property="og:description" content="Free phone and desktop wallpapers from the road — Grand Canyon, Zion, Bryce Canyon, the Canadian Rockies, Alaska, and more. Download any photo, no signup required.">
-<meta property="og:image" content="https://www.journeyswithjerseymark.com/wallpapers/banff-01-phone.jpg">
-<meta property="og:image:width" content="1170">
-<meta property="og:image:height" content="2532">
+<meta property="og:image" content="https://www.journeyswithjerseymark.com/wallpapers/banff-01-desktop.jpg">
+<meta property="og:image:width" content="2560">
+<meta property="og:image:height" content="1440">
 <meta property="og:site_name" content="Journeys with Jersey Mark">
 
 <!-- ── Twitter / X Card ── -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Free Travel Wallpapers — Gift from the Road">
 <meta name="twitter:description" content="Download free phone and desktop wallpapers from Mark Fugel's travels — Grand Canyon, Banff, Alaska, and more. No signup required.">
-<meta name="twitter:image" content="https://www.journeyswithjerseymark.com/wallpapers/banff-01-phone.jpg">
+<meta name="twitter:image" content="https://www.journeyswithjerseymark.com/wallpapers/banff-01-desktop.jpg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Cinzel:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
@@ -50,13 +50,13 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
 .cartouche-border::before{margin-bottom:0.4rem;}
 .cartouche-border::after{margin-top:0.4rem;}
 .logo-seal{width:140px;height:140px;object-fit:contain;margin:0 auto 0.8rem;display:block;filter:sepia(0.55) saturate(0.85) contrast(1.05) brightness(0.97) hue-rotate(-5deg);mix-blend-mode:multiply;}
-.map-title{font-family:'Cinzel',serif;font-size:1.9rem;font-weight:700;color:#0f0800;line-height:1.15;text-align:center;letter-spacing:0.04em;}
+.map-title{margin:0;font-family:'Cinzel',serif;font-size:1.9rem;font-weight:700;color:#0f0800;line-height:1.15;text-align:center;letter-spacing:0.04em;}
 .map-subtitle{font-family:'IM Fell English',serif;font-style:italic;font-size:1.15rem;color:#1a0f00;text-align:center;margin-top:0.4rem;}
 .map-motto{font-family:'IM Fell English',serif;font-style:italic;font-size:1rem;color:#1a0f00;text-align:center;margin-top:0.6rem;letter-spacing:0.03em;}
 .divider-rule{display:flex;align-items:center;gap:8px;margin:1.3rem 0;color:#1a0f00;font-size:14px;letter-spacing:0.15em;}
 .divider-rule::before,.divider-rule::after{content:'';flex:1;height:1px;background:#7a4e20;}
 .legend-box{border:1.5px solid #7a4e20;border-radius:3px;padding:1.1rem;background:rgba(160,110,50,0.15);margin-bottom:1.2rem;position:relative;}
-.legend-box-title{font-family:'Cinzel',serif;font-size:0.84rem;font-weight:700;letter-spacing:0.15em;color:#1a0f00;background:#dfc99a;padding:0 6px;position:absolute;top:-9px;left:16px;text-transform:uppercase;}
+.legend-box-title{margin:0;font-family:'Cinzel',serif;font-size:0.84rem;font-weight:700;letter-spacing:0.15em;color:#1a0f00;background:#dfc99a;padding:0 6px;position:absolute;top:-9px;left:16px;text-transform:uppercase;}
 .footer-seal{text-align:center;margin-top:1.5rem;font-family:'IM Fell English',serif;font-style:italic;font-size:1.07rem;color:#1a0f00;letter-spacing:0.05em;}
 .compass-rose{font-size:52px;color:#1a0f00;line-height:1;margin-bottom:0.3rem;}
 
@@ -67,7 +67,7 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
 .site-nav a:hover,.site-nav a.nav-active{color:#f5ead0;}
 .site-nav a.nav-active{border-bottom:1px solid rgba(220,192,137,0.5);}
 .nav-dot{color:rgba(220,192,137,0.35);font-size:0.5rem;line-height:1;align-self:center;}
-.nav-hamburger{display:none;background:none;border:1px solid rgba(220,192,137,0.35);border-radius:3px;color:#f5ead0;cursor:pointer;padding:0.3rem 0.55rem;font-size:1rem;line-height:1;margin-left:auto;}
+.nav-hamburger{display:none;min-width:44px;min-height:44px;align-items:center;justify-content:center;background:none;border:1px solid rgba(220,192,137,0.35);border-radius:3px;color:#f5ead0;cursor:pointer;padding:0.3rem 0.55rem;font-size:1rem;line-height:1;margin-left:auto;}
 .nav-hamburger:hover{border-color:rgba(220,192,137,0.7);}
 .nav-brand{font-family:'Cinzel',serif;font-size:0.72rem;letter-spacing:0.13em;text-transform:uppercase;color:rgba(245,234,208,0.82);text-decoration:none;padding:0.6rem 0.65rem;white-space:nowrap;}
 .nav-brand:hover{color:#f5ead0;}
@@ -80,7 +80,7 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
 @media(max-width:600px){
   .nav-inner{justify-content:space-between;flex-wrap:nowrap;}
   .nav-links{display:none;}
-  .nav-hamburger{display:block;}
+  .nav-hamburger{display:inline-flex;}
   .nav-drawer{display:block;max-height:0;overflow:hidden;transition:max-height 0.3s ease;}
   .nav-drawer.open{max-height:30rem;}
   .nav-drawer a{display:block;font-family:'Cinzel',serif;font-size:0.74rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(245,234,208,0.82);text-decoration:none;padding:0.7rem 1.2rem;border-top:1px solid rgba(220,192,137,0.12);transition:background 0.2s,color 0.2s;}
@@ -94,8 +94,8 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
 .nav-dropdown-trigger:hover,.nav-dropdown.open .nav-dropdown-trigger{color:#ffe89a;}
 .nav-dropdown-caret{font-size:0.55rem;transition:transform 0.2s;}
 .nav-dropdown.open .nav-dropdown-caret{transform:rotate(180deg);}
-.nav-dropdown-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%);background:rgba(90,53,16,0.98);border:1px solid rgba(220,192,137,0.35);border-radius:3px;box-shadow:0 6px 18px rgba(15,8,0,0.45);padding:0.35rem 0;min-width:13rem;opacity:0;pointer-events:none;transition:opacity 0.18s ease;z-index:600;}
-.nav-dropdown.open .nav-dropdown-menu{opacity:1;pointer-events:auto;}
+.nav-dropdown-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%);background:rgba(90,53,16,0.98);border:1px solid rgba(220,192,137,0.35);border-radius:3px;box-shadow:0 6px 18px rgba(15,8,0,0.45);padding:0.35rem 0;min-width:13rem;opacity:0;visibility:hidden;pointer-events:none;transition:opacity 0.18s ease,visibility 0s linear 0.2s;z-index:600;}
+.nav-dropdown.open .nav-dropdown-menu{opacity:1;visibility:visible;pointer-events:auto;transition:opacity 0.18s ease,visibility 0s;}
 .nav-dropdown-menu a{display:block;font-family:'Cinzel',serif;font-size:0.72rem;letter-spacing:0.13em;text-transform:uppercase;color:#f8d568;text-decoration:none;padding:0.55rem 1.1rem;transition:background 0.2s,color 0.2s;white-space:nowrap;}
 .nav-dropdown-menu a:hover{background:rgba(220,192,137,0.12);color:#ffe89a;}
 @media(max-width:860px){
@@ -132,7 +132,7 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
 .wp-thumb{display:block;width:100%;aspect-ratio:9/16;object-fit:cover;filter:sepia(0.1) contrast(1.03);transition:filter 0.25s;background:#b89050;}
 .wp-card:hover .wp-thumb{filter:sepia(0) contrast(1.08);}
 .wp-info{padding:0.4rem 0.5rem 0.5rem;}
-.wp-name{font-family:'Cinzel',serif;font-size:0.67rem;letter-spacing:0.07em;text-transform:uppercase;color:#1a0f00;margin-bottom:0.35rem;line-height:1.3;}
+.wp-name{font-family:'Cinzel',serif;font-size:0.72rem;letter-spacing:0.07em;text-transform:uppercase;color:#1a0f00;margin-bottom:0.35rem;line-height:1.3;}
 .wp-btn{display:block;width:100%;padding:0.28rem 0;font-family:'Cinzel',serif;font-size:0.78rem;letter-spacing:0.09em;text-transform:uppercase;text-align:center;background:transparent;border:1px solid #7a4e20;border-radius:2px;color:#1a0f00;cursor:pointer;transition:all 0.2s;}
 .wp-btn:hover{background:#5a3510;color:#f5ead0;}
 
@@ -140,7 +140,7 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
 .lightbox{display:none;position:fixed;inset:0;background:rgba(20,10,2,0.94);z-index:1000;align-items:center;justify-content:center;padding:1rem;flex-direction:column;}
 .lightbox.open{display:flex;}
 .lb-inner{position:relative;display:flex;flex-direction:column;align-items:center;max-width:min(380px,94vw);width:100%;}
-.lb-close{position:absolute;top:-2.2rem;right:0;font-family:'Cinzel',serif;font-size:0.85rem;color:rgba(245,234,208,0.7);cursor:pointer;background:rgba(20,10,2,0.6);border:1px solid rgba(122,78,32,0.5);border-radius:2px;padding:2px 10px;line-height:1.6;transition:color 0.2s;}
+.lb-close{appearance:none;-webkit-appearance:none;margin:0;position:absolute;top:-2.2rem;right:0;font-family:'Cinzel',serif;font-size:0.85rem;color:rgba(245,234,208,0.7);cursor:pointer;background:rgba(20,10,2,0.6);border:1px solid rgba(122,78,32,0.5);border-radius:2px;padding:2px 10px;line-height:1.6;transition:color 0.2s;}
 .lb-close:hover{color:#f5ead0;}
 .lb-img{display:block;width:100%;max-height:58vh;object-fit:contain;border:2px solid #7a4e20;border-radius:3px;}
 .lb-title{font-family:'Cinzel',serif;font-size:0.84rem;letter-spacing:0.12em;text-transform:uppercase;color:#dfc99a;margin-top:0.65rem;text-align:center;}
@@ -155,20 +155,20 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
 
 /* ── How-to accordion ── */
 .howto{border:1px dashed rgba(90,53,16,0.4);border-radius:3px;overflow:hidden;width:100%;}
-.howto-toggle{width:100%;background:rgba(160,110,50,0.15);border:none;cursor:pointer;padding:0.5rem 0.75rem;display:flex;align-items:center;justify-content:space-between;font-family:'Cinzel',serif;font-size:0.70rem;letter-spacing:0.1em;text-transform:uppercase;color:#1a0f00;transition:background 0.2s;}
+.howto-toggle{width:100%;background:rgba(160,110,50,0.15);border:none;cursor:pointer;padding:0.5rem 0.75rem;display:flex;align-items:center;justify-content:space-between;font-family:'Cinzel',serif;font-size:0.70rem;letter-spacing:0.1em;text-transform:uppercase;color:#f5ead0;transition:background 0.2s;}
 .howto-toggle:hover{background:rgba(160,110,50,0.28);}
 .howto-arrow{transition:transform 0.25s;display:inline-block;}
 .howto-toggle.open .howto-arrow{transform:rotate(180deg);}
 .howto-body{display:none;padding:0.7rem 0.8rem 0.8rem;background:rgba(245,234,208,0.05);}
 .howto-body.open{display:block;}
 .howto-tabs{display:flex;border-bottom:1px solid rgba(90,53,16,0.25);margin-bottom:0.7rem;}
-.howto-tab{flex:1;font-family:'Cinzel',serif;font-size:0.67rem;letter-spacing:0.08em;text-transform:uppercase;padding:0.35rem 0;background:transparent;border:none;cursor:pointer;color:rgba(15,8,0,0.65);border-bottom:2px solid transparent;margin-bottom:-1px;transition:all 0.2s;}
-.howto-tab.active{color:#1a0f00;border-bottom-color:#1a0f00;}
+.howto-tab{flex:1;font-family:'Cinzel',serif;font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;padding:0.35rem 0;background:transparent;border:none;cursor:pointer;color:#dfc99a;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all 0.2s;}
+.howto-tab.active{color:#f5ead0;border-bottom-color:#f5ead0;}
 .howto-panel{display:none;}
 .howto-panel.active{display:block;}
 .howto-step{display:flex;gap:0.5rem;align-items:flex-start;margin-bottom:0.48rem;}
 .howto-step:last-child{margin-bottom:0;}
-.step-num{font-family:'Cinzel',serif;font-size:0.70rem;font-weight:700;color:#1a0f00;background:rgba(90,53,16,0.12);border:1px solid rgba(90,53,16,0.25);border-radius:50%;width:1.35rem;height:1.35rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:0.08rem;}
+.step-num{font-family:'Cinzel',serif;font-size:0.70rem;font-weight:700;color:#dfc99a;background:rgba(245,234,208,0.12);border:1px solid #7a4e20;border-radius:50%;width:1.35rem;height:1.35rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:0.08rem;}
 .step-text{font-family:'Crimson Text',serif;font-size:1.02rem;color:#f5ead0;line-height:1.45;}
 .step-text em{font-style:italic;color:#dfc99a;}
 
@@ -180,6 +180,8 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
   .logo-seal{width:110px;height:110px;}
   .map-title{font-size:1.45rem;}
   .wallpaper-grid{grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px;}
+  .format-toggle{width:100%;}
+  .fmt-btn{flex:1;white-space:normal;padding:0.45rem 0.6rem;}
 }
 @media(max-width:380px){
   .content{padding:0.75rem 0.5rem 1.5rem;}
@@ -201,6 +203,8 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
   .logo-seal{width:155px;height:155px;}
   .wallpaper-grid{grid-template-columns:repeat(auto-fill,minmax(145px,1fr));}
 }
+@media (prefers-reduced-motion: reduce){ *{transition-duration:.01ms !important;animation-duration:.01ms !important;animation-iteration-count:1 !important} html{scroll-behavior:auto} }
+:where(a,button,input,select,textarea,[tabindex]):focus-visible{outline:2px solid #3a1f08;outline-offset:2px}
 </style>
 </head>
 <body>
@@ -216,24 +220,24 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
       <span class="nav-dot">✦</span>
       <div class="nav-dropdown">
         <button type="button" class="nav-dropdown-trigger" onclick="toggleDropdown(event,this)" aria-haspopup="true" aria-expanded="false">Explore <span class="nav-dropdown-caret">▾</span></button>
-        <div class="nav-dropdown-menu" role="menu">
-          <a href="https://journeyswithjerseymark.com/#waypoints" role="menuitem">⚓ Ports of Call</a>
-          <a href="https://journeyswithjerseymark.com/#gallery" role="menuitem">🚐 Codiwomple</a>
-          <a href="https://journeyswithjerseymark.com/#memories" role="menuitem">📸 Memories</a>
-          <a href="journeys.html" role="menuitem">🗺 My Journeys</a>
-          <a href="https://journeyswithjerseymark.com/#track" role="menuitem">📍 Track Me</a>
+        <div class="nav-dropdown-menu">
+          <a href="https://journeyswithjerseymark.com/#waypoints">⚓ Ports of Call</a>
+          <a href="https://journeyswithjerseymark.com/#gallery">🚐 Codiwomple</a>
+          <a href="https://journeyswithjerseymark.com/#memories">📸 Memories</a>
+          <a href="journeys.html">🗺 My Journeys</a>
+          <a href="https://journeyswithjerseymark.com/#track">📍 Track Me</a>
         </div>
       </div>
       <span class="nav-dot">✦</span>
       <div class="nav-dropdown">
         <button type="button" class="nav-dropdown-trigger" onclick="toggleDropdown(event,this)" aria-haspopup="true" aria-expanded="false">Life on the Road <span class="nav-dropdown-caret">▾</span></button>
-        <div class="nav-dropdown-menu" role="menu">
-          <a href="nomad-guide.html" role="menuitem">⛺ Nomad Guide</a>
-          <a href="camplog.html" role="menuitem">🏕 Camp Log</a>
-          <a href="gear.html" role="menuitem">🎒 Gear &amp; Goods</a>
-          <a href="music.html" role="menuitem">🎵 Music for the Road</a>
-          <a href="people.html" role="menuitem">🤝 People of the Road</a>
-          <a href="https://rvweather.com/weather-hub/" target="_blank" rel="noopener" role="menuitem">🌦 RV Weather ↗</a>
+        <div class="nav-dropdown-menu">
+          <a href="nomad-guide.html">⛺ Nomad Guide</a>
+          <a href="camplog.html">🏕 Camp Log</a>
+          <a href="gear.html">🎒 Gear &amp; Goods</a>
+          <a href="music.html">🎵 Music for the Road</a>
+          <a href="people.html">🤝 People of the Road</a>
+          <a href="https://rvweather.com/weather-hub/" target="_blank" rel="noopener">🌦 RV Weather ↗</a>
         </div>
       </div>
       <span class="nav-dot">✦</span>
@@ -241,22 +245,22 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
       <span class="nav-dot">✦</span>
       <div class="nav-dropdown">
         <button type="button" class="nav-dropdown-trigger" onclick="toggleDropdown(event,this)" aria-haspopup="true" aria-expanded="false">Connect <span class="nav-dropdown-caret">▾</span></button>
-        <div class="nav-dropdown-menu" role="menu">
-          <a href="https://journeyswithjerseymark.com/#contact" role="menuitem">✉️ Contact</a>
-          <a href="https://journeyswithjerseymark.com/#bizcard" role="menuitem">📇 Business Card</a>
+        <div class="nav-dropdown-menu">
+          <a href="https://journeyswithjerseymark.com/#contact">✉️ Contact</a>
+          <a href="https://journeyswithjerseymark.com/#bizcard">📇 Business Card</a>
         </div>
       </div>
       <span class="nav-dot">✦</span>
       <div class="nav-dropdown" id="supportDropdown">
         <button type="button" class="nav-dropdown-trigger" onclick="toggleDropdown(event,this)" aria-haspopup="true" aria-expanded="false">✦ Support Me <span class="nav-dropdown-caret">▾</span></button>
-        <div class="nav-dropdown-menu" role="menu">
-          <a href="https://ko-fi.com/U7U3RUSTZ" target="_blank" rel="noopener" role="menuitem">☕ Buy Me a Coffee</a>
-          <a href="https://jersey-mark-mercantile.printify.me/" target="_blank" rel="noopener" role="menuitem">🛍 Shop Merch</a>
+        <div class="nav-dropdown-menu">
+          <a href="https://ko-fi.com/U7U3RUSTZ" target="_blank" rel="noopener">☕ Buy Me a Coffee</a>
+          <a href="https://jersey-mark-mercantile.printify.me/" target="_blank" rel="noopener">🛍 Shop Merch</a>
         </div>
       </div>
     </div>
     <a href="https://journeyswithjerseymark.com" class="nav-brand">✦ Jersey Mark</a>
-    <button class="nav-hamburger" onclick="toggleNav()" aria-label="Menu">☰</button>
+    <button class="nav-hamburger" onclick="toggleNav()" aria-label="Menu" aria-expanded="false" aria-controls="navDrawer">☰</button>
   </div>
   <div class="nav-drawer" id="navDrawer">
     <a href="https://journeyswithjerseymark.com">🏠 Home</a>
@@ -291,10 +295,11 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
     <div class="corner-ornament corner-br">✦</div>
     <div class="inner-border">
 
+      <main>
       <div class="cartouche">
         <div class="cartouche-border">
           <img src="images/seal.jpg" alt="Journeys with Jersey Mark" class="logo-seal" />
-          <div class="map-title">Gift from the Road</div>
+          <h1 class="map-title">Gift from the Road</h1>
           <div class="map-subtitle">Free Wallpapers · Journeys with Jersey Mark</div>
           <div class="map-motto">One man's journey · captured through the windshield</div>
         </div>
@@ -302,7 +307,7 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
 
       <div class="divider-rule">✦ A Traveller's Token ✦</div>
       <div class="legend-box">
-        <div class="legend-box-title">About These Wallpapers</div>
+        <h2 class="legend-box-title">About These Wallpapers</h2>
         <p style="font-family:'IM Fell English',serif;font-style:italic;font-size:1.12rem;color:#1a0f00;text-align:center;line-height:1.7;">
           These photographs were captured somewhere between here and the horizon —
           from the cab of Codiwomple, at a trailhead, or at the edge of something vast.<br><br>
@@ -312,7 +317,7 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
 
       <div class="divider-rule">✦ Choose Your Wallpaper ✦</div>
       <div class="legend-box">
-        <div class="legend-box-title">Wallpapers by Location</div>
+        <h2 class="legend-box-title">Wallpapers by Location</h2>
 
         <!-- Format toggle -->
         <div class="format-toggle">
@@ -323,13 +328,14 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
 
         <!-- Location dropdown -->
         <div class="loc-select-wrap">
-          <span class="loc-select-label">✦ Location</span>
+          <label class="loc-select-label" for="locSelect">✦ Location</label>
           <select class="loc-select" id="locSelect"></select>
         </div>
 
         <!-- Gallery output -->
         <div id="galleryOutput"></div>
       </div>
+      </main>
 
       <div class="footer-seal">
         <div class="compass-rose">✤</div>
@@ -349,9 +355,9 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
 </div>
 
 <!-- ── Lightbox ── -->
-<div class="lightbox" id="lightbox">
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lbTitle">
   <div class="lb-inner">
-    <span class="lb-close" onclick="closeLb()">✕ Close</span>
+    <button type="button" class="lb-close" id="lbClose" onclick="closeLb()" aria-label="Close">✕ Close</button>
     <img class="lb-img" id="lbImg" src="" alt="" />
     <p class="lb-title" id="lbTitle"></p>
     <p class="lb-location" id="lbLocation"></p>
@@ -539,17 +545,20 @@ function buildGallery() {
   }
 }
 
+var lbReturnFocus = null;
 function openLb(slug, title, location) {
+  lbReturnFocus = document.activeElement;
   lbSlug = slug;
   lbFormat = activeFormat;
   document.getElementById('lbTitle').textContent = title;
   document.getElementById('lbLocation').textContent = '✦ ' + location;
+  document.getElementById('lbImg').alt = title;
   updateLbImage();
   document.querySelectorAll('.lb-fmt-btn').forEach(function(b){ b.classList.remove('active'); });
   document.getElementById(lbFormat === 'phone' ? 'lbFmtPhone' : 'lbFmtDesktop').classList.add('active');
   document.getElementById('lightbox').classList.add('open');
   document.body.style.overflow = 'hidden';
-  openHowto();
+  document.getElementById('lbClose').focus();
 }
 
 function updateLbImage() {
@@ -568,15 +577,16 @@ function lbSetFormat(fmt, btn) {
 }
 
 function closeLb() {
-  document.getElementById('lightbox').classList.remove('open');
+  var lb = document.getElementById('lightbox');
+  if(!lb.classList.contains('open')) return;
+  lb.classList.remove('open');
   document.body.style.overflow = '';
+  if(lbReturnFocus && typeof lbReturnFocus.focus === 'function'){ lbReturnFocus.focus(); }
+  lbReturnFocus = null;
 }
 document.getElementById('lightbox').addEventListener('click', function(e){ if(e.target===this) closeLb(); });
 document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeLb(); });
 
-function toggleHowto(){ document.getElementById('howtoBody').classList.contains('open') ? closeHowto() : openHowto(); }
-function openHowto(){ document.getElementById('howtoBody').classList.add('open'); document.getElementById('howtoToggle').classList.add('open'); }
-function closeHowto(){ document.getElementById('howtoBody').classList.remove('open'); document.getElementById('howtoToggle').classList.remove('open'); }
 function switchTab(which, btn) {
   document.querySelectorAll('.howto-tab').forEach(function(t){ t.classList.remove('active'); });
   document.querySelectorAll('.howto-panel').forEach(function(p){ p.classList.remove('active'); });
@@ -584,9 +594,13 @@ function switchTab(which, btn) {
   document.getElementById('panel-' + which).classList.add('active');
 }
 
-function toggleNav(){ document.getElementById('navDrawer').classList.toggle('open'); }
+function setNavOpen(open){
+  document.getElementById('navDrawer').classList.toggle('open', open);
+  document.querySelector('.nav-hamburger').setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+function toggleNav(){ setNavOpen(!document.getElementById('navDrawer').classList.contains('open')); }
 document.querySelectorAll('#navDrawer a').forEach(function(a){
-  a.addEventListener('click', function(){ document.getElementById('navDrawer').classList.remove('open'); });
+  a.addEventListener('click', function(){ setNavOpen(false); });
 });
 function toggleDropdown(e, btn){
   e.stopPropagation();

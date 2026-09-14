@@ -77,6 +77,7 @@
 <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Cinzel:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
+:where(a,button,input,select,textarea,[tabindex]):focus-visible{outline:2px solid #3a1f08;outline-offset:2px;}
 html{scroll-padding-top:3rem;}
 html,body{width:100%;min-height:100vh;}
 body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:relative;overflow-x:hidden;}
@@ -102,7 +103,7 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
 .divider-rule{display:flex;align-items:center;gap:8px;margin:1.3rem 0;color:#1a0f00;font-size:14px;letter-spacing:0.15em;}
 .divider-rule::before,.divider-rule::after{content:'';flex:1;height:1px;background:#7a4e20;}
 .legend-box{border:1.5px solid #7a4e20;border-radius:3px;padding:1.1rem;background:rgba(160,110,50,0.15);margin-bottom:1.2rem;position:relative;}
-.legend-box-title{font-family:'Cinzel',serif;font-size:0.84rem;font-weight:700;letter-spacing:0.15em;color:#1a0f00;background:#dfc99a;padding:0 6px;position:absolute;top:-9px;left:16px;text-transform:uppercase;}
+.legend-box-title{margin:0;font-family:'Cinzel',serif;font-size:0.84rem;font-weight:700;letter-spacing:0.15em;color:#1a0f00;background:#dfc99a;padding:0 6px;position:absolute;top:-9px;left:16px;text-transform:uppercase;}
 .stats-row{display:flex;justify-content:space-around;text-align:center;margin:0.5rem 0;}
 .stat-item{flex:1;border-right:1px solid rgba(90,53,16,0.3);padding:0.5rem 0;}
 .stat-item:last-child{border-right:none;}
@@ -125,14 +126,15 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
 .codi-word:hover+.codi-tip,.codi-word:focus+.codi-tip{display:block;}
 .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin-top:0.5rem;}
 .gallery-item{position:relative;overflow:hidden;border:1.5px solid #7a4e20;border-radius:3px;aspect-ratio:1;cursor:pointer;background:#b89050;}
+button.gallery-item{display:block;width:100%;padding:0;margin:0;font:inherit;color:inherit;appearance:none;-webkit-appearance:none;}
 .gallery-item img{width:100%;height:100%;object-fit:cover;filter:sepia(0.2) contrast(1.05);transition:transform 0.3s,filter 0.3s;}
 .gallery-item:hover img{transform:scale(1.06);filter:sepia(0) contrast(1.1);}
 .lightbox{display:none;position:fixed;inset:0;background:rgba(20,10,2,0.92);z-index:1000;align-items:center;justify-content:center;padding:1rem;}
 .lightbox.open{display:flex;}
 .lightbox-inner{position:relative;max-width:90vw;max-height:90vh;border:3px solid #7a4e20;border-radius:4px;overflow:hidden;background:#0d0804;}
 .lightbox-inner img{display:block;max-width:90vw;max-height:80vh;object-fit:contain;}
-.lightbox-close{position:absolute;top:8px;right:12px;font-family:'Cinzel',serif;font-size:1.2rem;color:#f5ead0;cursor:pointer;background:rgba(20,10,2,0.7);border:1px solid #7a4e20;border-radius:2px;padding:2px 10px;line-height:1.4;z-index:10;}
-.lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);font-family:'Cinzel',serif;font-size:1.4rem;color:#f5ead0;cursor:pointer;background:rgba(20,10,2,0.6);border:1px solid #7a4e20;border-radius:2px;padding:4px 12px;z-index:10;}
+.lightbox-close{position:absolute;top:8px;right:12px;font-family:'Cinzel',serif;font-size:1.2rem;font-weight:inherit;color:#f5ead0;cursor:pointer;background:rgba(20,10,2,0.7);border:1px solid #7a4e20;border-radius:2px;padding:2px 10px;margin:0;line-height:1.4;z-index:10;appearance:none;-webkit-appearance:none;}
+.lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);font-family:'Cinzel',serif;font-size:1.4rem;font-weight:inherit;line-height:inherit;color:#f5ead0;cursor:pointer;background:rgba(20,10,2,0.6);border:1px solid #7a4e20;border-radius:2px;padding:4px 12px;margin:0;z-index:10;appearance:none;-webkit-appearance:none;}
 .lightbox-prev{left:8px;}.lightbox-next{right:8px;}
 .lightbox-caption{font-family:'IM Fell English',serif;font-style:italic;font-size:0.97rem;color:#dfc99a;text-align:center;padding:6px;background:rgba(20,10,2,0.8);}
 @media(max-width:600px){.gallery-grid{grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:5px;}}
@@ -150,7 +152,7 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
   .stat-num{font-size:1.25rem;}
   .stat-lbl{font-size:0.84rem;}
   .legend-box{padding:0.9rem 0.8rem;}
-  .legend-box-title{font-size:0.62rem;letter-spacing:0.08em;left:10px;padding:0 5px;white-space:nowrap;max-width:calc(100% - 20px);overflow:hidden;text-overflow:ellipsis;}
+  .legend-box-title{font-size:0.7rem;letter-spacing:0.08em;left:10px;padding:0 5px;white-space:nowrap;max-width:calc(100% - 20px);overflow:hidden;text-overflow:ellipsis;}
   .divider-rule{font-size:12px;letter-spacing:0.08em;}
   .contact-key{min-width:52px;font-size:0.72rem;}
   .contact-val{font-size:1.04rem;}
@@ -163,7 +165,7 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
   .map-title{font-size:1.2rem;}
   .logo-seal{width:90px;height:90px;}
   .cartouche-border{padding:0.8rem 0.5rem 1rem;}
-  .legend-box-title{font-size:0.56rem;letter-spacing:0.06em;}
+  .legend-box-title{font-size:0.7rem;letter-spacing:0.06em;}
   .stats-row{flex-direction:column;gap:0;}
   .stat-item{border-right:none;border-bottom:1px solid rgba(90,53,16,0.3);padding:0.4rem 0;}
   .stat-item:last-child{border-bottom:none;}
@@ -202,14 +204,14 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
 .nav-drawer a.nav-coffee{color:#f8d568;}
 
 /* ── Navigation Bar ── */
-.site-nav{position:sticky;top:0;z-index:500;background:rgba(90,53,16,0.96);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);border-bottom:1px solid rgba(220,192,137,0.25);}
+.site-nav{position:sticky;top:0;z-index:500;overflow-x:clip;background:rgba(90,53,16,0.96);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);border-bottom:1px solid rgba(220,192,137,0.25);}
 .nav-inner{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:0;min-height:2.6rem;padding:0 1rem;}
 .site-nav a{font-family:'Cinzel',serif;font-size:0.72rem;letter-spacing:0.13em;text-transform:uppercase;color:rgba(245,234,208,0.82);text-decoration:none;padding:0.6rem 0.65rem;transition:color 0.2s;white-space:nowrap;}
 .site-nav a:hover,.site-nav a.nav-active{color:#f5ead0;}
 .site-nav a.nav-active{border-bottom:1px solid rgba(220,192,137,0.5);}
 .nav-dot{color:rgba(220,192,137,0.35);font-size:0.5rem;line-height:1;align-self:center;}
 /* Hamburger */
-.nav-hamburger{display:none;background:none;border:1px solid rgba(220,192,137,0.35);border-radius:3px;color:#f5ead0;cursor:pointer;padding:0.3rem 0.55rem;font-size:1rem;line-height:1;margin-left:auto;}
+.nav-hamburger{display:none;min-width:44px;min-height:44px;align-items:center;justify-content:center;background:none;border:1px solid rgba(220,192,137,0.35);border-radius:3px;color:#f5ead0;cursor:pointer;padding:0.3rem 0.55rem;font-size:1rem;line-height:1;margin-left:auto;}
 .nav-hamburger:hover{border-color:rgba(220,192,137,0.7);}
 .nav-brand{font-family:'Cinzel',serif;font-size:0.72rem;letter-spacing:0.13em;text-transform:uppercase;color:rgba(245,234,208,0.82);text-decoration:none;padding:0.6rem 0.65rem;white-space:nowrap;}
 .nav-brand:hover{color:#f5ead0;}
@@ -217,14 +219,15 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
 .nav-drawer{display:none;}
 /* Tablet — tighten spacing */
 @media(max-width:860px){
-  .site-nav a{font-size:0.55rem;padding:0.5rem 0.45rem;letter-spacing:0.08em;}
+  .site-nav a{font-size:0.7rem;padding:0.5rem 0.45rem;letter-spacing:0.08em;}
+  .nav-links{flex-wrap:wrap;}
   .nav-dot{display:none;}
 }
 /* Mobile — hamburger */
 @media(max-width:600px){
   .nav-inner{justify-content:space-between;flex-wrap:nowrap;}
   .nav-links{display:none;}
-  .nav-hamburger{display:block;}
+  .nav-hamburger{display:inline-flex;}
   .nav-drawer{display:block;max-height:0;overflow:hidden;transition:max-height 0.3s ease;}
   .nav-drawer.open{max-height:30rem;}
   .nav-drawer a{display:block;font-family:'Cinzel',serif;font-size:0.74rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(245,234,208,0.82);text-decoration:none;padding:0.7rem 1.2rem;border-top:1px solid rgba(220,192,137,0.12);transition:background 0.2s,color 0.2s;}
@@ -238,16 +241,16 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
 .nav-dropdown-trigger:hover,.nav-dropdown.open .nav-dropdown-trigger{color:#ffe89a;}
 .nav-dropdown-caret{font-size:0.55rem;transition:transform 0.2s;}
 .nav-dropdown.open .nav-dropdown-caret{transform:rotate(180deg);}
-.nav-dropdown-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%);background:rgba(90,53,16,0.98);border:1px solid rgba(220,192,137,0.35);border-radius:3px;box-shadow:0 6px 18px rgba(15,8,0,0.45);padding:0.35rem 0;min-width:13rem;opacity:0;pointer-events:none;transition:opacity 0.18s ease;z-index:600;}
-.nav-dropdown.open .nav-dropdown-menu{opacity:1;pointer-events:auto;}
+.nav-dropdown-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%);background:rgba(90,53,16,0.98);border:1px solid rgba(220,192,137,0.35);border-radius:3px;box-shadow:0 6px 18px rgba(15,8,0,0.45);padding:0.35rem 0;min-width:13rem;opacity:0;visibility:hidden;pointer-events:none;transition:opacity 0.18s ease,visibility 0s linear 0.18s;z-index:600;}
+.nav-dropdown.open .nav-dropdown-menu{opacity:1;visibility:visible;pointer-events:auto;transition:opacity 0.18s ease,visibility 0s;}
 .nav-dropdown-menu a{display:block;font-family:'Cinzel',serif;font-size:0.72rem;letter-spacing:0.13em;text-transform:uppercase;color:#f8d568;text-decoration:none;padding:0.55rem 1.1rem;transition:background 0.2s,color 0.2s;white-space:nowrap;}
 .nav-dropdown-menu a:hover{background:rgba(220,192,137,0.12);color:#ffe89a;}
 @media(max-width:860px){
-  .nav-dropdown-trigger{font-size:0.55rem;padding:0.5rem 0.45rem;letter-spacing:0.08em;}
+  .nav-dropdown-trigger{font-size:0.7rem;padding:0.5rem 0.45rem;letter-spacing:0.08em;}
   .nav-dropdown-menu a{font-size:0.6rem;letter-spacing:0.1em;}
 }
 /* Mobile drawer: Support Me group label */
-.nav-drawer-group-label{display:block;font-family:'Cinzel',serif;font-size:0.62rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(248,213,104,0.85);padding:0.9rem 1.2rem 0.35rem;border-top:1px solid rgba(220,192,137,0.18);margin-top:0.1rem;}
+.nav-drawer-group-label{display:block;font-family:'Cinzel',serif;font-size:0.7rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(248,213,104,0.85);padding:0.9rem 1.2rem 0.35rem;border-top:1px solid rgba(220,192,137,0.18);margin-top:0.1rem;}
 
 /* ── Memories Slideshow ── */
 .album-select-wrap{display:flex;align-items:center;gap:0.6rem;margin-bottom:1rem;flex-wrap:wrap;}
@@ -288,11 +291,12 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
 .album-search{width:100%;box-sizing:border-box;font-family:'IM Fell English',serif;font-style:italic;font-size:1rem;color:#0f0800;background:#f5ead0;border:1.5px solid rgba(122,78,32,0.4);border-radius:3px;padding:0.38rem 0.7rem;margin-bottom:0.6rem;outline:none;transition:border-color 0.2s;}
 .album-search:focus{border-color:#5a3510;}
 .album-year-filters{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:0.75rem;}
-.album-year-btn{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;padding:3px 9px;border:1px solid rgba(122,78,32,0.35);border-radius:2px;cursor:pointer;background:transparent;color:rgba(90,53,16,0.65);transition:all 0.15s;}
+.album-year-btn{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;padding:3px 9px;border:1px solid rgba(122,78,32,0.35);border-radius:2px;cursor:pointer;background:transparent;color:#5a3510;transition:all 0.15s;}
 .album-year-btn:hover{border-color:#7a4e20;color:#2c1a08;}
 .album-year-btn.active{background:rgba(90,53,16,0.14);border-color:#7a4e20;color:#2c1a08;}
 .album-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(125px,1fr));gap:8px;margin-bottom:1rem;max-height:400px;overflow-y:auto;padding-right:2px;}
 .album-grid-card{border:1.5px solid rgba(122,78,32,0.3);border-radius:3px;overflow:hidden;cursor:pointer;background:rgba(245,234,210,0.5);transition:border-color 0.18s,transform 0.15s;position:relative;}
+button.album-grid-card{display:block;width:100%;padding:0;margin:0;font:inherit;color:inherit;text-align:left;appearance:none;-webkit-appearance:none;}
 .album-grid-card:hover{border-color:#7a4e20;transform:translateY(-2px);}
 .album-grid-card.active{border-color:#5a3510;border-width:2px;}
 .album-grid-thumb{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:rgba(122,78,32,0.1);}
@@ -302,12 +306,17 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
 .album-grid-new{position:absolute;top:4px;right:4px;background:#5a3510;color:#f5ead0;font-size:0.60rem;letter-spacing:0.08em;text-transform:uppercase;padding:2px 5px;border-radius:2px;font-family:'Cinzel',serif;font-style:normal;}
 .album-grid-thumb{transition:opacity 0.25s;}
 .album-view-toggle{display:flex;gap:6px;margin-bottom:0.65rem;}
-.album-view-btn{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;padding:3px 12px;border:1px solid rgba(122,78,32,0.35);border-radius:2px;cursor:pointer;background:transparent;color:rgba(90,53,16,0.65);transition:all 0.15s;}
+.album-view-btn{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;padding:3px 12px;border:1px solid rgba(122,78,32,0.35);border-radius:2px;cursor:pointer;background:transparent;color:#5a3510;transition:all 0.15s;}
 .album-view-btn.active{background:#5a3510;color:#f5ead0;border-color:#5a3510;}
 .album-view-btn:hover:not(.active){border-color:#7a4e20;color:#2c1a08;}
 #albumMap{height:360px;border-radius:3px;border:1.5px solid rgba(122,78,32,0.3);overflow:hidden;display:none;margin-bottom:1rem;}
 .leaflet-popup-content-wrapper{border-radius:3px!important;box-shadow:0 2px 8px rgba(0,0,0,0.18)!important;border:1px solid rgba(122,78,32,0.25)!important;}
 .leaflet-popup-tip-container{display:none;}
+@media (prefers-reduced-motion: reduce){
+  .compass-spin{animation:none;}
+  *{transition-duration:.01ms !important;animation-duration:.01ms !important;animation-iteration-count:1 !important;}
+  html{scroll-behavior:auto;}
+}
 </style>
 </head>
 <body>
@@ -319,24 +328,24 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
       <span class="nav-dot">✦</span>
       <div class="nav-dropdown">
         <button type="button" class="nav-dropdown-trigger" onclick="toggleDropdown(event,this)" aria-haspopup="true" aria-expanded="false">Explore <span class="nav-dropdown-caret">▾</span></button>
-        <div class="nav-dropdown-menu" role="menu">
-          <a href="#waypoints" role="menuitem">⚓ Ports of Call</a>
-          <a href="#gallery" role="menuitem">🚐 Codiwomple</a>
-          <a href="#memories" role="menuitem">📸 Memories</a>
-          <a href="journeys.html" role="menuitem">🗺 My Journeys</a>
-          <a href="#track" role="menuitem">📍 Track Me</a>
+        <div class="nav-dropdown-menu">
+          <a href="#waypoints">⚓ Ports of Call</a>
+          <a href="#gallery">🚐 Codiwomple</a>
+          <a href="#memories">📸 Memories</a>
+          <a href="journeys.html">🗺 My Journeys</a>
+          <a href="#track">📍 Track Me</a>
         </div>
       </div>
       <span class="nav-dot">✦</span>
       <div class="nav-dropdown">
         <button type="button" class="nav-dropdown-trigger" onclick="toggleDropdown(event,this)" aria-haspopup="true" aria-expanded="false">Life on the Road <span class="nav-dropdown-caret">▾</span></button>
-        <div class="nav-dropdown-menu" role="menu">
-          <a href="nomad-guide.html" role="menuitem">⛺ Nomad Guide</a>
-          <a href="camplog.html" role="menuitem">🏕 Camp Log</a>
-          <a href="gear.html" role="menuitem">🎒 Gear &amp; Goods</a>
-          <a href="music.html" role="menuitem">🎵 Music for the Road</a>
-          <a href="people.html" role="menuitem">🤝 People of the Road</a>
-          <a href="https://rvweather.com/weather-hub/" target="_blank" rel="noopener" role="menuitem">🌦 RV Weather ↗</a>
+        <div class="nav-dropdown-menu">
+          <a href="nomad-guide.html">⛺ Nomad Guide</a>
+          <a href="camplog.html">🏕 Camp Log</a>
+          <a href="gear.html">🎒 Gear &amp; Goods</a>
+          <a href="music.html">🎵 Music for the Road</a>
+          <a href="people.html">🤝 People of the Road</a>
+          <a href="https://rvweather.com/weather-hub/" target="_blank" rel="noopener">🌦 RV Weather ↗</a>
         </div>
       </div>
       <span class="nav-dot">✦</span>
@@ -344,22 +353,22 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
       <span class="nav-dot">✦</span>
       <div class="nav-dropdown">
         <button type="button" class="nav-dropdown-trigger" onclick="toggleDropdown(event,this)" aria-haspopup="true" aria-expanded="false">Connect <span class="nav-dropdown-caret">▾</span></button>
-        <div class="nav-dropdown-menu" role="menu">
-          <a href="#contact" role="menuitem">✉️ Contact</a>
-          <a href="#bizcard" role="menuitem">📇 Business Card</a>
+        <div class="nav-dropdown-menu">
+          <a href="#contact">✉️ Contact</a>
+          <a href="#bizcard">📇 Business Card</a>
         </div>
       </div>
       <span class="nav-dot">✦</span>
       <div class="nav-dropdown" id="supportDropdown">
         <button type="button" class="nav-dropdown-trigger" onclick="toggleDropdown(event,this)" aria-haspopup="true" aria-expanded="false">✦ Support Me <span class="nav-dropdown-caret">▾</span></button>
-        <div class="nav-dropdown-menu" role="menu">
-          <a href="https://ko-fi.com/U7U3RUSTZ" target="_blank" rel="noopener" role="menuitem">☕ Buy Me a Coffee</a>
-          <a href="https://jersey-mark-mercantile.printify.me/" target="_blank" rel="noopener" role="menuitem">🛍 Shop Merch</a>
+        <div class="nav-dropdown-menu">
+          <a href="https://ko-fi.com/U7U3RUSTZ" target="_blank" rel="noopener">☕ Buy Me a Coffee</a>
+          <a href="https://jersey-mark-mercantile.printify.me/" target="_blank" rel="noopener">🛍 Shop Merch</a>
         </div>
       </div>
     </div>
     <a href="#top" class="nav-brand">✦ Jersey Mark</a>
-    <button class="nav-hamburger" onclick="toggleNav()" aria-label="Menu">☰</button>
+    <button class="nav-hamburger" onclick="toggleNav()" aria-label="Menu" aria-expanded="false" aria-controls="navDrawer">☰</button>
   </div>
   <div class="nav-drawer" id="navDrawer">
     <a href="#top" class="nav-active">🏠 Home</a>
@@ -388,6 +397,7 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
 
 <div class="parchment-bg"></div>
 <div class="vignette"></div>
+<main>
 <div class="content">
   <div class="outer-border" id="top">
     <div class="corner-ornament corner-tl">✦</div>
@@ -406,7 +416,7 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
       </div>
 
       <div class="legend-box" style="text-align:center;">
-        <div class="legend-box-title">Vital Statistics</div>
+        <h2 class="legend-box-title">Vital Statistics</h2>
         <div class="stats-row">
           <div class="stat-item"><div class="stat-num" id="years-on-road">5</div><div class="stat-lbl" id="years-on-road-lbl">Years on the road</div></div>
           <div class="stat-item"><div class="stat-num" style="font-size:1.1rem;position:relative;display:inline-block;">
@@ -417,7 +427,7 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
       </div>
 
       <div class="legend-box" style="text-align:center;">
-        <div class="legend-box-title">About the Journey</div>
+        <h2 class="legend-box-title">About the Journey</h2>
         <p style="font-family:'Crimson Text',serif;font-size:1rem;color:#1a0f00;line-height:1.75;text-align:left;">
           My name is Mark Fugel — Jersey Mark — and for the past five years I have lived full-time on the road
           in Codiwomple, my 2016 Winnebago ERA built on a Mercedes-Benz Sprinter chassis. From the red rock
@@ -434,7 +444,7 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
 
       <div class="divider-rule" id="waypoints">✦ Waypoints &amp; Dispatches ✦</div>
       <div class="legend-box">
-        <div class="legend-box-title">Ports of Call</div>
+        <h2 class="legend-box-title">Ports of Call</h2>
         <div class="link-grid">
           <a class="map-link" href="https://www.youtube.com/@journeyswithjerseymark" target="_blank"><div class="link-compass">▶</div><div><div class="link-name">YouTube</div><div class="link-desc">Moving pictures of the road</div></div></a>
           <a class="map-link" href="https://findpenguins.com/jerseymark" target="_blank"><div class="link-compass">🗺</div><div><div class="link-name">Travel Log</div><div class="link-desc">FindPenguins chart</div></div></a>
@@ -448,7 +458,7 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
 
       <div class="divider-rule" id="contact">✦ Correspondence ✦</div>
       <div class="legend-box">
-        <div class="legend-box-title">Contact the Cartographer</div>
+        <h2 class="legend-box-title">Contact the Cartographer</h2>
         <div class="contact-row"><div class="contact-key">Dispatch</div><div class="contact-val"><a href="mailto:Mfugel@gmail.com" style="color:#2c1a08;">Mfugel@gmail.com</a></div></div>
         <div class="contact-row"><div class="contact-key">Telegraph</div><div class="contact-val">678-860-4294</div></div>
         <div class="contact-row"><div class="contact-key">Post</div><div class="contact-val">514 Americas Way, PMB# 21195 · Box Elder, SD 57719</div></div>
@@ -457,53 +467,53 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
 
       <div class="divider-rule" id="track">✦ Follow Me Now ✦</div>
       <div class="legend-box" style="text-align:center;">
-        <div class="legend-box-title">Track My Journey</div>
+        <h2 class="legend-box-title">Track My Journey</h2>
         <p style="font-family:'IM Fell English',serif;font-style:italic;font-size:1.12rem;color:#5a3510;margin-bottom:1rem;">Point your glass toward this chart &amp; follow the road in real time</p>
         <div style="display:inline-block;border:2px solid #7a4e20;padding:8px;background:#f5ead0;border-radius:3px;margin-bottom:0.7rem;">
           <div id="findpenguins-qr"></div>
         </div>
         <a href="https://findpenguins.com/jerseymark" target="_blank" rel="noopener" style="display:block;font-family:'Cinzel',serif;font-size:0.86rem;font-weight:700;letter-spacing:0.12em;color:#5a3510;text-decoration:none;text-transform:uppercase;margin-bottom:0.2rem;">FindPenguins.com/JerseyMark</a>
-        <div style="font-family:'IM Fell English',serif;font-style:italic;font-size:0.97rem;color:#7a4e20;">Live travel log · dispatches from the road</div>
+        <div style="font-family:'IM Fell English',serif;font-style:italic;font-size:0.97rem;color:#5a3510;">Live travel log · dispatches from the road</div>
       </div>
 
       <div class="divider-rule" id="gallery">✦ Dispatches from the Road ✦</div>
       <div class="legend-box">
-        <div class="legend-box-title">Codiwomple in the Wild</div>
+        <h2 class="legend-box-title">Codiwomple in the Wild</h2>
         <div class="gallery-grid" id="gallery">
-          <div class="gallery-item" onclick="openLightbox(0)"><img src="https://lh3.googleusercontent.com/pw/AP1GczO2IaLqJQDcxc8bslyZZgtT0HNnxd0VJDtkMe_JQ0V55usnDo1jXZEDucsWTMbejHFS4HCAo7d90lXgjOypThZWmVHDPvrUR0Tsmjtu2gdXWeSYo63H=w400-h400-no" alt="Codiwomple Winnebago ERA Sprinter van parked on the road" loading="lazy"></div>
-          <div class="gallery-item" onclick="openLightbox(1)"><img src="https://lh3.googleusercontent.com/pw/AP1GczNB4Fd2Mksqh-LfP2YLUJxKog2RQLgGBpkoqAtwOqNnid2H4EybmMQw_xJ2QyVTj2e8F-RwEfjn4LqDniN0nLSG_lSEIQJF1D29nBUe9aj-qaCEp-q5=w400-h400-no" alt="Codiwomple Winnebago ERA van at a campsite" loading="lazy"></div>
-          <div class="gallery-item" onclick="openLightbox(2)"><img src="https://lh3.googleusercontent.com/pw/AP1GczNPrE9Cxbq6AjS09eEe-mFquwDcBRpdPeuiHx_bBp1vY6xEDJkOUTn2RabeAvW8AtB8rrdMUSHxVh37jtC9QNEDpcHJIAQHE0jp5yAZqdHK4UuvUjDT=w400-h400-no" alt="Journeys with Jersey Mark RV at a scenic overlook" loading="lazy"></div>
-          <div class="gallery-item" onclick="openLightbox(3)"><img src="https://lh3.googleusercontent.com/pw/AP1GczMCKMhBvfEAu6Ch2GkoMmWMEae_YyGKnB9QpXNlgcIhCPzlUlcoV-Sy-0PGtU6UNQz8VNJku_ozWQtQyVjP8eVh5Zu9ghVytdn40_54GflhMbjodwca=w400-h400-no" alt="Codiwomple parked in the American Southwest" loading="lazy"></div>
-          <div class="gallery-item" onclick="openLightbox(4)"><img src="https://lh3.googleusercontent.com/pw/AP1GczMJ03WIcGU4Fvw6c5L5hvQGNPSmlS6uu06jpoMrUG17otbuIOiL6ehBL2jR3n8lODQzjuvfby9wrsN4vi9aMABr2MnfP2MJKYq-JhX3gjZRqwxbOya8=w400-h400-no" alt="Mark Fugel's Winnebago ERA on a North America road trip" loading="lazy"></div>
-          <div class="gallery-item" onclick="openLightbox(5)"><img src="https://lh3.googleusercontent.com/pw/AP1GczOHMvTufWuaY26A5QaMV2WxF25xZJN8njT4TUwapDeqQk1V56ds3VWn3hi78LfPpJ9p8JbEu8WfvsIZdIQpN5OGsWy82tlG8qE5z0RF4qZQrAmTxvL6=w400-h400-no" alt="Codiwomple van life nomad travel" loading="lazy"></div>
-          <div class="gallery-item" onclick="openLightbox(6)"><img src="https://lh3.googleusercontent.com/pw/AP1GczMB3eI4cfkZ_cpblFiXNdh6JSoEbp65RcuFxRInZK4ZnX3Si5oKhiBKWcFVHOMwQBnVi275cMpJWV3RRWHCXahTzB7VumvacnYVStI8GVhRGxAG0qaK=w400-h400-no" alt="Winnebago ERA Sprinter van full-time nomad living" loading="lazy"></div>
-          <div class="gallery-item" onclick="openLightbox(7)"><img src="https://lh3.googleusercontent.com/pw/AP1GczOG_RnXmDwLkQ_zMqsO5Z9KQ2TevThyyRLRjD2JqopOKP2D73Tofg8X-MdF8Cm_YaGbyn3-JSW5NHzTTBNKGAojRGnKwQfd0gv0kNgxdFdcukTBk5ll=w400-h400-no" alt="Codiwomple RV parked at a national park" loading="lazy"></div>
-          <div class="gallery-item" onclick="openLightbox(8)"><img src="https://lh3.googleusercontent.com/pw/AP1GczPRblBzOMoTUp5hTBgUANp96nI33PSdrXqYhOC4MGR9SNF4RRTwK6rNz7rdKJN8V3jygHQJYTYaC7IVhjFXI0Mc2VVcDhrCYvvpl0hnrJ9wuEvQ9ZWo=w400-h400-no" alt="Jersey Mark RV travel across North America" loading="lazy"></div>
-          <div class="gallery-item" onclick="openLightbox(9)"><img src="https://lh3.googleusercontent.com/pw/AP1GczPUKffOtwJC66MwbPB6KeZzB2LMatnuTsPG7jKlwQMM-CBxl2ezyk_R19TfiSk-iOOtM1xJ7pRGRd0yCZ3wn-nnpgaGLPp6XSNvBwK3ULYajkReL5NQ=w400-h400-no" alt="Codiwomple Winnebago ERA van on the open road" loading="lazy"></div>
-          <div class="gallery-item" onclick="openLightbox(10)"><img src="https://lh3.googleusercontent.com/pw/AP1GczNUv4Ap_TA0lBYi3o2ByMWLfrdXQlfRbpnGHWJQEh9tvCK_vMsfFoEPg611p3Wbszp3mCmK1NS-xlch7TPGGFsHQ_ytEnjRbmNjNEfzFM46N4Fa-o0X=w400-h400-no" alt="Full-time RV nomad Mark Fugel and Codiwomple" loading="lazy"></div>
-          <div class="gallery-item" onclick="openLightbox(11)"><img src="https://lh3.googleusercontent.com/pw/AP1GczNUDvyxhMs-qokiPWYOj8cHV3I8X_ZxsHvkdgMV9b6piRdIWFFCslWVVmTtEnoGQBjO0DeeloOcc9f-W0x-f9hQBlwC--VR9IIyF7c9KeITLi9SbGo6=w400-h400-no" alt="Journeys with Jersey Mark van life adventure" loading="lazy"></div>
-          <div class="gallery-item" onclick="openLightbox(12)"><img src="https://lh3.googleusercontent.com/pw/AP1GczPpPwvl-P5RZjt9_v3WBfLAZsjztpSM40zaqZhPxljl6Sm93edqV-ocRp1auDixwuaQX05KKq9kh-f0f8kUsMWjM3ed4I0oGB7bqCcxMw01HZ_AxeKV=w400-h400-no" alt="Codiwomple parked at a scenic wilderness location" loading="lazy"></div>
-          <div class="gallery-item" onclick="openLightbox(13)"><img src="https://lh3.googleusercontent.com/pw/AP1GczO0x8XZbEGN_LByQprVgARJ_dHeQcF28StKbTCvNR7Ef95NfBTv2ShsupuKj5U5z8v6oFaZlBynUn0D9kdSUxCMAkjdaRe9uuH_kxsyseNkfRrdwAj4=w400-h400-no" alt="Winnebago ERA 2016 Mercedes Sprinter van travel" loading="lazy"></div>
-          <div class="gallery-item" onclick="openLightbox(14)"><img src="https://lh3.googleusercontent.com/pw/AP1GczP76SIZI9gKdjs8eFw5K6m_KF0yrW7OMH8i8CsDOK63ITk53B65TvMdz_4hjZubCgiLXJv6H8vy0Ps06UcR3OosPJ-EG-1638XqShR-zo5nLfpJMr7R=w400-h400-no" alt="Codiwomple RV at a boondocking campsite" loading="lazy"></div>
-          <div class="gallery-item" onclick="openLightbox(15)"><img src="https://lh3.googleusercontent.com/pw/AP1GczNlPfJ9_Ujgaf7d2jsfyH2oSJWN_uVaPPIMMQeMsklwRRaed69fXj4UddC_MWIoq0vu8DXOVOTHlE7H0A94UJ3QpqKeOXvJtT6Gf84X5t2oznQy07nA=w400-h400-no" alt="Jersey Mark nomadic travel in Codiwomple" loading="lazy"></div>
-          <div class="gallery-item" onclick="openLightbox(16)"><img src="https://lh3.googleusercontent.com/pw/AP1GczPlcf4Ya8q1mjD_iq1JwU1fCYgszY0b7RjyiiIPbDuV6tDwr9fYEk-JvXqi__nbnjFWF0Q9N8rOYNwsoIoNoDxdB30kjma9yt5rlJTPRQl1ECXJQkIh=w400-h400-no" alt="Codiwomple Winnebago ERA on a forest road" loading="lazy"></div>
-          <div class="gallery-item" onclick="openLightbox(17)"><img src="images/codiwomple-1.jpg" alt="Codiwomple Winnebago ERA parked in the wilderness" loading="lazy"></div>
-          <div class="gallery-item" onclick="openLightbox(18)"><img src="images/codiwomple-2.jpg" alt="Codiwomple van exterior at a campsite" loading="lazy"></div>
-          <div class="gallery-item" onclick="openLightbox(19)"><img src="images/codiwomple-3.jpg" alt="Codiwomple interior Winnebago ERA living space" loading="lazy"></div>
-          <div class="gallery-item" onclick="openLightbox(20)"><img src="images/codiwomple-4.jpg" alt="Codiwomple Sprinter van on a scenic mountain road" loading="lazy"></div>
-          <div class="gallery-item" onclick="openLightbox(21)"><img src="images/codiwomple-5.jpg" alt="Codiwomple parked at sunset full-time RV living" loading="lazy"></div>
-          <div class="gallery-item" onclick="openLightbox(22)"><img src="images/codiwomple-6.jpg" alt="Codiwomple van life off-grid camping" loading="lazy"></div>
-          <div class="gallery-item" onclick="openLightbox(23)"><img src="images/codiwomple-7.jpg" alt="Codiwomple Winnebago ERA at a national forest campsite" loading="lazy"></div>
-          <div class="gallery-item" onclick="openLightbox(24)"><img src="images/codiwomple-8.jpg" alt="Codiwomple RV travel North America Jersey Mark" loading="lazy"></div>
+          <button type="button" class="gallery-item" onclick="openLightbox(0)"><img src="https://lh3.googleusercontent.com/pw/AP1GczO2IaLqJQDcxc8bslyZZgtT0HNnxd0VJDtkMe_JQ0V55usnDo1jXZEDucsWTMbejHFS4HCAo7d90lXgjOypThZWmVHDPvrUR0Tsmjtu2gdXWeSYo63H=w400-h400-no" alt="Codiwomple Winnebago ERA Sprinter van parked on the road" loading="lazy"></button>
+          <button type="button" class="gallery-item" onclick="openLightbox(1)"><img src="https://lh3.googleusercontent.com/pw/AP1GczNB4Fd2Mksqh-LfP2YLUJxKog2RQLgGBpkoqAtwOqNnid2H4EybmMQw_xJ2QyVTj2e8F-RwEfjn4LqDniN0nLSG_lSEIQJF1D29nBUe9aj-qaCEp-q5=w400-h400-no" alt="Codiwomple Winnebago ERA van at a campsite" loading="lazy"></button>
+          <button type="button" class="gallery-item" onclick="openLightbox(2)"><img src="https://lh3.googleusercontent.com/pw/AP1GczNPrE9Cxbq6AjS09eEe-mFquwDcBRpdPeuiHx_bBp1vY6xEDJkOUTn2RabeAvW8AtB8rrdMUSHxVh37jtC9QNEDpcHJIAQHE0jp5yAZqdHK4UuvUjDT=w400-h400-no" alt="Journeys with Jersey Mark RV at a scenic overlook" loading="lazy"></button>
+          <button type="button" class="gallery-item" onclick="openLightbox(3)"><img src="https://lh3.googleusercontent.com/pw/AP1GczMCKMhBvfEAu6Ch2GkoMmWMEae_YyGKnB9QpXNlgcIhCPzlUlcoV-Sy-0PGtU6UNQz8VNJku_ozWQtQyVjP8eVh5Zu9ghVytdn40_54GflhMbjodwca=w400-h400-no" alt="Codiwomple parked in the American Southwest" loading="lazy"></button>
+          <button type="button" class="gallery-item" onclick="openLightbox(4)"><img src="https://lh3.googleusercontent.com/pw/AP1GczMJ03WIcGU4Fvw6c5L5hvQGNPSmlS6uu06jpoMrUG17otbuIOiL6ehBL2jR3n8lODQzjuvfby9wrsN4vi9aMABr2MnfP2MJKYq-JhX3gjZRqwxbOya8=w400-h400-no" alt="Mark Fugel's Winnebago ERA on a North America road trip" loading="lazy"></button>
+          <button type="button" class="gallery-item" onclick="openLightbox(5)"><img src="https://lh3.googleusercontent.com/pw/AP1GczOHMvTufWuaY26A5QaMV2WxF25xZJN8njT4TUwapDeqQk1V56ds3VWn3hi78LfPpJ9p8JbEu8WfvsIZdIQpN5OGsWy82tlG8qE5z0RF4qZQrAmTxvL6=w400-h400-no" alt="Codiwomple van life nomad travel" loading="lazy"></button>
+          <button type="button" class="gallery-item" onclick="openLightbox(6)"><img src="https://lh3.googleusercontent.com/pw/AP1GczMB3eI4cfkZ_cpblFiXNdh6JSoEbp65RcuFxRInZK4ZnX3Si5oKhiBKWcFVHOMwQBnVi275cMpJWV3RRWHCXahTzB7VumvacnYVStI8GVhRGxAG0qaK=w400-h400-no" alt="Winnebago ERA Sprinter van full-time nomad living" loading="lazy"></button>
+          <button type="button" class="gallery-item" onclick="openLightbox(7)"><img src="https://lh3.googleusercontent.com/pw/AP1GczOG_RnXmDwLkQ_zMqsO5Z9KQ2TevThyyRLRjD2JqopOKP2D73Tofg8X-MdF8Cm_YaGbyn3-JSW5NHzTTBNKGAojRGnKwQfd0gv0kNgxdFdcukTBk5ll=w400-h400-no" alt="Codiwomple RV parked at a national park" loading="lazy"></button>
+          <button type="button" class="gallery-item" onclick="openLightbox(8)"><img src="https://lh3.googleusercontent.com/pw/AP1GczPRblBzOMoTUp5hTBgUANp96nI33PSdrXqYhOC4MGR9SNF4RRTwK6rNz7rdKJN8V3jygHQJYTYaC7IVhjFXI0Mc2VVcDhrCYvvpl0hnrJ9wuEvQ9ZWo=w400-h400-no" alt="Jersey Mark RV travel across North America" loading="lazy"></button>
+          <button type="button" class="gallery-item" onclick="openLightbox(9)"><img src="https://lh3.googleusercontent.com/pw/AP1GczPUKffOtwJC66MwbPB6KeZzB2LMatnuTsPG7jKlwQMM-CBxl2ezyk_R19TfiSk-iOOtM1xJ7pRGRd0yCZ3wn-nnpgaGLPp6XSNvBwK3ULYajkReL5NQ=w400-h400-no" alt="Codiwomple Winnebago ERA van on the open road" loading="lazy"></button>
+          <button type="button" class="gallery-item" onclick="openLightbox(10)"><img src="https://lh3.googleusercontent.com/pw/AP1GczNUv4Ap_TA0lBYi3o2ByMWLfrdXQlfRbpnGHWJQEh9tvCK_vMsfFoEPg611p3Wbszp3mCmK1NS-xlch7TPGGFsHQ_ytEnjRbmNjNEfzFM46N4Fa-o0X=w400-h400-no" alt="Full-time RV nomad Mark Fugel and Codiwomple" loading="lazy"></button>
+          <button type="button" class="gallery-item" onclick="openLightbox(11)"><img src="https://lh3.googleusercontent.com/pw/AP1GczNUDvyxhMs-qokiPWYOj8cHV3I8X_ZxsHvkdgMV9b6piRdIWFFCslWVVmTtEnoGQBjO0DeeloOcc9f-W0x-f9hQBlwC--VR9IIyF7c9KeITLi9SbGo6=w400-h400-no" alt="Journeys with Jersey Mark van life adventure" loading="lazy"></button>
+          <button type="button" class="gallery-item" onclick="openLightbox(12)"><img src="https://lh3.googleusercontent.com/pw/AP1GczPpPwvl-P5RZjt9_v3WBfLAZsjztpSM40zaqZhPxljl6Sm93edqV-ocRp1auDixwuaQX05KKq9kh-f0f8kUsMWjM3ed4I0oGB7bqCcxMw01HZ_AxeKV=w400-h400-no" alt="Codiwomple parked at a scenic wilderness location" loading="lazy"></button>
+          <button type="button" class="gallery-item" onclick="openLightbox(13)"><img src="https://lh3.googleusercontent.com/pw/AP1GczO0x8XZbEGN_LByQprVgARJ_dHeQcF28StKbTCvNR7Ef95NfBTv2ShsupuKj5U5z8v6oFaZlBynUn0D9kdSUxCMAkjdaRe9uuH_kxsyseNkfRrdwAj4=w400-h400-no" alt="Winnebago ERA 2016 Mercedes Sprinter van travel" loading="lazy"></button>
+          <button type="button" class="gallery-item" onclick="openLightbox(14)"><img src="https://lh3.googleusercontent.com/pw/AP1GczP76SIZI9gKdjs8eFw5K6m_KF0yrW7OMH8i8CsDOK63ITk53B65TvMdz_4hjZubCgiLXJv6H8vy0Ps06UcR3OosPJ-EG-1638XqShR-zo5nLfpJMr7R=w400-h400-no" alt="Codiwomple RV at a boondocking campsite" loading="lazy"></button>
+          <button type="button" class="gallery-item" onclick="openLightbox(15)"><img src="https://lh3.googleusercontent.com/pw/AP1GczNlPfJ9_Ujgaf7d2jsfyH2oSJWN_uVaPPIMMQeMsklwRRaed69fXj4UddC_MWIoq0vu8DXOVOTHlE7H0A94UJ3QpqKeOXvJtT6Gf84X5t2oznQy07nA=w400-h400-no" alt="Jersey Mark nomadic travel in Codiwomple" loading="lazy"></button>
+          <button type="button" class="gallery-item" onclick="openLightbox(16)"><img src="https://lh3.googleusercontent.com/pw/AP1GczPlcf4Ya8q1mjD_iq1JwU1fCYgszY0b7RjyiiIPbDuV6tDwr9fYEk-JvXqi__nbnjFWF0Q9N8rOYNwsoIoNoDxdB30kjma9yt5rlJTPRQl1ECXJQkIh=w400-h400-no" alt="Codiwomple Winnebago ERA on a forest road" loading="lazy"></button>
+          <button type="button" class="gallery-item" onclick="openLightbox(17)"><img src="images/codiwomple-1-thumb.jpg" alt="Codiwomple Winnebago ERA parked in the wilderness" loading="lazy"></button>
+          <button type="button" class="gallery-item" onclick="openLightbox(18)"><img src="images/codiwomple-2-thumb.jpg" alt="Codiwomple van exterior at a campsite" loading="lazy"></button>
+          <button type="button" class="gallery-item" onclick="openLightbox(19)"><img src="images/codiwomple-3-thumb.jpg" alt="Codiwomple interior Winnebago ERA living space" loading="lazy"></button>
+          <button type="button" class="gallery-item" onclick="openLightbox(20)"><img src="images/codiwomple-4-thumb.jpg" alt="Codiwomple Sprinter van on a scenic mountain road" loading="lazy"></button>
+          <button type="button" class="gallery-item" onclick="openLightbox(21)"><img src="images/codiwomple-5-thumb.jpg" alt="Codiwomple parked at sunset full-time RV living" loading="lazy"></button>
+          <button type="button" class="gallery-item" onclick="openLightbox(22)"><img src="images/codiwomple-6-thumb.jpg" alt="Codiwomple van life off-grid camping" loading="lazy"></button>
+          <button type="button" class="gallery-item" onclick="openLightbox(23)"><img src="images/codiwomple-7-thumb.jpg" alt="Codiwomple Winnebago ERA at a national forest campsite" loading="lazy"></button>
+          <button type="button" class="gallery-item" onclick="openLightbox(24)"><img src="images/codiwomple-8-thumb.jpg" alt="Codiwomple RV travel North America Jersey Mark" loading="lazy"></button>
         </div>
       </div>
 
-      <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+      <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Codiwomple photo viewer" onclick="closeLightbox(event)">
         <div class="lightbox-inner">
-          <span class="lightbox-close" onclick="closeLightboxDirect()">✕</span>
-          <span class="lightbox-nav lightbox-prev" onclick="changePhoto(-1)">‹</span>
+          <button type="button" class="lightbox-close" id="lightbox-close" onclick="closeLightboxDirect()" aria-label="Close">✕</button>
+          <button type="button" class="lightbox-nav lightbox-prev" onclick="changePhoto(-1)" aria-label="Previous photo">‹</button>
           <img id="lightbox-img" src="" alt="">
-          <span class="lightbox-nav lightbox-next" onclick="changePhoto(1)">›</span>
+          <button type="button" class="lightbox-nav lightbox-next" onclick="changePhoto(1)" aria-label="Next photo">›</button>
           <div class="lightbox-caption">Codiwomple · 2017 Winnebago ERA · Journeys with Jersey Mark</div>
         </div>
       </div>
@@ -511,7 +521,7 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
       <!-- ══ MEMORIES FROM THE ROAD ══ -->
       <div class="divider-rule" id="memories">✦ Memories from the Road ✦</div>
       <div class="legend-box">
-        <div class="legend-box-title">Memories from the Road</div>
+        <h2 class="legend-box-title">Memories from the Road</h2>
         <p style="font-family:'IM Fell English',serif;font-style:italic;font-size:1.07rem;color:#5a3510;margin-bottom:0.9rem;text-align:center;">Photographs and videos from along the way · choose a type below</p>
 
         <div class="memory-type-toggle" role="tablist" aria-label="Memory type">
@@ -573,7 +583,7 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
 
       <div class="divider-rule" id="bizcard">✦ Print My Card ✦</div>
       <div class="legend-box">
-        <div class="legend-box-title">Business Card</div>
+        <h2 class="legend-box-title">Business Card</h2>
         <p style="font-family:'IM Fell English',serif;font-style:italic;font-size:1.12rem;color:#5a3510;margin-bottom:1rem;text-align:center;">Print-ready cards, both sides — tap either face to open or save</p>
         <div class="card-thumbs">
           <a class="card-thumb" href="bizcards/jerseymarkcardfront.pdf" target="_blank" rel="noopener" aria-label="Download business card front as PDF">
@@ -589,7 +599,7 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
 
       <div class="divider-rule" id="coffee">✦ Fuel the Journey ✦</div>
       <div class="legend-box coffee-section">
-        <div class="legend-box-title">Support the Journey</div>
+        <h2 class="legend-box-title">Support the Journey</h2>
         <p class="coffee-blurb">If something here made you smile, sparked an idea for your own travels, or just brightened a long afternoon — a coffee keeps Codiwomple rolling and the dispatches coming.</p>
         <a class="coffee-btn" href="https://ko-fi.com/U7U3RUSTZ" target="_blank" rel="noopener" aria-label="Buy Me a Coffee on Ko-fi — opens in a new tab">
           <span class="coffee-btn-icon">☕</span>
@@ -613,6 +623,7 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
     </div>
   </div>
 </div>
+</main>
 
 <div style="text-align:center;margin-top:1.5rem;padding-bottom:1.5rem;">
   <a href="https://uptimeradar.com/#18mqqX" target="_blank"><img src="https://cdn.uptimeradar.com/18mqqX.svg" alt="uptime widget"></a>
@@ -640,11 +651,13 @@ var photos=[
   'images/codiwomple-1.jpg','images/codiwomple-2.jpg','images/codiwomple-3.jpg','images/codiwomple-4.jpg',
   'images/codiwomple-5.jpg','images/codiwomple-6.jpg','images/codiwomple-7.jpg','images/codiwomple-8.jpg'
 ];
-var current=0;
-function openLightbox(i){current=i;document.getElementById('lightbox-img').src=photos[i];document.getElementById('lightbox').classList.add('open');document.body.style.overflow='hidden';}
-function closeLightboxDirect(){document.getElementById('lightbox').classList.remove('open');document.body.style.overflow='';}
+var current=0;var lightboxOpener=null;
+function galleryAlt(i){var t=document.querySelectorAll('.gallery-item img')[i];return t&&t.alt?t.alt:'';}
+function setLightboxImg(i){var img=document.getElementById('lightbox-img');img.src=photos[i];img.alt=galleryAlt(i);}
+function openLightbox(i){current=i;lightboxOpener=document.activeElement;setLightboxImg(i);document.getElementById('lightbox').classList.add('open');document.body.style.overflow='hidden';var c=document.getElementById('lightbox-close');if(c)c.focus();}
+function closeLightboxDirect(){document.getElementById('lightbox').classList.remove('open');document.body.style.overflow='';if(lightboxOpener&&typeof lightboxOpener.focus==='function')lightboxOpener.focus();lightboxOpener=null;}
 function closeLightbox(e){if(e.target===document.getElementById('lightbox'))closeLightboxDirect();}
-function changePhoto(dir){current=(current+dir+photos.length)%photos.length;document.getElementById('lightbox-img').src=photos[current];}
+function changePhoto(dir){current=(current+dir+photos.length)%photos.length;setLightboxImg(current);}
 document.addEventListener('keydown',function(e){var lb=document.getElementById('lightbox');if(!lb.classList.contains('open'))return;if(e.key==='ArrowRight')changePhoto(1);else if(e.key==='ArrowLeft')changePhoto(-1);else if(e.key==='Escape')closeLightboxDirect();});
 </script>
 
@@ -654,6 +667,7 @@ window.addEventListener('load',function(){
   try{
     var qrSize=window.innerWidth<400?120:window.innerWidth<600?140:160;
     new QRCode(document.getElementById('findpenguins-qr'),{text:'https://findpenguins.com/jerseymark',width:qrSize,height:qrSize,colorDark:'#2c1a08',colorLight:'#f5ead0',correctLevel:QRCode.CorrectLevel.M});
+    var qrImg=document.querySelector('#findpenguins-qr img');if(qrImg)qrImg.alt='QR code linking to findpenguins.com/jerseymark';
   }catch(e){}
 });
 </script>
@@ -672,8 +686,9 @@ window.addEventListener('load',function(){
 
 <script>
 (function(){
-  var ALBUMS_URL='https://raw.githubusercontent.com/mfugel/JourneysWithJerseyMark/main/albums.json';
+  var ALBUMS_URL='albums.json';
   var INTERVAL_MS=5000;
+  var REDUCED_MOTION=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
   var S={albums:[],albumIdx:-1,slide:0,photos:[],timer:null,paused:false,imgs:[]};
   var E={
     stage:document.getElementById('slideshowStage'),
@@ -697,7 +712,7 @@ window.addEventListener('load',function(){
   window.loadAlbumsOnce=function(){
     if(albumsLoaded)return;
     albumsLoaded=true;
-    fetch(ALBUMS_URL+'?_='+Date.now())
+    fetch(ALBUMS_URL)
       .then(function(r){return r.json();})
       .then(function(albums){
         S.albums=albums;
@@ -744,7 +759,8 @@ window.addEventListener('load',function(){
       if(q&&album.title.toLowerCase().indexOf(q)<0)return;
       shown++;
       var isNew=album.dateAdded&&((now-new Date(album.dateAdded))<(30*24*60*60*1000));
-      var card=document.createElement('div');
+      var card=document.createElement('button');
+      card.type='button';
       card.className='album-grid-card'+(S.albumIdx===i?' active':'');
       var thumb=album.photos&&album.photos[0]?album.photos[0].replace(/=w\d+-h\d+-no$/,'=w300-h225-no'):'';
       card.innerHTML=(thumb?'<img class="album-grid-thumb" src="'+escHtml(thumb)+'" alt="'+escHtml(album.title)+'" loading="lazy" />':'<div class="album-grid-ph">\u2756</div>')
@@ -867,13 +883,14 @@ window.addEventListener('load',function(){
   function loadAlbum(idx){
     if(isNaN(idx)||idx<0||idx>=S.albums.length)return;
     S.albumIdx=idx;var album=S.albums[idx];
-    stopTimer();clearStage();S.photos=[];S.slide=0;S.paused=false;
+    stopTimer();clearStage();S.photos=[];S.slide=0;S.paused=REDUCED_MOTION;
+    E.pauseBtn.textContent=S.paused?'\u25b6 Resume':'\u23f8 Pause';
     E.title.textContent='';E.counter.textContent='';E.dots.innerHTML='';E.controls.style.display='none';
     showPH('<span class="compass-spin">&#10022;</span> Charting the course\u2026');
     if(album.photos&&album.photos.length){
       S.photos=album.photos.map(function(u){return{src:u};});
       E.title.textContent=album.title;E.openLink.href=album.url||'#';E.controls.style.display='flex';
-      buildDots();buildImgs();showSlide(0);startTimer();
+      buildDots();buildImgs();showSlide(0);if(!S.paused)startTimer();
     }else{
       showPH('<div style="padding:1.5rem;font-family:\'IM Fell English\',serif;font-style:italic;color:rgba(90,53,16,0.5);font-size:1.07rem;text-align:center;">No photos yet.</div>');
     }
@@ -1056,10 +1073,11 @@ window.addEventListener('load',function(){
 <script>
 function toggleNav(){
   var d=document.getElementById('navDrawer');
-  d.classList.toggle('open');
+  var open=d.classList.toggle('open');
+  var h=document.querySelector('.nav-hamburger');if(h)h.setAttribute('aria-expanded',open?'true':'false');
 }
 document.querySelectorAll('#navDrawer a').forEach(function(a){
-  a.addEventListener('click',function(){ document.getElementById('navDrawer').classList.remove('open'); });
+  a.addEventListener('click',function(){ document.getElementById('navDrawer').classList.remove('open'); var h=document.querySelector('.nav-hamburger');if(h)h.setAttribute('aria-expanded','false'); });
 });
 function toggleDropdown(e, btn){
   e.stopPropagation();
