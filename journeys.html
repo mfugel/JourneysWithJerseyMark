@@ -419,8 +419,10 @@ function colorForYear(y){
 const map = L.map('map', { preferCanvas: true })
   .fitBounds([[DATA.bbox.min_lat, DATA.bbox.min_lon],
               [DATA.bbox.max_lat, DATA.bbox.max_lon]]);
-L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{
-  attribution:'&copy; OpenStreetMap, &copy; CartoDB', subdomains:'abcd', maxZoom:19
+// Esri's light-gray canvas: keyless. Carto's basemaps started watermarking
+// every tile "API KEY REQUIRED" (found 2026-09-13); this is the closest match.
+L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',{
+  attribution:'Tiles &copy; Esri &mdash; Esri, HERE, Garmin, &copy; OpenStreetMap contributors', maxNativeZoom:16, maxZoom:19
 }).addTo(map);
 
 // ---------- year filter state ----------
