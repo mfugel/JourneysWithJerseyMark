@@ -36,36 +36,96 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;min-heigh
 .parchment-bg{position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 28px,rgba(101,67,33,0.04) 29px),repeating-linear-gradient(90deg,transparent,transparent 28px,rgba(101,67,33,0.04) 29px);pointer-events:none;z-index:0;}
 .vignette{position:fixed;inset:0;background:radial-gradient(ellipse at center,transparent 45%,rgba(80,40,10,0.30) 100%);pointer-events:none;z-index:0;}
 
-/* ── Nav (shared with the rest of the site) ── */
-.site-nav{position:sticky;top:0;z-index:500;background:rgba(90,53,16,0.96);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);border-bottom:1px solid rgba(220,192,137,0.25);}
-.nav-inner{display:flex;align-items:center;gap:0.2rem;max-width:1100px;margin:0 auto;padding:0 0.8rem;}
-.site-nav a{font-family:'Cinzel',serif;font-size:0.72rem;letter-spacing:0.13em;text-transform:uppercase;color:rgba(245,234,208,0.82);text-decoration:none;padding:0.6rem 0.65rem;transition:color 0.2s;white-space:nowrap;}
-.site-nav a:hover,.site-nav a.nav-active{color:#f5ead0;}
-.site-nav a.nav-active{border-bottom:1px solid rgba(220,192,137,0.5);}
-.nav-links{display:flex;align-items:center;flex-wrap:wrap;justify-content:center;}
-.nav-dot{color:rgba(220,192,137,0.4);font-size:0.6rem;}
-.nav-brand{font-family:'Cinzel',serif;font-weight:700;color:#f5ead0 !important;margin-left:auto;font-size:0.8rem !important;letter-spacing:0.1em;}
-.site-nav a.nav-coffee{color:#f8d568;}
-.site-nav a.nav-coffee:hover{color:#ffe89a;}
-.nav-hamburger{display:none;background:none;border:1px solid rgba(220,192,137,0.35);border-radius:3px;color:#f5ead0;cursor:pointer;padding:0.3rem 0.55rem;font-size:1rem;line-height:1;margin-left:auto;}
-.nav-hamburger:hover{border-color:rgba(220,192,137,0.7);}
-.nav-drawer{display:none;flex-direction:column;background:rgba(90,53,16,0.98);border-top:1px solid rgba(220,192,137,0.2);}
-.nav-drawer.open{display:flex;}
-.nav-drawer a{padding:0.7rem 1.2rem;border-bottom:1px solid rgba(220,192,137,0.12);}
-.nav-drawer-group-label{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(220,192,137,0.6);padding:0.7rem 1.2rem 0.25rem;}
-@media(max-width:860px){.site-nav a{font-size:0.55rem;padding:0.5rem 0.45rem;letter-spacing:0.08em;}.nav-dot{display:none;}}
-@media(max-width:760px){.nav-links{display:none;}.nav-hamburger{display:block;}}
-/* dropdowns */
+/* ── Site header (MilePost standard header, parchment edition; shared by every page) ── */
+html{scroll-padding-top:88px;}
+header.site{position:sticky;top:0;z-index:500;background:rgba(90,53,16,0.96);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border-bottom:1px solid rgba(220,192,137,0.25);transition:box-shadow .3s ease,background .3s ease;}
+header.site.scrolled{background:rgba(58,31,8,0.97);box-shadow:0 6px 24px rgba(15,8,0,0.45);}
+header.site.scrolled .bar{min-height:76px;}
+header.site.scrolled .brand img{width:56px;height:56px;padding:3px;}
+header.site.scrolled .brand .name{font-size:1.15rem;}
+header.site.scrolled .brand .tag{font-size:0;margin:0;opacity:0;}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:124px;max-width:1400px;margin:0 auto;padding:0 24px;position:relative;transition:min-height .3s ease;}
+.brand{display:flex;align-items:center;gap:16px;text-decoration:none;flex-shrink:0;}
+.brand img{width:100px;height:100px;border-radius:50%;background:#f5ead0;padding:5px;border:1.5px solid rgba(220,192,137,0.55);box-shadow:0 2px 8px rgba(15,8,0,0.35);filter:sepia(0.55) saturate(0.85) contrast(1.05) brightness(0.97) hue-rotate(-5deg);transition:width .3s ease,height .3s ease,padding .3s ease;}
+.brand .name{display:block;font-family:'Cinzel',serif;font-weight:700;font-size:1.5rem;color:#f5ead0;line-height:1.08;letter-spacing:0.05em;max-width:14ch;transition:font-size .3s ease;}
+.brand .tag{display:block;font-family:'IM Fell English',serif;font-style:italic;font-size:0.92rem;color:rgba(220,192,137,0.9);margin-top:5px;transition:font-size .3s ease,opacity .3s ease,margin .3s ease;}
+nav.links{display:flex;align-items:center;gap:4px;}
+nav.links > a,nav.links .nav-dropdown-trigger{position:relative;font-family:'Cinzel',serif;font-size:0.72rem;letter-spacing:0.13em;text-transform:uppercase;color:rgba(245,234,208,0.82);text-decoration:none;background:none;border:none;cursor:pointer;padding:12px 6px;min-height:44px;white-space:nowrap;display:inline-flex;align-items:center;gap:0.3rem;transition:color .18s ease;}
+nav.links > a::after,nav.links .nav-dropdown-trigger::after{content:'';position:absolute;left:6px;right:6px;bottom:6px;height:2px;border-radius:2px;background:linear-gradient(90deg,#f8d568,#dcc089);transform:scaleX(0);transform-origin:left;transition:transform .28s cubic-bezier(.2,.8,.2,1);}
+nav.links > a:hover,nav.links > a.current,nav.links .nav-dropdown-trigger:hover,nav.links .nav-dropdown-trigger.current,nav.links .nav-dropdown.open .nav-dropdown-trigger{color:#f5ead0;}
+nav.links > a:hover::after,nav.links > a.current::after,nav.links .nav-dropdown-trigger:hover::after,nav.links .nav-dropdown-trigger.current::after{transform:scaleX(1);}
+nav.links .nav-support .nav-dropdown-trigger{color:#f8d568;}
+nav.links .nav-support .nav-dropdown-trigger:hover,nav.links .nav-support.open .nav-dropdown-trigger{color:#ffe89a;}
 .nav-dropdown{position:relative;display:inline-block;}
-.nav-dropdown-trigger{font-family:'Cinzel',serif;font-size:0.72rem;letter-spacing:0.13em;text-transform:uppercase;color:rgba(245,234,208,0.82);background:none;border:none;cursor:pointer;padding:0.6rem 0.65rem;white-space:nowrap;display:inline-flex;align-items:center;gap:0.3rem;transition:color 0.2s;}
-.nav-dropdown-trigger:hover,.nav-dropdown.open .nav-dropdown-trigger{color:#f5ead0;}
-.nav-dropdown-caret{font-size:0.55rem;transition:transform 0.2s;}
+.nav-dropdown-caret{font-size:0.55rem;transition:transform .2s;}
 .nav-dropdown.open .nav-dropdown-caret{transform:rotate(180deg);}
-.nav-dropdown-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%);background:rgba(90,53,16,0.98);border:1px solid rgba(220,192,137,0.35);border-radius:3px;box-shadow:0 6px 18px rgba(15,8,0,0.45);padding:0.35rem 0;min-width:13rem;opacity:0;pointer-events:none;transition:opacity 0.18s ease;z-index:600;}
-.nav-dropdown.open .nav-dropdown-menu{opacity:1;pointer-events:auto;}
-.nav-dropdown-menu a{display:block;font-family:'Cinzel',serif;font-size:0.72rem;letter-spacing:0.13em;text-transform:uppercase;color:#f8d568;text-decoration:none;padding:0.55rem 1.1rem;transition:background 0.2s,color 0.2s;white-space:nowrap;}
-.nav-dropdown-menu a:hover{background:rgba(220,192,137,0.12);color:#ffe89a;}
-@media(max-width:860px){.nav-dropdown-trigger{font-size:0.55rem;padding:0.5rem 0.45rem;letter-spacing:0.08em;}.nav-dropdown-menu a{font-size:0.6rem;letter-spacing:0.1em;}}
+.nav-dropdown-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%);background:rgba(90,53,16,0.98);border:1px solid rgba(220,192,137,0.35);border-radius:3px;box-shadow:0 6px 18px rgba(15,8,0,0.45);padding:0.35rem 0;min-width:13rem;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .18s ease,visibility 0s linear .2s;z-index:600;}
+.nav-dropdown.open .nav-dropdown-menu{opacity:1;visibility:visible;pointer-events:auto;transition:opacity .18s ease,visibility 0s;}
+.nav-dropdown:last-child .nav-dropdown-menu{left:auto;right:0;transform:none;}
+.nav-dropdown-menu a{display:flex;align-items:center;min-height:44px;font-family:'Cinzel',serif;font-size:0.72rem;letter-spacing:0.13em;text-transform:uppercase;color:#f8d568;text-decoration:none;padding:0.55rem 1.1rem;transition:background .2s,color .2s;white-space:nowrap;}
+.nav-dropdown-menu a:hover,.nav-dropdown-menu a[aria-current=page]{background:rgba(220,192,137,0.12);color:#ffe89a;}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:0.5rem;min-height:44px;padding:0.6rem 1.2rem;border-radius:4px;font-family:'Cinzel',serif;font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;cursor:pointer;white-space:nowrap;}
+.btn.primary{color:#f5ead0;background:#5a3510;border:2px solid #3a1f08;box-shadow:0 2px 6px rgba(58,31,8,0.35),inset 0 1px 0 rgba(245,234,208,0.18);transition:transform .15s ease,box-shadow .15s ease,background .15s ease;}
+.btn.primary:hover{background:#6e431a;transform:translateY(-2px);box-shadow:0 5px 12px rgba(58,31,8,0.45),inset 0 1px 0 rgba(245,234,208,0.22);}
+.bar > .btn{flex-shrink:0;}
+.nav-hamburger{display:none;min-width:48px;min-height:48px;align-items:center;justify-content:center;background:#7a4e20;border:1.5px solid #3a1f08;border-radius:50%;color:#f5ead0;cursor:pointer;padding:0;position:relative;z-index:520;flex-shrink:0;transition:background .18s ease,color .18s ease;}
+.nav-hamburger:hover{background:#8d5d28;}
+.nav-hamburger[aria-expanded=true]{background:#f8d568;color:#3a1f08;}
+.nav-hamburger svg{width:24px;height:24px;}
+.nav-hamburger .close{display:none;}
+.nav-hamburger[aria-expanded=true] .open{display:none;}
+.nav-hamburger[aria-expanded=true] .close{display:block;}
+.nav-drawer{display:none;}
+@media(max-width:1320px){.bar > .btn{display:none;}}
+@media(max-width:1180px){
+  nav.links{display:none;}
+  .nav-hamburger{display:inline-flex;}
+  /* header.site has backdrop-filter, which makes it the containing block for fixed children; size the panel to the viewport explicitly. */
+  .nav-drawer{display:grid;grid-template-rows:auto 1fr auto;position:fixed;top:0;left:0;width:100vw;height:100vh;height:100dvh;z-index:510;background:radial-gradient(ellipse at center,transparent 45%,rgba(80,40,10,0.30) 100%),repeating-linear-gradient(0deg,transparent,transparent 28px,rgba(101,67,33,0.05) 29px),repeating-linear-gradient(90deg,transparent,transparent 28px,rgba(101,67,33,0.05) 29px),#dfc99a;padding:18px 24px 28px;visibility:hidden;opacity:0;transform:translateY(-2%);transition:opacity .32s ease,transform .32s cubic-bezier(.2,.8,.2,1),visibility 0s linear .32s;overflow:auto;}
+  .nav-drawer.open{visibility:visible;opacity:1;transform:none;transition:opacity .32s ease,transform .32s cubic-bezier(.2,.8,.2,1),visibility 0s;}
+  .nav-drawer .drawer-logo{width:88px;height:88px;justify-self:start;margin:0 0 10px -2px;filter:sepia(0.55) saturate(0.85) contrast(1.05) brightness(0.97) hue-rotate(-5deg);mix-blend-mode:multiply;}
+  .nav-drawer .drawer-links{display:grid;align-content:start;}
+  .nav-drawer .drawer-group{display:block;font-family:'Cinzel',serif;font-size:0.62rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:#7a4e20;padding:18px 4px 6px;border-bottom:1px solid rgba(122,78,32,0.35);margin-bottom:4px;}
+  .nav-drawer .drawer-links a{display:flex;align-items:baseline;gap:14px;padding:9px 4px;min-height:44px;text-decoration:none;color:#1a0f00;font-family:'Cinzel',serif;font-weight:700;font-size:clamp(1.05rem,4.4vw,1.35rem);letter-spacing:0.06em;text-transform:uppercase;line-height:1.15;}
+  .nav-drawer .drawer-links a small{font-family:'IM Fell English',serif;font-style:italic;font-size:0.85rem;letter-spacing:0.05em;color:#7a4e20;min-width:1.6em;}
+  .nav-drawer .drawer-links a:hover,.nav-drawer .drawer-links a:focus-visible,.nav-drawer .drawer-links a[aria-current=page]{color:#7a4e20;}
+  .nav-drawer .drawer-links > *{opacity:0;transform:translateY(14px);transition:opacity .4s ease,transform .4s cubic-bezier(.2,.8,.2,1),color .18s ease;}
+  .nav-drawer.open .drawer-links > *{opacity:1;transform:none;}
+  .nav-drawer.open .drawer-links > :nth-child(1){transition-delay:0.05s;}
+  .nav-drawer.open .drawer-links > :nth-child(2){transition-delay:0.08s;}
+  .nav-drawer.open .drawer-links > :nth-child(3){transition-delay:0.11s;}
+  .nav-drawer.open .drawer-links > :nth-child(4){transition-delay:0.14s;}
+  .nav-drawer.open .drawer-links > :nth-child(5){transition-delay:0.17s;}
+  .nav-drawer.open .drawer-links > :nth-child(6){transition-delay:0.20s;}
+  .nav-drawer.open .drawer-links > :nth-child(7){transition-delay:0.23s;}
+  .nav-drawer.open .drawer-links > :nth-child(8){transition-delay:0.26s;}
+  .nav-drawer.open .drawer-links > :nth-child(9){transition-delay:0.29s;}
+  .nav-drawer.open .drawer-links > :nth-child(10){transition-delay:0.32s;}
+  .nav-drawer.open .drawer-links > :nth-child(11){transition-delay:0.35s;}
+  .nav-drawer.open .drawer-links > :nth-child(12){transition-delay:0.38s;}
+  .nav-drawer.open .drawer-links > :nth-child(n+13){transition-delay:.42s;}
+  .nav-drawer .drawer-foot{display:grid;gap:16px;padding-top:20px;margin-top:18px;border-top:1px solid rgba(122,78,32,0.45);}
+  .nav-drawer .drawer-foot .btn{justify-self:start;}
+  .nav-drawer .drawer-social{display:flex;gap:12px;flex-wrap:wrap;}
+  .nav-drawer .drawer-social a{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:#5a3510;color:#f5ead0;border:1.5px solid #3a1f08;box-shadow:0 2px 6px rgba(58,31,8,0.35);transition:background .18s ease,transform .18s ease;}
+  .nav-drawer .drawer-social a:hover{background:#7a4e20;transform:translateY(-2px);}
+  .nav-drawer .drawer-social svg{width:22px;height:22px;}
+  body.nav-open{overflow:hidden;}
+}
+@media(max-width:520px){
+  .bar{min-height:92px;padding:0 16px;gap:12px;}
+  .brand{gap:10px;min-width:0;}
+  .brand img{width:68px;height:68px;padding:4px;}
+  .brand .name{font-size:1.05rem;max-width:11ch;}
+  .brand .tag{font-size:0.72rem;margin-top:3px;}
+  header.site.scrolled .brand img{width:56px;height:56px;}
+  header.site.scrolled .brand .name{font-size:1rem;}
+}
+@media(prefers-reduced-motion:reduce){
+  .nav-drawer,.nav-drawer .drawer-links > *,.brand img,.brand .name,.brand .tag,.bar,nav.links > a::after,nav.links .nav-dropdown-trigger::after{transition:none !important;}
+  .nav-drawer{transform:none;}
+  .nav-drawer .drawer-links > *{opacity:1;transform:none;}
+}
 
 /* ── Content frame ── */
 .content{position:relative;z-index:1;max-width:880px;margin:0 auto;padding:2rem 1rem 3rem;}
@@ -172,7 +232,7 @@ table.cmp tr:nth-child(even) td{background:rgba(180,130,70,0.12);}
 .copied-msg{font-family:'IM Fell English',serif;font-style:italic;color:#3a6b35;display:none;font-size:0.95rem;}
 .copied-msg.show{display:inline;}
 @media print{
-  .site-nav,.nav-drawer,.parchment-bg,.vignette,.no-print,.corner-ornament,.quiz-actions,.quiz-result,.guide-footer{display:none !important;}
+  header.site,.parchment-bg,.vignette,.no-print,.corner-ornament,.quiz-actions,.quiz-result,.guide-footer{display:none !important;}
   .print-only{display:block !important;}
   html,body{background:#fff !important;color:#1a0f00 !important;}
   .content{max-width:100% !important;padding:0 !important;}
@@ -196,79 +256,93 @@ table.cmp tr:nth-child(even) td{background:rgba(180,130,70,0.12);}
 <div class="parchment-bg"></div>
 <div class="vignette"></div>
 
-<nav class="site-nav" id="siteNav">
-  <div class="nav-inner">
-    <div class="nav-links">
-      <a href="index.html">🏠 Home</a>
-      <span class="nav-dot">✦</span>
+<header class="site" id="siteNav">
+  <div class="bar">
+    <a class="brand" href="index.html" aria-label="Journeys with Jersey Mark home">
+      <img src="images/jersey-mark-seal-500.png" alt="" width="100" height="100">
+      <span><span class="name">Journeys with Jersey&nbsp;Mark</span><span class="tag">Nomad · Adventurer · Chronicler of Roads</span></span>
+    </a>
+    <nav class="links" aria-label="Site">
+      <a href="index.html">Home</a>
       <div class="nav-dropdown">
-        <button type="button" class="nav-dropdown-trigger" onclick="toggleDropdown(event,this)" aria-haspopup="true" aria-expanded="false">Explore <span class="nav-dropdown-caret">▾</span></button>
-        <div class="nav-dropdown-menu" role="menu">
-          <a href="index.html#waypoints" role="menuitem">⚓ Ports of Call</a>
-          <a href="index.html#gallery" role="menuitem">🚐 Codiwomple</a>
-          <a href="index.html#memories" role="menuitem">📸 Memories</a>
-          <a href="journeys.html" role="menuitem">🗺 My Journeys</a>
-          <a href="index.html#track" role="menuitem">📍 Track Me</a>
+        <button type="button" class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">Explore <span class="nav-dropdown-caret" aria-hidden="true">▾</span></button>
+        <div class="nav-dropdown-menu">
+          <a href="index.html#waypoints">⚓ Ports of Call</a>
+          <a href="index.html#gallery">🚐 Codiwomple</a>
+          <a href="index.html#memories">📸 Memories</a>
+          <a href="journeys.html">🗺 My Journeys</a>
+          <a href="index.html#track">📍 Track Me</a>
         </div>
       </div>
-      <span class="nav-dot">✦</span>
       <div class="nav-dropdown">
-        <button type="button" class="nav-dropdown-trigger" onclick="toggleDropdown(event,this)" aria-haspopup="true" aria-expanded="false">Life on the Road <span class="nav-dropdown-caret">▾</span></button>
-        <div class="nav-dropdown-menu" role="menu">
-          <a href="nomad-guide.html" class="nav-active" role="menuitem">⛺ Nomad Guide</a>
-          <a href="camplog.html" role="menuitem">🏕 Camp Log</a>
-          <a href="gear.html" role="menuitem">🎒 Gear &amp; Goods</a>
-          <a href="music.html" role="menuitem">🎵 Music for the Road</a>
-          <a href="people.html" role="menuitem">🤝 People of the Road</a>
-          <a href="https://rvweather.com/weather-hub/" target="_blank" rel="noopener" role="menuitem">🌦 RV Weather ↗</a>
+        <button type="button" class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">Life on the Road <span class="nav-dropdown-caret" aria-hidden="true">▾</span></button>
+        <div class="nav-dropdown-menu">
+          <a href="nomad-guide.html">⛺ Nomad Guide</a>
+          <a href="camplog.html">🏕 Camp Log</a>
+          <a href="gear.html">🎒 Gear &amp; Goods</a>
+          <a href="music.html">🎵 Music for the Road</a>
+          <a href="people.html">🤝 People of the Road</a>
+          <a href="https://rvweather.com/weather-hub/" target="_blank" rel="noopener">🌦 RV Weather ↗</a>
         </div>
       </div>
-      <span class="nav-dot">✦</span>
-      <a href="wallpapers.html">🎁 Gift from the Road</a>
-      <span class="nav-dot">✦</span>
+      <a href="wallpapers.html">Gift from the Road</a>
       <div class="nav-dropdown">
-        <button type="button" class="nav-dropdown-trigger" onclick="toggleDropdown(event,this)" aria-haspopup="true" aria-expanded="false">Connect <span class="nav-dropdown-caret">▾</span></button>
-        <div class="nav-dropdown-menu" role="menu">
-          <a href="index.html#contact" role="menuitem">✉️ Contact</a>
-          <a href="index.html#bizcard" role="menuitem">📇 Business Card</a>
+        <button type="button" class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">Connect <span class="nav-dropdown-caret" aria-hidden="true">▾</span></button>
+        <div class="nav-dropdown-menu">
+          <a href="index.html#contact">✉️ Contact</a>
+          <a href="index.html#bizcard">📇 Business Card</a>
         </div>
       </div>
-      <span class="nav-dot">✦</span>
-      <div class="nav-dropdown">
-        <button type="button" class="nav-dropdown-trigger" onclick="toggleDropdown(event,this)" aria-haspopup="true" aria-expanded="false">✦ Support Me <span class="nav-dropdown-caret">▾</span></button>
-        <div class="nav-dropdown-menu" role="menu">
-          <a href="https://ko-fi.com/U7U3RUSTZ" target="_blank" rel="noopener" role="menuitem">☕ Buy Me a Coffee</a>
-          <a href="https://jersey-mark-mercantile.printify.me/" target="_blank" rel="noopener" role="menuitem">🛍 Shop Merch</a>
+      <div class="nav-dropdown nav-support">
+        <button type="button" class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">✦ Support Me <span class="nav-dropdown-caret" aria-hidden="true">▾</span></button>
+        <div class="nav-dropdown-menu">
+          <a href="https://ko-fi.com/U7U3RUSTZ" target="_blank" rel="noopener">☕ Buy Me a Coffee</a>
+          <a href="https://jersey-mark-mercantile.printify.me/" target="_blank" rel="noopener">🛍 Shop Merch</a>
         </div>
       </div>
-    </div>
-    <a href="index.html" class="nav-brand">✦ Jersey Mark</a>
-    <button class="nav-hamburger" onclick="toggleNav()" aria-label="Menu">☰</button>
+    </nav>
+    <a class="btn primary" href="https://findpenguins.com/jerseymark" target="_blank" rel="noopener">Follow the journey</a>
+    <button class="nav-hamburger" type="button" aria-expanded="false" aria-controls="navDrawer" aria-label="Open menu">
+      <svg class="open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      <svg class="close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <nav class="nav-drawer" id="navDrawer" aria-label="Site">
+      <img class="drawer-logo" src="images/jersey-mark-seal-500.png" alt="" aria-hidden="true">
+      <div class="drawer-links">
+        <a href="index.html"><small>01</small>Home</a>
+        <span class="drawer-group">Explore</span>
+        <a href="index.html#waypoints"><small>02</small>Ports of Call</a>
+        <a href="index.html#gallery"><small>03</small>Codiwomple</a>
+        <a href="index.html#memories"><small>04</small>Memories</a>
+        <a href="journeys.html"><small>05</small>My Journeys</a>
+        <a href="index.html#track"><small>06</small>Track Me</a>
+        <span class="drawer-group">Life on the Road</span>
+        <a href="nomad-guide.html"><small>07</small>Nomad Guide</a>
+        <a href="camplog.html"><small>08</small>Camp Log</a>
+        <a href="gear.html"><small>09</small>Gear &amp; Goods</a>
+        <a href="music.html"><small>10</small>Music for the Road</a>
+        <a href="people.html"><small>11</small>People of the Road</a>
+        <a href="https://rvweather.com/weather-hub/" target="_blank" rel="noopener"><small>12</small>RV Weather ↗</a>
+        <a href="wallpapers.html"><small>13</small>Gift from the Road</a>
+        <span class="drawer-group">Connect</span>
+        <a href="index.html#contact"><small>14</small>Contact</a>
+        <a href="index.html#bizcard"><small>15</small>Business Card</a>
+        <span class="drawer-group">Support Me</span>
+        <a href="https://ko-fi.com/U7U3RUSTZ" target="_blank" rel="noopener"><small>16</small>Buy Me a Coffee</a>
+        <a href="https://jersey-mark-mercantile.printify.me/" target="_blank" rel="noopener"><small>17</small>Shop Merch</a>
+      </div>
+      <div class="drawer-foot">
+        <a class="btn primary" href="https://findpenguins.com/jerseymark" target="_blank" rel="noopener">Follow the journey</a>
+        <div class="drawer-social">
+          <a href="https://www.youtube.com/@journeyswithjerseymark" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 7.2c-.3-1.2-1.1-2-2.3-2.3C18.7 4.5 12 4.5 12 4.5s-6.7 0-8.7.4C2.1 5.2 1.3 6 1 7.2.6 9.2.6 12 .6 12s0 2.8.4 4.8c.3 1.2 1.1 2 2.3 2.3 2 .4 8.7.4 8.7.4s6.7 0 8.7-.4c1.2-.3 2-1.1 2.3-2.3.4-2 .4-4.8.4-4.8s0-2.8-.4-4.8zM9.8 15.5v-7l6 3.5-6 3.5z"/></svg></a>
+          <a href="https://www.facebook.com/journeyswithjerseymark" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.6 1.6-1.6h1.7V4.4c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.2v2.3H7.4V14h2.8v8h3.3z"/></svg></a>
+          <a href="https://findpenguins.com/jerseymark" target="_blank" rel="noopener" aria-label="FindPenguins"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6-5.3-6-10a6 6 0 0 1 12 0c0 4.7-6 10-6 10z"/><circle cx="12" cy="11" r="2.2"/></svg></a>
+          <a href="https://ko-fi.com/U7U3RUSTZ" target="_blank" rel="noopener" aria-label="Ko-fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h12v6a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V8z"/><path d="M16 10h1.5a2.5 2.5 0 0 1 0 5H16"/><path d="M8 3.5v2M12 3.5v2"/></svg></a>
+        </div>
+      </div>
+    </nav>
   </div>
-  <div class="nav-drawer" id="navDrawer">
-    <a href="index.html">🏠 Home</a>
-    <span class="nav-drawer-group-label">✦ Explore</span>
-    <a href="index.html#waypoints">⚓ Ports of Call</a>
-    <a href="index.html#gallery">🚐 Codiwomple</a>
-    <a href="index.html#memories">📸 Memories</a>
-    <a href="journeys.html">🗺 My Journeys</a>
-    <a href="index.html#track">📍 Track Me</a>
-    <span class="nav-drawer-group-label">✦ Life on the Road</span>
-    <a href="nomad-guide.html" class="nav-active">⛺ Nomad Guide</a>
-    <a href="camplog.html">🏕 Camp Log</a>
-    <a href="gear.html">🎒 Gear &amp; Goods</a>
-    <a href="music.html">🎵 Music for the Road</a>
-    <a href="people.html">🤝 People of the Road</a>
-    <a href="https://rvweather.com/weather-hub/" target="_blank" rel="noopener">🌦 RV Weather ↗</a>
-    <a href="wallpapers.html">🎁 Gift from the Road</a>
-    <span class="nav-drawer-group-label">✦ Connect</span>
-    <a href="index.html#contact">✉️ Contact</a>
-    <a href="index.html#bizcard">📇 Business Card</a>
-    <span class="nav-drawer-group-label">✦ Support Me</span>
-    <a href="https://ko-fi.com/U7U3RUSTZ" target="_blank" rel="noopener" class="nav-coffee">☕ Buy Me a Coffee</a>
-    <a href="https://jersey-mark-mercantile.printify.me/" target="_blank" rel="noopener" class="nav-coffee">🛍 Shop Merch</a>
-  </div>
-</nav>
+</header>
 
 <div class="content">
   <div class="print-footer print-only">Journeys with Jersey Mark · journeyswithjerseymark.com · © Mark Fugel</div>
@@ -1037,32 +1111,101 @@ table.cmp tr:nth-child(even) td{background:rgba(180,130,70,0.12);}
 </div>
 
 <script>
-function toggleNav(){
-  document.getElementById('navDrawer').classList.toggle('open');
-}
-document.querySelectorAll('#navDrawer a').forEach(function(a){
-  a.addEventListener('click',function(){ document.getElementById('navDrawer').classList.remove('open'); });
-});
-function toggleDropdown(e, btn){
-  e.stopPropagation();
-  var dd = btn.closest('.nav-dropdown');
-  document.querySelectorAll('.nav-dropdown.open').forEach(function(o){
-    if(o!==dd){ o.classList.remove('open'); o.querySelector('.nav-dropdown-trigger').setAttribute('aria-expanded','false'); }
+/* ── Site header (MilePost standard header; shared by every page) ── */
+(function(){
+  var header=document.querySelector('header.site');
+  if(!header)return;
+  var here=location.pathname.replace(/index\.html$/,'');
+  function samePage(a){
+    try{ var u=new URL(a.getAttribute('href'),location.href); return u.origin===location.origin&&u.pathname.replace(/index\.html$/,'')===here; }
+    catch(e){ return false; }
+  }
+  function topOf(el){ var dd=el.closest('.nav-dropdown'); return dd?dd.querySelector('.nav-dropdown-trigger'):el; }
+  // The header is pasted into every page with index.html#… anchors; on the home page itself,
+  // drop the prefix so section links stay in-page.
+  header.querySelectorAll('a[href^="index.html"]').forEach(function(a){
+    if(!samePage(a))return;
+    var h=a.getAttribute('href').slice('index.html'.length);
+    a.setAttribute('href',h||'#top');
   });
-  var open = dd.classList.toggle('open');
-  dd.querySelector('.nav-dropdown-trigger').setAttribute('aria-expanded', open?'true':'false');
-}
-document.addEventListener('click',function(e){
-  document.querySelectorAll('.nav-dropdown.open').forEach(function(dd){
-    if(!dd.contains(e.target)){ dd.classList.remove('open'); dd.querySelector('.nav-dropdown-trigger').setAttribute('aria-expanded','false'); }
+  // Mark the page we are on (desktop top-level item and the link itself).
+  header.querySelectorAll('nav.links a, .drawer-links a').forEach(function(a){
+    var href=a.getAttribute('href')||'';
+    if(href.indexOf('#')>-1||!samePage(a))return;
+    a.setAttribute('aria-current','page');
+    if(a.closest('nav.links'))topOf(a).classList.add('current');
   });
-});
-document.querySelectorAll('.nav-dropdown-menu a').forEach(function(a){
-  a.addEventListener('click',function(){
-    var dd=a.closest('.nav-dropdown');
-    dd.classList.remove('open'); dd.querySelector('.nav-dropdown-trigger').setAttribute('aria-expanded','false');
+
+  // Phone menu.
+  var burger=header.querySelector('.nav-hamburger'), drawer=document.getElementById('navDrawer');
+  if(burger&&drawer){
+    var setNav=function(open){
+      drawer.classList.toggle('open',open); document.body.classList.toggle('nav-open',open);
+      burger.setAttribute('aria-expanded',String(open)); burger.setAttribute('aria-label',open?'Close menu':'Open menu');
+    };
+    burger.addEventListener('click',function(){ setNav(!drawer.classList.contains('open')); });
+    drawer.querySelectorAll('a').forEach(function(a){ a.addEventListener('click',function(){ setNav(false); }); });
+    document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&drawer.classList.contains('open')){ setNav(false); burger.focus(); } });
+    document.addEventListener('click',function(e){ if(drawer.classList.contains('open')&&(e.target===drawer||!e.target.closest('header.site')))setNav(false); });
+  }
+
+  // Header compacts once the page has scrolled a little.
+  var onScroll=function(){ header.classList.toggle('scrolled',window.scrollY>40); };
+  onScroll(); window.addEventListener('scroll',onScroll,{passive:true});
+
+  // Desktop dropdown groups: click to open, one at a time; close on item click, outside click or Escape.
+  var dropdowns=Array.prototype.slice.call(header.querySelectorAll('.nav-dropdown'));
+  function closeDropdowns(except){
+    dropdowns.forEach(function(dd){
+      if(dd!==except&&dd.classList.contains('open')){ dd.classList.remove('open'); dd.querySelector('.nav-dropdown-trigger').setAttribute('aria-expanded','false'); }
+    });
+  }
+  dropdowns.forEach(function(dd){
+    var btn=dd.querySelector('.nav-dropdown-trigger');
+    btn.addEventListener('click',function(e){ e.stopPropagation(); closeDropdowns(dd); var open=dd.classList.toggle('open'); btn.setAttribute('aria-expanded',String(open)); });
+    dd.querySelectorAll('.nav-dropdown-menu a').forEach(function(a){ a.addEventListener('click',function(){ closeDropdowns(); }); });
   });
-});
+  document.addEventListener('click',function(e){ if(!e.target.closest('.nav-dropdown'))closeDropdowns(); });
+  document.addEventListener('keydown',function(e){
+    if(e.key!=='Escape')return;
+    var o=header.querySelector('.nav-dropdown.open');
+    if(o){ closeDropdowns(); o.querySelector('.nav-dropdown-trigger').focus(); }
+  });
+
+  // Desktop nav: mark the top-level item for the section currently in view (home page). The
+  // section anchors are heading rules, so the observer band catches them as they scroll past;
+  // a scroll fallback covers jumps, which land a heading at the top of the viewport, above the band.
+  var secLinks=[], home=null;
+  header.querySelectorAll('nav.links a').forEach(function(a){
+    var href=a.getAttribute('href')||'', i=href.indexOf('#');
+    if(i<0||!samePage(a))return;
+    var id=href.slice(i+1), sec=document.getElementById(id);
+    if(id==='top'){ home=topOf(a); return; }
+    if(sec)secLinks.push({sec:sec,top:topOf(a)});
+  });
+  if(secLinks.length&&'IntersectionObserver' in window){
+    var inBand=[], queued=false;
+    var settle=function(){
+      queued=false;
+      var hit=null, best=-Infinity, limit=window.innerHeight*0.4;
+      secLinks.forEach(function(s){ var t=s.sec.getBoundingClientRect().top; if(inBand.indexOf(s.sec)>-1&&t>best){ best=t; hit=s; } });
+      if(!hit)secLinks.forEach(function(s){ var t=s.sec.getBoundingClientRect().top; if(t<=limit&&t>best){ best=t; hit=s; } });
+      secLinks.forEach(function(s){ s.top.classList.remove('current'); });
+      if(hit)hit.top.classList.add('current');
+      if(home)home.classList.toggle('current',!hit);
+    };
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        var k=inBand.indexOf(e.target);
+        if(e.isIntersecting&&k<0)inBand.push(e.target);
+        if(!e.isIntersecting&&k>-1)inBand.splice(k,1);
+      });
+      settle();
+    },{rootMargin:'-40% 0px -55% 0px'});
+    secLinks.forEach(function(s){ io.observe(s.sec); });
+    window.addEventListener('scroll',function(){ if(!queued){ queued=true; requestAnimationFrame(settle); } },{passive:true});
+  }
+})();
 
 /* ── "Which domicile state?" quiz ── */
 (function(){
