@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  Jersey Mark seal — embroidery-optimized variant
+  ------------------------------------------------
+  4 thread colors only:
+    Navy   #0f3157   (Madeira Polyneon 1843 / Isacord 3622 — close match)
+    Green  #95cb48   (Madeira Polyneon 1648 / Isacord 5610 — close match)
+    Teal   #4db6c2   (Madeira Polyneon 1894 / Isacord 4220 — close match)
+    White  #ffffff   (any white thread)
+
+  Designed to digitize cleanly at 2.5"–4" (hat patch / left chest).
+  Removed for embroidery viability vs. the full seal:
+    - Detailed mountain landscape (birds, river, individual trees, fine hatching)
+    - "JOURNEYS WITH" small overlay text
+    - "One Man's Quest For HEALTH & HAPPINESS" tagline
+    - All decorative micro-dots and tiny ellipses
+    - Inner compass-rose detail (kept simple star instead)
+  All lines/shapes are >= 1.5mm at 2.5" finished size.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 500 500">
+
+  <!-- ============================================================
+       LAYER 1 — 8-point compass star
+       4 large green cardinal diamonds + 4 navy intercardinal diamonds
+       Drawn behind the circular badge so they appear as points
+       ============================================================ -->
+
+  <!-- Intercardinal navy triangle points (same style as cardinals, rotated 45°)
+       Geometry: tip at radius 195 from center @ 45° diagonals,
+                 base inside the navy disc so only the tip pokes out -->
+  <g fill="#0f3157">
+    <!-- NE -->
+    <polygon points="388,112 356,186 314,144"/>
+    <!-- NW -->
+    <polygon points="112,112 144,186 186,144"/>
+    <!-- SE -->
+    <polygon points="388,388 314,356 356,314"/>
+    <!-- SW -->
+    <polygon points="112,388 186,356 144,314"/>
+  </g>
+
+  <!-- Cardinal green diamond points (larger, on top of navy) -->
+  <g fill="#95cb48">
+    <!-- North -->
+    <polygon points="250,38 215,115 285,115"/>
+    <!-- South -->
+    <polygon points="250,462 215,385 285,385"/>
+    <!-- East -->
+    <polygon points="462,250 385,215 385,285"/>
+    <!-- West -->
+    <polygon points="38,250 115,215 115,285"/>
+  </g>
+
+  <!-- ============================================================
+       LAYER 2 — Circular badge body
+       Navy ring + thin green accent + white interior
+       ============================================================ -->
+
+  <!-- Navy outer disc -->
+  <circle cx="250" cy="250" r="172" fill="#0f3157"/>
+
+  <!-- Green accent ring -->
+  <circle cx="250" cy="250" r="160" fill="none" stroke="#95cb48" stroke-width="5"/>
+
+  <!-- White interior -->
+  <circle cx="250" cy="250" r="154" fill="#ffffff"/>
+
+  <!-- ============================================================
+       LAYER 3 — Simplified mountain scene (top half of badge)
+       Bold silhouettes only; no birds, river, or individual trees
+       Clipped to the badge interior via the green ring overlap
+       ============================================================ -->
+
+  <!-- Teal back ridge — three smooth peaks, no center notch -->
+  <path d="
+    M 100 312
+    L 150 218
+    L 200 268
+    L 250 200
+    L 300 268
+    L 350 218
+    L 400 312
+    Z
+  " fill="#4db6c2"/>
+
+  <!-- Navy front mountains — two overlapping peaks -->
+  <path d="
+    M 100 312
+    L 180 232
+    L 240 282
+    L 290 245
+    L 345 312
+    Z
+  " fill="#0f3157"/>
+
+  <!-- ============================================================
+       LAYER 4 — Center banner with "JERSEY MARK"
+       Sits over the mountain base, hiding the seam
+       ============================================================ -->
+
+  <!-- Banner shape (slight ribbon ends) -->
+  <path d="
+    M 50  300
+    L 78  285
+    L 422 285
+    L 450 300
+    L 450 360
+    L 422 375
+    L 78  375
+    L 50  360
+    Z
+  " fill="#0f3157" stroke="#95cb48" stroke-width="2.5"/>
+
+  <!-- Inner banner stripe lines -->
+  <line x1="86" y1="293" x2="414" y2="293" stroke="#95cb48" stroke-width="1.8" opacity="0.7"/>
+  <line x1="86" y1="367" x2="414" y2="367" stroke="#95cb48" stroke-width="1.8" opacity="0.7"/>
+
+  <!-- White 5-point stars on banner ends (bigger so they read) -->
+  <g fill="#ffffff">
+    <!-- left star -->
+    <polygon points="
+      85,330
+      94,328
+      98,318
+      102,328
+      111,330
+      104,337
+      106,346
+      98,341
+      90,346
+      92,337
+    "/>
+    <!-- right star -->
+    <polygon points="
+      389,330
+      398,328
+      402,318
+      406,328
+      415,330
+      408,337
+      410,346
+      402,341
+      394,346
+      396,337
+    "/>
+  </g>
+
+  <!-- JERSEY MARK text (heavy sans-serif, large enough to embroider clean) -->
+  <text x="250" y="346"
+        text-anchor="middle"
+        font-family="Arial Black, Impact, sans-serif"
+        font-weight="900"
+        font-size="44"
+        letter-spacing="2"
+        fill="#95cb48">JERSEY MARK</text>
+
+</svg>

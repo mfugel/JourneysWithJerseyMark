@@ -9,3 +9,15 @@ Business/
 # Python build artifacts
 __pycache__/
 *.pyc
+
+# --- album-fetcher working files, never committed -------------------------
+# This repo is PUBLIC. album.html is a saved copy of a Google Photos share
+# page and carries the share `?key=` in its source, so committing it would
+# publish access to that album. The rest is intermediate output from the same
+# workflow - extracted googleusercontent URLs, thumbnails, contact sheets.
+# The album data the site actually uses is albums.json, which IS tracked.
+album.html
+album_photos.json
+album_thumbs/
+contact_sheet*.jpg
+*-urls.txt
