@@ -583,14 +583,7 @@ body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;position:
 :where(a,button,input,select,textarea,[tabindex]):focus-visible{outline:2px solid #3a1f08;outline-offset:2px}
 </style>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-G9H0YG26NY"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-G9H0YG26NY');
-</script>
+
 </head>
 <body>
 
@@ -1031,7 +1024,7 @@ document.querySelectorAll('.nav-dropdown-menu a').forEach(function(a){
 });
 </script>
 
-<script defer src="/_vercel/insights/script.js"></script>
+<script src="/analytics.js" data-ga="G-G9H0YG26NY" defer></script>
 </body>
 </html>
 """
