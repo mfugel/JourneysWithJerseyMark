@@ -1,4 +1,4 @@
-/* The Road Letter signup (2026-09-29).
+/* Letter from the Road signup (2026-09-29; named "Road Letter" in code).
  *
  * Put <div data-road-letter data-source="jwjm-home"></div> where the form
  * should appear and load this script. Signups go to the MilePost signup
@@ -30,7 +30,7 @@
       '<label class="rl-hp" aria-hidden="true">Website <input name="website" tabindex="-1" autocomplete="off"></label>' +
       '<input name="firstName" type="text" placeholder="First name" autocomplete="given-name" aria-label="First name (optional)">' +
       '<input name="email" type="email" placeholder="you@example.com" autocomplete="email" required aria-label="Email address">' +
-      '<button type="submit">Send me the Road Letter</button>' +
+      '<button type="submit">Send me the Letter</button>' +
       "</form>" +
       '<p class="rl-msg" role="status" aria-live="polite"></p>';
     var form = el.querySelector("form");
@@ -57,7 +57,7 @@
         .then(function (res) {
           if (!res.ok) throw new Error(res.d.error || "The signup didn't go through. Please try again.");
           form.hidden = true;
-          msg.textContent = "Almost there: check your inbox and confirm, and the next Road Letter will find you.";
+          msg.textContent = "Almost there: check your inbox and confirm, and the next Letter from the Road will find you.";
         })
         .catch(function (err) {
           msg.className = "rl-msg err";
