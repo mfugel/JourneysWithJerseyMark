@@ -57,7 +57,7 @@
         .then(function (res) {
           if (!res.ok) throw new Error(res.d.error || "The signup didn't go through. Please try again.");
           form.hidden = true;
-          msg.textContent = "Almost there: check your inbox and confirm, and the next Letter from the Road will find you.";
+          msg.textContent = "Almost there: check your inbox (and Spam or Promotions, just in case) and confirm, and the next Letter from the Road will find you.";
         })
         .catch(function (err) {
           msg.className = "rl-msg err";
