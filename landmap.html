@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ── SEO ── -->
+<title>Land &amp; Fire Map — Public Land, Wildfires, Flood Zones | Journeys with Jersey Mark</title>
+<meta name="description" content="A free map for finding a place to camp: public land by managing agency (BLM, Forest Service, parks), active wildfires, FEMA flood zones and tribal lands. Search a town or map a route.">
+<meta name="keywords" content="public land map, BLM land map, dispersed camping, boondocking map, wildfire map, flood zone map, tribal lands, RV route map">
+<meta name="author" content="Mark Fugel">
+<link rel="canonical" href="https://www.journeyswithjerseymark.com/landmap.html">
+
+<link rel="icon" type="image/svg+xml" href="/images/jersey-mark-seal.svg">
+<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.journeyswithjerseymark.com/landmap.html">
+<meta property="og:title" content="Land &amp; Fire Map — the map I check before I pick a spot">
+<meta property="og:description" content="Public land, active wildfires, flood zones and tribal lands on one map. Search a town or map a route.">
+<meta property="og:image" content="https://www.journeyswithjerseymark.com/images/seal.jpg">
+<meta property="og:site_name" content="Journeys with Jersey Mark">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Land &amp; Fire Map — Journeys with Jersey Mark">
+<meta name="twitter:description" content="Public land, wildfires, flood zones and tribal lands on one map.">
+<meta name="twitter:image" content="https://www.journeyswithjerseymark.com/images/seal.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Cinzel:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:#dfc99a;font-family:'Crimson Text',serif;color:#0f0800;min-height:100vh;position:relative;overflow-x:hidden;}
+.parchment-bg{position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 28px,rgba(101,67,33,0.04) 29px),repeating-linear-gradient(90deg,transparent,transparent 28px,rgba(101,67,33,0.04) 29px);pointer-events:none;z-index:0;}
+.vignette{position:fixed;inset:0;background:radial-gradient(ellipse at center,transparent 45%,rgba(80,40,10,0.30) 100%);pointer-events:none;z-index:0;}
+
+/* ── Nav (shared with the rest of the site) ── */
+.site-nav{position:sticky;top:0;z-index:500;background:rgba(90,53,16,0.96);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);border-bottom:1px solid rgba(220,192,137,0.25);}
+.nav-inner{display:flex;align-items:center;gap:0.2rem;max-width:1100px;margin:0 auto;padding:0 0.8rem;}
+.site-nav a{font-family:'Cinzel',serif;font-size:0.72rem;letter-spacing:0.13em;text-transform:uppercase;color:rgba(245,234,208,0.82);text-decoration:none;padding:0.6rem 0.65rem;transition:color 0.2s;white-space:nowrap;}
+.site-nav a:hover,.site-nav a.nav-active{color:#f5ead0;}
+.site-nav a.nav-active{border-bottom:1px solid rgba(220,192,137,0.5);}
+.nav-links{display:flex;align-items:center;flex-wrap:wrap;justify-content:center;}
+.nav-dot{color:rgba(220,192,137,0.4);font-size:0.6rem;}
+.nav-brand{font-family:'Cinzel',serif;font-weight:700;color:#f5ead0 !important;margin-left:auto;font-size:0.8rem !important;letter-spacing:0.1em;}
+.site-nav a.nav-coffee{color:#f8d568;}
+.site-nav a.nav-coffee:hover{color:#ffe89a;}
+.nav-hamburger{display:none;background:none;border:1px solid rgba(220,192,137,0.35);border-radius:3px;color:#f5ead0;cursor:pointer;padding:0.3rem 0.55rem;font-size:1rem;line-height:1;margin-left:auto;}
+.nav-hamburger:hover{border-color:rgba(220,192,137,0.7);}
+.nav-drawer{display:none;flex-direction:column;background:rgba(90,53,16,0.98);border-top:1px solid rgba(220,192,137,0.2);}
+.nav-drawer.open{display:flex;}
+.nav-drawer a{padding:0.7rem 1.2rem;border-bottom:1px solid rgba(220,192,137,0.12);}
+.nav-drawer-group-label{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(220,192,137,0.6);padding:0.7rem 1.2rem 0.25rem;}
+@media(max-width:860px){.site-nav a{font-size:0.55rem;padding:0.5rem 0.45rem;letter-spacing:0.08em;}.nav-dot{display:none;}}
+@media(max-width:760px){.nav-links{display:none;}.nav-hamburger{display:block;}}
+.nav-dropdown{position:relative;display:inline-block;}
+.nav-dropdown-trigger{font-family:'Cinzel',serif;font-size:0.72rem;letter-spacing:0.13em;text-transform:uppercase;color:rgba(245,234,208,0.82);background:none;border:none;cursor:pointer;padding:0.6rem 0.65rem;white-space:nowrap;display:inline-flex;align-items:center;gap:0.3rem;transition:color 0.2s;}
+.nav-dropdown-trigger:hover,.nav-dropdown.open .nav-dropdown-trigger{color:#f5ead0;}
+.nav-dropdown-caret{font-size:0.55rem;transition:transform 0.2s;}
+.nav-dropdown.open .nav-dropdown-caret{transform:rotate(180deg);}
+.nav-dropdown-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%);background:rgba(90,53,16,0.98);border:1px solid rgba(220,192,137,0.35);border-radius:3px;box-shadow:0 6px 18px rgba(15,8,0,0.45);padding:0.35rem 0;min-width:13rem;opacity:0;pointer-events:none;transition:opacity 0.18s ease;z-index:600;}
+.nav-dropdown.open .nav-dropdown-menu{opacity:1;pointer-events:auto;}
+.nav-dropdown-menu a{display:block;font-family:'Cinzel',serif;font-size:0.72rem;letter-spacing:0.13em;text-transform:uppercase;color:#f8d568;text-decoration:none;padding:0.55rem 1.1rem;transition:background 0.2s,color 0.2s;white-space:nowrap;}
+.nav-dropdown-menu a:hover{background:rgba(220,192,137,0.12);color:#ffe89a;}
+@media(max-width:860px){.nav-dropdown-trigger{font-size:0.55rem;padding:0.5rem 0.45rem;letter-spacing:0.08em;}.nav-dropdown-menu a{font-size:0.6rem;letter-spacing:0.1em;}}
+
+/* ── Content frame ── */
+.content{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:2rem 1rem 3rem;}
+.outer-border{position:relative;border:3px solid #5a3510;border-radius:4px;padding:4px;background:#dfc99a;}
+.inner-border{border:1.5px solid #7a4e20;border-radius:2px;padding:2.4rem 1.8rem 2.6rem;}
+.corner-ornament{position:absolute;font-size:20px;color:#1a0f00;line-height:1;}
+.corner-tl{top:10px;left:10px;}.corner-tr{top:10px;right:10px;transform:scaleX(-1);}
+.corner-bl{bottom:10px;left:10px;transform:scaleY(-1);}.corner-br{bottom:10px;right:10px;transform:scale(-1);}
+.cartouche{text-align:center;margin-bottom:1.4rem;}
+.cartouche-border{border:2px solid #5a3510;border-radius:50% / 22%;padding:1rem 2rem 1.2rem;display:inline-block;min-width:60%;background:rgba(180,130,70,0.3);}
+.cartouche-border::before,.cartouche-border::after{content:'— ✦ —';display:block;font-size:12px;color:#1a0f00;letter-spacing:0.2em;}
+.cartouche-border::before{margin-bottom:0.3rem;}.cartouche-border::after{margin-top:0.3rem;}
+.cartouche h1{font-family:'Cinzel',serif;font-size:2rem;font-weight:700;color:#0f0800;line-height:1.12;letter-spacing:0.03em;}
+.cartouche .subtitle{font-family:'IM Fell English',serif;font-style:italic;font-size:1.1rem;color:#1a0f00;margin-top:0.4rem;}
+
+.wrap{max-width:760px;margin:0 auto;}
+.lede{font-family:'IM Fell English',serif;font-size:1.16rem;line-height:1.6;color:#241405;margin:0.2rem 0 1.2rem;}
+.wrap p{font-size:1.05rem;line-height:1.6;margin:0 0 1rem;}
+.wrap a{color:#7a3e10;text-decoration:underline dotted;text-underline-offset:2px;}
+.wrap a:hover{color:#a8521a;}
+
+h2.sec{font-family:'Cinzel',serif;font-size:1.28rem;font-weight:700;color:#5a3510;letter-spacing:0.02em;margin:1.8rem 0 0.3rem;padding-bottom:0.3rem;border-bottom:1.5px solid rgba(90,53,16,0.3);}
+.callout{border-left:5px solid #c8862a;background:rgba(200,150,60,0.16);border-radius:0 6px 6px 0;padding:0.85rem 1.1rem;margin:1.4rem 0;font-style:italic;font-family:'IM Fell English',serif;font-size:1.06rem;color:#3a2008;}
+.callout a{color:#7a3e10;}
+
+.page-footer{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin-top:2rem;padding-top:1.2rem;border-top:1px solid rgba(90,53,16,0.3);font-family:'IM Fell English',serif;font-style:italic;font-size:0.95rem;color:#3a2510;}
+.page-footer a{color:#3a2510;text-decoration:underline dotted;}
+.page-footer a:hover{color:#7a2a1a;}
+
+/* ── Land & Fire map ── */
+.lm-bar{display:flex;gap:0.5rem;flex-wrap:wrap;margin:0.4rem 0 0.4rem;}
+.lm-bar input{flex:1 1 220px;min-width:0;font-family:'Crimson Text',serif;font-size:1rem;padding:0.5rem 0.7rem;border:1.5px solid #7a4e20;border-radius:4px;background:rgba(255,247,225,0.7);color:#0f0800;}
+.lm-bar input:focus{outline:none;border-color:#5a3510;background:#fbefcf;box-shadow:0 0 0 2px rgba(90,53,16,0.25);}
+.lm-btns{display:flex;gap:0.4rem;}
+.lm-btn{font-family:'Cinzel',serif;font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:#f5ead0;background:#5a3510;border:1px solid #5a3510;border-radius:4px;padding:0.5rem 0.85rem;cursor:pointer;white-space:nowrap;transition:background 0.18s;}
+.lm-btn:hover{background:#7a4e20;}
+.lm-btn-ghost{background:rgba(255,247,225,0.85);color:#5a3510;}
+.lm-btn-ghost:hover{background:#fbefcf;}
+.lm-btn[aria-pressed="true"]{background:#5a3510;color:#f5ead0;}
+.lm-status{font-family:'IM Fell English',serif;font-style:italic;font-size:0.95rem;color:#3a2510;min-height:1.3em;margin:0 0 0.5rem;}
+.lm-status.err{color:#7a2a1a;}
+.lm-map-wrap{position:relative;border:2px solid #5a3510;border-radius:4px;overflow:hidden;}
+#lmMap{height:70vh;min-height:420px;max-height:760px;background:#e8dcc0;}
+.lm-base{position:absolute;top:10px;left:50px;z-index:800;display:flex;box-shadow:0 1px 4px rgba(0,0,0,0.3);border-radius:4px;overflow:hidden;}
+.lm-base .lm-btn{border-radius:0;padding:0.4rem 0.6rem;}
+.lm-base .lm-btn+.lm-btn{border-left:1px solid #9a774a;}
+.lm-layers{position:absolute;right:10px;top:10px;z-index:800;display:flex;flex-direction:column;align-items:flex-end;gap:0.4rem;}
+.lm-panel{width:16rem;max-width:calc(100vw - 4rem);max-height:min(19rem,55vh);overflow-y:auto;background:rgba(251,239,207,0.97);border:1.5px solid #7a4e20;border-radius:6px;padding:0.75rem 0.85rem;box-shadow:0 4px 14px rgba(15,8,0,0.3);font-size:0.95rem;}
+.lm-panel-h{font-family:'Cinzel',serif;font-weight:700;font-size:0.8rem;letter-spacing:0.08em;color:#5a3510;margin-bottom:0.4rem;}
+.lm-panel ul{list-style:none;display:flex;flex-direction:column;gap:0.45rem;}
+.lm-panel label{display:flex;align-items:center;gap:0.45rem;cursor:pointer;font-weight:600;}
+.lm-panel input{accent-color:#5a3510;}
+.lm-note{margin:0.1rem 0 0 1.5rem;font-family:'IM Fell English',serif;font-style:italic;font-size:0.85rem;color:#6a4a20;line-height:1.3;}
+.lm-note.err{color:#a82a1a;}
+.lm-legend{display:grid;grid-template-columns:1fr 1fr;gap:0.2rem 0.5rem;margin-top:0.6rem;padding-top:0.5rem;border-top:1px solid rgba(90,53,16,0.3);font-size:0.82rem;color:#3a2510;}
+.lm-legend span{display:flex;align-items:center;gap:0.35rem;}
+.lm-legend i{display:inline-block;width:0.7rem;height:0.7rem;border-radius:2px;}
+.lm-legend .wide{grid-column:span 2;}
+.lm-legend .dash{width:1rem;height:0;border-top:2px dashed #dc2626;border-radius:0;}
+.lm-fine{margin-top:0.6rem;font-size:0.75rem;line-height:1.3;color:#6a4a20;font-style:italic;}
+.lm-credits{font-family:'IM Fell English',serif;font-style:italic;font-size:0.88rem;color:#6a4a20;}
+.leaflet-popup-content{font-family:'Crimson Text',serif;font-size:0.95rem;margin:10px 12px;}
+.leaflet-popup-content b{font-family:'Cinzel',serif;font-size:0.85rem;color:#5a3510;}
+.lm-sub{color:#6a4a20;font-style:italic;}
+@media(max-width:600px){.inner-border{padding:1.6rem 0.8rem 2rem;}.lm-btns{width:100%;}.lm-btns .lm-btn{flex:1;}.lm-base .lm-lbl{display:none;}}
+</style>
+</head>
+<body>
+<div class="parchment-bg"></div>
+<div class="vignette"></div>
+
+<nav class="site-nav" id="siteNav">
+  <div class="nav-inner">
+    <div class="nav-links">
+      <a href="index.html">🏠 Home</a>
+      <span class="nav-dot">✦</span>
+      <div class="nav-dropdown">
+        <button type="button" class="nav-dropdown-trigger" onclick="toggleDropdown(event,this)" aria-haspopup="true" aria-expanded="false">Explore <span class="nav-dropdown-caret">▾</span></button>
+        <div class="nav-dropdown-menu" role="menu">
+          <a href="index.html#waypoints" role="menuitem">⚓ Ports of Call</a>
+          <a href="index.html#gallery" role="menuitem">🚐 Codiwomple</a>
+          <a href="index.html#memories" role="menuitem">📸 Memories</a>
+          <a href="journeys.html" role="menuitem">🗺 My Journeys</a>
+          <a href="index.html#track" role="menuitem">📍 Track Me</a>
+        </div>
+      </div>
+      <span class="nav-dot">✦</span>
+      <div class="nav-dropdown">
+        <button type="button" class="nav-dropdown-trigger" onclick="toggleDropdown(event,this)" aria-haspopup="true" aria-expanded="false">Life on the Road <span class="nav-dropdown-caret">▾</span></button>
+        <div class="nav-dropdown-menu" role="menu">
+          <a href="nomad-guide.html" role="menuitem">⛺ Nomad Guide</a>
+          <a href="camplog.html" role="menuitem">🏕 Camp Log</a>
+          <a href="landmap.html" class="nav-active" role="menuitem">🔥 Land &amp; Fire Map</a>
+          <a href="gear.html" role="menuitem">🎒 Gear &amp; Goods</a>
+          <a href="music.html" role="menuitem">🎵 Music for the Road</a>
+          <a href="people.html" role="menuitem">🤝 People of the Road</a>
+          <a href="https://rvweather.com/weather-hub/" target="_blank" rel="noopener" role="menuitem">🌦 RV Weather ↗</a>
+        </div>
+      </div>
+      <span class="nav-dot">✦</span>
+      <a href="wallpapers.html">🎁 Gift from the Road</a>
+      <span class="nav-dot">✦</span>
+      <div class="nav-dropdown">
+        <button type="button" class="nav-dropdown-trigger" onclick="toggleDropdown(event,this)" aria-haspopup="true" aria-expanded="false">Connect <span class="nav-dropdown-caret">▾</span></button>
+        <div class="nav-dropdown-menu" role="menu">
+          <a href="index.html#contact" role="menuitem">✉️ Contact</a>
+          <a href="index.html#bizcard" role="menuitem">📇 Business Card</a>
+        </div>
+      </div>
+      <span class="nav-dot">✦</span>
+      <div class="nav-dropdown">
+        <button type="button" class="nav-dropdown-trigger" onclick="toggleDropdown(event,this)" aria-haspopup="true" aria-expanded="false">✦ Support Me <span class="nav-dropdown-caret">▾</span></button>
+        <div class="nav-dropdown-menu" role="menu">
+          <a href="https://ko-fi.com/U7U3RUSTZ" target="_blank" rel="noopener" role="menuitem">☕ Buy Me a Coffee</a>
+          <a href="https://jersey-mark-mercantile.printify.me/" target="_blank" rel="noopener" role="menuitem">🛍 Shop Merch</a>
+        </div>
+      </div>
+    </div>
+    <a href="index.html" class="nav-brand">✦ Jersey Mark</a>
+    <button class="nav-hamburger" onclick="toggleNav()" aria-label="Menu">☰</button>
+  </div>
+  <div class="nav-drawer" id="navDrawer">
+    <a href="index.html">🏠 Home</a>
+    <span class="nav-drawer-group-label">✦ Explore</span>
+    <a href="index.html#waypoints">⚓ Ports of Call</a>
+    <a href="index.html#gallery">🚐 Codiwomple</a>
+    <a href="index.html#memories">📸 Memories</a>
+    <a href="journeys.html">🗺 My Journeys</a>
+    <a href="index.html#track">📍 Track Me</a>
+    <span class="nav-drawer-group-label">✦ Life on the Road</span>
+    <a href="nomad-guide.html">⛺ Nomad Guide</a>
+    <a href="camplog.html">🏕 Camp Log</a>
+    <a href="landmap.html" class="nav-active">🔥 Land &amp; Fire Map</a>
+    <a href="gear.html">🎒 Gear &amp; Goods</a>
+    <a href="music.html">🎵 Music for the Road</a>
+    <a href="people.html">🤝 People of the Road</a>
+    <a href="https://rvweather.com/weather-hub/" target="_blank" rel="noopener">🌦 RV Weather ↗</a>
+    <a href="wallpapers.html">🎁 Gift from the Road</a>
+    <span class="nav-drawer-group-label">✦ Connect</span>
+    <a href="index.html#contact">✉️ Contact</a>
+    <a href="index.html#bizcard">📇 Business Card</a>
+    <span class="nav-drawer-group-label">✦ Support Me</span>
+    <a href="https://ko-fi.com/U7U3RUSTZ" target="_blank" rel="noopener" class="nav-coffee">☕ Buy Me a Coffee</a>
+    <a href="https://jersey-mark-mercantile.printify.me/" target="_blank" rel="noopener" class="nav-coffee">🛍 Shop Merch</a>
+  </div>
+</nav>
+
+<div class="content">
+  <div class="outer-border">
+    <span class="corner-ornament corner-tl">✦</span>
+    <span class="corner-ornament corner-tr">✦</span>
+    <span class="corner-ornament corner-bl">✦</span>
+    <span class="corner-ornament corner-br">✦</span>
+    <div class="inner-border">
+
+      <div class="cartouche">
+        <div class="cartouche-border">
+          <h1>Land &amp; Fire Map</h1>
+          <div class="subtitle">— the map I check before I pick a spot —</div>
+        </div>
+      </div>
+
+      <div class="wrap">
+        <p class="lede">Before I settle on a place for the night I want to know four things:
+        who manages the land, whether anything is burning nearby, whether the ground floods,
+        and whether I'm on tribal land with its own rules. Search a town, map a route, or
+        use your location, then open <b>Layers</b>.</p>
+      </div>
+
+      <form class="lm-bar" id="lmSearch" autocomplete="off">
+        <input id="lmFrom" type="text" placeholder="From: a town or place (blank = my location)" aria-label="From">
+        <input id="lmTo" type="text" placeholder="To: leave blank to just go to From" aria-label="To">
+        <div class="lm-btns">
+          <button type="submit" class="lm-btn">Go</button>
+          <button type="button" class="lm-btn lm-btn-ghost" id="lmLocate" title="Center on my location">◎ Me</button>
+          <button type="button" class="lm-btn lm-btn-ghost" id="lmClear" hidden>✕ Clear</button>
+        </div>
+      </form>
+      <p class="lm-status" id="lmStatus" aria-live="polite"></p>
+
+      <div class="lm-map-wrap">
+        <div id="lmMap"></div>
+        <div class="lm-base" id="lmBase" role="group" aria-label="Basemap"></div>
+        <div class="lm-layers">
+          <button type="button" class="lm-btn" id="lmToggle" aria-expanded="false">🗂 Layers</button>
+          <div class="lm-panel" id="lmPanel" hidden role="dialog" aria-label="Map layers">
+            <p class="lm-panel-h">Map layers</p>
+            <ul id="lmList"></ul>
+            <div class="lm-legend" id="lmLegend" hidden></div>
+            <p class="lm-fine">Guides, not legal boundaries. Always check local rules and closures.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="wrap">
+        <h2 class="sec">Reading the layers</h2>
+        <p><b>🏞 Public land</b> is coloured by who manages it: BLM yellow, Forest Service green,
+        National Parks brown, Fish &amp; Wildlife blue, state land blue-violet, local land purple.
+        A dashed red edge means closed to the public; dashed orange, restricted. Tap any patch for
+        the unit name. Dispersed camping is usually allowed on BLM and National Forest land, but
+        every district has its own limits, so check before you settle in.</p>
+        <p><b>🔥 Active fires</b> shows current perimeters and new wildfire starts, updated through the day.
+        <b>🌊 Flood zones</b> are FEMA's 100-year flood areas; I steer clear of those when rain is forecast
+        upstream. <b>🪶 Tribal lands</b> are federal reservations, where the tribe sets the rules and
+        camping often needs a permit.</p>
+        <div class="callout">The same layers are on the maps in
+        <a href="https://staytonight.app/?utm_source=jwjm&amp;utm_medium=landmap&amp;utm_campaign=layers" target="_blank" rel="noopener">StayTonight</a>,
+        the app I built to find tonight's spot along a route.</div>
+        <p class="lm-credits">Data: USGS PAD-US, NIFC, FEMA and US Census, served by Esri. Routing by OSRM, place search by OpenStreetMap Nominatim.</p>
+
+        <div class="page-footer">
+          <a href="nomad-guide.html">← back to the Nomad Guide</a>
+          <a href="https://ko-fi.com/U7U3RUSTZ" target="_blank" rel="noopener">☕ Buy me a coffee</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>
+// Land & Fire map (2026-10-01). Same four public, keyless ArcGIS feature
+// services as StayTonight's Layers control, queried from the browser for
+// whatever is on screen and re-queried on pan/zoom. Heavy layers only load
+// once zoomed in.
+(function(){
+  var PADUS='https://services.arcgis.com/v01gqwM5QqNysAAi/arcgis/rest/services/PADUS_Public_Access/FeatureServer/0';
+  var FIRES='https://services9.arcgis.com/RHVPKKiFTONKtxq3/arcgis/rest/services/USA_Wildfires_v1/FeatureServer';
+  var FLOOD='https://services5.arcgis.com/7weheFjxuNkGGiZi/arcgis/rest/services/USA_Flood_Hazard_Areas_view/FeatureServer/0';
+  var TRIBAL='https://services2.arcgis.com/FiaPA4ga0iQKduv3/arcgis/rest/services/Federal_American_Indian_Reservations_v1/FeatureServer/0';
+
+  var MANAGER={'Bureau of Land Management':'#f2c14e','Forest Service':'#5aa05a','National Park Service':'#a86f3c','U.S. Fish and Wildlife Service':'#4d8fac','Department of Defense':'#9a4d4d'};
+  var STATE=/^(State |Other or Unknown State)/, LOCAL=/^(City Land|County Land|Other or Unknown Local|Regional )/;
+  function managerColor(m){ return MANAGER[m] || (STATE.test(m||'')?'#6b8fd6':LOCAL.test(m||'')?'#9b7fd1':'#9aa39c'); }
+  var ACCESS={OA:'Open access',RA:'Restricted access',XA:'Closed to the public',UK:'Access unknown'};
+  function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function acres(n){ return typeof n==='number'&&n>0 ? Math.round(n).toLocaleString('en-US')+' acres' : ''; }
+  function day(ms){ return typeof ms==='number' ? new Date(ms).toLocaleDateString('en-US',{month:'short',day:'numeric'}) : ''; }
+  function join(a){ return a.filter(Boolean).join(' · '); }
+
+  var OVERLAYS=[
+    {id:'land',label:'Public land',emoji:'🏞',minZoom:8,hint:'Zoom in to about county level to see public land.',
+     queries:{poly:{url:PADUS,where:"MngNm_Desc <> 'Private'",fields:'Unit_Nm,MngNm_Desc,Pub_Access,DesTp_Desc'}},
+     style:function(f){ var p=f.properties,c=managerColor(p.MngNm_Desc),x=p.Pub_Access;
+       return {color:x==='XA'?'#dc2626':x==='RA'?'#ea8a0c':c,weight:x==='XA'?2:x==='RA'?1.5:1,dashArray:x==='XA'?'6 4':x==='RA'?'3 4':null,opacity:0.85,fillColor:c,fillOpacity:x==='XA'?0.12:0.32}; },
+     popup:function(p){ var a=ACCESS[p.Pub_Access]||'',tone=p.Pub_Access==='XA'?'#dc2626':p.Pub_Access==='RA'?'#c2410c':'#15803d';
+       return '<b>'+esc(p.Unit_Nm)+'</b><br><span class="lm-sub">'+esc(join([p.MngNm_Desc,p.DesTp_Desc]))+'</span>'+(a?'<br><span style="color:'+tone+';font-weight:600">'+a+'</span>':'')+'<br><span class="lm-sub">Check the managing agency&#39;s rules before camping.</span>'; }},
+    {id:'fires',label:'Active fires',emoji:'🔥',minZoom:0,hint:'',
+     queries:{poly:{url:FIRES+'/1',where:'1=1',fields:'IncidentName,GISAcres,DateCurrent'},
+              pts:{url:FIRES+'/0',where:"IncidentTypeCategory = 'WF'",fields:'IncidentName,DailyAcres,CalculatedAcres,PercentContained,FireDiscoveryDateTime'}},
+     style:function(){ return {color:'#b91c1c',weight:1.5,fillColor:'#ef4444',fillOpacity:0.35}; },
+     point:function(f,ll){ var a=f.properties.DailyAcres||f.properties.CalculatedAcres||0;
+       return L.circleMarker(ll,{pane:'lmOverlays',radius:a>100000?12:a>20000?9:a>1000?6:4,color:'#fff',weight:1.5,fillColor:'#f97316',fillOpacity:1}); },
+     popup:function(p){
+       if(p.GISAcres!==undefined) return '<b>🔥 '+esc(p.IncidentName)+' Fire</b><br><span class="lm-sub">'+join([acres(p.GISAcres),p.DateCurrent?'mapped '+day(p.DateCurrent):''])+'</span>';
+       return '<b>🔥 '+esc(p.IncidentName)+' Fire</b><br><span class="lm-sub">'+join([acres(p.DailyAcres||p.CalculatedAcres),typeof p.PercentContained==='number'?p.PercentContained+'% contained':'',p.FireDiscoveryDateTime?'started '+day(p.FireDiscoveryDateTime):''])+'</span>'; }},
+    {id:'flood',label:'Flood zones',emoji:'🌊',minZoom:11,hint:'Zoom in to town level to see flood zones.',
+     queries:{poly:{url:FLOOD,where:"SFHA_TF = 'T'",fields:'FLD_ZONE,ZONE_SUBTY'}},
+     style:function(){ return {color:'#1d4ed8',weight:0.8,fillColor:'#3b82f6',fillOpacity:0.35}; },
+     popup:function(p){ return '<b>🌊 Flood zone '+esc(p.FLD_ZONE)+'</b><br><span class="lm-sub">FEMA 100-year flood area. Avoid camping here when rain is forecast upstream.</span>'; }},
+    {id:'tribal',label:'Tribal lands',emoji:'🪶',minZoom:5,hint:'Zoom in to state level to see tribal lands.',
+     queries:{poly:{url:TRIBAL,where:'1=1',fields:'NAME'}},
+     style:function(){ return {color:'#7e22ce',weight:1.5,fillColor:'#a855f7',fillOpacity:0.14}; },
+     popup:function(p){ return '<b>🪶 '+esc(p.NAME)+'</b><br><span class="lm-sub">Tribal land: the tribe sets its own rules. Camping may need a permit.</span>'; }}
+  ];
+
+  // Per-visitor conveniences only: last view, basemap and layers.
+  var SAVE='jwjm_landmap';
+  function load(){ try{ return JSON.parse(localStorage.getItem(SAVE)||'{}')||{}; }catch(e){ return {}; } }
+  function save(patch){ try{ var s=load(); for(var k in patch) s[k]=patch[k]; localStorage.setItem(SAVE,JSON.stringify(s)); }catch(e){} }
+  var saved=load();
+
+  var map=L.map('lmMap',{zoomControl:true,worldCopyJump:true});
+  if(saved.view) map.setView([saved.view[0],saved.view[1]],saved.view[2]); else map.fitBounds([[24.5,-125],[49.5,-66.5]]);
+  map.createPane('lmOverlays').style.zIndex=390; // under the route line (overlayPane, 400)
+
+  var BASES={
+    topo:{icon:'⛰',label:'Topo',layer:L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',{maxZoom:17,attribution:'&copy; OpenStreetMap contributors, SRTM | &copy; OpenTopoMap (CC-BY-SA)'})},
+    sat:{icon:'🛰',label:'Satellite',layer:L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Imagery &copy; Esri, Maxar, Earthstar Geographics'})},
+    streets:{icon:'🛣',label:'Streets',layer:L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'})}
+  };
+  var baseNow=BASES[saved.base]?saved.base:'topo';
+  var baseBox=document.getElementById('lmBase');
+  Object.keys(BASES).forEach(function(k){
+    var b=document.createElement('button'); b.type='button'; b.className='lm-btn lm-btn-ghost'; b.innerHTML=BASES[k].icon+'<span class="lm-lbl"> '+BASES[k].label+'</span>'; b.title=BASES[k].label+' view'; b.dataset.k=k;
+    b.onclick=function(){ setBase(k); }; baseBox.appendChild(b);
+  });
+  function setBase(k){
+    if(map.hasLayer(BASES[baseNow].layer)) map.removeLayer(BASES[baseNow].layer);
+    baseNow=k; BASES[k].layer.addTo(map); save({base:k});
+    baseBox.querySelectorAll('button').forEach(function(b){ b.setAttribute('aria-pressed',b.dataset.k===k?'true':'false'); });
+  }
+  setBase(baseNow);
+  L.control.scale({imperial:true,metric:false,position:'bottomleft'}).addTo(map);
+  map.attributionControl.addAttribution('Layers: USGS PAD-US, NIFC, FEMA, US Census via Esri');
+
+  // ---- overlays ----
+  var on={}; (saved.layers||[]).forEach(function(id){ on[id]=true; });
+  var groups={}, aborts={}, status={}, cache={}, cacheKeys=[];
+  OVERLAYS.forEach(function(o){
+    groups[o.id]=L.geoJSON(null,{pane:'lmOverlays',style:o.style,pointToLayer:o.point,
+      onEachFeature:function(f,l){ l.bindPopup(o.popup(f.properties||{}),{maxWidth:260}); }});
+  });
+
+  function query(q,zoom,signal){
+    var b=map.getBounds(), step=360/Math.pow(2,Math.max(0,Math.floor(zoom))+2);
+    function snap(v,up){ return (up?Math.ceil(v/step):Math.floor(v/step))*step; }
+    var box=[snap(b.getWest(),false),snap(b.getSouth(),false),snap(b.getEast(),true),snap(b.getNorth(),true)].map(function(v){ return Math.max(-180,Math.min(180,v)); });
+    box[1]=Math.max(-85,box[1]); box[3]=Math.min(85,box[3]);
+    var key=q.url+'|'+q.where+'|'+box.join(',')+'|'+Math.floor(zoom);
+    if(cache[key]) return Promise.resolve(cache[key]);
+    var params=new URLSearchParams({where:q.where,outFields:q.fields,returnGeometry:'true',f:'geojson',
+      geometry:box.join(','),geometryType:'esriGeometryEnvelope',inSR:'4326',outSR:'4326',spatialRel:'esriSpatialRelIntersects',
+      maxAllowableOffset:(360/(256*Math.pow(2,zoom))).toFixed(6),resultRecordCount:'2000'});
+    return fetch(q.url+'/query?'+params,{signal:signal}).then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); }).then(function(d){
+      if(d.error||!Array.isArray(d.features)) throw new Error('bad response');
+      cache[key]=d; cacheKeys.push(key); if(cacheKeys.length>40) delete cache[cacheKeys.shift()];
+      return d;
+    });
+  }
+
+  function refresh(){
+    var zoom=map.getZoom();
+    OVERLAYS.forEach(function(o){
+      if(aborts[o.id]) aborts[o.id].abort();
+      var g=groups[o.id];
+      if(!on[o.id]){ g.clearLayers(); map.removeLayer(g); status[o.id]={state:'off'}; return; }
+      if(!map.hasLayer(g)) g.addTo(map);
+      if(zoom<o.minZoom){ g.clearLayers(); status[o.id]={state:'zoom'}; return; }
+      var ac=new AbortController(); aborts[o.id]=ac; status[o.id]={state:'loading'};
+      Promise.all(Object.keys(o.queries).map(function(k){ return query(o.queries[k],zoom,ac.signal); })).then(function(fcs){
+        if(ac.signal.aborted) return;
+        g.clearLayers(); var count=0, partial=false;
+        fcs.forEach(function(fc){ g.addData(fc); count+=fc.features.length; if(fc.exceededTransferLimit||(fc.properties&&fc.properties.exceededTransferLimit)) partial=true; });
+        status[o.id]={state:'ok',count:count,partial:partial}; render();
+      }).catch(function(e){ if(ac.signal.aborted||(e&&e.name==='AbortError')) return; status[o.id]={state:'error'}; render(); });
+    });
+    render();
+  }
+  var timer; map.on('moveend',function(){
+    var c=map.getCenter(); save({view:[+c.lat.toFixed(4),+c.lng.toFixed(4),map.getZoom()]});
+    clearTimeout(timer); timer=setTimeout(refresh,350);
+  });
+
+  var list=document.getElementById('lmList'), legend=document.getElementById('lmLegend'), toggleBtn=document.getElementById('lmToggle'), panel=document.getElementById('lmPanel');
+  OVERLAYS.forEach(function(o){
+    var li=document.createElement('li');
+    li.innerHTML='<label><input type="checkbox"'+(on[o.id]?' checked':'')+'> <span aria-hidden="true">'+o.emoji+'</span> '+o.label+'</label><p class="lm-note" id="lmNote-'+o.id+'" hidden></p>';
+    li.querySelector('input').onchange=function(e){ if(e.target.checked) on[o.id]=true; else delete on[o.id]; save({layers:Object.keys(on)}); refresh(); };
+    list.appendChild(li);
+  });
+  legend.innerHTML=[['#f2c14e','BLM'],['#5aa05a','Forest Service'],['#a86f3c','National Park'],['#4d8fac','Fish &amp; Wildlife'],['#6b8fd6','State'],['#9b7fd1','Local'],['#9a4d4d','Military'],['#9aa39c','Other']]
+    .map(function(x){ return '<span><i style="background:'+x[0]+'"></i>'+x[1]+'</span>'; }).join('')+'<span class="wide"><i class="dash"></i>Closed to the public</span>';
+  function render(){
+    var n=Object.keys(on).length;
+    toggleBtn.textContent='🗂 Layers'+(n?' ('+n+')':'');
+    toggleBtn.className='lm-btn'+(n?'':' lm-btn-ghost');
+    OVERLAYS.forEach(function(o){
+      var el=document.getElementById('lmNote-'+o.id), st=status[o.id]||{}, t='';
+      if(on[o.id]) t= st.state==='zoom'?o.hint : st.state==='loading'?'Loading…' : st.state==='error'?'Couldn’t load this layer just now.' : st.state==='ok'?(st.count?st.count.toLocaleString('en-US')+' shown'+(st.partial?' (zoom in for all)':''):'None in view'):'';
+      el.textContent=t; el.hidden=!t; el.className='lm-note'+(st.state==='error'?' err':'');
+    });
+    legend.hidden=!on.land;
+  }
+  toggleBtn.onclick=function(){ panel.hidden=!panel.hidden; toggleBtn.setAttribute('aria-expanded',panel.hidden?'false':'true'); };
+  refresh();
+
+  // ---- search, route, my location ----
+  var statusEl=document.getElementById('lmStatus'), clearBtn=document.getElementById('lmClear');
+  var marks=L.layerGroup().addTo(map), route=null;
+  function say(t,err){ statusEl.textContent=t||''; statusEl.className='lm-status'+(err?' err':''); }
+  function pin(ll,label,color){ L.circleMarker(ll,{radius:7,color:'#fff',weight:2,fillColor:color,fillOpacity:1}).bindPopup(esc(label)).addTo(marks); }
+  function geocode(q){
+    return fetch('https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=us,ca,mx&q='+encodeURIComponent(q),{headers:{'Accept-Language':'en'}})
+      .then(function(r){ return r.json(); })
+      .then(function(d){ if(!d||!d[0]) throw new Error('Couldn’t find “'+q+'”.'); return {ll:[+d[0].lat,+d[0].lon],name:d[0].display_name.split(',').slice(0,2).join(',')}; });
+  }
+  function here(){
+    return new Promise(function(res,rej){
+      if(!navigator.geolocation) return rej(new Error('Location isn’t available in this browser.'));
+      navigator.geolocation.getCurrentPosition(function(p){ res({ll:[p.coords.latitude,p.coords.longitude],name:'My location'}); },
+        function(){ rej(new Error('Couldn’t get your location. Type a starting place instead.')); },{enableHighAccuracy:false,timeout:12000,maximumAge:300000});
+    });
+  }
+  function clearAll(){ marks.clearLayers(); if(route){ map.removeLayer(route); route=null; } clearBtn.hidden=true; say(''); }
+  clearBtn.onclick=clearAll;
+  document.getElementById('lmLocate').onclick=function(){
+    say('Finding you…');
+    here().then(function(p){ clearAll(); pin(p.ll,'You are here','#2563eb'); map.setView(p.ll,10); clearBtn.hidden=false; }).catch(function(e){ say(e.message,true); });
+  };
+  document.getElementById('lmSearch').onsubmit=function(e){
+    e.preventDefault();
+    var from=document.getElementById('lmFrom').value.trim(), to=document.getElementById('lmTo').value.trim();
+    if(!from&&!to){ say('Type a place, or use ◎ Me.',true); return; }
+    say(to?'Mapping the route…':'Finding it…');
+    var a=from?geocode(from):here();
+    if(!to){
+      a.then(function(p){ clearAll(); pin(p.ll,p.name,'#5a3510'); map.setView(p.ll,from?11:10); clearBtn.hidden=false; say(p.name); }).catch(function(err){ say(err.message,true); });
+      return;
+    }
+    Promise.all([a,geocode(to)]).then(function(ps){
+      var A=ps[0],B=ps[1];
+      return fetch('https://router.project-osrm.org/route/v1/driving/'+A.ll[1]+','+A.ll[0]+';'+B.ll[1]+','+B.ll[0]+'?overview=full&geometries=geojson')
+        .then(function(r){ return r.json(); }).then(function(d){
+          if(!d.routes||!d.routes[0]) throw new Error('No driving route found between those two.');
+          clearAll();
+          var r0=d.routes[0];
+          route=L.geoJSON(r0.geometry,{style:{color:'#7a2a1a',weight:4,opacity:0.9}}).addTo(map);
+          pin(A.ll,A.name,'#2563eb'); pin(B.ll,B.name,'#15803d');
+          map.fitBounds(route.getBounds(),{padding:[30,30]});
+          var mi=Math.round(r0.distance/1609.34), h=Math.floor(r0.duration/3600), m=Math.round((r0.duration%3600)/60);
+          clearBtn.hidden=false;
+          say(A.name+' → '+B.name+': '+mi.toLocaleString('en-US')+' mi, about '+(h?h+' h ':'')+m+' min. Turn on Layers, then zoom in along the line.');
+        });
+    }).catch(function(err){ say(err.message||'Routing failed. Try again in a moment.',true); });
+  };
+})();
+</script>
+
+<script>
+function toggleNav(){
+  document.getElementById('navDrawer').classList.toggle('open');
+}
+document.querySelectorAll('#navDrawer a').forEach(function(a){
+  a.addEventListener('click',function(){ document.getElementById('navDrawer').classList.remove('open'); });
+});
+function toggleDropdown(e, btn){
+  e.stopPropagation();
+  var dd = btn.closest('.nav-dropdown');
+  document.querySelectorAll('.nav-dropdown.open').forEach(function(o){
+    if(o!==dd){ o.classList.remove('open'); o.querySelector('.nav-dropdown-trigger').setAttribute('aria-expanded','false'); }
+  });
+  var open = dd.classList.toggle('open');
+  dd.querySelector('.nav-dropdown-trigger').setAttribute('aria-expanded', open?'true':'false');
+}
+document.addEventListener('click',function(e){
+  document.querySelectorAll('.nav-dropdown.open').forEach(function(dd){
+    if(!dd.contains(e.target)){ dd.classList.remove('open'); dd.querySelector('.nav-dropdown-trigger').setAttribute('aria-expanded','false'); }
+  });
+});
+document.querySelectorAll('.nav-dropdown-menu a').forEach(function(a){
+  a.addEventListener('click',function(){
+    var dd=a.closest('.nav-dropdown');
+    dd.classList.remove('open'); dd.querySelector('.nav-dropdown-trigger').setAttribute('aria-expanded','false');
+  });
+});
+
+/* ── The log itself: read from StayTonight's public feed of my published stays.
+      Only entries I've marked Published in the app are in this feed. ── */
+var FEED = 'https://staytonight.app/api/public/journal/1cbf9a068bd10f7212d89277df5a0d69b9b9';
+/* My FindPenguins trip, indexed by StayTonight (public data only). A footprint
+   dated inside a stay's arrive→depart window is embedded under that stay. */
+var FP_INDEX = 'https://staytonight.app/api/public/findpenguins/jerseymark/2025-26-jerseymark-vanlife';
+var FP_MAX_PER_STAY = 3;
+function escHtml(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function fmtDate(iso){
+  var p=(iso||'').split('-').map(Number);
+  if(p.length<3||!p[0]) return iso||'';
+  return new Date(p[0],p[1]-1,p[2]).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+}
+function stateOf(s){
+  var m=/,\s*([A-Z]{2})\s*$/.exec(s.locality||'');
+  return m?m[1]:null;
+}
+function tents(r){
+  if(!r) return '';
+  var out='';
+  for(var i=1;i<=5;i++) out+='<span'+(i<=r?'':' class="off"')+'>⛺</span>';
+  return '<span class="log-tents" title="'+r+' of 5 tents">'+out+'</span>';
+}
+/* FindPenguins embeds size themselves: each posts {height,id:window.name}. */
+window.addEventListener('message',function(e){
+  if(e.origin!=='https://findpenguins.com') return;
+  var m=e.data;
+  if(typeof m==='string'){ try{ m=JSON.parse(m); }catch(_){ return; } }
+  if(!m||!m.id||!m.height) return;
+  var f=document.getElementsByName(m.id)[0];
+  if(f&&f.tagName==='IFRAME') f.style.height=(Math.round(m.height)+8)+'px';
+});
+function footprintsFor(s, index){
+  if(s.footprintEmbedUrl){
+    return [{embedUrl:s.footprintEmbedUrl,url:s.footprintUrl||s.footprintEmbedUrl,id:'x'+(s.footprintEmbedUrl.split('/').pop()||'')}];
+  }
+  var from=s.arriveOn||'', to=s.departOn||s.arriveOn||'';
+  if(!from) return [];
+  return index.filter(function(f){ return f.date>=from && f.date<=to; }).slice(0,FP_MAX_PER_STAY);
+}
+function footprintHtml(s, index){
+  var fps=footprintsFor(s, index);
+  if(!fps.length) return '';
+  return '<div class="log-fp">'+
+    '<div class="log-fp-lbl">🐧 <a href="'+escHtml(fps[0].url)+'" target="_blank" rel="noopener">The same days on FindPenguins ↗</a></div>'+
+    fps.map(function(f){
+      return '<iframe src="'+escHtml(f.embedUrl)+'" name="'+escHtml(f.id)+'" title="FindPenguins footprint" loading="lazy" scrolling="no" referrerpolicy="no-referrer-when-downgrade"></iframe>';
+    }).join('')+
+  '</div>';
+}
+(function(){
+  var list=document.getElementById('logList');
+  if(!list) return;
+  var fpIndex = fetch(FP_INDEX)
+    .then(function(r){ return r.ok ? r.json() : null; })
+    .then(function(d){ return d && Array.isArray(d.footprints) ? d.footprints : []; })
+    .catch(function(){ return []; });
+  Promise.all([
+    fetch(FEED).then(function(r){ return r.ok ? r.json() : null; }),
+    fpIndex
+  ])
+    .then(function(res){
+      var d=res[0], index=res[1]||[];
+      var stays = d && Array.isArray(d.stays) ? d.stays : [];
+      if(!stays.length){
+        list.innerHTML='<p class="log-empty">Nothing published yet — the first entries are on their way.</p>';
+        return;
+      }
+      var nights=0, states={};
+      stays.forEach(function(s){ nights+=s.nights||0; var st=stateOf(s); if(st) states[st]=1; });
+      document.getElementById('statStays').textContent=stays.length;
+      document.getElementById('statNights').textContent=nights;
+      document.getElementById('statStates').textContent=Object.keys(states).length||'–';
+      document.getElementById('logStats').hidden=false;
+
+      list.innerHTML = stays.map(function(s){
+        var meta=[
+          fmtDate(s.arriveOn)+(s.departOn&&s.departOn!==s.arriveOn?' → '+fmtDate(s.departOn):''),
+          (s.nights||1)+' night'+((s.nights||1)===1?'':'s'),
+          s.locality||'',
+          s.type||''
+        ].filter(Boolean).join(' · ');
+        var photos=(s.photos||[]).slice(0,5).map(function(p){
+          return '<a href="'+escHtml(s.url)+'" target="_blank" rel="noopener"><img src="'+escHtml(p.url)+'" alt="'+escHtml(p.caption||s.name)+'" loading="lazy"></a>';
+        }).join('');
+        if((s.photos||[]).length>5){
+          photos+='<a class="log-more" href="'+escHtml(s.url)+'" target="_blank" rel="noopener">+'+((s.photos||[]).length-5)+' more</a>';
+        }
+        var facts=[
+          s.costPerNight!=null?(s.costPerNight===0?'Free':('$'+s.costPerNight+'/night'+(s.costWithSeniorPass?' with Senior Pass':'')+((s.nights||1)>1?(' · $'+Math.round(s.costPerNight*(s.nights||1)*100)/100+' total'):''))):'',
+          s.seniorPass?'Senior Pass accepted':'',
+          s.weather?('Weather: '+s.weather):'',
+          s.elevationFt!=null?('Elevation: '+Number(s.elevationFt).toLocaleString()+' ft'):'',
+          s.fees?('Fees: '+s.fees):''
+        ].filter(Boolean).join(' · ');
+        var verdict = s.wouldReturn===true ? '<span class="log-verdict yes">would return</span>'
+                    : s.wouldReturn===false ? '<span class="log-verdict no">not coming back</span>' : '';
+        return '<article class="log-card">'+
+          '<div class="log-head">'+
+            (s.logNo?'<span class="log-no">№ '+s.logNo+'</span>':'')+
+            '<h3 class="log-name"><a class="log-name-link" href="'+escHtml(s.url)+'" target="_blank" rel="noopener">'+escHtml(s.name)+'</a>'+verdict+'</h3>'+
+            tents(s.rating)+
+          '</div>'+
+          '<div class="log-meta">'+escHtml(meta)+'</div>'+
+          (photos?'<div class="log-photos">'+photos+'</div>':'')+
+          (s.highlights?'<p class="log-words">'+escHtml(s.highlights)+'</p>':'')+
+          (facts?'<div class="log-facts">'+escHtml(facts)+'</div>':'')+
+          footprintHtml(s, index)+
+          '<a class="log-btn" href="'+escHtml(s.url)+'" target="_blank" rel="noopener">Read the full entry ↗</a>'+
+        '</article>';
+      }).join('');
+    })
+    .catch(function(){
+      list.innerHTML='<p class="log-empty">Couldn\'t reach the log right now — please try again later.</p>';
+    });
+})();
+</script>
+<script src="/analytics.js" defer></script>
+</body>
+</html>
