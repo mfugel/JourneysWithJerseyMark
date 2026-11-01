@@ -132,6 +132,8 @@ textarea{resize:vertical;min-height:80px;}
   #printArea .report-sheet{border:none;box-shadow:none;padding:0;}
   @page{margin:0.6in;}
 }
+/* Reduced motion: one blanket rule, so the next animation added here is covered. */
+@media (prefers-reduced-motion: reduce){ *{transition-duration:.01ms !important;animation-duration:.01ms !important;animation-iteration-count:1 !important} html{scroll-behavior:auto} }
 </style>
 </head>
 <body>

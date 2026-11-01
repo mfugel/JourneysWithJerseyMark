@@ -128,6 +128,8 @@ h2.sec{font-family:'Cinzel',serif;font-size:1.28rem;font-weight:700;color:#5a351
 .leaflet-popup-content b{font-family:'Cinzel',serif;font-size:0.85rem;color:#5a3510;}
 .lm-sub{color:#6a4a20;font-style:italic;}
 @media(max-width:600px){.inner-border{padding:1.6rem 0.8rem 2rem;}.lm-btns{width:100%;}.lm-btns .lm-btn{flex:1;}.lm-base .lm-lbl{display:none;}}
+/* Reduced motion: one blanket rule, so the next animation added here is covered. */
+@media (prefers-reduced-motion: reduce){ *{transition-duration:.01ms !important;animation-duration:.01ms !important;animation-iteration-count:1 !important} html{scroll-behavior:auto} }
 </style>
 </head>
 <body>

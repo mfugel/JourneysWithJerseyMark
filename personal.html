@@ -94,6 +94,8 @@ h1{font-family:'Cinzel',serif;font-size:1.7rem;font-weight:700;color:#0f0800;lin
 .footer a, .footer button{color:#3a2510;background:none;border:none;cursor:pointer;font-family:inherit;font-style:italic;font-size:inherit;text-decoration:underline dotted;padding:0;}
 .footer a:hover, .footer button:hover{color:#7a2a1a;}
 .hidden{display:none !important;}
+/* Reduced motion: one blanket rule, so the next animation added here is covered. */
+@media (prefers-reduced-motion: reduce){ *{transition-duration:.01ms !important;animation-duration:.01ms !important;animation-iteration-count:1 !important} html{scroll-behavior:auto} }
 </style>
 </head>
 <body>

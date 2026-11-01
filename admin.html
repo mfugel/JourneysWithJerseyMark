@@ -118,6 +118,8 @@ textarea{resize:vertical;min-height:100px;}
   background:#1a0f00;overflow:hidden;
 }
 #photoHoverPreview img{width:100%;height:100%;object-fit:contain;display:block;}
+/* Reduced motion: one blanket rule, so the next animation added here is covered. */
+@media (prefers-reduced-motion: reduce){ *{transition-duration:.01ms !important;animation-duration:.01ms !important;animation-iteration-count:1 !important} html{scroll-behavior:auto} }
 </style>
 </head>
 <body>

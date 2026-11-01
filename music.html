@@ -119,6 +119,8 @@ h2.sec{font-family:'Cinzel',serif;font-size:1.28rem;font-weight:700;color:#5a351
 .montage-music .music-embed{max-width:540px;margin:0 auto;}
 .montage-hint{font-family:'IM Fell English',serif;font-style:italic;color:rgba(90,53,16,0.6);text-align:center;font-size:0.92rem;margin-top:0.5rem;}
 .montage-stage:fullscreen{aspect-ratio:auto;width:100vw;height:100vh;border-radius:0;border:0;}
+/* Reduced motion: one blanket rule, so the next animation added here is covered. */
+@media (prefers-reduced-motion: reduce){ *{transition-duration:.01ms !important;animation-duration:.01ms !important;animation-iteration-count:1 !important} html{scroll-behavior:auto} }
 </style>
 </head>
 <body>
