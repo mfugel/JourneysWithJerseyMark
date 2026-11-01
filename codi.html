@@ -135,6 +135,14 @@ textarea{resize:vertical;min-height:80px;}
 /* Reduced motion: one blanket rule, so the next animation added here is covered. */
 @media (prefers-reduced-motion: reduce){ *{transition-duration:.01ms !important;animation-duration:.01ms !important;animation-iteration-count:1 !important} html{scroll-behavior:auto} }
 </style>
+<script>
+/* A smooth scroll asked for in JavaScript overrides the `scroll-behavior` that
+   the reduced-motion rule above sets - the option wins over the stylesheet by
+   spec. So the preference is read again here, at the call rather than at load,
+   which also means a visitor who changes the setting is answered straight away.
+   Same helper as `scrollBehavior()` in kompanionkare and staytonight. */
+function scrollBehavior(){return (typeof matchMedia==='function'&&matchMedia('(prefers-reduced-motion: reduce)').matches)?'auto':'smooth';}
+</script>
 </head>
 <body>
 <div id="photoHoverPreview"><img id="photoHoverImg" src="" alt=""></div>
@@ -726,7 +734,7 @@ function openProjectForm(id){
   if(p&&p.docs)formDocs=JSON.parse(JSON.stringify(p.docs));
   renderFormPhotos();renderFormDocs();
   f.style.display='block';
-  f.scrollIntoView({behavior:'smooth',block:'start'});
+  f.scrollIntoView({behavior:scrollBehavior(),block:'start'});
 }
 function closeProjectForm(){document.getElementById('projectForm').style.display='none';editingId=null;}
 function renderFormPhotos(){
@@ -867,7 +875,7 @@ function openDirForm(id){
   document.getElementById('dfNotes').value=d?d.notes||'':'';
   var f=document.getElementById('dirForm');
   f.style.display='block';
-  f.scrollIntoView({behavior:'smooth',block:'start'});
+  f.scrollIntoView({behavior:scrollBehavior(),block:'start'});
 }
 function closeDirForm(){document.getElementById('dirForm').style.display='none';dirEditingId=null;}
 function submitDirForm(){
