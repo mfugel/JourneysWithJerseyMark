@@ -121,6 +121,14 @@ textarea{resize:vertical;min-height:100px;}
 /* Reduced motion: one blanket rule, so the next animation added here is covered. */
 @media (prefers-reduced-motion: reduce){ *{transition-duration:.01ms !important;animation-duration:.01ms !important;animation-iteration-count:1 !important} html{scroll-behavior:auto} }
 </style>
+<script>
+/* A smooth scroll asked for in JavaScript overrides the `scroll-behavior` that
+   the reduced-motion rule above sets - the option wins over the stylesheet by
+   spec. So the preference is read again here, at the call rather than at load,
+   which also means a visitor who changes the setting is answered straight away.
+   Same helper as `scrollBehavior()` in kompanionkare and staytonight. */
+function scrollBehavior(){return (typeof matchMedia==='function'&&matchMedia('(prefers-reduced-motion: reduce)').matches)?'auto':'smooth';}
+</script>
 </head>
 <body>
 <div id="photoHoverPreview"><img id="photoHoverImg" src="" alt=""></div>
@@ -793,7 +801,7 @@ function editGear(idx){
   document.getElementById('gearAddBtn').textContent='✓ Update Gear';
   document.getElementById('gearFormTitle').textContent='✎ Editing: '+(g.name||'');
   document.getElementById('gearCancelBtn').style.display='inline-block';
-  document.getElementById('gearFormTitle').scrollIntoView({behavior:'smooth',block:'center'});
+  document.getElementById('gearFormTitle').scrollIntoView({behavior:scrollBehavior(),block:'center'});
 }
 
 function addOrUpdateGear(){
@@ -954,7 +962,7 @@ function editMusic(idx){
   document.getElementById('musicAddBtn').textContent='✓ Update Playlist';
   document.getElementById('musicFormTitle').textContent='✎ Editing: '+(m.title||m.name||'');
   document.getElementById('musicCancelBtn').style.display='inline-block';
-  document.getElementById('musicFormTitle').scrollIntoView({behavior:'smooth',block:'center'});
+  document.getElementById('musicFormTitle').scrollIntoView({behavior:scrollBehavior(),block:'center'});
 }
 
 function addOrUpdateMusic(){
@@ -1311,7 +1319,7 @@ function editWall(idx){
   document.getElementById('wallAddBtn').textContent='✓ Update Signature';
   document.getElementById('wallFormTitle').textContent='✎ Editing signature';
   document.getElementById('wallCancelBtn').style.display='inline-block';
-  document.getElementById('wallFormTitle').scrollIntoView({behavior:'smooth',block:'center'});
+  document.getElementById('wallFormTitle').scrollIntoView({behavior:scrollBehavior(),block:'center'});
 }
 function addOrUpdateWall(){
   var name=document.getElementById('wallName').value.trim();
@@ -1549,7 +1557,7 @@ function showSharePanel(album){
     'Head over to '+siteLink+' and check it out — drop me a comment if you\'ve been to this spot! 🗺\n\n'+
     '#NomadLife #VanLife #RVLife #Codiwomple';
   document.getElementById('sharePanel').classList.add('visible');
-  document.getElementById('sharePanel').scrollIntoView({behavior:'smooth',block:'nearest'});
+  document.getElementById('sharePanel').scrollIntoView({behavior:scrollBehavior(),block:'nearest'});
 }
 
 function copyShare(textareaId,copiedId){

@@ -193,6 +193,14 @@ table.cmp tr:nth-child(even) td{background:rgba(180,130,70,0.12);}
 /* Reduced motion: one blanket rule, so the next animation added here is covered. */
 @media (prefers-reduced-motion: reduce){ *{transition-duration:.01ms !important;animation-duration:.01ms !important;animation-iteration-count:1 !important} html{scroll-behavior:auto} }
 </style>
+<script>
+/* A smooth scroll asked for in JavaScript overrides the `scroll-behavior` that
+   the reduced-motion rule above sets - the option wins over the stylesheet by
+   spec. So the preference is read again here, at the call rather than at load,
+   which also means a visitor who changes the setting is answered straight away.
+   Same helper as `scrollBehavior()` in kompanionkare and staytonight. */
+function scrollBehavior(){return (typeof matchMedia==='function'&&matchMedia('(prefers-reduced-motion: reduce)').matches)?'auto':'smooth';}
+</script>
 </head>
 <body>
 <div class="parchment-bg"></div>
@@ -1105,7 +1113,7 @@ document.querySelectorAll('.nav-dropdown-menu a').forEach(function(a){
       +(close?'<p class="quiz-note">It\'s close between <strong>'+names[top]+'</strong> and <strong>'+names[second]+'</strong> — check the table above and weigh what matters most to you.</p>':'')
       +'<p class="quiz-note">Reminder: this is a starting point, not legal or tax advice. Health insurance is the biggest real-world swing factor, so confirm your coverage options before you commit — and talk to a pro for anything complex.</p>';
     res.classList.add('show');
-    res.scrollIntoView({behavior:'smooth',block:'nearest'});
+    res.scrollIntoView({behavior:scrollBehavior(),block:'nearest'});
   });
   document.getElementById('quizReset').addEventListener('click',function(){
     quiz.querySelectorAll('.quiz-opt.sel').forEach(function(o){o.classList.remove('sel');});

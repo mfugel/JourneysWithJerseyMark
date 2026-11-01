@@ -310,6 +310,14 @@ button.album-grid-card{display:block;width:100%;padding:0;margin:0;font:inherit;
   html{scroll-behavior:auto;}
 }
 </style>
+<script>
+/* A smooth scroll asked for in JavaScript overrides the `scroll-behavior` that
+   the reduced-motion rule above sets - the option wins over the stylesheet by
+   spec. So the preference is read again here, at the call rather than at load,
+   which also means a visitor who changes the setting is answered straight away.
+   Same helper as `scrollBehavior()` in kompanionkare and staytonight. */
+function scrollBehavior(){return (typeof matchMedia==='function'&&matchMedia('(prefers-reduced-motion: reduce)').matches)?'auto':'smooth';}
+</script>
 </head>
 <body>
 <!-- ── Navigation ── -->
@@ -783,7 +791,7 @@ window.addEventListener('load',function(){
         document.querySelectorAll('.album-grid-card').forEach(function(c){c.classList.remove('active');});
         card.classList.add('active');
         loadAlbum(i);
-        document.getElementById('slideshowStage').scrollIntoView({behavior:'smooth',block:'nearest'});
+        document.getElementById('slideshowStage').scrollIntoView({behavior:scrollBehavior(),block:'nearest'});
       };
       if(album.photos&&album.photos.length>1){
         var _fTimer=null;var _fIdx=0;
